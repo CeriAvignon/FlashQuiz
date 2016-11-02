@@ -1,0 +1,56 @@
+/***************/
+#Ma modelisation#
+/***************/
+Edit: le principe de concepteur/Votant n'est plus d'actualité. Un certain niveua de droit peut etre donné, mais n'est plus dependant de si l'on est votant ou concepteur.
+Cependant, il y à toujours cette dimension de "quelqu'un créer une session, des question, et quelqu'un y reponds"
+
+
+TABLE Utilisateurs :
+	INT ID_utilisateur
+	VARCHAR(32) Nom
+	VARCHAR(32) Prenom
+	VARCHAR(32) password
+	INT rank # Droit/Pouvoir // admin, utilisateur normal
+
+Un utilisateur détermine un identifiant qui lui est propre, un nom, prenom, ainsi que ces droits
+Les questions sont stocké dans la bdd et sont utilisable par n'importe qui, on peut se reservir d'ancienne question pour produire de nouvelles liste.
+Une sessions peut contenir plusieurs listes de question
+
+TABLE Sessions :
+	[INT ID_Session
+	INT ID_Liste
+	DATE Date_Ouverture
+	DATE Date_Fermeture
+	BOOL Type_Session					//Session Live, ou Session Libre
+	VARCHAR(48) Titre_Session
+
+TABLE List_Metadata : # Infos générales des listes (titre...)
+	[INT ID_Liste
+	INT ID_Utilisateur
+	VARCHAR(32) Titre_Liste
+TABLE List_content : # Contenu (questions dans la liste)
+	[INT ID_Liste
+	[INT ID_Question
+
+
+TABLE Questions :
+	[INT ID_Question
+	INT Type_Question					//radio, checkbox, etc
+	TEXT Contenu_Question
+	INT ID_Media						//image, etc
+
+TABLE Scores :
+	[INT ID_Session
+	[INT ID_utilisateur
+	INT score
+
+TABLE Reponses :
+	[INT ID_reponse
+	INT ID_question
+	TEXT contenu_réponse
+	BOOl Correcte? //bool
+
+TABLE Media :
+	INT ID_Media
+	INT type
+	TEXT contenu # url, ou chemin local
