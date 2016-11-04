@@ -37,6 +37,7 @@ class Series {
 	 * A vector that contain all the series questions
 	 *
 	 * @see Series#getQuestions()
+	 * @see Series#setQuestion(Vector<Question>)
 	 */
 	private Vector<Question> questions;
 
@@ -129,5 +130,17 @@ class Series {
 	 */
 	public Vector<Question> getQuestions() {
 		return questions;
+	}
+
+	/**
+	 * Setter of the series questions
+	 *
+	 * @param Q
+	 *            A vector that contain the series questions
+	 *
+	 * @see Session#questions
+	 */
+	public void setQuestions(Vector<Question> Q) {
+		questions = Q;
 	}
 }
