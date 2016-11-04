@@ -6,12 +6,11 @@
 public class Session {
 
 	/**
-	 * The session name, it's defined by his creator, at its creation
+	 * The session name, defined by his creator at its creation
 	 *
 	 * @see Session#getName()
 	 * @see Session#setName(String s)
-	 * @see Session#Session(String name, String nameCreator,
-	 *						int id)
+	 * @see Session#Session(String name, String nameCreator, int id)
 	 */
 	private String name;
 
@@ -20,17 +19,15 @@ public class Session {
 	 *
 	 * @see Session#getNameCreator()
 	 * @see Session#setNameCreator(String s)
-	 * @see Session#Session(String name, String nameCreator,
-	 *						int id)
+	 * @see Session#Session(String name, String nameCreator, int id)
 	 */
 	private String nameCreator;
 
 	/**
-	 * The session id, a (random?) unique number that cannot be changed
+	 * The session id, unique and can't be changed
 	 *
 	 * @see Session#getid()
-	 * @see Session#Session(String name, String nameCreator,
-	 *						int id)
+	 * @see Session#Session(String name, String nameCreator, int id)
 	 */
 	private int id;
 
@@ -44,21 +41,21 @@ public class Session {
 	private Series currSeries;
 
 	/**
-	 * Session constructor
+	 * The session constructor
 	 *
 	 * @param name
-	 *						The session name
+	 *            A string that contain the session name
 	 * @param nameCreator
-	 *						The session creator name
+	 *            A string that contain the session creator name
 	 * @param id
-	 *						The session id
+	 *            An int that contain the session id
 	 *
 	 * @see Session#name
 	 * @see Session#nameCreator
 	 * @see Session#id
 	 * @see Session#currSeries
 	 */
-	public Session(String name, String nameCreator,int id) {
+	public Session(String name, String nameCreator, int id) {
 		this.name = name;
 		this.nameCreator = nameCreator;
 		this.id = id;
@@ -66,24 +63,24 @@ public class Session {
 	}
 
 	/**
-	* Getter of the session name
-	*
-	* @return A string that contain the session name
-	*
-	* @see Session#name
-	*/
+	 * Getter of the session name
+	 *
+	 * @return A string that contain the session name
+	 *
+	 * @see Session#name
+	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	* Setter of the session name
-	*
-	* @param s
-	*			A string that contain the session name
-	*
-	* @see Session#name
-	*/
+	 * Setter of the session name
+	 *
+	 * @param s
+	 *            A string that contain the session name
+	 *
+	 * @see Session#name
+	 */
 	public void setName(String s) {
 		name = s;
 	}
@@ -91,7 +88,7 @@ public class Session {
 	/**
 	 * Getter of the session creator name
 	 *
-	 * @return The session creator name
+	 * @return A string that contain the session creator name
 	 *
 	 * @see Session#nameCreator
 	 */
@@ -103,7 +100,7 @@ public class Session {
 	 * Setter of the session creator name
 	 *
 	 * @param s
-	 *			The session creator name
+	 *            A string that contain the session creator name
 	 *
 	 * @see Session#nameCreator
 	 */
@@ -114,7 +111,7 @@ public class Session {
 	/**
 	 * Getter of the session id
 	 *
-	 * @return The session id
+	 * @return An int that contain the session id
 	 *
 	 * @see Session#id
 	 */
@@ -137,7 +134,7 @@ public class Session {
 	 * Setter of the current series
 	 *
 	 * @param S
-	 *			A series
+	 *            A series
 	 *
 	 * @see Session#currSeries
 	 */

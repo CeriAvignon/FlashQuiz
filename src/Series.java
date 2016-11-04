@@ -8,7 +8,7 @@ import java.util.Vector;
 class Series {
 
 	/**
-	 * The series name, it's defined by his creator, at its creation
+	 * The series name, defined by his creator at its creation
 	 *
 	 * @see Series#getName()
 	 * @see Series#setName(String s)
@@ -26,7 +26,7 @@ class Series {
 	private String nameCreator;
 
 	/**
-	 * The session id, a (random?) unique number that cannot be changed
+	 * The session id, unique and can't be changed
 	 *
 	 * @see Session#getid()
 	 * @see Session#Session(String name, String nameCreator, int id)
@@ -34,7 +34,7 @@ class Series {
 	private int id;
 
 	/**
-	 * A vector that contain all the questions series
+	 * A vector that contain all the series questions
 	 *
 	 * @see Series#getQuestions()
 	 */
@@ -44,11 +44,11 @@ class Series {
 	 * Series constructor
 	 *
 	 * @param name
-	 *            The Series name
+	 *            A String that contain the Series name
 	 * @param nameCreator
-	 *            The Series creator name
+	 *            A String that contain the Series creator name
 	 * @param id
-	 *            The Series id
+	 *            An int that contain the Series id
 	 *
 	 * @see Series#name
 	 * @see Series#nameCreator
@@ -78,7 +78,7 @@ class Series {
 	 * Setter of the series name
 	 *
 	 * @param s
-	 *            The series name
+	 *            A string that contain the series name
 	 *
 	 * @see Session#name
 	 */
@@ -101,7 +101,7 @@ class Series {
 	 * Setter of the series creator name
 	 *
 	 * @param s
-	 *            The series creator name
+	 *            A string that contain the series creator name
 	 *
 	 * @see Session#nameCreator
 	 */
@@ -112,7 +112,7 @@ class Series {
 	/**
 	 * Getter of the series id
 	 *
-	 * @return A int that contain the series id
+	 * @return An int that contain the series id
 	 *
 	 * @see Session#id
 	 */
