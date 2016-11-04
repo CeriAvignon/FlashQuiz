@@ -12,8 +12,7 @@ class Series {
 	 *
 	 * @see Series#getName()
 	 * @see Series#setName(String s)
-	 * @see Series#Series(String name, String nameCreator,
-	 *						int id)
+	 * @see Series#Series(String name, String nameCreator, int id)
 	 */
 	private String name;
 
@@ -22,19 +21,15 @@ class Series {
 	 *
 	 * @see Series#getNameCreator()
 	 * @see Series#setNameCreator(String s)
-	 * @see Series#Series(String name, String nameCreator,
-	 *						int id)
+	 * @see Series#Series(String name, String nameCreator, int id)
 	 */
 	private String nameCreator;
 
-
 	/**
-	 * The series id, a (random?) unique number that cannot be changed
+	 * The session id, a (random?) unique number that cannot be changed
 	 *
-	 * @see Series#getid()
-	 * @see Series#setid(int x)
-	 * @see Series#Series(String name, String nameCreator,
-	 *						int id)
+	 * @see Session#getid()
+	 * @see Session#Session(String name, String nameCreator, int id)
 	 */
 	private int id;
 
@@ -49,33 +44,32 @@ class Series {
 	 * Series constructor
 	 *
 	 * @param name
-	 *						The Series name
+	 *            The Series name
 	 * @param nameCreator
-	 *						The Series creator name
+	 *            The Series creator name
 	 * @param id
-	 *						The Series id
+	 *            The Series id
 	 *
 	 * @see Series#name
 	 * @see Series#nameCreator
 	 * @see Series#id
 	 * @see Series#questions
 	 */
-	public Series(String name, String nameCreator, int id,
-					Vector<Question> questions) {
-	this.name = name;
-	this.nameCreator = nameCreator;
-	this.id = id;
-	this.questions = questions;
+	public Series(String name, String nameCreator, int id, Vector<Question> questions) {
+		this.name = name;
+		this.nameCreator = nameCreator;
+		this.id = id;
+		this.questions = questions;
 
 	}
 
 	/**
-	* Getter of the series name
-	*
-	* @return A string that contain the series name
-	*
-	* @see Session#name
-	*/
+	 * Getter of the series name
+	 *
+	 * @return A string that contain the series name
+	 *
+	 * @see Session#name
+	 */
 	public String getName() {
 		return name;
 	}
@@ -84,7 +78,7 @@ class Series {
 	 * Setter of the series name
 	 *
 	 * @param s
-	 *			The series name
+	 *            The series name
 	 *
 	 * @see Session#name
 	 */
@@ -93,12 +87,12 @@ class Series {
 	}
 
 	/**
-	* Getter of the series creator name
-	*
-	* @return A string that contain the series creator name
-	*
-	* @see Session#nameCreator
-	*/
+	 * Getter of the series creator name
+	 *
+	 * @return A string that contain the series creator name
+	 *
+	 * @see Session#nameCreator
+	 */
 	public String getNameCreator() {
 		return nameCreator;
 	}
@@ -107,7 +101,7 @@ class Series {
 	 * Setter of the series creator name
 	 *
 	 * @param s
-	 *			The series creator name
+	 *            The series creator name
 	 *
 	 * @see Session#nameCreator
 	 */
@@ -116,23 +110,23 @@ class Series {
 	}
 
 	/**
-	* Getter of the series id
-	*
-	* @return A int that contain the series id
-	*
-	* @see Session#id
-	*/
+	 * Getter of the series id
+	 *
+	 * @return A int that contain the series id
+	 *
+	 * @see Session#id
+	 */
 	public int getid() {
 		return id;
 	}
 
 	/**
-	* Getter of the series questions
-	*
-	* @return A vector that contain the series questions
-	*
-	* @see Session#questions
-	*/
+	 * Getter of the series questions
+	 *
+	 * @return A vector that contain the series questions
+	 *
+	 * @see Session#questions
+	 */
 	public Vector<Question> getQuestions() {
 		return questions;
 	}
