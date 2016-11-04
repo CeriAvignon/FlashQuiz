@@ -124,7 +124,7 @@ class Series {
 	/**
 	 * Getter of the series questions
 	 *
-	 * @return A vector that contain the series questions
+	 * @return A questions vector that contain the series questions
 	 *
 	 * @see Session#questions
 	 */
@@ -136,7 +136,7 @@ class Series {
 	 * Setter of the series questions
 	 *
 	 * @param Q
-	 *            A vector that contain the series questions
+	 *            A questions vector that contain the series questions
 	 *
 	 * @see Session#questions
 	 */
