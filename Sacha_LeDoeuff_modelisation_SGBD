@@ -1,0 +1,166 @@
+Ce fichier contient toute mes reflexion sur la modélisation de la base de données ainsi que des indications des prof par rapport au sujet
+et aussi de ce que certain d'entre vous m'ont indiquer. C'est une version moche et bordélique de ce qui pourrait sembler etre
+un rapport concernant la modélisation de la base de données.
+
+Après le gros paté de / qui suit ce message, s'en suit toute mes notes. Libre à vous de les consulter, et si vous éditez ce dernier pas de soucis.
+Quoi qu'il arrive je garde mon fichier que je tiens à jour selon mes avancées. Je prends cependant compte de vos modifications. Veillez à bien les
+noté, genre mettre un "EDIT Jean Dupont 06 Janvier 2022" à la fin du fichier. Je ré-uploaderais (Oui du franglais) ce fichier au besoin mais
+n'hésiter pas à me demander ou j'en suis. Sous peu, une première version de la modélisation sortira, ainsi qu'une BDD pour que vous puissiez
+travailler dessus. Evidemment au moment ou j'écris ça je sortirais pas tout de suite quelque chose de fix et stable. Je comprends qu'il ne faut pas
+que la BDD soit trop changé entre temps car vous travaillez dessus et ça vous ferai changer beaucoup de variable ou de méthode. J'en prends compte, et sachez qu'après la première BDD, celle sur laquelle vous travaillerez, les modifications ne seront normalement pas trop grande. 
+SI, je dis bien SI de grosse modifications doivent avoir lieu, vous serez les premier prévenu, et un Patch Note sortira avec la modification.
+Ainsi vous pourrez ré adapter votre code à la BDD malgré les modifications.
+
+Comme j'ai dis les première notes sont bordéliques, la suite sera plus épurée.
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+update des prof:
+fuck les votants et les concepteurs ça existe plus.
+on ne différencie QUE utilisateur et administrateur, cependant il y aura des niveau d'autorisation //a voir
+
+les gens peuvent créer en local des quiz pour apres les upload
+
+on peut faire un quiz en local
+
+faire des echelons dans les permissions
+///////////////////////////////////////////
+//////////////////////////////////////////
+//////////////////////////////////////////
+ce dont les stat ont besoin
+
+
+Session:
+ID_session
+Date_ouverture
+date_fermeture
+ID_utilisateur
+type_session			//Soit tous les votants votent en même temps (timer) session "live" , soit on peut faire les question quand les gens veulent
+
+
+
+/////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+ce dont à besoin les prog'
+
+users(IDusers,typeUsers)
+
+question(IDquestion, IDusers, question, type, reponses)      //type = QCM, checkbox, etc
+
+serie(IDserie, ListeQuestion, IDusers, NbQuestion)
+
+session(IDsession, DateDebut, DateFin, ListeDeSerie, NbQuestion, IDusers, password)
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+chaque question peut contenir un media(img/video)
+chaque session peut avoir un temps
+Il peut y avoir un certain temps apr question
+
+
+ !!!! Le systeme votant/concepteur est un gros bullshit insane, je checkerais avec les autre + tard !!!!
+
+
+
+Votant => android
+
+
+
+dans la modélisation, liste multidétermine question. cad on aura dans la table liste plusieur fois le même id de liste, mais chaque ligne aura une question differente
+exemple:
+
+TABLE LISTE
+IDL IDQ
+0	210
+0	254
+0	14
+0	274
+1	27
+1	51
+*/
+
+
+
+/***************/
+#Ma modelisation#
+/***************/
+Edit: le principe de concepteur/Votant n'est plus d'actualité. Un certain niveua de droit peut etre donné, mais n'est plus dependant de si l'on est votant ou concepteur.
+Cependant, il y à toujours cette dimension de "quelqu'un créer une session, des question, et quelqu'un y reponds"
+
+
+TABLE Utilisateurs :
+	INT ID_utilisateur
+	VARCHAR(32) Nom
+	VARCHAR(32) Prenom
+	VARCHAR(32) password
+	INT rank # Droit/Pouvoir // admin, utilisateur normal
+
+Un utilisateur détermine un identifiant qui lui est propre, un nom, prenom, ainsi que ces droits
+Les questions sont stocké dans la bdd et sont utilisable par n'importe qui, on peut se reservir d'ancienne question pour produire de nouvelles liste.
+Une sessions peut contenir plusieurs listes de question
+
+TABLE Sessions :
+	[INT ID_Session
+	INT ID_Liste
+	DATE Date_Ouverture
+	DATE Date_Fermeture
+	BOOL Type_Session					//Session Live, ou Session Libre
+	VARCHAR(48) Titre_Session
+
+TABLE List_Metadata : # Infos générales des listes (titre...)
+	[INT ID_Liste
+	INT ID_Utilisateur
+	VARCHAR(32) Titre_Liste
+TABLE List_content : # Contenu (questions dans la liste)
+	[INT ID_Liste
+	[INT ID_Question
+
+
+TABLE Questions :
+	[INT ID_Question
+	INT Type_Question					//radio, checkbox, etc
+	TEXT Contenu_Question
+	INT ID_Media						//image, etc
+
+TABLE Scores :
+	[INT ID_Session
+	[INT ID_utilisateur
+	INT score
+
+TABLE Reponses :
+	[INT ID_reponse
+	INT ID_question
+	TEXT contenu_réponse
+	BOOl Correcte? //bool
+
+TABLE Media :
+	INT ID_Media
+	INT type
+	TEXT contenu # url, ou chemin local
