@@ -1,7 +1,7 @@
 import java.util.Vector;
 
 /**
- * Question
+ * Question class
  *
  * @author Jean-Loup Gaussen
  */
@@ -11,7 +11,7 @@ public class Question {
 	 * The question id, unique and can't be changed
 	 *
 	 * @see Question#getid()
-	 * @see Question#Session(int id, String statement, Vector<String> answers,
+	 * @see Question#Question(int id, String statement, Vector<String> answers,
 	 *      String type)
 	 */
 	private int id;
@@ -21,7 +21,7 @@ public class Question {
 	 *
 	 * @see Question#getStatement()
 	 * @see Question#setStatement(String s)
-	 * @see Question#Session(int id, String statement, Vector<String> answers,
+	 * @see Question#Question(int id, String statement, Vector<String> answers,
 	 *      String type)
 	 */
 	private String statement;
@@ -33,7 +33,7 @@ public class Question {
 	 * 
 	 * @see Question#getAnswers()
 	 * @see Question#setAnswers(Vector<String> S)
-	 * @see Question#Session(int id, String statement, Vector<String> answers,
+	 * @see Question#Question(int id, String statement, Vector<String> answers,
 	 *      String type)
 	 * @see Question#type
 	 */
@@ -44,7 +44,7 @@ public class Question {
 	 * 
 	 * @see Question#getType()
 	 * @see Question#setType(String type)
-	 * @see Question#Session(int id, String statement, Vector<String> answers,
+	 * @see Question#Question(int id, String statement, Vector<String> answers,
 	 *      String type)
 	 */
 	private String type;
@@ -106,7 +106,7 @@ public class Question {
 	public void setStatement(String s) {
 		statement = s;
 	}
-	
+
 	/**
 	 * Getter of the question statement
 	 *
@@ -129,7 +129,7 @@ public class Question {
 	public void setAnswers(Vector<String> S) {
 		answers = S;
 	}
-	
+
 	/**
 	 * Getter of the question type
 	 *
