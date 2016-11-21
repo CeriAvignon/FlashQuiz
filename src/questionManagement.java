@@ -7,12 +7,14 @@
 public class questionManagement {
 
 	/**
-	 * The timeleft, if 1 = timesOut, else timesUp
+	 * The time remaining allocated to the question in seconds.
+	 It is set by the creator of the question.
+	 If timeLeft reachs 0, it goes to the next question.
 	 *
 	 * @see questionManagement#isTimeOut()
 	 */
-	private int time;
-	
+	private int timeLeft;
+
 	/**
 	 * The button pressed checker
 	 *
@@ -31,7 +33,7 @@ public class questionManagement {
 	 * questionManagement constructor
 	 *
 	 * @param time
-	 *            An int that contains the time
+	 *            An int representing time in seconds allocated to answer the question
 	 * @param button
 	 *            An int that indicates if the button is pressed (1) or not (0)
 	 * @param force
@@ -39,72 +41,53 @@ public class questionManagement {
 	 */
 	public questionManagement(int time, int button, int force) {
 
-		this.time = time;
-		this.button = button;
-		this.force = force;
+		this.timeLeft = time;
+		this.button   = button;
+		this.force    = force;
 	}
 
 	/**
-	 * Check if the time is ended
+	 * Check if the time allocated to the question have expired.
 	 *
-	 * @return An boolean which means that the time expired
+	 * @return True if time have expired, false otherwise.
 	 */
 	public boolean isTimeOut() {
 
-		if(time == 1) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		return (timeLeft == 0);
 	}
 
 	/**
 	 * Check if the button for next question is pressed
 	 *
-	 * @return An boolean which means that the button has been pressed
+	 * @return A boolean which means that the button has been pressed
 	 */
 	public boolean isNextButtonPressed() {
 
-		if(button == 1) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		return (button == 1);
 	}
 
 	/**
 	 * Check if the admin forced the next question
 	 *
-	 * @return An boolean which means that the admin forced
+	 * @return A boolean which means that the admin forced
 	 */
 	public boolean isAdminForced() {
 
-		if(force == 1) {
-			return true;
-		}else {
-			return false;
-		}
+		return (force == 1);
 	}
 
 	/**
 	 * global function that checks everythings
 	 *
-	 * @return An boolean which means that the question is ended
+	 * @return A boolean which means that the question is ended
 	 */
 	public boolean isQuestionEnded() {
 
-		boolean b_time = isTimeOut();
+		boolean b_time   = isTimeOut();
 		boolean b_button = isNextButtonPressed();
-		boolean b_force = isAdminForced();
+		boolean b_force  = isAdminForced();
 
-		if(b_time || b_button || b_force) {
-			return true;
-		}else {
-			return false;
-		}
-
+		return (b_time || b_button || b_force);
 	}
 
 
