@@ -146,8 +146,8 @@ class Session
 		return false;
 	}*/
 	
-	public bool modifySession()
-	{
+	//public bool modifySession()
+	//{}
 	
 
 }
