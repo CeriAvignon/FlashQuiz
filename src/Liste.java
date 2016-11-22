@@ -2,6 +2,8 @@ import java.util.Scanner;
 import java.util.Vector;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.io.File;			//pour la simulation de bdd
+import java.util.Scanner; 
 
 class Serie
 {
@@ -14,12 +16,28 @@ class Serie
 		
 	public bool creatListe()
 	{
+		
 	}
 	public bool suprListe()
 	{
+		
 	}	
-	public bool modifListe()
-	{		
+	/* debut modication Liste */
+	public bool modifListeNom()
+	{
+		System.out.println("entrer le nouveau nom");
+		Scanner keyboard = new Scanner(System.in);
+		String nom = keyboard.nextLine();
+		
 	}
+	public bool modifListeAjoutQuestion()
+	{
+		
+	}
+	public bool modifListeSuppressionQuestion()
+	{
+		
+	}
+	/* debut modication Liste */
 	
 }
