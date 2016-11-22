@@ -17,9 +17,9 @@ import java.io.File;			// pour la simulation de bdd --> Phases de tests par lect
 *	pour le moment sans intéraction avec la BDD. 
 */
 
-class Session
+public class Session
 {
-  	private int static idsession = 1;
+  	private static int idsession = 1;
 	/*variable <int> globale privée:	implémentée via une requête SQL vers l'id de la session
 						dépend fortement du groupe BDD
 	*/
@@ -27,11 +27,11 @@ class Session
 	/* Variable <String> privée:		implémentée via une chaîne de caractères saisie par l'utilisateur*/
 	private int idauthor;
 	/* Variable <Int> privée:		implémentée via une requête SQL vers l'id de l'auteur*/
-	private Vector<Liste> liste;
+	//private Vector<Liste> liste;
 	/* Variable <Vector> privée: 		implémentée durant une session, ou part la création de session.
 						dépend fortement du groupe TVS.
 	*/				
-	private Vector<Question> question;
+	//private Vector<Question> question;
 	/* Variable <Vector> privée: 		implémentée durant une session, ou part la création de question.
 						dépend fortement du groupe TVS.
 	*/
@@ -44,8 +44,7 @@ class Session
 	A implementer plus tard 
 	*/
 	
-	public boolean createSession(String session, String datedebut, String datefin)
-	// \param\
+	public Session (String session, String datedebut, String datefin)
 	{
 		//if (l'utilisateur a cliqué sur le bouton de creation)
 		//{	
@@ -53,14 +52,13 @@ class Session
 			setNomSession(session);
 			setDatedebut(datedebut);
 			setDatefin(datefin);
-			setIdAuthor(author);			// faire passer le string par l'IG
+			//setIdAuthor(author);			// faire passer le string par l'IG
 			
 			
 		//}
 		
 		//else 
-		
-		
+	
 	}
 	
 	/*********************** GETTERS *******************************************/
@@ -79,7 +77,7 @@ class Session
 		return this.idauthor;
 	}
 	
-	public Vector<Liste> getListe()
+	/*public Vector<Liste> getListe()
 	{
 		return this.liste;
 	}
@@ -87,14 +85,14 @@ class Session
 	public Vector<Question> getQuestion()
 	{
 		return this.question;
-	}
+	}*/
 
-	public string getDatedebut()
+	public String getDatedebut()
 	{
 		return this.datedebut;
 	}
 	
-	public string getDatefin()
+	public String getDatefin()
 	{
 		return this.datefin;
 	}
@@ -116,7 +114,7 @@ class Session
 		this.idauthor = author;
 	}
 	
-	public void setListe(Vector liste)
+	/*public void setListe(Vector liste)
 	{
 		this.liste = liste;
 	}
@@ -124,7 +122,7 @@ class Session
 	public void setQuestion(Vector question)
 	{
 		this.question = question;
-	}
+	}*/
 	
 	public void setDatedebut(String datedebut)
 	{
@@ -149,5 +147,18 @@ class Session
 	//public bool modifySession()
 	//{}
 	
+	public void printSession()
+	{
+		System.out.println("\nVoici les informations à propos de cette session:\n");
+		System.out.println("ID Session: " + getIdSession() + ".\n");
+		System.out.println("Nom Session: " + getNomSession() + ".\n");
+		//System.out.println("ID Auteur:" + getIdAuthor() + " .\n");
+		System.out.println("Date début: " + getDatedebut() + ".\n");
+		System.out.println("Date fin: " + getDatefin() + ".\n");
+
+	}
+
 
 }
+
+
