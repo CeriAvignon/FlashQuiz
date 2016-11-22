@@ -19,7 +19,10 @@ public void sendSession(Session s)
 	dateClose = s.getDateClose();
 	typeSession = s.getTypeSession();
 	nameSession = s.getNameSession();	
-		
+	
+	int ret;	
+	Statement statement = connexion.createStatement();
+	ResultSet res=null;	
 
 
 
