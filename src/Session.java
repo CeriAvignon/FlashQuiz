@@ -1,8 +1,10 @@
+//package session;			// Package session liée a EL --> Package \author :@LE VEVE Mathieu
 import java.util.Scanner;		// Saisie clavier: Scanner keyboard = new Scanner (...)
 import java.util.Vector;		// Création <vector> question / <vector> liste
 import java.sql.Connection;		// Connection connection = new Connection (...)
 import java.sql.DriverManager;		// Accès pour la BDD
 import java.io.File;			// pour la simulation de bdd --> Phases de tests par lecture/ écriture
+//import connexionjm.ConnexionJM;		// Package liée à la BDD --> Package \author :@HUOT AMAURY
 /*! 
 *	\file Session.java
 *	\brief Fichier java Session
