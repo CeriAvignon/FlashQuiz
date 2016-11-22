@@ -6,6 +6,10 @@ class SimpleServer
 	{
 		try
 		{
+			/**
+				@author Huot Amaury
+				* ce server permet de tester les socket , suffit de se connecter en telnet
+			*/
 			ServerSocket sock = new ServerSocket(8000);
 			Socket newsock = sock.accept();
 			DataInputStream inp = new DataInputStream(newsock.getInputStream());
