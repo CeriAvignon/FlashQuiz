@@ -108,6 +108,10 @@ IDL IDQ
 
 
 
+EDIT 21 novembre: Le fait qu'il y ai des redondance au niveau des listes est du au fait qu'une question est ré utilisable pour plusieurs liste/session, donc ce n'est pas elle qui est lié a la liste, mais la liste qui contient ces question. Methode pour que ça soit plus pratique et sans redondance ?
+
+
+
 /***************/
 #Ma modelisation#
 /***************/
@@ -163,4 +167,4 @@ TABLE Reponses :
 TABLE Media :
 	INT ID_Media
 	INT type
-	TEXT contenu # url, ou chemin local
+TEXT contenu # url, ou chemin local
