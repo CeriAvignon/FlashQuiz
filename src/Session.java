@@ -4,6 +4,7 @@ import java.util.Vector;		// Création <vector> question / <vector> liste
 import java.sql.Connection;		// Connection connection = new Connection (...)
 import java.sql.DriverManager;		// Accès pour la BDD
 import java.io.File;			// pour la simulation de bdd --> Phases de tests par lecture/ écriture
+import javax.swing.Timer;
 //import connexionjm.ConnexionJM;		// Package liée à la BDD --> Package \author :@HUOT AMAURY
 /*! 
 *	\file Session.java
@@ -17,9 +18,12 @@ import java.io.File;			// pour la simulation de bdd --> Phases de tests par lect
 *	pour le moment sans intéraction avec la BDD. 
 */
 
+
+
+
 public class Session
 {
-  	private static int idsession = 1;
+  	private static int idsession;
 	/*variable <int> globale privée:	implémentée via une requête SQL vers l'id de la session
 						dépend fortement du groupe BDD
 	*/
@@ -43,41 +47,54 @@ public class Session
 	/* Variable <Connection> privée: 	Objet implémenté par un accès BDD sql 
 	A implementer plus tard 
 	*/
+	private String password;
+	private boolean typesession;
+	//private int nbrquestion;
 	
 	public Session ()
 	{
-	// COnstructeur généré lorsque l'utilisateur aura cliqué sur le bouton Créer Session
+		//if (l'utilisateur a cliqué sur le bouton de creation)
+		//{	
 			this.idsession = 0;		// Pour le moment, initialiser quand BDD faite
 			this.session = "no name";
 			this.idauthor= 0;
 			this.datedebut = "no beginning date";
 			//this.setIdAuthor(author);			// faire passer le string par l'IG
 			this.datefin = "no ending date";
+			this.password = "no password";
+			this.typesession = false;
 		//	this.liste=
-		
+		//}
 		//	this.question=
 		
-	
+		//else 
 	
 	}
 
-	public Session (String session, String datedebut, String datefin)
+		public Session (String session, String password, boolean typesession)
 	{
-	// COnstructeur généré lorsque l'utilisateur aura saisi des infos.
-	// Ce constructeur récuperera les infos, pour le moment il les initialise sans dynamisme.
-		//if (l'utilisateur a cliqué sur le bouton de creation)
-		//{	
+
 			setIdSession(this.idsession);		// Pour le moment, initialiser quand BDD faite
 			setNomSession(session);
 			setDatedebut(datedebut);
 			setDatefin(datefin);
 			//setIdAuthor(author);			// faire passer le string par l'IG
-			
-			
-		//}
-		
-		//else 
+			setPassword(password);
+			setTypeSession(typesession);
+	}
 	
+
+
+	public Session (String session, String datedebut, String datefin, String password, boolean typesession)
+	{
+
+			setIdSession(this.idsession);		// Pour le moment, initialiser quand BDD faite
+			setNomSession(session);
+			setDatedebut(datedebut);
+			setDatefin(datefin);
+			//setIdAuthor(author);			// faire passer le string par l'IG
+			setPassword(password);
+			setTypeSession(typesession);
 	}
 	
 	/*********************** GETTERS *******************************************/
@@ -116,7 +133,15 @@ public class Session
 		return this.datefin;
 	}
 	
-	
+	public String getPassword()
+	{
+		return this.password;
+	}
+
+	public boolean getTypeSession()
+	{
+		return this.typesession;
+	}
 	/*********************** SETTERS *******************************************/
 	public void setIdSession(int idsession)
 	{
@@ -152,7 +177,18 @@ public class Session
 	{
 		this.datefin = datefin;
 	}
+
+	public void setPassword(String password)
+	{
+		this.password = password;
+	}
 	
+
+	public void setTypeSession(boolean typesession)
+	{
+		this.typesession = typesession;
+	}
+
 	/*public bool deleteSession()
 	{
 		if (Evenement choisi par l'utilisateur pour valider la suppression cible une session)
@@ -174,28 +210,58 @@ public class Session
 		//System.out.println("ID Auteur:" + getIdAuthor() + " .\n");
 		System.out.println("Date début: " + getDatedebut() + ".\n");
 		System.out.println("Date fin: " + getDatefin() + ".\n");
-
+		System.out.println("Type: " + getTypeSession() + ".\n");
+		System.out.println("Mot de passe: " + getPassword() + ".\n");
+	
 	}
 
-	
-	public static void main(String[] args)
+	public static boolean readingOfKeyboard()
 	{
 		Scanner keyboard = new Scanner(System.in);
-		System.out.println("Voulez vous créer une session? Please y/n");
 		String tmp = keyboard.nextLine();
 		char c = tmp.charAt(0);
-		if (c == 'y' || c == 'Y')
+		if (c == 'y' || c == 'Y') return true;
+		else return false;
+	}
+
+
+	public static void main(String[] args)
+	{
+		System.out.println("Voulez vous créer une session? Please y/n");
+		if (readingOfKeyboard() == true)
 		{
 			Session A = new Session();
+			Scanner keyboard = new Scanner(System.in);
 			System.out.println("Veuillez saisir un nom de session");
 			String name = keyboard.nextLine();
-			System.out.println("Veuillez saisir une date de début de session (format xx/xx/xxxx)");
-			String datedebut = keyboard.nextLine();
-			System.out.println("Veuillez saisir une date de fin de session (format xx/xx/xxxx)");
-			String datefin = keyboard.nextLine();
-			Session B = new Session(name, datedebut, datefin);
-			A.printSession();
-			B.printSession();
+			System.out.println("Voulez vous une session avec fermeture (présence de dates) ? (y/n)");
+			if (readingOfKeyboard() == true)
+			{
+				System.out.println("Veuillez saisir une date de début de session (format xx/xx/xxxx)");
+				String datedebut = keyboard.nextLine();
+				System.out.println("Veuillez saisir une date de fin de session (format xx/xx/xxxx)");
+				String datefin = keyboard.nextLine();
+				System.out.println("Veuillez saisir un mot de passe");
+				String password = keyboard.nextLine();
+				Session B = new Session(name, datedebut, datefin, password, true);
+				System.out.println("Pour voir les informations de la session, saisissez le mot de passe.");
+				password = keyboard.nextLine();
+				if (password.equals(B.getPassword())) B.printSession();
+				/*int delay = 1000;
+					tester un timer ici 
+				*/
+
+			}
+
+			else
+			{
+				System.out.println("Veuillez saisir un mot de passe");
+				String password = keyboard.nextLine();
+				Session B = new Session(name, password, false);
+				System.out.println("Pour voir les informations de la session, saisissez le mot de passe.");
+				password = keyboard.nextLine();
+				if (password.equals(B.getPassword())) B.printSession();
+			}
 		}
 
 		else System.exit(0);
