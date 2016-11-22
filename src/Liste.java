@@ -1,39 +1,34 @@
 import java.util.Scanner;
 import java.util.Vector;
-import java.sql.Connection;
-import java.sql.DriverManager;
+//import java.sql.Connection;		//pour plus tard
+//import java.sql.DriverManager;	//pour plus tard
 import java.io.File;			//pour la simulation de bdd
 
 class Liste
 {
 	private int idliste; 			//id
 	private String nomliste; 		//nom
-	private int iduser;			//id auteur
+	private int idauthor;			//id auteur
 	protected vector(question);		//vecteur question
 	protected int nbrquestion;		// Nombre de questions
-	Connection connection;			// Connection
+	//Connection connection;			// Connection //pour plus tard
 	
 	/*debut getter setter*/
 	
 	
-	public int getIdSession()
+	public int getIdListe()
 	{
-		return this.idsession;
+		return this.idListe;
 	}
 	
-	public String getSession()
+	public String getNomListe()
 	{
-		return this.session;
+		return this.NomListe;
 	}
 	
 	public int getIdAuthor()
 	{
 	return this.idauthor;
-	}
-	
-	public Vector getListe()
-	{
-		return this.liste;
 	}
 	
 	public Vector getQuestion()
