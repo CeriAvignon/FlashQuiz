@@ -32,13 +32,13 @@ TABLE Questions :
 
 TABLE Scores :
 	[INT ID_Session
-	[INT ID_Ttilisateur
+	[INT ID_Utilisateur
 	INT Score
 
 TABLE Reponses :
 	[INT ID_Reponse
 	INT ID_Question
-	TEXT contenu_rep
+	TEXT Contenu_rep
 	BOOl Correcte
 
 TABLE Media :
