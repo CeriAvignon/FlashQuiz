@@ -5,20 +5,20 @@ import java.sql.DriverManager;
 
 class Serie
 {
-	private int idserie; 			//id
-	private String nomserie; 		//nom
+	private int idliste; 			//id
+	private String nomliste; 		//nom
 	private int iduser;			//id auteur
 	protected vector(question);		//vecteur question
 	protected int nbrquestion;		// Nombre de questions
 	Connection connection;			// Connection
 		
-	public bool creatSer()
+	public bool creatListe()
 	{
 	}
-	public bool suprSer()
+	public bool suprListe()
 	{
 	}	
-	public bool modifSer()
+	public bool modifListe()
 	{		
 	}
 	
