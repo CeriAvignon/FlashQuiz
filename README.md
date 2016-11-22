@@ -1,6 +1,6 @@
 # FlashQuiz
 
-Les fichiers : Client.java et SimpleServer.java sont des esquisses , des tests , effectués pour comprendre le fonctionnement des sockets /   
+Le fichier : SimpleServer.java est une esquisse , un test , effectué pour comprendre le fonctionnement des sockets /   
 
 Le fichier connexionJM est "le squelette" qui permet la connexion à la base de données / 
   
