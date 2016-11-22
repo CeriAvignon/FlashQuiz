@@ -5,25 +5,25 @@ import java.sql.DriverManager;
 
 public class Question
 {
-	private int ID_Question;
-	protected String Intitule;
-	protected int Type_Question;
-	protected String Media_File;
-	protected int Type_Media;
-	protected int ID_User;
+	private int idquestion;
+	protected String intitule;
+	protected int typequestion;
+	protected String mediafile;
+	protected int typemedia;
+	protected int iduser;
 	protected int timer;
 	Connection connection;
 	
 	
-	public bool CreateQuest()
+	public bool createQuest()
 	{
 		// Requete SQL de création dans la table
 	}
-	public bool DeleteQuest()
+	public bool celeteQuest()
 	{
 		
 	}
-	public bool ModifyQuest()
+	public bool modifyQuest()
 	{
 		
 	}
