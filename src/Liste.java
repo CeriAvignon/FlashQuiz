@@ -14,6 +14,10 @@ class Serie
 	protected int nbrquestion;		// Nombre de questions
 	Connection connection;			// Connection
 		
+	public static void main (String [] arg)      //main de test
+	{                
+	}
+	
 	public bool creatListe()
 	{
 		
@@ -23,11 +27,13 @@ class Serie
 		
 	}	
 	/* debut modication Liste */
-	public bool modifListeNom()
+	public bool modifListeNom(int id)
 	{
-		System.out.println("entrer le nouveau nom");
+		System.out.println("entrer le nouveau nom");		//sera normalement modifier a la fusion avec l'interface
 		Scanner keyboard = new Scanner(System.in);
 		String nom = keyboard.nextLine();
+		
+		
 		
 	}
 	public bool modifListeAjoutQuestion()
