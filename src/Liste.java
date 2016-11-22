@@ -153,7 +153,7 @@ class Liste
 		System.out.println("entrer l'id de la question a rajouter");	//sera normalement modifier a la fusion avec l'interface
 		Scanner keyboard = new Scanner(System.in);
 		int idq = keyboard.nextint();
-		/*lecture ecriture dans un fichier , sera remplacer par une requete sql quand la bdd sera implementé*/
+	/*ecriture dans un fichier , sera remplacer par une requete sql quand la bdd sera implementé*/
 	
 	File f = new File ("/listedata.txt");
 	try 
