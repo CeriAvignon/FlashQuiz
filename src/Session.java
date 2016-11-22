@@ -177,6 +177,29 @@ public class Session
 
 	}
 
+	
+	public static void main(String[] args)
+	{
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Voulez vous créer une session? Please y/n");
+		String tmp = keyboard.nextLine();
+		char c = tmp.charAt(0);
+		if (c == 'y' || c == 'Y')
+		{
+			Session A = new Session();
+			System.out.println("Veuillez saisir un nom de session");
+			String name = keyboard.nextLine();
+			System.out.println("Veuillez saisir une date de début de session (format xx/xx/xxxx)");
+			String datedebut = keyboard.nextLine();
+			System.out.println("Veuillez saisir une date de fin de session (format xx/xx/xxxx)");
+			String datefin = keyboard.nextLine();
+			Session B = new Session(name, datedebut, datefin);
+			A.printSession();
+			B.printSession();
+		}
+
+		else System.exit(0);
+	}
 
 }
 
