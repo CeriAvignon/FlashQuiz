@@ -5,19 +5,21 @@ import java.sql.DriverManager;
 
 class List
 {
-	private int ID_Serie; 			//id
-	private int ID_user;			//id auteur
-	protected Vector(Question);		//vecteur question
-	protected int Nbr_Question;		// Nombre de questions
+	private int idserie; 			//id
+	private String nomserie; 		//nom
+	private int iduser;			//id auteur
+	protected vector(question);		//vecteur question
+	protected int nbrquestion;		// Nombre de questions
 	Connection connection;			// Connection
 		
-	public bool CreatSer()
+	public bool creatSer()
 	{
 	}
-	public bool SuprSer()
+	public bool suprSer()
 	{
 	}	
-	public bool ModifSer()
+	public bool modifSer()
 	{
+		
 	}
 }
