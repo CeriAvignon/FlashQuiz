@@ -22,7 +22,7 @@ class Liste
 	
 	public String getNomListe()
 	{
-		return this.NomListe;
+		return this.nomliste;
 	}
 	
 	public int getIdAuthor()
@@ -41,33 +41,34 @@ class Liste
 	}
 	
 	
-	
-	
-	
-	
-	public int getIdListe()
+	public void setIdListe(int idListe)
 	{
-		return this.idListe;
+		this.idListe = idListe;
 	}
 	
-	public String getNomListe()
+	public void setNomListe(String nomliste)
 	{
-		return this.NomListe;
+		this.nomliste = nomliste;
 	}
 	
-	public int getIdAuthor()
+	public void setIdAuthor(int idauthor)
 	{
-		return this.idauthor;
+		this.idauthor = idauthor;
 	}
 	
-	public Vector getQuestion()
+	public void setListe(Vector liste)
 	{
-		return this.question;
+		this.liste = liste;
 	}
-
-	public int getNbrQuestion()
+	
+	public void setQuestion(Vector question)
 	{
-		return this.nbrquestion;
+		this.question = question;
+	}
+	
+	public void setNbrQuestion(int nbrquestion)
+	{
+		this.nbrquestion = nbrquestion;
 	}
 	
 	/* fin getter setter*/
