@@ -5,7 +5,7 @@ TABLE Utilisateurs :
 	VARCHAR(32) Nom
 	VARCHAR(32) Prenom
 	VARCHAR(32) password
-	INT rank # Droit/Pouvoir				# admin, utilisateur normal
+	INT rank # Droit/Pouvoir, admin/utilisateur normal
 
 TABLE Sessions :
 	[INT ID_Session
@@ -15,12 +15,12 @@ TABLE Sessions :
 	BOOL Type_Session					#Session Live, ou Session Libre
 	VARCHAR(48) Titre_Session
 
-TABLE List_Metadata :	# Infos générales des listes (titre...)	/ liste, certain apelle sa serie , mje vous mets d'accord c'est liste 
+TABLE Liste_Metadata :	# Infos générales des listes (titre...)	/ liste, certain apelle sa serie , mje vous mets d'accord c'est liste 
 
 	[INT ID_Liste
 	INT ID_Utilisateur
 	VARCHAR(32) Titre_Liste
-TABLE List_content :	# Contenu (questions dans la liste)
+TABLE Liste_Contenu :	# Contenu (questions dans la liste)
 	[INT ID_Liste
 	[INT ID_Question
 
