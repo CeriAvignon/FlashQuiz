@@ -106,16 +106,72 @@ class Liste
 		Scanner keyboard = new Scanner(System.in);
 		String nom = keyboard.nextLine();
 		
+	/*lecture ecriture dans un fichier , sera remplacer par une requete sql quand la bdd sera implementé*/
+	
+	File f = new File ("/liste.txt");
+	File f2 = new File ("/listetemp.txt");
+	try 
+	{
+		Scanner scan = new Scanner(f);
+		FileWriter fw = new FileWriter (f2);
 		
+		while (scan.hasNextLine()) 
+		{
+			String line = scan.nextLine();
+			
+			String word[]  = line.split("/");
+			int y = Integer.parseInt(word[0]);
+			
+			if (y == id)
+			{
+				word[1]=nom;
+				String nline = word[0]+"/"+word[1]+"/"+word[2]+"/"+word[3];
+				fw.write (nline);
+        			fw.write ("\r\n");
+			}
+			else
+			{
+				fw.write (line);
+        			fw.write ("\r\n");
+			}
+			
+			System.out.println(line);
+		}
+		scan.close();
+    		fw.close();
+	}
+	catch (FileNotFoundException e) {
+		e.printStackTrace();
+	} 
+	/****************************************************************************************/	
 		
 	}
-	public bool modifListeAjoutQuestion()
+	
+	
+	public bool modifListeAjoutQuestion(int idq)
 	{
+		System.out.println("entrer l'id de la question a rajouter");	//sera normalement modifier a la fusion avec l'interface
+		Scanner keyboard = new Scanner(System.in);
+		int idq = keyboard.nextint();
+		/*lecture ecriture dans un fichier , sera remplacer par une requete sql quand la bdd sera implementé*/
+	
+	File f = new File ("/listedata.txt");
+	try 
+	{
+		FileWriter fw = new FileWriter (f);
+		String line = idliste+idq;
+		fw.write (line);
+        	fw.write ("\r\n");
+    		fw.close();	
+	} 
+	/****************************************************************************************/	
 		
 	}
 	public bool modifListeSuppressionQuestion()
 	{
-		
+		System.out.println("entrer l'id de la question a retirer");	//sera normalement modifier a la fusion avec l'interface
+		Scanner keyboard = new Scanner(System.in);
+		int idq = keyboard.nextint();
 	}
 	/* debut modication Liste */
 	
