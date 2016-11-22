@@ -15,8 +15,7 @@ TABLE Sessions :
 	BOOL Type_Session					#Session Live, ou Session Libre
 	VARCHAR(48) Titre_Session
 
-TABLE Liste_Metadata :	# Infos générales des listes (titre...)	/ liste, certain apelle sa serie , mje vous mets d'accord c'est liste 
-
+TABLE Liste_Metadata :	# Infos générales des listes (titre...)	/ liste, certain apelle sa serie , mje vous mets d'accord c'est liste
 	[INT ID_Liste
 	INT ID_Utilisateur
 	VARCHAR(32) Titre_Liste
@@ -33,18 +32,18 @@ TABLE Questions :
 
 TABLE Scores :
 	[INT ID_Session
-	[INT ID_utilisateur
-	INT score
+	[INT ID_Ttilisateur
+	INT Score
 
 TABLE Reponses :
-	[INT ID_reponse
-	INT ID_question
-	TEXT contenu_réponse
+	[INT ID_Reponse
+	INT ID_Question
+	TEXT contenu_rep
 	BOOl Correcte
 
 TABLE Media :
 	INT ID_Media
-	INT type
-	TEXT contenu # url, ou chemin local
+	INT Type
+	TEXT Contenu_media # url, ou chemin local
 
 #Cette version de la modélisation de la base de données sera celle sur laquelle les tests des fonctions se feront. Des modifications se feront peut etre en cas de besoin, mais la structure générale restera comme présenter.
