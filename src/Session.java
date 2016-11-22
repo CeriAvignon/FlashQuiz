@@ -65,7 +65,7 @@ class Session
 		return this.idsession;
 	}
 	
-	public String getSession()
+	public String getNomSession()
 	{
 		return this.session;
 	}
@@ -102,7 +102,7 @@ class Session
 		this.idsession = idsession;
 	}
 	
-	public void setSession(String session)
+	public void setNomSession(String session)
 	{
 		this.session = session;
 	}
