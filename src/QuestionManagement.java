@@ -1,7 +1,7 @@
 /**
  * QuestionManagement class
  *
- * @author Delvaux Julien
+ * @author Delvaux and Boge Julien
  */
 
 import java.awt.event.*;
