@@ -111,7 +111,7 @@ class Session
 	
 	public void setIdAuthor(int author)
 	{
-		this.idAuthor = author;
+		this.idauthor = author;
 	}
 	
 	public void setListe(Vector liste)
