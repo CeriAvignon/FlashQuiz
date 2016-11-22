@@ -25,11 +25,11 @@ class Session
 	/* Variable <String> privée:		implémentée via une chaîne de caractères saisie par l'utilisateur*/
 	private int idauthor;
 	/* Variable <Int> privée:		implémentée via une requête SQL vers l'id de l'auteur*/
-	private Vector liste;
+	private Vector<Liste> liste;
 	/* Variable <Vector> privée: 		implémentée durant une session, ou part la création de session.
 						dépend fortement du groupe TVS.
 	*/				
-	private Vector question;
+	private Vector<Question> question;
 	/* Variable <Vector> privée: 		implémentée durant une session, ou part la création de question.
 						dépend fortement du groupe TVS.
 	*/
@@ -77,12 +77,12 @@ class Session
 		return this.idauthor;
 	}
 	
-	public Vector getListe()
+	public Vector<Liste> getListe()
 	{
 		return this.liste;
 	}
 	
-	public Vector getQuestion()
+	public Vector<Question> getQuestion()
 	{
 		return this.question;
 	}
