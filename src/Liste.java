@@ -11,10 +11,9 @@ class Liste
 	private int idauthor;			//id auteur
 	protected vector(question);		//vecteur question
 	protected int nbrquestion;		// Nombre de questions
-	//Connection connection;			// Connection //pour plus tard
+	//Connection connection;		// Connection //pour plus tard
 	
 	/*debut getter setter*/
-	
 	
 	public int getIdListe()
 	{
@@ -36,15 +35,41 @@ class Liste
 		return this.question;
 	}
 
-	public string getDatedebut()
+	public int getNbrQuestion()
 	{
-		return this.datedebut;
+		return this.nbrquestion;
 	}
 	
-	public string getDatefin()
+	
+	
+	
+	
+	
+	public int getIdListe()
 	{
-		return this.datefin;
+		return this.idListe;
 	}
+	
+	public String getNomListe()
+	{
+		return this.NomListe;
+	}
+	
+	public int getIdAuthor()
+	{
+		return this.idauthor;
+	}
+	
+	public Vector getQuestion()
+	{
+		return this.question;
+	}
+
+	public int getNbrQuestion()
+	{
+		return this.nbrquestion;
+	}
+	
 	/* fin getter setter*/
 	
 	/* debut main */
