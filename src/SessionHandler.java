@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 import ConnexionJM.java;
 
-public class SessionWeb {
+public class SessionHandler {
 
 private int idSession;
 private int idListe;
