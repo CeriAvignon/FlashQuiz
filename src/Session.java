@@ -146,7 +146,7 @@ class Session
 	
 	/*public bool modifySession()
 	{
-		
+			
 	}*/
 
 }
