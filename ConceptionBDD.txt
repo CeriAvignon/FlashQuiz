@@ -1,3 +1,5 @@
+{Pour avoir le detail precis de la modelisation regarder le fichier ModelisationBDD.txt}
+
 CREATE TABLE Utilisateurs(ID_Utilisateur SERIAL, Nom VARCHAR(32), Prenom VARCHAR(32), password VARCHAR(32), rank INT);
 
 CREATE TABLE Sessions(ID_Session SERIAL, ID_Liste INT, Date_Ouverture DATE, Date_Fermeture DATE, Type_Session BOOL, Titre_Session VARCHAR(48));
