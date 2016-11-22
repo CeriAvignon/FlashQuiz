@@ -148,9 +148,6 @@ class Session
 	
 	public bool modifySession()
 	{
-	System.out.println("Entrer id de la session");	
-		Scanner keyboard = new Scanner(System.in);
-		int idq = keyboard.nextint()		
-	}
+	
 
 }
