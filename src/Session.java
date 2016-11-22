@@ -13,5 +13,27 @@
 
 class Session
 {
+  	private int static idsession = 1;
+	private string session;
+	private int idauthor;
+	private Vector liste;
+	private Vector question;
+	private string datedebut;
+	private string datefin;
+
+	/*public bool deleteSession()
+	{
+		if (Evenement choisi par l'utilisateur pour valider la suppression cible une session)
+			{
+				delete la session en cascade;
+				return true;
+			} 
+		return false;
+	}*/
+	
+	/*public bool modifySession()
+	{
+		
+	}*/
 
 }
