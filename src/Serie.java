@@ -3,7 +3,7 @@ import java.util.Vector;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-class List
+class Serie
 {
 	private int idserie; 			//id
 	private String nomserie; 		//nom
@@ -19,7 +19,7 @@ class List
 	{
 	}	
 	public bool modifSer()
-	{
-		
+	{		
 	}
+	
 }
