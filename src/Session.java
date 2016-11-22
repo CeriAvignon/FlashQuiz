@@ -42,7 +42,7 @@ class Session
 	A implementer plus tard 
 	*/
 	
-	public bool createSession(String session, String datedebut, String datefin)
+	public boolean createSession(String session, String datedebut, String datefin)
 	// \param\
 	{
 		//if (l'utilisateur a cliqué sur le bouton de creation)
