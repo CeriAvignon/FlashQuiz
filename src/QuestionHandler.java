@@ -1,5 +1,7 @@
-
+package ques;
 import ConnexionJM.java;
+import java.sql.*;
+
 public class QuestionHandler {
 	
 	public void sendQuestion(Question question)
@@ -7,23 +9,27 @@ public class QuestionHandler {
 		int idQuestion = question.getIdQuestion();
 		String contenu = question.getIntitule();
 		int typeQuestion = question.getTypeQuestion();
-		string mediafile = question.getMediafile();
+		String mediafile = question.getMediafile();
 		int typeMedia = question.getTypeMedia();
-		//int idauthor = question.getIdAuthor();
 		
 		Statement statement = connexion.createStatement();
+		int retour;
+		ResultSet res=null;
 		if(idQuestion == -1)
 		{
-			ResultSet res = statement.executeQuery( "SELECT COUNT(*) FROM Media WHERE Contenu_media=mediafile;" );
-			if()
-			
-			int retour = statement.executeUpdate("INSERT INTO Questions(ID_Question,TYPE_Question,Contenu_Question,ID_Media) VALUES()");
+			res = statement.executeQuery( "SELECT * FROM Media WHERE Contenu_media=mediafile;" );//COUNT(*)
+			if(res == null)
+			{
+				retour = statement.executeUpdate("INSERT INTO Media(TYPE,Contenu_media) VALUES(typeMedia,mediafile)");
+			}
+			res = statement.executeQuery( "SELECT ID_Media FROM Media;" );
+			retour = statement.executeUpdate("INSERT INTO Questions(TYPE_Question,Contenu_Question,"+ "ID_Media) VALUES(contenu,typeQuestion,)");
 		}
 		else
 		{
 			
 		}
 		
-		//int ret = statement.executeUpdate("");
+		
 	}
-}
+};
