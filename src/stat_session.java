@@ -1,6 +1,8 @@
 /**
  * Stat_session
  *
+ * Produce statistics from the questions' answers.
+ *
  * @author Benoît Dorey
  */
 public class stat_session
