@@ -1,33 +1,33 @@
-[ = clé primaire
+#  [ = clé primaire
 
 TABLE Utilisateurs :
 	[INT ID_utilisateur
 	VARCHAR(32) Nom
 	VARCHAR(32) Prenom
 	VARCHAR(32) password
-	INT rank # Droit/Pouvoir // admin, utilisateur normal
+	INT rank # Droit/Pouvoir				# admin, utilisateur normal
 
 TABLE Sessions :
 	[INT ID_Session
 	INT ID_Liste
 	DATE Date_Ouverture
 	DATE Date_Fermeture
-	BOOL Type_Session					//Session Live, ou Session Libre
+	BOOL Type_Session					#Session Live, ou Session Libre
 	VARCHAR(48) Titre_Session
 
-TABLE List_Metadata : # Infos générales des listes (titre...)		//liste, certain apelle sa serie , mje vous mets d'accord c'est liste 
+TABLE List_Metadata :	# Infos générales des listes (titre...)	/ liste, certain apelle sa serie , mje vous mets d'accord c'est liste 
 
 	[INT ID_Liste
 	INT ID_Utilisateur
 	VARCHAR(32) Titre_Liste
-TABLE List_content : # Contenu (questions dans la liste)
+TABLE List_content :	# Contenu (questions dans la liste)
 	[INT ID_Liste
 	[INT ID_Question
 
 
 TABLE Questions :
 	[INT ID_Question
-	INT Type_Question					//radio, checkbox, etc
+	INT Type_Question					#radio, checkbox, etc
 	TEXT Contenu_Question
 	INT ID_Media
 
@@ -46,3 +46,5 @@ TABLE Media :
 	INT ID_Media
 	INT type
 	TEXT contenu # url, ou chemin local
+
+#Cette version de la modélisation de la base de données sera celle sur laquelle les tests des fonctions se feront. Des modifications se feront peut etre en cas de besoin, mais la structure générale restera comme présenter.
