@@ -1,4 +1,3 @@
-package projetProg;
 /*import ConnexionJM.java;*/
 /*import Liste.java;*/
 import java.sql.*;
@@ -13,12 +12,12 @@ public class listHandle {
 	
 	public void sendList(Liste list)
 	{
-		idListe = list.getIdListe();								//
-		idAuthor = list.getIdAuthor();
-		nomListe = list.getNomListe();
-		listeQuestion = list.getListeQuestion();
+		idListe = list.getIdListe();								// Récupère l'id de la liste
+		idAuthor = list.getIdAuthor();								// Récupère l'id du créateur de la liste
+		nomListe = list.getNomListe();								// Récupère le nom de la liste
+		listeQuestion = list.getListeQuestion();					// Récupère les questions dans le vecteur listeQuestion de l'objet liste
 		int statut;
-		Statement statement = connexion.createStatement();
+		Statement statement = connexion.createStatement();			// Création d'une requête
 		
 		if(idListe == -1)
 		{
