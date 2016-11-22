@@ -44,8 +44,27 @@ public class Session
 	A implementer plus tard 
 	*/
 	
+	public Session ()
+	{
+	// COnstructeur généré lorsque l'utilisateur aura cliqué sur le bouton Créer Session
+			this.idsession = 0;		// Pour le moment, initialiser quand BDD faite
+			this.session = "no name";
+			this.idauthor= 0;
+			this.datedebut = "no beginning date";
+			//this.setIdAuthor(author);			// faire passer le string par l'IG
+			this.datefin = "no ending date";
+		//	this.liste=
+		
+		//	this.question=
+		
+	
+	
+	}
+
 	public Session (String session, String datedebut, String datefin)
 	{
+	// COnstructeur généré lorsque l'utilisateur aura saisi des infos.
+	// Ce constructeur récuperera les infos, pour le moment il les initialise sans dynamisme.
 		//if (l'utilisateur a cliqué sur le bouton de creation)
 		//{	
 			setIdSession(this.idsession);		// Pour le moment, initialiser quand BDD faite
@@ -149,7 +168,7 @@ public class Session
 	
 	public void printSession()
 	{
-		System.out.println("\nVoici les informations à propos de cette session:\n");
+		System.out.println("\nVoici les informations à propos de la session n° "+ getIdSession()+".\n");
 		System.out.println("ID Session: " + getIdSession() + ".\n");
 		System.out.println("Nom Session: " + getNomSession() + ".\n");
 		//System.out.println("ID Auteur:" + getIdAuthor() + " .\n");
