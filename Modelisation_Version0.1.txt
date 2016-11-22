@@ -15,7 +15,8 @@ TABLE Sessions :
 	BOOL Type_Session					//Session Live, ou Session Libre
 	VARCHAR(48) Titre_Session
 
-TABLE List_Metadata : # Infos générales des listes (titre...)		//liste, PAS SERIE
+TABLE List_Metadata : # Infos générales des listes (titre...)		//liste, certain apelle sa serie , mje vous mets d'accord c'est liste 
+
 	[INT ID_Liste
 	INT ID_Utilisateur
 	VARCHAR(32) Titre_Liste
