@@ -1,23 +1,41 @@
 import java.util.Scanner;
 import java.util.Vector;
+import java.lang.Boolean;  
+import java.lang.Object;
+import java.util.AbstractCollection;
+import java.util.AbstractList;
 //import java.sql.Connection;		//pour plus tard
 //import java.sql.DriverManager;	//pour plus tard
-import java.io.File;			//pour la simulation de bdd
+import java.io.File;				//pour la simulation de bdd
+
+import java.io.Writer;
+import java.io.OutputStreamWriter;
+import java.io.FileWriter ;
+
+import java.lang.Throwable;
+import java.lang.Exception;
+import java.io.IOException;
+import java.io.FileNotFoundException;
+
+
+
+
+
+
 
 class Liste
 {
-	private int idliste; 			//id
-	private String nomliste; 		//nom
-	private int idauthor;			//id auteur
-	protected vector(question);		//vecteur question
-	protected int nbrquestion;		// Nombre de questions
-	//Connection connection;		// Connection //pour plus tard
+	private int idliste; 							//id
+	private String nomliste; 						//nom
+	private int idauthor;							//id auteur
+	protected Vector<Question>listequestion;		//vecteur question
+	//Connection connection;						// Connection //pour plus tard
 	
 	/*debut getter setter*/
 	
 	public int getIdListe()
 	{
-		return this.idListe;
+		return this.idliste;
 	}
 	
 	public String getNomListe()
@@ -30,20 +48,16 @@ class Liste
 	return this.idauthor;
 	}
 	
-	public Vector getQuestion()
+	public Vector getListeQuestion()
 	{
-		return this.question;
+		return this.listequestion;
 	}
 
-	public int getNbrQuestion()
-	{
-		return this.nbrquestion;
-	}
+
 	
-	
-	public void setIdListe(int idListe)
+	public void setIdListe(int idliste)
 	{
-		this.idListe = idListe;
+		this.idliste = idliste;
 	}
 	
 	public void setNomListe(String nomliste)
@@ -56,19 +70,9 @@ class Liste
 		this.idauthor = idauthor;
 	}
 	
-	public void setListe(Vector liste)
+	public void setListeQuestion(Vector listequestion)
 	{
-		this.liste = liste;
-	}
-	
-	public void setQuestion(Vector question)
-	{
-		this.question = question;
-	}
-	
-	public void setNbrQuestion(int nbrquestion)
-	{
-		this.nbrquestion = nbrquestion;
+		this.listequestion = listequestion;
 	}
 	
 	/* fin getter setter*/
@@ -84,23 +88,23 @@ class Liste
 	
 	/* debut creation Liste */
 	
-	public bool creatListe()
+	public Boolean creatListe()
 	{
-		
+		return false;
 	}
 	/* debut creation Liste */
 	
 	/* debut supression Liste */
 	
-	public bool suprListe()
+	public Boolean suprListe()
 	{
-		
+		return false;
 	}	
 	
 	/* debut supression Liste */
 	
 	/* debut modication Liste */
-	public bool modifListeNom(int id)
+	public Boolean modifListeNom(int id)
 	{
 		System.out.println("entrer le nouveau nom");		//sera normalement modifier a la fusion avec l'interface
 		Scanner keyboard = new Scanner(System.in);
@@ -108,70 +112,79 @@ class Liste
 		
 	/*lecture ecriture dans un fichier , sera remplacer par une requete sql quand la bdd sera implementé*/
 	
-	File f = new File ("/liste.txt");
-	File f2 = new File ("/listetemp.txt");
-	try 
-	{
-		Scanner scan = new Scanner(f);
-		FileWriter fw = new FileWriter (f2);
-		
-		while (scan.hasNextLine()) 
+		File f = new File ("/liste.txt");
+		File f2 = new File ("/listetemp.txt");
+		try 
 		{
-			String line = scan.nextLine();
+			Scanner scan = new Scanner(f);
+			FileWriter fw = new FileWriter (f2);
 			
-			String word[]  = line.split("/");
-			int y = Integer.parseInt(word[0]);
-			
-			if (y == id)
+			while (scan.hasNextLine()) 
 			{
-				word[1]=nom;
-				String nline = word[0]+"/"+word[1]+"/"+word[2]+"/"+word[3];
-				fw.write (nline);
+				String line = scan.nextLine();
+				
+				String word[]  = line.split("/");
+				int y = Integer.parseInt(word[0]);
+				
+				if (y == id)
+				{
+					word[1]=nom;
+					String nline = word[0]+"/"+word[1]+"/"+word[2];
+					fw.write (nline);
         			fw.write ("\r\n");
-			}
-			else
-			{
-				fw.write (line);
+				}
+				else
+				{
+					fw.write (line);
         			fw.write ("\r\n");
-			}
+				}
 			
-			System.out.println(line);
-		}
-		scan.close();
+				System.out.println(line);
+			}
+			scan.close();
     		fw.close();
-	}
-	catch (FileNotFoundException e) {
-		e.printStackTrace();
-	} 
-	/****************************************************************************************/	
-		
+		}
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} 
+	/*fin de lecture ecriture*/	
+	//commande sql prevue :
+	//
+	//select * from Liste_Metadata where ID_Liste=id
+	//statement.executeQuery( "select * from Liste_Metadata where ID_Liste=id;" );
+	//statement.executeUpdate( "INSERT INTO Utilisateur (email, mot_de_passe, nom, date_inscription) VALUES ('jmarc@mail.fr', MD5('lavieestbelle78'), 'jean-marc', NOW());" );
+		return false;
 	}
 	
-	
-	public bool modifListeAjoutQuestion(int idq)
+	public Boolean modifListeAjoutQuestion()
 	{
 		System.out.println("entrer l'id de la question a rajouter");	//sera normalement modifier a la fusion avec l'interface
 		Scanner keyboard = new Scanner(System.in);
-		int idq = keyboard.nextint();
+		int idq = keyboard.nextInt();
 	/*ecriture dans un fichier , sera remplacer par une requete sql quand la bdd sera implementé*/
 	
 	File f = new File ("/listedata.txt");
 	try 
 	{
 		FileWriter fw = new FileWriter (f);
-		String line = idliste+idq;
+		String line = String.valueOf(idliste)+"/"+String.valueOf(idq);
 		fw.write (line);
-        	fw.write ("\r\n");
-    		fw.close();	
+        fw.write ("\r\n");
+    	fw.close();	
+	}
+	catch (FileNotFoundException e) {
+		e.printStackTrace();
+		return false;
 	} 
 	/****************************************************************************************/	
 		
 	}
-	public bool modifListeSuppressionQuestion()
+	public Boolean modifListeSuppressionQuestion()
 	{
 		System.out.println("entrer l'id de la question a retirer");	//sera normalement modifier a la fusion avec l'interface
 		Scanner keyboard = new Scanner(System.in);
-		int idq = keyboard.nextint();
+		int idq = keyboard.nextInt();
+		return false;
 	}
 	/* debut modication Liste */
 	
