@@ -3,9 +3,8 @@ import java.util.Vector;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.io.File;			//pour la simulation de bdd
-import java.util.Scanner; 
 
-class Serie
+class Liste
 {
 	private int idliste; 			//id
 	private String nomliste; 		//nom
@@ -13,19 +12,72 @@ class Serie
 	protected vector(question);		//vecteur question
 	protected int nbrquestion;		// Nombre de questions
 	Connection connection;			// Connection
-		
-	public static void main (String [] arg)      //main de test
-	{                
+	
+	/*debut getter setter*/
+	
+	
+	public int getIdSession()
+	{
+		return this.idsession;
 	}
+	
+	public String getSession()
+	{
+		return this.session;
+	}
+	
+	public int getIdAuthor()
+	{
+	return this.idauthor;
+	}
+	
+	public Vector getListe()
+	{
+		return this.liste;
+	}
+	
+	public Vector getQuestion()
+	{
+		return this.question;
+	}
+
+	public string getDatedebut()
+	{
+		return this.datedebut;
+	}
+	
+	public string getDatefin()
+	{
+		return this.datefin;
+	}
+	/* fin getter setter*/
+	
+	/* debut main */
+	
+	public static void main (String [] arg)      //main de test
+	{          
+		
+	}
+	
+	/* fin main */
+	
+	/* debut creation Liste */
 	
 	public bool creatListe()
 	{
 		
 	}
+	/* debut creation Liste */
+	
+	/* debut supression Liste */
+	
 	public bool suprListe()
 	{
 		
 	}	
+	
+	/* debut supression Liste */
+	
 	/* debut modication Liste */
 	public bool modifListeNom(int id)
 	{
