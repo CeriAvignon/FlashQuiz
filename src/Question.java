@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.util.Vector;
 import java.sql.Connection;
 import java.sql.DriverManager;
+//import connexionjm.ConnexionJM;
 
 public class Question
 {
@@ -12,19 +13,19 @@ public class Question
 	protected int typemedia;
 	protected int iduser;
 	protected int timer;
-	Connection connection;
+	//Connection connection;
 	
 	
-	public bool createQuest()
+	public boolean createQuest()
 	{
 		// Requete SQL de création dans la table
 	}
-	public bool celeteQuest()
+	/*public boolean celeteQuest()
 	{
 		
 	}
-	public bool modifyQuest()
+	public boolean modifyQuest()
 	{
 		
-	}
+	}*/
 }
