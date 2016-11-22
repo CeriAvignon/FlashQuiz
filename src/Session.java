@@ -37,8 +37,10 @@ class Session
 	/* Variable <String> privée:		implémentée par l'utilisateur.*/
 	private String datefin;
 	/* Variable <String> privée:		implémentée par l'utilisateur.*/
-
-		
+	//private Connection connection;
+	/* Variable <Connection> privée: 	Objet implémenté par un accès BDD sql 
+	A implementer plus tard 
+	*/
 	
 	public bool createSession(String session, String datedebut, String datefin)
 	// \param\
@@ -46,7 +48,7 @@ class Session
 		//if (l'utilisateur a cliqué sur le bouton de creation)
 		//{	
 			setIdSession(this.idsession);		// Pour le moment, initialiser quand BDD faite
-			setSession(session);
+			setNomSession(session);
 			setDatedebut(datedebut);
 			setDatefin(datefin);
 			setIdAuthor(author);			// faire passer le string par l'IG
