@@ -55,7 +55,7 @@ class Session
 	
 	public int getIdAuthor()
 	{
-		return this.idAuthor;
+		return this.idauthor;
 	}
 	
 	public Vector getListe()
