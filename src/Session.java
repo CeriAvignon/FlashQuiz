@@ -14,12 +14,25 @@
 class Session
 {
   	private int static idsession = 1;
+	/*variable <int> globale privée:	implémentée via une requête SQL vers l'id de la session
+						dépend fortement du groupe BDD
+	*/
 	private String session;
+	/* Variable <String> privée:		implémentée via une chaîne de caractères saisie par l'utilisateur*/
 	private int idauthor;
+	/* Variable <Int> privée:		implémentée via une requête SQL vers l'id de l'auteur*/
 	private Vector liste;
+	/* Variable <Vector> privée: 		implémentée durant une session, ou part la création de session.
+						dépend fortement du groupe TVS.
+	*/				
 	private Vector question;
+	/* Variable <Vector> privée: 		implémentée durant une session, ou part la création de question.
+						dépend fortement du groupe TVS.
+	*/
 	private String datedebut;
+	/* Variable <String> privée:		implémentée par l'utilisateur.*/
 	private String datefin;
+	/* Variable <String> privée:		implémentée par l'utilisateur.*/
 
 		
 	
