@@ -14,16 +14,16 @@
 class Session
 {
   	private int static idsession = 1;
-	private string session;
+	private String session;
 	private int idauthor;
 	private Vector liste;
 	private Vector question;
-	private string datedebut;
-	private string datefin;
+	private String datedebut;
+	private String datefin;
 
 		
 	
-	public bool createSession(string session, string datedebut, string datefin)
+	public bool createSession(String session, String datedebut, String datefin)
 	// \param\
 	{
 		//if (l'utilisateur a cliqué sur le bouton de creation)
@@ -48,7 +48,7 @@ class Session
 		return this.idsession;
 	}
 	
-	public string getSession()
+	public String getSession()
 	{
 		return this.session;
 	}
