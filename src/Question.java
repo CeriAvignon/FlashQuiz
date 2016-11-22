@@ -37,7 +37,7 @@ public class Question {
 	 *      String type)
 	 * @see Question#type
 	 */
-	private Vector<String> answers;
+	private Vector<Answer> answers;
 
 	/**
 	 * The question type ("Free","Radio","Checkbox")
@@ -66,7 +66,7 @@ public class Question {
 	 * @see Question#answers
 	 * @see Question#type
 	 */
-	public Question(int id, String statement, Vector<String> answers, String type) {
+	public Question(int id, String statement, Vector<Answer> answers, String type) {
 		this.id = id;
 		this.statement = statement;
 		this.answers = answers;
@@ -114,7 +114,7 @@ public class Question {
 	 *
 	 * @see Question#statement
 	 */
-	public Vector<String> getAnswers() {
+	public Vector<Answer> getAnswers() {
 		return answers;
 	}
 
@@ -126,7 +126,7 @@ public class Question {
 	 *
 	 * @see Question#statement
 	 */
-	public void setAnswers(Vector<String> S) {
+	public void setAnswers(Vector<Answer> S) {
 		answers = S;
 	}
 
