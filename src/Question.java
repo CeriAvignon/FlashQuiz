@@ -11,7 +11,7 @@ public class Question
 	protected int typequestion;
 	protected String mediafile;
 	protected int typemedia;
-	protected int iduser;
+	protected int idautho;
 	protected int timer;
 	//Connection connection;
 	
