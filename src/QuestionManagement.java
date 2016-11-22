@@ -1,19 +1,22 @@
 /**
- * questionManagement class
+ * QuestionManagement class
  *
  * @author Delvaux Julien
  */
 
-public class questionManagement {
+import java.awt.event.*;
+import javax.swing.Timer;
+
+public class QuestionManagement {
 
 	/**
 	 * The time remaining allocated to the question in seconds.
-	 It is set by the creator of the question.
-	 If timeLeft reachs 0, it goes to the next question.
+	 * It is set by the creator of the question.
+	 * If timeLeft reachs 0, it goes to the next question.
 	 *
 	 * @see questionManagement#isTimeOut()
 	 */
-	private int timeLeft;
+	// private int timeLeft;
 
 	/**
 	 * The button pressed checker
@@ -29,8 +32,11 @@ public class questionManagement {
 	 */
 	private int force;
 
+	// private ActionListener timeOutListener;
+	private Timer timer;
+
 	/**
-	 * questionManagement constructor
+	 * QuestionManagement constructor
 	 *
 	 * @param time
 	 *            An int representing time in seconds allocated to answer the question
@@ -39,12 +45,32 @@ public class questionManagement {
 	 * @param force
 	 *            An int that indicates if the admin forced the next question
 	 */
-	public questionManagement(int time, int button, int force) {
-
-		this.timeLeft = time;
+	public QuestionManagement(int time, int button, int force) {
+		// this.timeLeft = time;
+		setAllocatedTime(time);
 		this.button   = button;
 		this.force    = force;
 	}
+
+	/**
+	 * Set a timer. Do something when delay is finished (here it prints text).
+	 *
+	 */
+	public void setAllocatedTime(int timeLeft) {
+
+		int delay = timeLeft * 1000; // convert in milliseconds
+
+		ActionListener timeOutListener = new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				System.out.println("Time left!");
+			}
+		};
+
+		this.timer = new Timer(delay, timeOutListener);
+		this.timer.setRepeats(false); // happen once
+		this.timer.start();
+	}
+
 
 	/**
 	 * Check if the time allocated to the question have expired.
@@ -53,7 +79,8 @@ public class questionManagement {
 	 */
 	public boolean isTimeOut() {
 
-		return (timeLeft == 0);
+		// return (timeLeft == 0);
+		return false;
 	}
 
 	/**
@@ -98,6 +125,7 @@ public class questionManagement {
 		System.out.println("Hello world !");
 		a.isTimeOut(0);
 		a.isNextButtonPressed(1);
+
 	}*/
 
 }
