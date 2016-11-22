@@ -42,7 +42,43 @@ class Session
 		
 	}
 	
+	/*********************** GETTERS *******************************************/
+	public int getIdSession()
+	{
+		return this.idsession;
+	}
+	
+	public string getSession()
+	{
+		return this.session;
+	}
+	
+	public int getIdAuthor()
+	{
+		return this.idAuthor;
+	}
+	
+	public Vector getListe()
+	{
+		return this.liste;
+	}
+	
+	public Vector getQuestion()
+	{
+		return this.question;
+	}
 
+	public string getDatedebut()
+	{
+		return this.datedebut;
+	}
+	
+	public string getDatefin()
+	{
+		return this.datefin;
+	}
+	
+	
 	/*********************** SETTERS *******************************************/
 	public void setIdSession(int idsession)
 	{
