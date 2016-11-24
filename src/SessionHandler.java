@@ -27,9 +27,9 @@ public void sendSession(Session s)
 	Statement statement = connexion.createStatement();
 	ResultSet res=null;	
 	try{
-		if(idSession == -1) // si session n'existe pas
+		if(idSession == -1)
 	{
-		res = statement.executeQuery( "SELECT * FROM Sessions WHERE Titre_Session=nomSession;"); //verifie si la session existe deja
+		res = statement.executeQuery( "SELECT * FROM Sessions WHERE Titre_Session=nomSession;"); //verifie si la session n'existe pas
 		if(res == null)
 		{
 			//on insere les donnees dans la BDD
