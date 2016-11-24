@@ -67,29 +67,43 @@ public void sendSession(Session s)
 			}
 		}
 		else //si session existe
-			
-			
-			
-	{
-		res = statement.executeQuery( "SELECT * FROM Sessions WHERE ID_Session=idsession;");
-	}
-		if(res == null)
-		{
-			System.out.println("ERREUR! Session n'existe pas!");
-		}
-		else
-		{
+		{	
 		//on fait la mise a jour de la BDD
-		ret = statement.executeUpdate("UPDATE Sessions SET ;");
-			// Supprimer tout dans Session_Contenu WHERE ID_Session = $idsession
-			for (List l:listeliste) {
+			query = "UPDATE Sessions SET (Date_Ouverture=?, Date_Fermeture=?, Type_Session=?, Titre_Session=?, MotDePasse=?) WHERE ID_Session=?;"
+			res = statement.executeQuery(query);
+			prepare.setObject(1,s.datedebut());
+			prepare.setObject(2,s.datefin());
+			prepare.setObject(3,typesession);
+			prepare.setObject(4,namesession);
+			prepare.setObject(5,password);
+			prepare = cnx.prepareStatement(query);
+			for (List l:listeliste) 
+			{
+				//envoye la liste
 				sendListe(l);
-				if (l.getIDLIste != -1)  {
-					// Ajouter dans Session_Contenu INSERT (ID_Session,ID_Liste) values ($idsession,$
+				//si la liste s'est bien enregistrée
+				if (l.getIdListe() != -1)  
+				{
+					// Ajouter dans Session_Contenu 
+					query = "INSERT INTO Session_Contenu (ID_Session,ID_Liste) values (?,?));";
+					prepare = cnx.prepareStatement(query);
+					prepare.setObject(1,idsession);
+					prepare.setObject(2,s.getIdListe());
+					prepare.executeUpdate();
+					prepare.close();
+					res.close();
 				}
-			}
+				else
+				{
+					System.out.println("ERREUR!");
+				}
+			}	
 		}
-	} 
+
+
+
+		}
+ 
 	catch (Exception e) 
 	{
 		e.printStackTrace();
