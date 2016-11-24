@@ -11,7 +11,7 @@ private String datefin;
 private boolean typesession;
 private String namesession;
 private String password;
-//protected Vector<Liste>listeliste;
+protected Vector<Liste>listeliste;
 
 public void sendSession(Session s)
 	{
@@ -21,29 +21,20 @@ public void sendSession(Session s)
 	typesession = s.getTypeSession();					//recupere le type de session
 	namesession = s.getNomSession();					// recupere le nom de session
 	password = s.getPassword();						//recupere le mot de passe
-	//listeliste = list.getListeListe(); 					//recuepre la liste des listes
+	listeliste = list.getListeListe(); 					//recupere la liste des listes
 	
 	int ret;								//cree une requette
 	Statement statement = connexion.createStatement();
 	ResultSet res=null;	
 	try{
-		if(idSession == -1)
+		if(idSession == -1) // si s existe pas
 	{
-		res = statement.executeQuery( "SELECT * FROM Sessions WHERE Titre_Session=nomSession;"); //verifie si la session n'existe pas
-		if(res == null)
-		{
 			//on insere les donnees dans la BDD
-			ret.statement.executeUpdate("INSERT INTO Sessions(ID_Session, ID_Liste, Date_Ouverture, Date_Fermeture, Type_Session, Titre_Session) VALUES(idsession, idliste, datedebut, datefin, typesession, namesession);");
-		}
-			
-		else
-		{
-			 System.out.println("ERREUR! Session existe deja!");
-		}
+			ret.statement.executeUpdate("INSERT INTO Sessions(ID_Session, Date_Ouverture, Date_Fermeture, Type_Session, Titre_Session) VALUES($idsession, $datedebut, $datefin, $typesession, $namesession);");
 	}
 	else //si session existe
 	{
-		res = statement.executeQuery( "SELECT * FROM Sessions WHERE Titre_Session=nomsession;");
+		res = statement.executeQuery( "SELECT * FROM Sessions WHERE ID_Session=$idsession;");
 	}
 		if(res == null)
 		{
@@ -52,8 +43,14 @@ public void sendSession(Session s)
 		else
 		{
 		//on fait la mise a jour de la BDD
-		//update
-		// ret.statement.executeUpdate("UPDATE Sessions SET ;");
+		ret.statement.executeUpdate("UPDATE Sessions SET ;");
+			// Supprimer tout dans Session_Contenu WHERE ID_Session = $idsession
+			for (List l:listeliste) {
+				sendListe(l);
+				if (l.getIDLIste != -1)  {
+					// Ajouter dans Session_Contenu INSERT (ID_Session,ID_Liste) values ($idsession,$
+				}
+			}
 		}
 	} 
 	catch (Exception e) 
