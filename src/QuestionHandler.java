@@ -15,10 +15,7 @@ public class QuestionHandler {
 		/*******************************************************************/
 		
 		String query="";
-		//PreparedStatement prepare = conn.prepareStatement(query);
-		//Statement statement = connexion.createStatement();
-		//int retour;
-		PreparedStatement prepare;
+		PreparedStatement prepare = cnx.prepareStatement();
 		Statement statement = cnx.createStatement();
 		ResultSet res;
 		int id_media;
@@ -30,33 +27,57 @@ public class QuestionHandler {
 			prepare.setObject(2,mediafile); 
 			res = prepare.executeQuery();
 			boolean retour=res.first();
+			if(retour)id_media = res.getInt("ID_Media");
 			prepare.close();
 			res.close();
-			/*************************************************************************************/
+			
 			if(!retour)//Le media n'existe pas
 			{
 				
 			/**********************Ajout du media si il n'existe pas******************************/
 				query="INSERT INTO Media(TYPE,Contenu_media) VALUES(?,?);";
+				prepare = cnx.prepareStatement(query);
 				prepare.setObject(1,typeMedia);
 				prepare.setObject(2,mediafile);
 				prepare.executeUpdate();
 				prepare.close();
 				res.close();
-				res.statement.executeQuery("SELECT curval(pg_get_serial_sequence('Media','ID_Media'));");
+				/****recup de l'id du media ***/
+				res=statement.executeQuery("SELECT curval(pg_get_serial_sequence('Media','ID_Media'));");
 				id_media = res.getInt("ID_Media");
-			/*************************************************************************************/
-			}
+				statement.close();
+				res.close();
 			
-			res = statement.executeQuery( "SELECT ID_Media FROM Media;" );
-			res=resultat.next();
-			retour = statement.executeUpdate("INSERT INTO Questions(TYPE_Question,Contenu_Question,ID_Media) VALUES(contenu,typeQuestion,idMedia)");
+			}
+			/**********************insertion de la question***************************************/
+			query="INSERT INTO Questions(TYPE_Question,Contenu_Question,ID_Media) VALUES(?,?,?);";
+			prepare = cnx.prepareStatement(query);
+			prepare.setObject(1,contenu);
+			prepare.setObject(2,typeQuestion);
+			prepare.setObject(3,id_media);
+			prepare.executeUpdate();
+			prepare.close();
+			res.close();
+			/****recup de l'id de la question ***/
+			res=statement.executeQuery("SELECT curval(pg_get_serial_sequence('Questions','ID_Question'));");
+			int id_question = res.getInt("ID_Question");
+			statement.close();
+			res.close();
+			question.setIdQuestion(id_question);
+		
 		}
 		else //La question existe déjà
 		{
-			//faire un update
+			/**************************Mise à jour de la question***************************/
+			query="UPDATE Questions SET TYPE_Question=?,Contenu_Question=?,ID_Media=? WHERE ID_Question=? ;";
+			prepare = cnx.prepareStatement(query);
+			prepare.setObject(1,contenu);
+			prepare.setObject(2,typeQuestion);
+			prepare.setObject(3,id_media);
+			prepare.setObject(4,idQuestion);
+			prepare.executeUpdate();
+			prepare.close();
+			res.close();
 		}
-		
-		//faire exception pour retour d'id
 	}
 };
