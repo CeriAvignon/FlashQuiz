@@ -4,7 +4,11 @@ import java.util.Vector;		// Création <vector> question / <vector> liste
 import java.sql.Connection;		// Connection connection = new Connection (...)
 import java.sql.DriverManager;		// Accès pour la BDD
 import java.io.File;			// pour la simulation de bdd --> Phases de tests par lecture/ écriture
-import javax.swing.Timer;
+import javax.swing.*;
+import java.util.Calendar;		//Calendrier
+import java.awt.event.*;
+import java.util.Timer;			// Timer
+import java.util.TimerTask;		// Effectuer tâche (evenement) pour timer
 //import connexionjm.ConnexionJM;		// Package liée à la BDD --> Package \author :@HUOT AMAURY
 /*! 
 *	\file Session.java
@@ -12,6 +16,7 @@ import javax.swing.Timer;
 *	\author {Le Veve Mathieu}
 *	\date xx/10/2016
 *	\date 22/11/2016
+*	\date 24/11/2016
 *
 *	\class <Session> Session.java 	Session
 *	\brief	Fichier en java qui crée une session, pour le moment avec ses getters/ setters pour créer une session
@@ -165,7 +170,7 @@ public class Session
 	
 	public void setQuestion(Vector question)
 	{
-		this.question = question;
+		this.question = question;https://coderanch.com/t/392512/java/Geting-Current-Time-Seconds
 	}*/
 	
 	public void setDatedebut(String datedebut)
@@ -247,12 +252,24 @@ public class Session
 				System.out.println("Pour voir les informations de la session, saisissez le mot de passe.");
 				password = keyboard.nextLine();
 				if (password.equals(B.getPassword())) B.printSession();
-				/*int delay = 1000;
-					tester un timer ici 
-				*/
+				long temps = 2000;                      // délai avant de répéter la tache : 2000 = 2  seconde
+        		long startTime = 5000;                 	// délai avant la mise en route (0 demarre immediatement)
+        		Timer timer = new Timer();             	// création du timer
+        		TimerTask tache = new TimerTask() {    	// création et spécification de la tache à effectuer
 
-			}
+               		public void run() {
+					Calendar calendar = Calendar.getInstance();
+					System.out.println("Nous sommes le " + calendar.get(Calendar.DAY_OF_MONTH) +"/"+ calendar.get(Calendar.MONTH)+"/"+calendar.get(Calendar.YEAR));
+					System.out.println("Seconds in current minute = " + calendar.get(Calendar.SECOND));
 
+
+                	}
+       			};
+        		timer.scheduleAtFixedRate(tache,startTime,temps);  // ici on lance la mecanique
+
+ 
+        	}
+ 
 			else
 			{
 				System.out.println("Veuillez saisir un mot de passe");
