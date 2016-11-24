@@ -6,6 +6,7 @@ public class QuestionHandler {
 	
 	public void sendQuestion(Question question)
 	{
+		Connection cnx=connecterDB();///////à voir
 		/****************Récupération de la question ***********************/
 		int idQuestion = question.getIdQuestion();
 		String contenu = question.getIntitule();
