@@ -10,6 +10,7 @@ private String datedebut;
 private String datefin;
 private boolean typesession;
 private String namesession;
+//protected Vector<Liste>Liste;
 
 public void sendSession(Session s)
 	{
