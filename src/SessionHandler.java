@@ -10,26 +10,29 @@ private String datedebut;
 private String datefin;
 private boolean typesession;
 private String namesession;
-//protected Vector<Liste>Liste;
+private String password;
+//protected Vector<Liste>listeliste;
 
 public void sendSession(Session s)
 	{
-	idsession = s.getIdSession();
-	idliste = s.getIdListe();
-	datedebut = s.getDateDebut();
-	datefin = s.getDateFin();
-	typesession = s.getTypeSession();
-	namesession = s.getNomSession();	
+	idsession = s.getIdSession();						//recupere l'id de la session
+	datedebut = s.getDateDebut();						// recupere la date de debut
+	datefin = s.getDateFin();						// recupere la date de debut
+	typesession = s.getTypeSession();					//recupere le type de session
+	namesession = s.getNomSession();					// recupere le nom de session
+	password = s.getPassword();						//recupere le mot de passe
+	//listeliste = list.getListeListe(); 					//recuepre la liste des listes
 	
-	int ret;	
+	int ret;								//cree une requette
 	Statement statement = connexion.createStatement();
 	ResultSet res=null;	
 	try{
 		if(idSession == -1) // si session n'existe pas
 	{
-		res = statement.executeQuery( "SELECT * FROM Sessions WHERE Titre_Session=nomSession;");
+		res = statement.executeQuery( "SELECT * FROM Sessions WHERE Titre_Session=nomSession;"); //verifie si la session existe deja
 		if(res == null)
 		{
+			//on insere les donnees dans la BDD
 			ret.statement.executeUpdate("INSERT INTO Sessions(ID_Session, ID_Liste, Date_Ouverture, Date_Fermeture, Type_Session, Titre_Session) VALUES(idsession, idliste, datedebut, datefin, typesession, namesession);");
 		}
 			
@@ -48,6 +51,7 @@ public void sendSession(Session s)
 		}
 		else
 		{
+		//on fait la mise a jour de la BDD
 		//update
 		// ret.statement.executeUpdate("UPDATE Sessions SET ;");
 		}
