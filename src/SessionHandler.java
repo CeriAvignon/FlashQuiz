@@ -23,14 +23,24 @@ public void sendSession(Session s)
 	password = s.getPassword();						//recupere le mot de passe
 	listeliste = list.getListeListe(); 					//recupere la liste des listes
 	
-	int ret;								//cree une requette
+	int ret;
+	int req; //cree une requette
 	Statement statement = connexion.createStatement();
 	ResultSet res=null;	
 	try{
-		if(idSession == -1) // si s existe pas
+		if(idSession == -1) // si session existe pas
 	{
 			//on insere les donnees dans la BDD
-			ret.statement.executeUpdate("INSERT INTO Sessions(ID_Session, Date_Ouverture, Date_Fermeture, Type_Session, Titre_Session) VALUES($idsession, $datedebut, $datefin, $typesession, $namesession);");
+			ret.statement.executeUpdate("INSERT INTO Sessions(Date_Ouverture, Date_Fermeture, Type_Session, Titre_Session) VALUES($datedebut, $datefin, $typesession, $namesession);");
+			//on recupere l'id de la session
+			res.statement.executeQuery("SELECT currval(pg_get_serial_sequence('Sessions','ID_Session'));");
+			for (List l:listeliste) {
+				sendListe(l);
+				if (l.getIDLIste() != -1)  {
+					// Ajouter dans Session_Contenu 
+					req.statement.executeUpdate("INSERT INTO Session_Contenu (ID_Session,ID_Liste) values (?,?));");
+				}
+			}
 	}
 	else //si session existe
 	{
