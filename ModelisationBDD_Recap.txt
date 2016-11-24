@@ -39,7 +39,7 @@ Comme j'ai dis les première notes sont bordéliques, la suite sera plus épuré
 
 
 update des prof:
-fuck les votants et les concepteurs ça existe plus.
+Plus de votants et de concepteurs ça existe plus.
 on ne différencie QUE utilisateur et administrateur, cependant il y aura des niveau d'autorisation //a voir
 
 les gens peuvent créer en local des quiz pour apres les upload
@@ -85,11 +85,6 @@ chaque session peut avoir un temps
 Il peut y avoir un certain temps apr question
 
 
- !!!! Le systeme votant/concepteur est un gros bullshit insane, je checkerais avec les autre + tard !!!!
-
-
-
-Votant => android
 
 
 
@@ -106,9 +101,6 @@ IDL IDQ
 1	51
 */
 
-
-
-EDIT 21 novembre: Le fait qu'il y ai des redondance au niveau des listes est du au fait qu'une question est ré utilisable pour plusieurs liste/session, donc ce n'est pas elle qui est lié a la liste, mais la liste qui contient ces question. Methode pour que ça soit plus pratique et sans redondance ?
 
 
 
