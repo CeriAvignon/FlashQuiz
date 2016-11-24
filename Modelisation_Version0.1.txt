@@ -13,6 +13,7 @@ TABLE Sessions_Metadata :
 	DATE Date_Fermeture
 	BOOL Type_Session					#Session Live, ou Session Libre
 	VARCHAR(48) Titre_Session
+	VARCHAR(32) MotDePasse
 
 TABLE Sessions_Contenu :
 	INT ID_Session
