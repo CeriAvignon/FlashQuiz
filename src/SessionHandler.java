@@ -48,6 +48,7 @@ public void sendSession(Session s)
 		else
 		{
 		//update
+		// ret.statement.executeUpdate("UPDATE Sessions SET ;");
 		}
 	} 
 	catch (Exception e) 
