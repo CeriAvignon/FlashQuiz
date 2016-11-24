@@ -70,28 +70,21 @@ public void sendSession(Session s)
 		{	
 		//on fait la mise a jour de la BDD
 			query = "UPDATE Sessions SET (Date_Ouverture=?, Date_Fermeture=?, Type_Session=?, Titre_Session=?, MotDePasse=?) WHERE ID_Session=?;"
-			res = statement.executeQuery(query);
+			prepare = cnx.prepareStatement(query);
 			prepare.setObject(1,s.datedebut());
 			prepare.setObject(2,s.datefin());
 			prepare.setObject(3,typesession);
 			prepare.setObject(4,namesession);
 			prepare.setObject(5,password);
-			prepare = cnx.prepareStatement(query);
+			res = statement.executeQuery(query);
 			prepare.close();
 			res.close();
 	//supprimer continu Sesseion_contenu		
-/*			query = "UPDATE Sessions SET (Date_Ouverture=?, Date_Fermeture=?, Type_Session=?, Titre_Session=?, MotDePasse=?) WHERE ID_Session=?;"
+			//suppression 
+			// res = statement.executeQuery("DELETE * IN Session_Contenu WHERE ;");
 			
-			prepare = cnx.prepareStatement(query);
-			prepare.setObject(1,s.datedebut());
-			prepare.setObject(2,s.datefin());
-			prepare.setObject(3,typesession);
-			prepare.setObject(4,namesession);
-			prepare.setObject(5,password);
-			res = statement.executeQuery(query);
-			prepare.close();
 			res.close();			
-*/
+
 			for (List l:listeliste) 
 			{
 				//envoye la liste
