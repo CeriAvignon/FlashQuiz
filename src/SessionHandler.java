@@ -1,5 +1,7 @@
 import java.io.*;
 import java.util.*;
+import java.sql.*;
+package ques;
 import ConnexionJM.java;
 
 public class SessionHandler {
@@ -12,9 +14,12 @@ private boolean typesession;
 private String namesession;
 private String password;
 protected Vector<Liste>listeliste;
+	
 
 public void sendSession(Session s)
 	{
+	Connection cnx=connecterDB(); //connection ?
+	
 	idsession = s.getIdSession();						//recupere l'id de la session
 	datedebut = s.getDateDebut();						//recupere la date de debut
 	datefin = s.getDateFin();						//recupere la date de debut
@@ -42,7 +47,7 @@ public void sendSession(Session s)
 					prepare.executeUpdate();
 					prepare.close();
 			//on recupere l'id de la session
-			res = statement.executeQuery("SELECT currval(pg_get_serial_sequence('Sessions','ID_Session')) as id;");
+			res = statement.executeQuery("SELECT currval(pg_get_serial_sequence('Sessions_Metadata','ID_Session')) as id;");
 			s.setIdSession(res.getInt(1));
 			for (List l:listeliste) 
 			{
@@ -79,9 +84,10 @@ public void sendSession(Session s)
 			res = statement.executeQuery(query);
 			prepare.close();
 			res.close();
-	//supprimer continu Sesseion_contenu		
+			
+			//supprimer continu Sesseion_contenu		
 			//suppression 
-			// res = statement.executeQuery("DELETE * IN Session_Contenu WHERE ;");
+			res = statement.executeQuery("DELETE FROM Session_Contenu WHERE ID_Session=idsession ;");
 			
 			res.close();			
 
