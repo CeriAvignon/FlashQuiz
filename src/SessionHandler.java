@@ -77,11 +77,27 @@ public void sendSession(Session s)
 			prepare.setObject(4,namesession);
 			prepare.setObject(5,password);
 			prepare = cnx.prepareStatement(query);
+			prepare.close();
+			res.close();
+	//supprimer continu Sesseion_contenu		
+/*			query = "UPDATE Sessions SET (Date_Ouverture=?, Date_Fermeture=?, Type_Session=?, Titre_Session=?, MotDePasse=?) WHERE ID_Session=?;"
+			
+			prepare = cnx.prepareStatement(query);
+			prepare.setObject(1,s.datedebut());
+			prepare.setObject(2,s.datefin());
+			prepare.setObject(3,typesession);
+			prepare.setObject(4,namesession);
+			prepare.setObject(5,password);
+			res = statement.executeQuery(query);
+			prepare.close();
+			res.close();			
+*/
 			for (List l:listeliste) 
 			{
 				//envoye la liste
 				sendListe(l);
 				//si la liste s'est bien enregistrée
+
 				if (l.getIdListe() != -1)  
 				{
 					// Ajouter dans Session_Contenu 
