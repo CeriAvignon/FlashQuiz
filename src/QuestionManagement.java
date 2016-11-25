@@ -117,15 +117,33 @@ public class QuestionManagement {
 		return (b_time || b_button || b_force);
 	}
 
+	// Documentation Timer:
+	// https://docs.oracle.com/javase/8/docs/api/javax/swing/Timer.html
+	// http://docs.oracle.com/javase/tutorial/uiswing/misc/timer.html
+	// http://stackoverflow.com/questions/2258066/java-run-a-function-after-a-specific-number-of-seconds
+	/**
+	 * Main (test)
+	 * Wait 10 seconds & set timer to 5 seconds.
+	 */
+	public static void main(String[] args) {
 
-	/*public static void main(String[] args) {	// Main test
+		int timeLeft = 5; // time in seconds allocated to the question
+		int button   = 0; // ??
+		int force    = 0; // ??
 
-		finQuestion a = new finQuestion(0, 1);
+		int wait = 10000; // in milliseconds
 
-		System.out.println("Hello world !");
-		a.isTimeOut(0);
-		a.isNextButtonPressed(1);
+		QuestionManagement question = new QuestionManagement(timeLeft,button,force);
 
-	}*/
+		System.out.println("Hello world!");
 
+		// Wait
+		try {
+			Thread.sleep(wait);
+		} catch(InterruptedException ex) {
+			Thread.currentThread().interrupt();
+		}
+
+		System.out.println("Finished!");
+	}
 }
