@@ -194,18 +194,74 @@ public class Session
 		this.typesession = typesession;
 	}
 
-	/*public bool deleteSession()
+	public Boolean deleteSession(String name)throws SQLException 
 	{
-		if (Evenement choisi par l'utilisateur pour valider la suppression cible une session)
-			{
-				delete la session en cascade;
-				return true;
-			} 
-		return false;
-	}*/
+		boolean result=false;
+		/*Se connecter a la BD*////		delete la session en cascade;
+		ConnectionJM conn=null;		
+		try {
+		Connection cnx=conn.ConnectionDB();
+		 
+		PreparedStatement preparedStatement = null;
+		String deleteSQL = "DELETE Sessions WHERE ID_Session  =  ?";
+		preparedStatement = cnx.prepareStatement(deleteSQL);
+		preparedStatement.setString(1, name);
+		int rowsDeleted = preparedStatement.executeUpdate();
+			if (rowsDeleted > 0) {
+				result=true;
+    				System.out.println("Session was deleted successfully!");
+				}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+
+		} finally {
+			if (preparedStatement != null) {
+				preparedStatement.close();
+			}
+			if (dbConnection != null) {
+				dbConnection.close();
+			}
+		}
+				
+		return result;
+			 
+		///return false;
+	}
 	
-	//public bool modifySession()
-	//{}
+	public boolean modifySession(Session session,String ancien_session)
+	{
+		boolean result=false;
+		ConnectionJM conn=null;		
+		try {
+		Connection cnx=conn.ConnectionDB();
+		 
+		PreparedStatement preparedStatement = null;
+		String updateSQL = "UPDATE Sessions SET Date_Ouverture=?,Date_Fermeture=?,Titre_Session =?,MotDePasse=? WHERE Titre_Session  =  ?";
+		preparedStatement = cnx.prepareStatement(updateSQL);
+		preparedStatement.setString(1, session.getDatedebut());
+		preparedStatement.setString(2,session.getDatefin());
+		preparedStatement.setBoolean(3,session.getTypeSession());
+		preparedStatement.setString(4,session.getNomSession());
+		preparedStatement.setString(5,session.getPassword());
+		preparedStatement.setString(6,ancien_session);
+		int rowsUpdate = preparedStatement.executeUpdate();
+			if (rowsUpdate > 0) {
+				result=true;
+    				System.out.println("Session was updated successfully!");
+				}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+
+		} finally {
+			if (preparedStatement != null) {
+				preparedStatement.close();
+			}
+			if (dbConnection != null) {
+				dbConnection.close();
+			}
+		}
+		
+	}
 	
 	public void printSession()
 	{
@@ -282,6 +338,46 @@ public class Session
 		}
 
 		else System.exit(0);
+		/**********Suppression session*********/
+		Session s=new Session()
+		System.out.println("Voulez-vous supprimer une session?(y/n)");
+			if (readingOfKeyboard() == true)
+			{
+				System.out.println("Veuillez saisir le nom de la session?");	
+				Scanner keyboard = new Scanner(System.in);			
+				String name = keyboard.nextLine();				
+				boolean result=s.deleteSession(name);
+				if(result)
+					System.out.println("La session"+name+"est supprimée");
+				else
+					System.out.println("erreur de suppression");
+			}
+			else System.exit(0);
+		/*************Modifier session*****************/
+		System.out.println("Voulez-vous modifier une session?(y/n)");
+		if (readingOfKeyboard() == true)
+			{
+				System.out.println("Veuillez saisir le nom de la session a modifié?");	
+				Scanner keyboard = new Scanner(System.in);			
+				String ancien_name = keyboard.nextLine();
+				System.out.println("Veuillez saisir le  nouveau nom de la session ");
+				String nv_name = keyboard.nextLine();
+				System.out.println("Veuillez saisir une nouvelle date de début de session (format xx/xx/xxxx)");
+				String nv_datedebut = keyboard.nextLine();
+				System.out.println("Veuillez saisir une nouvelle date de fin de session (format xx/xx/xxxx)");
+				String nv_datefin = keyboard.nextLine();
+				System.out.println("Veuillez saisir le nouveau un mot de passe");
+				String nv_password = keyboard.nextLine();				
+				Session b = new Session(nv_name, nv_datedebut, nv_datefin, nv_password, true);
+				boolean result=s.modifySession(b,ancien_name);
+				if(result)
+					System.out.println("La session"+ancien_name+"est modifiée");
+				else
+					System.out.println("erreur de modification");
+				
+			}
+			else System.exit(0);
+		
 	}
 
 }
