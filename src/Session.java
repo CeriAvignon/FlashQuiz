@@ -58,34 +58,34 @@ public class Session
 	
 	public Session ()
 	{
-		//if (l'utilisateur a cliqué sur le bouton de creation)
-		//{	
-			this.idsession = 0;		// Pour le moment, initialiser quand BDD faite
-			this.session = "no name";
-			this.idauthor= 0;
-			this.datedebut = "no beginning date";
-			//this.setIdAuthor(author);			// faire passer le string par l'IG
-			this.datefin = "no ending date";
-			this.password = "no password";
-			this.typesession = false;
-		//	this.liste=
-		//}
-		//	this.question=
-		
-		//else 
+	//if (l'utilisateur a cliqué sur le bouton de creation)
+	//{	
+		this.idsession = 0;		// Pour le moment, initialiser quand BDD faite
+		this.session = "no name";
+		this.idauthor= 0;
+		this.datedebut = "no beginning date";
+		//this.setIdAuthor(author);			// faire passer le string par l'IG
+		this.datefin = "no ending date";
+		this.password = "no password";
+		this.typesession = false;
+	//	this.liste=
+	//}
+	//	this.question=
+	
+	//else 
 	
 	}
 
-		public Session (String session, String password, boolean typesession)
+	public Session (String session, String password, boolean typesession)
 	{
 
-			setIdSession(this.idsession);		// Pour le moment, initialiser quand BDD faite
-			setNomSession(session);
-			setDatedebut(datedebut);
-			setDatefin(datefin);
-			//setIdAuthor(author);			// faire passer le string par l'IG
-			setPassword(password);
-			setTypeSession(typesession);
+		setIdSession(this.idsession);		// Pour le moment, initialiser quand BDD faite
+		setNomSession(session);
+		setDatedebut(datedebut);
+		setDatefin(datefin);
+		//setIdAuthor(author);			// faire passer le string par l'IG
+		setPassword(password);
+		setTypeSession(typesession);
 	}
 	
 
@@ -93,13 +93,13 @@ public class Session
 	public Session (String session, String datedebut, String datefin, String password, boolean typesession)
 	{
 
-			setIdSession(this.idsession);		// Pour le moment, initialiser quand BDD faite
-			setNomSession(session);
-			setDatedebut(datedebut);
-			setDatefin(datefin);
-			//setIdAuthor(author);			// faire passer le string par l'IG
-			setPassword(password);
-			setTypeSession(typesession);
+		setIdSession(this.idsession);		// Pour le moment, initialiser quand BDD faite
+		setNomSession(session);
+		setDatedebut(datedebut);
+		setDatefin(datefin);
+		//setIdAuthor(author);			// faire passer le string par l'IG
+		setPassword(password);
+		setTypeSession(typesession);
 	}
 	
 	/*********************** GETTERS *******************************************/
