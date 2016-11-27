@@ -1,10 +1,10 @@
-/*import ConnexionJM.java;*/
-/*import Liste.java;*/
+import ConnexionJM.java;
+import Liste.java;
 import java.sql.*;
 import java.util.Vector;
 
 
-public class listHandle {
+public class ListHandler {
 	private String nomListe;
 	private int idAuthor;
 	private int idListe;
