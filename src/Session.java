@@ -9,7 +9,7 @@ import java.util.Calendar;		//Calendrier
 import java.awt.event.*;
 import java.util.Timer;			// Timer
 import java.util.TimerTask;		// Effectuer tâche (evenement) pour timer
-//import connexionjm.ConnexionJM;		// Package liée à la BDD --> Package \author :@HUOT AMAURY
+import connexionjm.ConnexionJM;		// Package liée à la BDD --> Package \author :@HUOT AMAURY
 /*! 
 *	\file Session.java
 *	\brief Fichier java Session
@@ -36,11 +36,11 @@ public class Session
 	/* Variable <String> privée:		implémentée via une chaîne de caractères saisie par l'utilisateur*/
 	private int idauthor;
 	/* Variable <Int> privée:		implémentée via une requête SQL vers l'id de l'auteur*/
-	//private Vector<Liste> liste;
+	private Vector<Liste> liste;
 	/* Variable <Vector> privée: 		implémentée durant une session, ou part la création de session.
 						dépend fortement du groupe TVS.
 	*/				
-	//private Vector<Question> question;
+	private Vector<Question> question;
 	/* Variable <Vector> privée: 		implémentée durant une session, ou part la création de question.
 						dépend fortement du groupe TVS.
 	*/
@@ -203,7 +203,7 @@ public class Session
 		Connection cnx=conn.ConnectionDB();
 		 
 		PreparedStatement preparedStatement = null;
-		String deleteSQL = "DELETE Sessions WHERE ID_Session  =  ?";
+		String deleteSQL = "DELETE Sessions WHERE idsession  =  ?";
 		preparedStatement = cnx.prepareStatement(deleteSQL);
 		preparedStatement.setString(1, name);
 		int rowsDeleted = preparedStatement.executeUpdate();
@@ -236,7 +236,7 @@ public class Session
 		Connection cnx=conn.ConnectionDB();
 		 
 		PreparedStatement preparedStatement = null;
-		String updateSQL = "UPDATE Sessions SET Date_Ouverture=?,Date_Fermeture=?,Titre_Session =?,MotDePasse=? WHERE Titre_Session  =  ?";
+		String updateSQL = "UPDATE Sessions SET datedebut=?,datefin=?,session =?,password=? WHERE session  =  ?";
 		preparedStatement = cnx.prepareStatement(updateSQL);
 		preparedStatement.setString(1, session.getDatedebut());
 		preparedStatement.setString(2,session.getDatefin());
