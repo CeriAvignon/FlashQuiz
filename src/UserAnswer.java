@@ -47,7 +47,7 @@ class UserAnswer {
 	 * Setter of the question id
 	 * 
 	 * @param questionId
-	 *            The question id
+	 * 
 	 * @see UserAnswer#questionId
 	 */
 	public void setQuestionId(int questionId) {
@@ -69,7 +69,7 @@ class UserAnswer {
 	 * Setter of the user answer
 	 * 
 	 * @param userAnswer
-	 *            The user answer
+	 * 
 	 * @see UserAnswer#userAnswer
 	 */
 	public void setUserAnswer(String userAnswer) {
@@ -91,7 +91,8 @@ class UserAnswer {
 	 * Getter of the answer state : Answered or not
 	 * 
 	 * @param answered
-	 *            The answer state
+	 * 
+	 * @see UserAnswer#answered
 	 */
 	public void setAnswered(boolean answered) {
 		this.answered = answered;
