@@ -56,7 +56,8 @@ class Series {
 	 * @see Series#id
 	 * @see Series#questions
 	 */
-	public Series(String name, String nameCreator, int id, Vector<Question> questions) {
+	public Series(String name, String nameCreator, int id,
+			Vector<Question> questions) {
 		this.name = name;
 		this.nameCreator = nameCreator;
 		this.id = id;

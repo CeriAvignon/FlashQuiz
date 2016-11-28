@@ -66,7 +66,8 @@ public class Question {
 	 * @see Question#answers
 	 * @see Question#type
 	 */
-	public Question(int id, String statement, Vector<Answer> answers, String type) {
+	public Question(int id, String statement, Vector<Answer> answers,
+			String type) {
 		this.id = id;
 		this.statement = statement;
 		this.answers = answers;
