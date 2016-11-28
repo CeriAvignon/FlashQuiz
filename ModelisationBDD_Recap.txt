@@ -122,41 +122,5 @@ Un utilisateur détermine un identifiant qui lui est propre, un nom, prenom, ain
 Les questions sont stocké dans la bdd et sont utilisable par n'importe qui, on peut se reservir d'ancienne question pour produire de nouvelles liste.
 Une sessions peut contenir plusieurs listes de question
 
-TABLE Sessions :
-	[INT ID_Session
-	INT ID_Liste
-	DATE Date_Ouverture
-	DATE Date_Fermeture
-	BOOL Type_Session					//Session Live, ou Session Libre
-	VARCHAR(48) Titre_Session
 
-TABLE List_Metadata : # Infos générales des listes (titre...)
-	[INT ID_Liste
-	INT ID_Utilisateur
-	VARCHAR(32) Titre_Liste
-TABLE List_content : # Contenu (questions dans la liste)
-	[INT ID_Liste
-	[INT ID_Question
-
-
-TABLE Questions :
-	[INT ID_Question
-	INT Type_Question					//radio, checkbox, etc
-	TEXT Contenu_Question
-	INT ID_Media						//image, etc
-
-TABLE Scores :
-	[INT ID_Session
-	[INT ID_utilisateur
-	INT score
-
-TABLE Reponses :
-	[INT ID_reponse
-	INT ID_question
-	TEXT contenu_réponse
-	BOOl Correcte? //bool
-
-TABLE Media :
-	INT ID_Media
-	INT type
-TEXT contenu # url, ou chemin local
+#EDIT 28/11/2016 : Il faut enregistrer les stat des sessions. a voir.
