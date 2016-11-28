@@ -24,8 +24,8 @@ TABLE Liste_Metadata :	# Infos générales des listes (titre...)	/ liste, certai
 	INT ID_Utilisateur
 	VARCHAR(32) Titre_Liste
 TABLE Liste_Contenu :	# Contenu (questions dans la liste)
-	[INT ID_Liste
-	[INT ID_Question
+	INT ID_Liste
+	INT ID_Question
 
 
 TABLE Questions :
@@ -46,7 +46,7 @@ TABLE Reponses :
 	BOOl Correcte
 
 TABLE Media :
-	INT ID_Media
+	[INT ID_Media
 	INT Type
 	TEXT Contenu_media # url, ou chemin local
 
