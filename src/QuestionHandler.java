@@ -25,7 +25,7 @@ public class QuestionHandler {
 			/*************************Requete qui verifie l'existence du media*********************/
 			query="SELECT * FROM Media WHERE Contenu_media=?;";
 			prepare = cnx.prepareStatement(query);
-			prepare.setObject(2,mediafile); 
+			prepare.setObject(1,mediafile); 
 			res = prepare.executeQuery();
 			boolean retour=res.first();
 			if(retour)id_media = res.getInt("ID_Media");
@@ -44,7 +44,7 @@ public class QuestionHandler {
 				prepare.close();
 				res.close();
 				/****recup de l'id du media ***/
-				res=statement.executeQuery("SELECT curval(pg_get_serial_sequence('Media','ID_Media'));");
+				res=statement.executeQuery("SELECT currval(pg_get_serial_sequence('Media','ID_Media'));");
 				id_media = res.getInt("ID_Media");
 				statement.close();
 				res.close();
@@ -60,7 +60,7 @@ public class QuestionHandler {
 			prepare.close();
 			res.close();
 			/****recup de l'id de la question ***/
-			res=statement.executeQuery("SELECT curval(pg_get_serial_sequence('Questions','ID_Question'));");
+			res=statement.executeQuery("SELECT currval(pg_get_serial_sequence('Questions','ID_Question'));");
 			int id_question = res.getInt("ID_Question");
 			statement.close();
 			res.close();
