@@ -4,6 +4,7 @@ TABLE Utilisateurs :
 	[INT ID_utilisateur
 	VARCHAR(32) Nom
 	VARCHAR(32) Prenom
+	VARCHAR(32) Login
 	VARCHAR(32) password
 	INT rank # Droit/Pouvoir, admin/utilisateur normal
 
@@ -23,6 +24,7 @@ TABLE Liste_Metadata :	# Infos générales des listes (titre...)	/ liste, certai
 	[INT ID_Liste
 	INT ID_Utilisateur
 	VARCHAR(32) Titre_Liste
+
 TABLE Liste_Contenu :	# Contenu (questions dans la liste)
 	INT ID_Liste
 	INT ID_Question
