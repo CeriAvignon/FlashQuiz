@@ -74,7 +74,7 @@ public void sendSession(Session s)
 		else //si session existe
 		{	
 		//on fait la mise a jour de la BDD
-			query = "UPDATE Sessions SET (Date_Ouverture=?, Date_Fermeture=?, Type_Session=?, Titre_Session=?, MotDePasse=?) WHERE ID_Session=?;"
+			query = "UPDATE Sessions SET (Date_Ouverture=?, Date_Fermeture=?, Type_Session=?, Titre_Session=?, MotDePasse=?) WHERE ID_Session=idsession;"
 			prepare = cnx.prepareStatement(query);
 			prepare.setObject(1,s.datedebut());
 			prepare.setObject(2,s.datefin());
@@ -87,7 +87,7 @@ public void sendSession(Session s)
 			
 			//supprimer continu Sesseion_contenu		
 			//suppression 
-			res = statement.executeQuery("DELETE FROM Session_Contenu WHERE ID_Session=idsession ;");
+			res = statement.executeQuery("DELETE FROM Session_Contenu WHERE ID_Session=idsession;");
 			
 			res.close();			
 
