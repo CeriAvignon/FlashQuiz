@@ -103,51 +103,117 @@ public class Session
 	}
 	
 	/*********************** GETTERS *******************************************/
+	
+	/**
+	* idsession attribute getter
+	*
+	* @author LE VEVE Mathieu
+	* @return return idsession attribute value
+	*/
 	public int getIdSession()
 	{
 		return this.idsession;
 	}
 	
+	/**
+	* session attribute getter
+	*
+	* @author LE VEVE Mathieu
+	* @return return session attribute value
+	*/
 	public String getNomSession()
 	{
 		return this.session;
 	}
 	
+	/**
+	* idauthor attribute getter
+	*
+	* @author LE VEVE Mathieu
+	* @return return idauthor attribute value
+	*/
 	public int getIdAuthor()
 	{
 		return this.idauthor;
 	}
 	
+	/**
+	* liste vector attribute getter
+	*
+	* @author LE VEVE Mathieu
+	* @return return liste vector <Liste> attribute value
+	*/
+	
 	/*public Vector<Liste> getListe()
 	{
 		return this.liste;
 	}
+	*/
 	
+	/*
+	* question vector attribute getter
+	*
+	* @author LE VEVE Mathieu
+	* @return return question vector <Question> attribute value
+	*/
+	
+	/*
 	public Vector<Question> getQuestion()
 	{
 		return this.question;
 	}*/
 
+	/**
+	* datedebut attribute getter
+	*
+	* @author LE VEVE Mathieu
+	* @return return datedebut attribute value
+	*/
 	public String getDatedebut()
 	{
 		return this.datedebut;
 	}
 	
+	/**
+	* datefin attribute getter
+	*
+	* @author LE VEVE Mathieu
+	* @return return datefin attribute value
+	*/
 	public String getDatefin()
 	{
 		return this.datefin;
 	}
 	
+	/**
+	* password attribute getter
+	*
+	* @author LE VEVE Mathieu
+	* @return return password attribute value
+	*/
 	public String getPassword()
 	{
 		return this.password;
 	}
 
+	/**
+	* typesession attribute getter
+	*
+	* @author LE VEVE Mathieu
+	* @return return typesession attribute value
+	*/
+	
 	public boolean getTypeSession()
 	{
 		return this.typesession;
 	}
 	/*********************** SETTERS *******************************************/
+	/**
+	* idsession setting
+	*
+	* @author LE VEVE Mathieu
+	* @param idsession = session with the number idsession 
+	*/
 	public void setIdSession(int idsession)
 	{
 		this.idsession = idsession;
