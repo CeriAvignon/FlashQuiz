@@ -11,7 +11,7 @@ public class Question {
 	 * The question id, unique and can't be changed
 	 *
 	 * @see Question#getid()
-	 * @see Question#Question(int id, String statement, Vector<String> answers,
+	 * @see Question#Question(int id, String statement, Vector<Answer> answers,
 	 *      String type)
 	 */
 	private int id;
@@ -21,7 +21,7 @@ public class Question {
 	 *
 	 * @see Question#getStatement()
 	 * @see Question#setStatement(String s)
-	 * @see Question#Question(int id, String statement, Vector<String> answers,
+	 * @see Question#Question(int id, String statement, Vector<Answer> answers,
 	 *      String type)
 	 */
 	private String statement;
@@ -32,22 +32,30 @@ public class Question {
 	 * its type is "Radio" or "Checkbox"
 	 * 
 	 * @see Question#getAnswers()
-	 * @see Question#setAnswers(Vector<String> S)
-	 * @see Question#Question(int id, String statement, Vector<String> answers,
+	 * @see Question#setAnswers(Vector<Answer> S)
+	 * @see Question#Question(int id, String statement, Vector<Answer> answers,
 	 *      String type)
 	 * @see Question#type
 	 */
 	private Vector<Answer> answers;
 
 	/**
-	 * The question type ("Free","Radio","Checkbox")
-	 * 
-	 * @see Question#getType()
-	 * @see Question#setType(String type)
-	 * @see Question#Question(int id, String statement, Vector<String> answers,
-	 *      String type)
+	 * Enumerator that contain all the question type
 	 */
-	private String type;
+	public enum Type {
+		FREE,RADIO,CHECKBOX;
+	}
+	
+	/**
+	 * The question type ("Type.FREE","Type.RADIO","Type.CHECKBOX")
+	 * 
+	 * @see Question#Type
+	 * @see Question#getType()
+	 * @see Question#setType(Type type)
+	 * @see Question#Question(int id, String statement, Vector<Answer> answers,
+	 *      Type type)
+	 */
+	private Type type;
 
 	/**
 	 * Question constructor
@@ -67,7 +75,7 @@ public class Question {
 	 * @see Question#type
 	 */
 	public Question(int id, String statement, Vector<Answer> answers,
-			String type) {
+			Type type) {
 		this.id = id;
 		this.statement = statement;
 		this.answers = answers;
@@ -138,7 +146,7 @@ public class Question {
 	 *
 	 * @see Question#type
 	 */
-	public String getType() {
+	public Type getType() {
 		return type;
 	}
 
@@ -150,7 +158,7 @@ public class Question {
 	 *
 	 * @see Question#statement
 	 */
-	public void setType(String s) {
-		type = s;
+	public void setType(Type type) {
+		this.type = type;
 	}
 }
