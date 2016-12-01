@@ -77,6 +77,14 @@ protected Vector<Liste>listeliste;
 * @param s
 *	La session à écrire/modifier dans la BDD.
 *
+* @see idsession
+* @see datedubut
+* @see datefin
+* @see typesession
+* @see namesession
+* @see password
+* @see listeliste
+*
 */
 public void sendSession(Session s)
 	{
