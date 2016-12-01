@@ -53,7 +53,10 @@ public class Session
 	*/
 	private String datedebut;
 	/* Variable <String> privée:		implémentée par l'utilisateur.*/
-	private String datefin;
+	private String datefin;* Main de test des fonction de modification de liste
+*
+* @author BrunoDemogue
+*/
 	/* Variable <String> privée:		implémentée par l'utilisateur.*/
 	//private Connection connection;
 	/* Variable <Connection> privée: 	Objet implémenté par un accès BDD sql 
@@ -66,6 +69,13 @@ public class Session
 	/*********************** Constructors *******************************************/
 
 	public Session ()
+	/**
+	* parameters-free Constructor
+	* @author Le Veve Mathieu
+	* @description
+		Constructeur vide initialisée lorsque l'utilisateur créera une session sans paramètres
+	 sans lui associer de questions, sans lui associer de listes.
+	*/
 	{	
 		this.idsession = 0;		// Pour le moment, initialiser quand BDD faite
 		this.session = "no name";
@@ -80,6 +90,15 @@ public class Session
 	}
 
 	public Session (String session, String password, boolean typesession)
+	/**
+	* @author Le Veve Mathieu
+	* @parameters 	session = name session	(String)
+			password = password session (String)
+			typesession = session type (Boolean)
+	* @description
+		Constructeur avec 3 arguments, pour définir une session libre (avec mot de passe),
+		sans gestion du timer.
+	*/
 	{
 		setIdSession(this.idsession);		// Pour le moment, initialiser quand BDD faite
 		setNomSession(session);
@@ -90,9 +109,17 @@ public class Session
 		setTypeSession(typesession);
 	}
 	
-
-
 	public Session (String session, String datedebut, String datefin, String password, boolean typesession)
+	/**
+	* @author Le Veve Mathieu
+	* @parameters 	session = name session	(String)
+			datedebut = beginning date session (String)
+			datefin = ending date session (String)
+			password = password session (String)
+			typesession = session type (Boolean)
+	* @description
+		Constructeur avec 5 arguments, pour définir une session sous contraintes, avec gestion du timer
+	*/
 	{
 		setIdSession(this.idsession);		// Pour le moment, initialiser quand BDD faite
 		setNomSession(session);
@@ -311,6 +338,12 @@ public class Session
 	}
 
 	/*********************** Methods *******************************************/
+	/**
+	* Fonction de suppression de session
+	* @author Ezzahidi Meryem
+	* @param name= session name (String)
+	* @return retourne false en cas d'erreur, true si tout s'est bien deroulé
+	*/
 
 	public Boolean deleteSession(String name)throws SQLException 
 	{
@@ -346,6 +379,11 @@ public class Session
 		///return false;
 	}
 	
+	/**
+	* Fonction de suppression de session
+	* @author Ezzahidi Meryem
+	* @return retourne false en cas d'erreur, true si tout s'est bien deroulé
+	*/
 	public Boolean modifySession(Session session,String ancien_session)
 	{
 		boolean result=false;
@@ -380,7 +418,16 @@ public class Session
 		}
 		
 	}
-	
+
+	/**
+	* attributes session printing
+	* @name printSession()
+	* @author Le Veve Mathieu
+	* @param no param
+	* @return (void) no return
+	* @description :
+		this function permits to print information about a target session
+	*/
 	public void printSession()
 	{
 		System.out.println("\nVoici les informations à propos de la session n° "+ getIdSession()+".\n");
@@ -391,9 +438,17 @@ public class Session
 		System.out.println("Date fin: " + getDatefin() + ".\n");
 		System.out.println("Type: " + getTypeSession() + ".\n");
 		System.out.println("Mot de passe: " + getPassword() + ".\n");
-	
 	}
 
+	/**
+	* Keyboard checking
+	* @name readingOfKeyboard()
+	* @author Le Veve Mathieu
+	* @param no param
+	* @return (boolean) return true if correct, false if incorrect
+	* @description :
+		this function permits to check IOstream
+	*/
 	public static boolean readingOfKeyboard()
 	{
 		Scanner keyboard = new Scanner(System.in);
@@ -412,17 +467,34 @@ public class Session
 		return false;
 	}
 
+	/**
+	* encrypted password
+	* @name encrypt(String password)
+	* @author Le Veve Mathieu
+	* @param password : chosen password by user
+	* @return (String) return encrypted password
+	* @description :
+		this function permits to encrypt a password's session.
+	*/
 	public static String encrypt(String password)
 	{
-	    String crypte= "";
-	    for (int i=0; i<password.length();i++)  
-	    {
-	        int c=password.charAt(i)^48; 
-	        crypte=crypte+(char)c;
-	    }
-	   	return crypte;
+		String encryption= "";				//chaîne vide   	
+		for (int i=0; i<password.length();i++)  	// longueur du password saisi
+	    	{
+	       		int c=password.charAt(i)^48; 		// modification de chaque caractère 
+	       		encryption=encryption+(char)c;		// reconstitution du mot de passe	
+	    	}
+	   	return encryption;				// return (String) password
 	}
-
+	/**
+	* Testing timer
+	* @name timer()
+	* @author Le Veve Mathieu
+	* @param no param
+	* @return (void) no return
+	* @description :
+		this function permits to test a timer with a printing calendar as screening result
+	*/
 	public void timer()
 	{
 		long temps = 2000;              // délai avant de répéter la tache : 2000 = 2  seconde
@@ -440,11 +512,20 @@ public class Session
               		}
    		};
         	timer.scheduleAtFixedRate(tache,startTime,temps);  // ici on lance la mecanique
-      }
+      	}
 
-    private static void writeToScript(Session B)
-    {
-    	File fichier = new File("bdd.txt");
+	/**
+	* Writing information about session to file
+	* @name writeToFile(Session B)
+	* @author Le Veve Mathieu
+	* @param Session B = Target session to write 
+	* @return (void) no return
+	* @description
+		This function writes information B-session to the new file (xxxx."txt").
+	*/
+    	private static void writeToFile(Session B)
+    	{
+    		File fichier = new File("bdd.txt");
 		String[] data ={B.getNomSession(), B.getDatedebut(), B.getDatefin(), B.getPassword()};
 		try
 		{
@@ -460,9 +541,12 @@ public class Session
 		{
     			System.out.println ("Erreur lors de la lecture : " + e.getMessage());
 		}
-    }
+    	}
 
-	/********** Main Test to create session *********/
+	/********** Main Test to create session *********
+	* 
+		@author Le veve Mathieu
+	*/
 	public static void main(String[] args)
 	{
 		System.out.println("Voulez vous créer une session? Please y/n");
@@ -487,7 +571,7 @@ public class Session
 				if (password.equals(B.getPassword())) B.printSession();
 				// Il faut ajouter une liste à une session 
 				// Fonction qui va créer un vector <List> et l'initialiser 
-				writeToScript(B);
+				writeToFile(B);
  
         		}
  
@@ -499,14 +583,17 @@ public class Session
 				System.out.println("Pour voir les informations de la session, saisissez le mot de passe.");
 				password = encrypt(keyboard.nextLine());				
 				if (password.equals(B.getPassword())) B.printSession();
-				writeToScript(B);
+				writeToFile(B);
 			}
 		}
 
 		else System.exit(0);
 	}
-		/********** Main Test to Delete session*********/
-	/*public static void main(String[] args)
+	/********** Main Test to Delete session*********
+	* 
+		@author Ezzahidi Meryem
+	
+	public static void main(String[] args)
 	{
 		Session s=new Session()
 		System.out.println("Voulez-vous supprimer une session?(y/n)");
@@ -524,8 +611,11 @@ public class Session
 			else System.exit(0);
 	}
 	
-		/************* Main Test to Modify session*****************/
-	/*public static void main(String[] args)
+	************* Main Test to Modify session*****************
+	* 
+		@author Ezzahidi Meryem
+	
+	public static void main(String[] args)
 	{
 		System.out.println("Voulez-vous modifier une session?(y/n)");
 		if (readingOfKeyboard() == true)
@@ -552,8 +642,3 @@ public class Session
 		else System.exit(0);
 	
 	}*/		
-	
-
-
-
-
