@@ -122,7 +122,7 @@ class UserAnswer {
 	 * 
 	 * @see setAnswered
 	 */
-	public UserAnswer setIsAnswer(UserAnswer a) {
+	public UserAnswer setIsAnswered(UserAnswer a) {
 		if(a.userAnswer == null || a.userAnswer.length() == 0) {
 			a.setAnswered(false);
 		} 
