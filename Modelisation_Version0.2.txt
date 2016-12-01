@@ -14,7 +14,7 @@ TABLE Session_Metadata :
 	[INT ID_Session
 	DATE Opening_Date
 	DATE Closing_Date
-	BOOL Type_Session				#Session Live, ou Session Libre
+	BOOL Type					#Session Live, ou Session Libre
 	VARCHAR(48) Title
 	VARCHAR(32) Password
 
@@ -34,7 +34,7 @@ TABLE List_Content :			# Contenu (questions dans la List)
 
 TABLE Question :
 	[INT ID_Question
-	INT Type_Question			#radio, checkbox, etc
+	INT Type					#radio, checkbox, etc
 	TEXT Content
 	INT ID_Media
 
