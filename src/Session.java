@@ -1,4 +1,4 @@
-//package session;			// Package session liée a EL --> Package \author :@LE VEVE Mathieu
+//package session;			// Package session liée a EL --> Package @author LE VEVE Mathieu
 import java.util.Scanner;		// Saisie clavier: Scanner keyboard = new Scanner (...)
 import java.util.Vector;		// Création <vector> question / <vector> liste
 import java.sql.Connection;		// Connection connection = new Connection (...)
@@ -14,7 +14,7 @@ import java.lang.Throwable;
 import java.lang.Exception;		// relever des exceptions
 import java.io.IOException;		// relever exception IO
 import java.io.FileNotFoundException;
-//import connexionjm.ConnexionJM;	 Package liée à la BDD --> Package \author :@HUOT AMAURY
+import connexionjm.ConnexionJM;	 	//Package liée à la BDD --> Package @author HUOT AMAURY
 
 /** 
 	*	\file Session.java
@@ -54,6 +54,11 @@ public class Session
 	// Variable <String> privée:		implémentée par l'utilisateur.
 	private String datefin;
 	/* Variable <String> privée:		implémentée par l'utilisateur.
+	
+/**
+        * @see ConnexionJM
+	*/
+	/*
 	private Connection connection;
 	Variable <Connection> privée: 	Objet implémenté par un accès BDD sql 
 	A implementer plus tard 
