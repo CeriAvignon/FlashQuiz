@@ -1,0 +1,59 @@
+#EDIT 1er decembre: La totalité de la BDD à été renommé avec des termes anglais ! 
+
+#  [ = clé primaire
+
+TABLE User :
+	[INT ID_User
+	VARCHAR(32) First Name
+	VARCHAR(32) Last Name
+	VARCHAR(32) Login
+	VARCHAR(32) Password
+	INT rank 					# Droit/Pouvoir, admin/utilisateur normal
+
+TABLE Session_Metadata :
+	[INT ID_Session
+	DATE Opening_Date
+	DATE Closing_Date
+	BOOL Type_Session				#Session Live, ou Session Libre
+	VARCHAR(48) Title
+	VARCHAR(32) Password
+
+TABLE Session_Contenu :
+	INT ID_Session
+	INT ID_List
+
+TABLE List_Metadata :			# Infos générales des Lists (titre...)	/ List, certain apelle sa serie , je vous mets d'accord c'est Liste
+	[INT ID_List
+	INT ID_User
+	VARCHAR(32) Titre_List
+
+TABLE List_Contenu :			# Contenu (questions dans la List)
+	INT ID_List
+	INT ID_Question
+
+
+TABLE Question :
+	[INT ID_Question
+	INT Type_Question			#radio, checkbox, etc
+	TEXT Content
+	INT ID_Media
+
+TABLE Scores :
+	[INT ID_Session
+	[INT ID_User
+	INT Score
+
+TABLE Answer :
+	[INT ID_Answer
+	INT ID_Question
+	TEXT Content
+	BOOl Correct
+
+TABLE Media :
+	[INT ID_Media
+	INT Type
+	TEXT Content				#url, ou chemin local
+
+#Cette version de la modélisation de la base de données sera celle sur laquelle les tests des fonctions se feront. Des modifications se feront peut etre en cas de besoin, mais la structure générale restera comme présenter.
+
+#EDIT 28/11/2016 : Il faut enregistrer les stat des sessions. a voir.
