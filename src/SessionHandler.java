@@ -4,21 +4,83 @@ import java.sql.*;
 package ques;
 import ConnexionJM.java;
 
+/**
+ * La classe SessionHandler.
+ * 
+ * @author Alexandra MOSHINA 
+ *
+ */
 public class SessionHandler {
-
+	
+/**
+* L'ID de la session. Cet ID n'est pas modifiable.
+*
+*@see SessionHandler#sendSession(Session)
+*
+*/	
 private int idsession;
-private int idliste;
+	
+/**
+* La date du debut de la session.
+*
+*@see SessionHandler#sendSession(Session)
+*
+*/	
 private String datedebut;
+	
+/**
+* La date du fin de la session.
+*
+*@see SessionHandler#sendSession(Session)
+*
+*/
 private String datefin;
+	
+/**
+* Le type de la session.
+*
+*@see SessionHandler#sendSession(Session)
+*
+*/
 private boolean typesession;
+	
+/**
+* Le titre de la session.
+*
+*@see SessionHandler#sendSession(Session)
+*
+*/
 private String namesession;
+	
+/**
+* Le mot de passe.
+*
+*@see SessionHandler#sendSession(Session)
+*
+*/
 private String password;
+	
+/**
+* La liste de listes.
+*
+*@see SessionHandler#sendSession(Session)
+*
+*/
 protected Vector<Liste>listeliste;
 	
-
+	
+/**
+* Envoie une session vers le serveur pour l'enregistrer.
+*
+* @author Alexandra MOSHINA 
+*
+* @param s
+*	La session à écrire/modifier dans la BDD.
+*
+*/
 public void sendSession(Session s)
 	{
-	Connection cnx=connecterDB(); //connection ?
+	Connection cnx=connecterDB(); 						//connection à la BDD 
 	
 	idsession = s.getIdSession();						//recupere l'id de la session
 	datedebut = s.getDateDebut();						//recupere la date de debut
