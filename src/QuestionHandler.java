@@ -1,6 +1,6 @@
-package ques;
-import ConnexionJM.java;
+//importer connection bdd
 import java.sql.*;
+import Question.java
 
 public class QuestionHandler {
 	
@@ -8,31 +8,31 @@ public class QuestionHandler {
 	{
 		Connection cnx=connecterDB();///////à voir
 		/****************Récupération de la question ***********************/
-		int idQuestion = question.getIdQuestion();
-		String contenu = question.getIntitule();
-		int typeQuestion = question.getTypeQuestion();
+		int questionId = question.getQuestionId();
+		String content = question.getTitle();
+		int questionType = question.getQuestionType();
 		String mediafile = question.getMediafile();
-		int typeMedia = question.getTypeMedia();
+		int mediaType = question.getmediaType();
 		/*******************************************************************/
 		
 		String query="";
 		PreparedStatement prepare = cnx.prepareStatement();
 		Statement statement = cnx.createStatement();
 		ResultSet res;
-		int id_media;
-		if(idQuestion == -1) //La question n'existe pas
+		int media_id;
+		if(questionId == -1) //La question n'existe pas
 		{
 			/*************************Requete qui verifie l'existence du media*********************/
 			query="SELECT * FROM Media WHERE Contenu_media=?;";
 			prepare = cnx.prepareStatement(query);
 			prepare.setObject(1,mediafile); 
 			res = prepare.executeQuery();
-			boolean retour=res.first();
-			if(retour)id_media = res.getInt("ID_Media");
+			boolean ret=res.first();
+			if(ret)id_media = res.getInt("ID_Media");
 			prepare.close();
 			res.close();
 			
-			if(!retour)//Le media n'existe pas
+			if(!ret)//Le media n'existe pas
 			{
 				
 			/**********************Ajout du media si il n'existe pas******************************/
@@ -45,7 +45,7 @@ public class QuestionHandler {
 				res.close();
 				/****recup de l'id du media ***/
 				res=statement.executeQuery("SELECT currval(pg_get_serial_sequence('Media','ID_Media'));");
-				id_media = res.getInt("ID_Media");
+				media_id = res.getInt("ID_Media");
 				statement.close();
 				res.close();
 			
@@ -61,10 +61,10 @@ public class QuestionHandler {
 			res.close();
 			/****recup de l'id de la question ***/
 			res=statement.executeQuery("SELECT currval(pg_get_serial_sequence('Questions','ID_Question'));");
-			int id_question = res.getInt("ID_Question");
+			int question_id = res.getInt("ID_Question");
 			statement.close();
 			res.close();
-			question.setIdQuestion(id_question);
+			question.setIdQuestion(question_id);
 		
 		}
 		else //La question existe déjà
@@ -80,5 +80,10 @@ public class QuestionHandler {
 			prepare.close();
 			res.close();
 		}
+	}
+
+	public Question getQuestion(int question_id)
+	{
+
 	}
 };
