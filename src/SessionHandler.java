@@ -196,8 +196,6 @@ public void sendSession(Session s)
 			}	
 		}
 
-
-
 		}
  
 	catch (Exception e) 
