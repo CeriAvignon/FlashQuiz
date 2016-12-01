@@ -2,7 +2,7 @@
 
 #  [ = clé primaire
 
-TABLE User :
+TABLE User_FQ :
 	[INT ID_User
 	VARCHAR(32) First_Name
 	VARCHAR(32) Last_Name
