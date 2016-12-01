@@ -112,8 +112,8 @@ import java.util.*;
 		
 	
 		}
-		
-		public void ipdatequestion() throws ClassNotFoundException, SQLException{
+		//*********************Variable & Methode pour Modifier Question**************
+		public void updatequestion() throws ClassNotFoundException, SQLException{
 			
 			
 			Scanner sc = new Scanner(System.in);
@@ -160,17 +160,7 @@ import java.util.*;
 
 
 			}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+
 	//***************************** Main() ***************************	
 		public static void main(String[] args) throws ClassNotFoundException, SQLException {
 			Question NewQuestion= new Question();
