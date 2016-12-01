@@ -3,6 +3,7 @@ import java.util.*;
 import java.sql.*;
 import java.util.Vector;
 import Session.java;
+import Liste.java;
 package ques;
 import ConnexionJM.java;
 
