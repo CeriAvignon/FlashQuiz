@@ -88,7 +88,7 @@ class UserAnswer {
 	}
 
 	/**
-	 * Getter of the answer state : Answered or not
+	 * Setter of the answer state : Answered or not
 	 * 
 	 * @param answered
 	 * 
@@ -96,5 +96,39 @@ class UserAnswer {
 	 */
 	public void setAnswered(boolean answered) {
 		this.answered = answered;
+	}
+	
+	/**
+	 * Function who recover the answer of an user.
+	 * 
+	 * @param string
+	 * 
+	 * @return UserAnswer
+	 * 
+	 * @see setUserAnswer
+	 */
+	public UserAnswer recoverAnswer(String s) {
+		a = new UserAnswer;
+		a.setUserAnswer(s);
+		return a;
+	}
+	
+	/**
+	 * Check if it has an answer and set the statement.
+	 * 
+	 * @param UserAnswer
+	 * 
+	 * @return UserAnswer
+	 * 
+	 * @see setAnswered
+	 */
+	public UserAnswer setIsAnswer(UserAnswer a) {
+		if(a.userAnswer == null || a.userAnswer.length() == 0) {
+			a.setAnswered(false);
+		} 
+		else {
+			a.setAnswered(true);
+		}
+		return a;
 	}
 }
