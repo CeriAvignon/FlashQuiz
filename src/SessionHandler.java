@@ -117,7 +117,7 @@ public void sendSession(Session s)
 		if(idSession == -1) // si session existe pas
 		{
 			//on insere les donnees dans la BDD
-			query = "INSERT INTO Sessions_Metadata(Date_Ouverture, Date_Fermeture, Type_Session, Titre_Session, MotDePasse) VALUES(?, ?, ?, ?, ?);";
+			query = "INSERT INTO Session_Metadata(Opening_Date, Closing_Date, Type_Session, Title, Password) VALUES(?, ?, ?, ?, ?);";
 					prepare =  cnx.prepareStatement(query);
 					prepare.setObject(1,datedebut);
 					prepare.setObject(2,datefin);
@@ -127,7 +127,7 @@ public void sendSession(Session s)
 					prepare.executeUpdate();
 					prepare.close();
 			//on recupere l'id de la session
-			res = statement.executeQuery("SELECT currval(pg_get_serial_sequence('Sessions_Metadata','ID_Session')) as id;");
+			res = statement.executeQuery("SELECT currval(pg_get_serial_sequence('Session_Metadata','ID_Session')) as id;");
 			s.setIdSession(res.getInt(1));
 			for (List l:listeliste) 
 			{
@@ -136,8 +136,8 @@ public void sendSession(Session s)
 				//si la liste s'est bien enregistrée
 				if (l.getIdListe() != -1)  
 				{
-					// Ajouter dans Session_Contenu 
-					query = "INSERT INTO Session_Contenu (ID_Session,ID_Liste) values (?,?));";
+					// Ajouter dans Session_Content
+					query = "INSERT INTO Session_Content (ID_Session,ID_Liste) values (?,?));";
 					prepare =  cnx.prepareStatement(query);
 					prepare.setObject(1,s.getIdSession());
 					prepare.setObject(2,s.getIdListe());
@@ -154,7 +154,7 @@ public void sendSession(Session s)
 		else //si session existe
 		{	
 		//on fait la mise a jour de la BDD
-			query = "UPDATE Sessions SET (Date_Ouverture=?, Date_Fermeture=?, Type_Session=?, Titre_Session=?, MotDePasse=?) WHERE ID_Session=idsession;"
+			query = "UPDATE Session_Metadata SET (Opening_Date=?, Closing_Date=?, Type_Session=?, Title=?, Password=?) WHERE ID_Session=idsession;"
 			prepare = cnx.prepareStatement(query);
 			prepare.setObject(1,s.datedebut());
 			prepare.setObject(2,s.datefin());
@@ -165,9 +165,9 @@ public void sendSession(Session s)
 			prepare.close();
 			res.close();
 			
-			//supprimer continu Sesseion_contenu		
+			//supprimer continu Session_Content		
 			//suppression 
-			res = statement.executeQuery("DELETE FROM Session_Contenu WHERE ID_Session=idsession;");
+			res = statement.executeQuery("DELETE FROM Session_Content WHERE ID_Session=idsession;");
 			
 			res.close();			
 
@@ -179,8 +179,8 @@ public void sendSession(Session s)
 
 				if (l.getIdListe() != -1)  
 				{
-					// Ajouter dans Session_Contenu 
-					query = "INSERT INTO Session_Contenu (ID_Session,ID_Liste) values (?,?));";
+					// Ajouter dans Session_Content
+					query = "INSERT INTO Session_Content (ID_Session,ID_Liste) values (?,?));";
 					prepare = cnx.prepareStatement(query);
 					prepare.setObject(1,idsession);
 					prepare.setObject(2,s.getIdListe());
