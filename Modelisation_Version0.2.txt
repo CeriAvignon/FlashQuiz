@@ -22,10 +22,10 @@ TABLE Session_Content :
 	INT ID_Session
 	INT ID_List
 
-TABLE List_Metadata :			# Infos générales des Lists (titre...)	/ List, certain apelle sa serie , je vous mets d'accord c'est Liste
+TABLE List_Metadata :			# Infos générales des Lists (titre...)	/ Liste, certain apelle sa serie , je vous mets d'accord c'est Liste
 	[INT ID_List
 	INT ID_User
-	VARCHAR(32) Titre_List
+	VARCHAR(32) Title
 
 TABLE List_Content :			# Contenu (questions dans la List)
 	INT ID_List
