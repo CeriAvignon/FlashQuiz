@@ -1,0 +1,87 @@
+package flashquizz.Panels;
+
+/**
+ *
+ * @author geoffrey
+ */
+public class Texte extends javax.swing.JPanel {
+
+    public Texte() {
+        initComponents();
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        jLabel1 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jProgressBar1 = new javax.swing.JProgressBar();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+
+        setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel1.setText("FlashQuizz - QUESTION");
+        add(jLabel1);
+        jLabel1.setBounds(300, 10, 467, 51);
+
+        jTextField9.setEditable(false);
+        jTextField9.setBackground(new java.awt.Color(204, 204, 204));
+        add(jTextField9);
+        jTextField9.setBounds(10, 60, 930, 40);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        add(jScrollPane1);
+        jScrollPane1.setBounds(138, 229, 664, 195);
+
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 3, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 51));
+        jLabel2.setText("Rédiger votre réponse dans l'emplacement ci-dessous :");
+        add(jLabel2);
+        jLabel2.setBounds(105, 183, 427, 28);
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 51));
+        jButton1.setFont(new java.awt.Font("Lucida Handwriting", 1, 14)); // NOI18N
+        jButton1.setText("VALIDER");
+        add(jButton1);
+        jButton1.setBounds(790, 550, 150, 70);
+
+        jProgressBar1.setBackground(new java.awt.Color(51, 0, 204));
+        jProgressBar1.setForeground(new java.awt.Color(0, 255, 0));
+        jProgressBar1.setValue(60);
+        add(jProgressBar1);
+        jProgressBar1.setBounds(70, 600, 310, 20);
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("TEMPS :");
+        add(jLabel3);
+        jLabel3.setBounds(10, 600, 70, 20);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flashquizz/Panels/bg.jpg"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        add(jLabel4);
+        jLabel4.setBounds(5, -4, 950, 640);
+    }// </editor-fold>                        
+
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField9;
+    // End of variables declaration                   
+}
