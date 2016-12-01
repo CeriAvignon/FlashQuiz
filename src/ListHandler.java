@@ -7,8 +7,7 @@ import java.util.Vector;
  	*  @author Renaud Galy
  	*  @version 1.4
  	*  
- 	*/  
-/** 
+	*
  	*  Cette classe va servir &agrave; coder toutes les fonctions permettant un 
  	*  acc&egrave;s aux tables Liste_Contenu et Liste_Metadata de la base de 
  	*  donn&eacute;es. La fonction sendList(Liste list) permet de cr&eacute;er une 
