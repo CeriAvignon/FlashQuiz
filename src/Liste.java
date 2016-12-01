@@ -16,6 +16,13 @@ import java.lang.Exception;
 import java.io.IOException;
 import java.io.FileNotFoundException;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.*;
+
 
 class Liste
 {
@@ -23,7 +30,11 @@ class Liste
 	private String nomliste; 						//nom
 	private int idauthor;							//id auteur
 	protected Vector<Question>listequestion;		//vecteur question
-	
+	static Connection con;
+	static Integer IdQuestion;
+	static Integer IdListe;
+	static String TitreListe;
+	static Integer IdUser;
 	
 	/**
 * getter de l'atribut idliste
@@ -347,5 +358,80 @@ class Liste
 	}
 	
 }
+//******************************************************
+static Connection con;
+	static Integer IdQuestion;
+	static Integer IdListe;
+	static String TitreListe;
+	static Integer IdUser;
+
+	void Liste() {
+		this.IdListe=0;
+		this.IdQuestion=0;
+		this.IdUser=999;
+		this.TitreListe=null;
+		}
+	void Liste(int a, int b, String c)  {
+		this.IdListe=a;
+		this.IdUser=b;
+		this.TitreListe=c;
+		}
+	void Liste(int a) {
+		this.IdQuestion=a;
+	 	}
+	public void dataBaseConnexion()throws ClassNotFoundException, SQLException {
+		Class.forName("org.postgresql.Driver");
+		String url = "jdbc:postgresql://localhost:5432/quiz";
+		String user = "postgres";
+		String passwd = "DutDaiDutDai00";
+		con = DriverManager.getConnection(url, user, passwd);
+		}
+public Integer defineLastIdListe() throws ClassNotFoundException, SQLException{
+		int idList=0;
+		PreparedStatement statement = con.prepareStatement("select max(IdListe) from  ListMetadata;");
+		ResultSet resultset = statement.executeQuery(); 
+		while(resultset.next()) {
+	  	 IdList=resultset.getInt(1);
+		}
+		return IdListe=IdList+1;
+		}
+	public void insertListMetadata() throws ClassNotFoundException, SQLException{
+		PreparedStatement statement2 = con.prepareStatement("Insert into ListMetadata values(?,?,?);");
+		statement2.setInt(1, IdListe);
+		statement2.setInt(2, IdUser);
+		statement2.setString(3,TitreListe);
+		statement2.executeUpdate();
+		}
+	public void insertListContent() throws ClassNotFoundException, SQLException{
+		PreparedStatement statement3 = con.prepareStatement("Insert into ListContent values(?,?);");
+		statement3.setInt(1, IdListe);
+		statement3.setInt(2, IdQuestion);
+		statement3.executeUpdate();
+		}
+			//**********************Main*********************
+public static void main(String[] args) throws ClassNotFoundException, SQLException {
+	Liste NewListe= new Liste();
+	NewListe.dataBaseConnexion();
+    int LId=NewListe.defineLastIdListe();
+    
+        Scanner scanner = new Scanner(System.in);
+	System.out.println("\nTitre de la Liste: ");
+	String TitreL= scanner.nextLine();
+	NewListe.Liste(Lid,999,TitreL);
+	NewListe.insertListMetadata();
 	
+	System.out.println("\nVoulez vous ajouter des questions à cette liste ?");
+	String reponse= scanner.next();
+	
+	if(reponse.equals("oui")) {
+		System.out.println("\nCombien de question : ");
+		Integer nbr=scanner.nextInt();
+		for(int i=0;i<nbr;i++) {
+		System.out.println("\nID de la question : ");
+		Integer IdQ=scanner.nextInt();
+		NewListe.Liste(IdQ);
+		NewListe.insertListContent();
+		}
+	}
+}
 }
