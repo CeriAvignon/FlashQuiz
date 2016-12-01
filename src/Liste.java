@@ -129,7 +129,7 @@ class Liste
 /**
 * Main de test des fonction de modification de liste
 *
-* @author BrunoDemogue
+* @author BrunoDemogu
 */
 	public static void main (String [] arg)     
 	{          
