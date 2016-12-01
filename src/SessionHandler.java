@@ -3,7 +3,7 @@ import java.util.*;		// inclure toutes les utils defini dans defini dans java.ut
 import java.sql.*;		
 import Session.java;		
 import Liste.java;
-import ConnexionJM.java;
+import Version.java;
 
 /**
  * <b>La classe SessionHandler.</b>
