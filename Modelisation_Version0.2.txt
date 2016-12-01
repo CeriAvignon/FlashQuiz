@@ -8,7 +8,7 @@ TABLE User :
 	VARCHAR(32) Last_Name
 	VARCHAR(32) Login
 	VARCHAR(32) Password
-	INT rank 					# Droit/Pouvoir, admin/utilisateur normal
+	INT Rank 					# Droit/Pouvoir, admin/utilisateur normal
 
 TABLE Session_Metadata :
 	[INT ID_Session
