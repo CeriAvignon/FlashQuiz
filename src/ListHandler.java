@@ -26,7 +26,7 @@ public class ListHandler
 	 * 
 	 * @since 1.4
 	 * @param list
-	 * 				Une liste de questions.
+	 * 		Une liste de questions.
 	 * 
 	 **/ 
 	public void sendList(List list)
