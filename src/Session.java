@@ -14,21 +14,20 @@ import java.lang.Throwable;
 import java.lang.Exception;		// relever des exceptions
 import java.io.IOException;		// relever exception IO
 import java.io.FileNotFoundException;
+//import connexionjm.ConnexionJM;	 Package liée à la BDD --> Package \author :@HUOT AMAURY
 
-//import connexionjm.ConnexionJM;	// Package liée à la BDD --> Package \author :@HUOT AMAURY
-/*! 
-*	\file Session.java
-*	\brief Fichier java Session
-*	\author {Le Veve Mathieu, Ezzahidi Meryem}
-*	\date xx/10/2016
-*	\date 22/11/2016
-*	\date 24/11/2016
-*	\date 30/11/2016
-*
-*	\class <Session> Session.java 	Session
-*	\brief	Fichier en java qui crée une session, pour le moment avec ses getters/ setters pour créer une session
-*	pour le moment sans intéraction avec la BDD. 
-*/
+/** 
+	*	\file Session.java
+	*	\brief Fichier java Session
+	*	\author {Le Veve Mathieu, Ezzahidi Meryem}
+	*	\date xx/10/2016
+	*	\date 22/11/2016
+	*	\date 24/11/2016
+	*	\date 30/11/2016
+	*	\class <Session> Session.java 	Session
+	*	\brief	Fichier en java qui crée une session, pour le moment avec ses getters/ setters pour créer une session
+	*	pour le moment sans intéraction avec la BDD. 
+	*/
 
 
 
@@ -36,13 +35,13 @@ import java.io.FileNotFoundException;
 public class Session
 {
   	private static int idsession;
-	/*variable <int> globale privée:	implémentée via une requête SQL vers l'id de la session
+	/* variable <int> globale privée:	implémentée via une requête SQL vers l'id de la session
 						dépend fortement du groupe BDD
 	*/
 	private String session;
-	/* Variable <String> privée:		implémentée via une chaîne de caractères saisie par l'utilisateur*/
+	// Variable <String> privée:		implémentée via une chaîne de caractères saisie par l'utilisateur*/
 	private int idauthor;
-	/* Variable <Int> privée:		implémentée via une requête SQL vers l'id de l'auteur*/
+	// Variable <Int> privée:		implémentée via une requête SQL vers l'id de l'auteur
 	private Vector<Liste> liste;
 	/* Variable <Vector> privée: 		implémentée durant une session, ou part la création de session.
 						dépend fortement du groupe TVS.
@@ -52,14 +51,11 @@ public class Session
 						dépend fortement du groupe TVS.
 	*/
 	private String datedebut;
-	/* Variable <String> privée:		implémentée par l'utilisateur.*/
-	private String datefin;* Main de test des fonction de modification de liste
-*
-* @author BrunoDemogue
-*/
-	/* Variable <String> privée:		implémentée par l'utilisateur.*/
-	//private Connection connection;
-	/* Variable <Connection> privée: 	Objet implémenté par un accès BDD sql 
+	// Variable <String> privée:		implémentée par l'utilisateur.
+	private String datefin;
+	/* Variable <String> privée:		implémentée par l'utilisateur.
+	private Connection connection;
+	Variable <Connection> privée: 	Objet implémenté par un accès BDD sql 
 	A implementer plus tard 
 	*/
 	private String password;
@@ -69,7 +65,7 @@ public class Session
 	/*********************** Constructors *******************************************/
 
 	public Session ()
-	/**
+/**
 	* parameters-free Constructor
 	* @author Le Veve Mathieu
 	* @description
@@ -90,7 +86,7 @@ public class Session
 	}
 
 	public Session (String session, String password, boolean typesession)
-	/**
+/**
 	* @author Le Veve Mathieu
 	* @parameters 	session = name session	(String)
 			password = password session (String)
@@ -110,7 +106,7 @@ public class Session
 	}
 	
 	public Session (String session, String datedebut, String datefin, String password, boolean typesession)
-	/**
+/**
 	* @author Le Veve Mathieu
 	* @parameters 	session = name session	(String)
 			datedebut = beginning date session (String)
@@ -132,7 +128,7 @@ public class Session
 	
 	/*********************** GETTERS *******************************************/
 	
-	/**
+/**
 	* idsession attribute getter
 	*
 	* @author LE VEVE Mathieu
@@ -143,7 +139,7 @@ public class Session
 		return this.idsession;
 	}
 	
-	/**
+/**
 	* session attribute getter
 	*
 	* @author LE VEVE Mathieu
@@ -154,7 +150,7 @@ public class Session
 		return this.session;
 	}
 	
-	/**
+/**
 	* idauthor attribute getter
 	*
 	* @author LE VEVE Mathieu
@@ -165,7 +161,7 @@ public class Session
 		return this.idauthor;
 	}
 	
-	/**
+/**
 	* liste vector attribute getter
 	*
 	* @author LE VEVE Mathieu
@@ -178,7 +174,7 @@ public class Session
 	}
 	*/
 	
-	/*
+/**
 	* question vector attribute getter
 	*
 	* @author LE VEVE Mathieu
@@ -191,7 +187,7 @@ public class Session
 		return this.question;
 	}*/
 
-	/**
+/**
 	* datedebut attribute getter
 	*
 	* @author LE VEVE Mathieu
@@ -202,7 +198,7 @@ public class Session
 		return this.datedebut;
 	}
 	
-	/**
+/**
 	* datefin attribute getter
 	*
 	* @author LE VEVE Mathieu
@@ -213,7 +209,7 @@ public class Session
 		return this.datefin;
 	}
 	
-	/**
+/**
 	* password attribute getter
 	*
 	* @author LE VEVE Mathieu
@@ -224,7 +220,7 @@ public class Session
 		return this.password;
 	}
 
-	/**
+/**
 	* typesession attribute getter
 	*
 	* @author LE VEVE Mathieu
@@ -236,7 +232,7 @@ public class Session
 		return this.typesession;
 	}
 	/*********************** SETTERS *******************************************/
-	/**
+/**
 	* idsession setting
 	*
 	* @author LE VEVE Mathieu
@@ -247,7 +243,7 @@ public class Session
 		this.idsession = idsession;
 	}
 	
-	/**
+/**
 	* session setting
 	*
 	* @author LE VEVE Mathieu
@@ -258,7 +254,7 @@ public class Session
 		this.session = session;
 	}
 	
-	/**
+/**
 	* author setting
 	*
 	* @author LE VEVE Mathieu
@@ -269,31 +265,33 @@ public class Session
 		this.idauthor = author;
 	}
 	
-	/**
+/**
 	* liste setting
 	*
 	* @author LE VEVE Mathieu
 	* @param liste = Vector<Liste> attributed to the session
-	
+	*/
+	/*
 	public void setListe(Vector liste)
 	{
 		this.liste = liste;
 	}
 	*/
 	
-	/**
+/**
 	* question setting
 	*
 	* @author LE VEVE Mathieu
 	* @param question = Vector<Question> attributed to the session (or to the Liste) 
-	
+	*/
+	/*
 	public void setQuestion(Vector question)
 	{
 		this.question = question;
 		//https://coderanch.com/t/392512/java/Geting-Current-Time-Seconds
 	}*/
 	
-	/**
+/**
 	* datedebut setting
 	*
 	* @author LE VEVE Mathieu
@@ -304,7 +302,7 @@ public class Session
 		this.datedebut = datedebut;
 	}
 	
-	/**
+/**
 	* datefin setting
 	*
 	* @author LE VEVE Mathieu
@@ -315,7 +313,7 @@ public class Session
 		this.datefin = datefin;
 	}
 
-	/**
+/**
 	* password setting
 	*
 	* @author LE VEVE Mathieu
@@ -326,7 +324,7 @@ public class Session
 		this.password = password;
 	}
 	
-	/**
+/**
 	* typesession setting
 	*
 	* @author LE VEVE Mathieu
@@ -338,7 +336,7 @@ public class Session
 	}
 
 	/*********************** Methods *******************************************/
-	/**
+/**
 	* Fonction de suppression de session
 	* @author Ezzahidi Meryem
 	* @param name= session name (String)
@@ -379,7 +377,7 @@ public class Session
 		///return false;
 	}
 	
-	/**
+/**
 	* Fonction de suppression de session
 	* @author Ezzahidi Meryem
 	* @return retourne false en cas d'erreur, true si tout s'est bien deroulé
@@ -419,7 +417,7 @@ public class Session
 		
 	}
 
-	/**
+/**
 	* attributes session printing
 	* @name printSession()
 	* @author Le Veve Mathieu
@@ -440,7 +438,7 @@ public class Session
 		System.out.println("Mot de passe: " + getPassword() + ".\n");
 	}
 
-	/**
+/**
 	* Keyboard checking
 	* @name readingOfKeyboard()
 	* @author Le Veve Mathieu
@@ -467,7 +465,7 @@ public class Session
 		return false;
 	}
 
-	/**
+/**
 	* encrypted password
 	* @name encrypt(String password)
 	* @author Le Veve Mathieu
@@ -486,7 +484,7 @@ public class Session
 	    	}
 	   	return encryption;				// return (String) password
 	}
-	/**
+/**
 	* Testing timer
 	* @name timer()
 	* @author Le Veve Mathieu
@@ -514,7 +512,7 @@ public class Session
         	timer.scheduleAtFixedRate(tache,startTime,temps);  // ici on lance la mecanique
       	}
 
-	/**
+/**
 	* Writing information about session to file
 	* @name writeToFile(Session B)
 	* @author Le Veve Mathieu
@@ -544,7 +542,7 @@ public class Session
     	}
 
 	/********** Main Test to create session *********
-	* 
+/** 
 		@author Le veve Mathieu
 	*/
 	public static void main(String[] args)
