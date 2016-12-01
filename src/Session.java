@@ -3,20 +3,27 @@ import java.util.Scanner;		// Saisie clavier: Scanner keyboard = new Scanner (..
 import java.util.Vector;		// Création <vector> question / <vector> liste
 import java.sql.Connection;		// Connection connection = new Connection (...)
 import java.sql.DriverManager;		// Accès pour la BDD
-import java.io.File;			// pour la simulation de bdd --> Phases de tests par lecture/ écriture
 import javax.swing.*;
 import java.util.Calendar;		//Calendrier
 import java.awt.event.*;
 import java.util.Timer;			// Timer
 import java.util.TimerTask;		// Effectuer tâche (evenement) pour timer
-import connexionjm.ConnexionJM;		// Package liée à la BDD --> Package \author :@HUOT AMAURY
+import java.io.File; 			//pour la simulation de bdd
+import java.io.FileWriter;		// écriture dans un fichier
+import java.lang.Throwable;
+import java.lang.Exception;		// relever des exceptions
+import java.io.IOException;		// relever exception IO
+import java.io.FileNotFoundException;
+
+//import connexionjm.ConnexionJM;	// Package liée à la BDD --> Package \author :@HUOT AMAURY
 /*! 
 *	\file Session.java
 *	\brief Fichier java Session
-*	\author {Le Veve Mathieu}
+*	\author {Le Veve Mathieu, Ezzahidi Meryem}
 *	\date xx/10/2016
 *	\date 22/11/2016
 *	\date 24/11/2016
+*	\date 30/11/2016
 *
 *	\class <Session> Session.java 	Session
 *	\brief	Fichier en java qui crée une session, pour le moment avec ses getters/ setters pour créer une session
@@ -56,10 +63,10 @@ public class Session
 	private boolean typesession;
 	//private int nbrquestion;
 	
+	/*********************** Constructors *******************************************/
+
 	public Session ()
-	{
-	//if (l'utilisateur a cliqué sur le bouton de creation)
-	//{	
+	{	
 		this.idsession = 0;		// Pour le moment, initialiser quand BDD faite
 		this.session = "no name";
 		this.idauthor= 0;
@@ -68,17 +75,12 @@ public class Session
 		this.datefin = "no ending date";
 		this.password = "no password";
 		this.typesession = false;
-	//	this.liste=
-	//}
-	//	this.question=
-	
-	//else 
-	
+		//this.liste=;
+		//this.question=;
 	}
 
 	public Session (String session, String password, boolean typesession)
 	{
-
 		setIdSession(this.idsession);		// Pour le moment, initialiser quand BDD faite
 		setNomSession(session);
 		setDatedebut(datedebut);
@@ -92,7 +94,6 @@ public class Session
 
 	public Session (String session, String datedebut, String datefin, String password, boolean typesession)
 	{
-
 		setIdSession(this.idsession);		// Pour le moment, initialiser quand BDD faite
 		setNomSession(session);
 		setDatedebut(datedebut);
@@ -212,53 +213,104 @@ public class Session
 	* idsession setting
 	*
 	* @author LE VEVE Mathieu
-	* @param idsession = session with the number idsession 
+	* @param idsession = session with the number idsession  (Int)
 	*/
 	public void setIdSession(int idsession)
 	{
 		this.idsession = idsession;
 	}
 	
+	/**
+	* session setting
+	*
+	* @author LE VEVE Mathieu
+	* @param session = name session (String)
+	*/
 	public void setNomSession(String session)
 	{
 		this.session = session;
 	}
 	
+	/**
+	* author setting
+	*
+	* @author LE VEVE Mathieu
+	* @param author = author's session (Int)
+	*/
 	public void setIdAuthor(int author)
 	{
 		this.idauthor = author;
 	}
 	
-	/*public void setListe(Vector liste)
+	/**
+	* liste setting
+	*
+	* @author LE VEVE Mathieu
+	* @param liste = Vector<Liste> attributed to the session
+	
+	public void setListe(Vector liste)
 	{
 		this.liste = liste;
 	}
+	*/
+	
+	/**
+	* question setting
+	*
+	* @author LE VEVE Mathieu
+	* @param question = Vector<Question> attributed to the session (or to the Liste) 
 	
 	public void setQuestion(Vector question)
 	{
-		this.question = question;https://coderanch.com/t/392512/java/Geting-Current-Time-Seconds
+		this.question = question;
+		//https://coderanch.com/t/392512/java/Geting-Current-Time-Seconds
 	}*/
 	
+	/**
+	* datedebut setting
+	*
+	* @author LE VEVE Mathieu
+	* @param datedebut = beginning date session
+	*/
 	public void setDatedebut(String datedebut)
 	{
 		this.datedebut = datedebut;
 	}
 	
+	/**
+	* datefin setting
+	*
+	* @author LE VEVE Mathieu
+	* @param datefin = ending date session
+	*/
 	public void setDatefin(String datefin)
 	{
 		this.datefin = datefin;
 	}
 
+	/**
+	* password setting
+	*
+	* @author LE VEVE Mathieu
+	* @param password = encrypted password 
+	*/
 	public void setPassword(String password)
 	{
 		this.password = password;
 	}
 	
-
+	/**
+	* typesession setting
+	*
+	* @author LE VEVE Mathieu
+	* @param typesession = session type
+	*/
 	public void setTypeSession(boolean typesession)
 	{
 		this.typesession = typesession;
 	}
+
+	/*********************** Methods *******************************************/
 
 	public Boolean deleteSession(String name)throws SQLException 
 	{
@@ -294,7 +346,7 @@ public class Session
 		///return false;
 	}
 	
-	public boolean modifySession(Session session,String ancien_session)
+	public Boolean modifySession(Session session,String ancien_session)
 	{
 		boolean result=false;
 		ConnectionJM conn=null;		
@@ -347,11 +399,70 @@ public class Session
 		Scanner keyboard = new Scanner(System.in);
 		String tmp = keyboard.nextLine();
 		char c = tmp.charAt(0);
-		if (c == 'y' || c == 'Y') return true;
-		else return false;
+		try
+		{
+			if (c == 'y' || c == 'Y') return true;
+			else if(c == 'n' || c == 'N') return false;
+			else throw new IOException("Aucune saisie valide");
+		}
+		catch(IOException e)
+		{
+			System.out.println ("Erreur lors de la verification : " + e.getMessage());
+		}
+		return false;
 	}
 
+	public static String encrypt(String password)
+	{
+	    String crypte= "";
+	    for (int i=0; i<password.length();i++)  
+	    {
+	        int c=password.charAt(i)^48; 
+	        crypte=crypte+(char)c;
+	    }
+	   	return crypte;
+	}
 
+	public void timer()
+	{
+		long temps = 2000;              // délai avant de répéter la tache : 2000 = 2  seconde
+        	long startTime = 5000;          // délai avant la mise en route (0 demarre immediatement)
+        	Timer timer = new Timer();      // création du timer
+        	TimerTask tache = new TimerTask() 
+        	{    				// création et spécification de la tache à effectuer
+            		public void run() 
+            		{	
+				Calendar calendar = Calendar.getInstance();
+				System.out.println("Nous sommes le " + calendar.get(Calendar.DAY_OF_MONTH) +"/"+ calendar.get(Calendar.MONTH)+"/"+calendar.get(Calendar.YEAR));
+				System.out.println("Seconds in current minute = " + calendar.get(Calendar.SECOND));
+				this.cancel();
+
+              		}
+   		};
+        	timer.scheduleAtFixedRate(tache,startTime,temps);  // ici on lance la mecanique
+      }
+
+    private static void writeToScript(Session B)
+    {
+    	File fichier = new File("bdd.txt");
+		String[] data ={B.getNomSession(), B.getDatedebut(), B.getDatefin(), B.getPassword()};
+		try
+		{
+			FileWriter writer = new FileWriter(fichier);
+			for (String donnees : data)
+    			{
+        			writer.write (String.valueOf (donnees));
+       				writer.write ("\r\n");
+   			}
+			writer.close();
+		}
+		catch (IOException e)
+		{
+    			System.out.println ("Erreur lors de la lecture : " + e.getMessage());
+		}
+    }
+
+	/********** Main Test to create session *********/
 	public static void main(String[] args)
 	{
 		System.out.println("Voulez vous créer une session? Please y/n");
@@ -369,42 +480,34 @@ public class Session
 				System.out.println("Veuillez saisir une date de fin de session (format xx/xx/xxxx)");
 				String datefin = keyboard.nextLine();
 				System.out.println("Veuillez saisir un mot de passe");
-				String password = keyboard.nextLine();
+				String password = encrypt(keyboard.nextLine());
 				Session B = new Session(name, datedebut, datefin, password, true);
 				System.out.println("Pour voir les informations de la session, saisissez le mot de passe.");
-				password = keyboard.nextLine();
+				password = encrypt(keyboard.nextLine());				
 				if (password.equals(B.getPassword())) B.printSession();
-				long temps = 2000;                      // délai avant de répéter la tache : 2000 = 2  seconde
-        		long startTime = 5000;                 	// délai avant la mise en route (0 demarre immediatement)
-        		Timer timer = new Timer();             	// création du timer
-        		TimerTask tache = new TimerTask() {    	// création et spécification de la tache à effectuer
-
-               		public void run() {
-					Calendar calendar = Calendar.getInstance();
-					System.out.println("Nous sommes le " + calendar.get(Calendar.DAY_OF_MONTH) +"/"+ calendar.get(Calendar.MONTH)+"/"+calendar.get(Calendar.YEAR));
-					System.out.println("Seconds in current minute = " + calendar.get(Calendar.SECOND));
-
-
-                	}
-       			};
-        		timer.scheduleAtFixedRate(tache,startTime,temps);  // ici on lance la mecanique
-
+				// Il faut ajouter une liste à une session 
+				// Fonction qui va créer un vector <List> et l'initialiser 
+				writeToScript(B);
  
-        	}
+        		}
  
 			else
 			{
 				System.out.println("Veuillez saisir un mot de passe");
-				String password = keyboard.nextLine();
+				String password = encrypt(keyboard.nextLine());
 				Session B = new Session(name, password, false);
 				System.out.println("Pour voir les informations de la session, saisissez le mot de passe.");
-				password = keyboard.nextLine();
+				password = encrypt(keyboard.nextLine());				
 				if (password.equals(B.getPassword())) B.printSession();
+				writeToScript(B);
 			}
 		}
 
 		else System.exit(0);
-		/**********Suppression session*********/
+	}
+		/********** Main Test to Delete session*********/
+	/*public static void main(String[] args)
+	{
 		Session s=new Session()
 		System.out.println("Voulez-vous supprimer une session?(y/n)");
 			if (readingOfKeyboard() == true)
@@ -419,33 +522,38 @@ public class Session
 					System.out.println("erreur de suppression");
 			}
 			else System.exit(0);
-		/*************Modifier session*****************/
+	}
+	
+		/************* Main Test to Modify session*****************/
+	/*public static void main(String[] args)
+	{
 		System.out.println("Voulez-vous modifier une session?(y/n)");
 		if (readingOfKeyboard() == true)
-			{
-				System.out.println("Veuillez saisir le nom de la session a modifié?");	
-				Scanner keyboard = new Scanner(System.in);			
-				String ancien_name = keyboard.nextLine();
-				System.out.println("Veuillez saisir le  nouveau nom de la session ");
-				String nv_name = keyboard.nextLine();
-				System.out.println("Veuillez saisir une nouvelle date de début de session (format xx/xx/xxxx)");
-				String nv_datedebut = keyboard.nextLine();
-				System.out.println("Veuillez saisir une nouvelle date de fin de session (format xx/xx/xxxx)");
-				String nv_datefin = keyboard.nextLine();
-				System.out.println("Veuillez saisir le nouveau un mot de passe");
-				String nv_password = keyboard.nextLine();				
-				Session b = new Session(nv_name, nv_datedebut, nv_datefin, nv_password, true);
-				boolean result=s.modifySession(b,ancien_name);
-				if(result)
-					System.out.println("La session"+ancien_name+"est modifiée");
-				else
-					System.out.println("erreur de modification");
+		{
+			System.out.println("Veuillez saisir le nom de la session a modifié?");	
+			Scanner keyboard = new Scanner(System.in);			
+			String ancien_name = keyboard.nextLine();
+			System.out.println("Veuillez saisir le  nouveau nom de la session ");
+			String nv_name = keyboard.nextLine();
+			System.out.println("Veuillez saisir une nouvelle date de début de session (format xx/xx/xxxx)");
+			String nv_datedebut = keyboard.nextLine();
+			System.out.println("Veuillez saisir une nouvelle date de fin de session (format xx/xx/xxxx)");
+			String nv_datefin = keyboard.nextLine();
+			System.out.println("Veuillez saisir le nouveau un mot de passe");
+			String nv_password = keyboard.nextLine();				
+			Session b = new Session(nv_name, nv_datedebut, nv_datefin, nv_password, true);
+			boolean result=s.modifySession(b,ancien_name);
+			if(result)
+				System.out.println("La session"+ancien_name+"est modifiée");
+			else
+				System.out.println("erreur de modification");
 				
-			}
-			else System.exit(0);
-		
-	}
+		}
+		else System.exit(0);
+	
+	}*/		
+	
 
-}
+
 
 
