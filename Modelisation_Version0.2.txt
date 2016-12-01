@@ -4,8 +4,8 @@
 
 TABLE User :
 	[INT ID_User
-	VARCHAR(32) First Name
-	VARCHAR(32) Last Name
+	VARCHAR(32) First_Name
+	VARCHAR(32) Last_Name
 	VARCHAR(32) Login
 	VARCHAR(32) Password
 	INT rank 					# Droit/Pouvoir, admin/utilisateur normal
