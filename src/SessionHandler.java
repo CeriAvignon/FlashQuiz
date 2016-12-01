@@ -17,6 +17,7 @@ public class SessionHandler {
 	
 /**
 * L'ID de la session. Cet ID n'est pas modifiable.
+* <p>
 *
 *@see SessionHandler#sendSession(Session)
 *
@@ -25,6 +26,7 @@ private int idsession;
 	
 /**
 * La date du debut de la session.
+* <p>
 *
 *@see SessionHandler#sendSession(Session)
 *
@@ -33,6 +35,7 @@ private String datedebut;
 	
 /**
 * La date du fin de la session.
+* <p>
 *
 *@see SessionHandler#sendSession(Session)
 *
@@ -41,6 +44,7 @@ private String datefin;
 	
 /**
 * Le type de la session.
+* <p>
 *
 *@see SessionHandler#sendSession(Session)
 *
@@ -49,6 +53,7 @@ private boolean typesession;
 	
 /**
 * Le titre de la session.
+* <p>
 *
 *@see SessionHandler#sendSession(Session)
 *
@@ -57,6 +62,7 @@ private String namesession;
 	
 /**
 * Le mot de passe.
+* <p>
 *
 *@see SessionHandler#sendSession(Session)
 *
@@ -65,6 +71,7 @@ private String password;
 	
 /**
 * La liste de listes.
+* <p>
 *
 *@see SessionHandler#sendSession(Session)
 *
