@@ -25,7 +25,7 @@ public SignDialog(JFrame parent, String title, boolean modal){
 	JLabel labelLog = new JLabel("Compte : ");
 	JLabel labelPass = new JLabel("Mot de passe : ");
 	JLabel labelConfPass = new JLabel("Confirmer le mot de passe : ");
-	JLabel labelPrenom = new JLabel("Prénom : ");
+	JLabel labelPrenom = new JLabel("PrÃ©nom : ");
 	JLabel labelNom = new JLabel("Nom : ");
 	
 	JButton butReturn = new JButton ("Retour");
