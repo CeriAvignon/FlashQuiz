@@ -20,7 +20,7 @@ TABLE Sessions_Contenu :
 	INT ID_Session
 	INT ID_Liste
 
-TABLE Liste_Metadata :	# Infos générales des listes (titre...)	/ liste, certain apelle sa serie , mje vous mets d'accord c'est liste
+TABLE Liste_Metadata :	# Infos générales des listes (titre...)	/ liste, certain apelle sa serie , je vous mets d'accord c'est liste
 	[INT ID_Liste
 	INT ID_Utilisateur
 	VARCHAR(32) Titre_Liste
