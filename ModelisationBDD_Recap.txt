@@ -36,7 +36,7 @@ Comme j'ai dis les première notes sont bordéliques, la suite sera plus épuré
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+EDIT 1
 
 update des prof:
 On ne considère plus le systeme concepteur/votant. Cependant chaque tuilisateur aura un niveau de droit lui donnant plus ou moins de possibilitées.
@@ -71,14 +71,11 @@ session(IDsession, DateDebut, DateFin, ListeDeSerie, NbQuestion, IDusers, passwo
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+EDIT:
 
 chaque question peut contenir un media(img/video)
 chaque session peut avoir un temps
 Il peut y avoir un certain temps par question
-
-
-
 
 
 
@@ -104,6 +101,6 @@ Edit: le principe de concepteur/Votant n'est plus d'actualité. Un certain nivea
 Cependant, il y à toujours cette dimension de "quelqu'un créer une session, des question, et quelqu'un y reponds"
 
 
-Un utilisateur détermine un identifiant qui lui est propre, un nom, prenom, ainsi que ces droits
+EDIT: Un utilisateur détermine un identifiant qui lui est propre, un nom, prenom, ainsi que ces droits
 Les questions sont stocké dans la bdd et sont utilisable par n'importe qui, on peut se reservir d'ancienne question pour produire de nouvelles liste.
 Une sessions peut contenir plusieurs listes de question
