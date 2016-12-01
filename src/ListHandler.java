@@ -86,6 +86,7 @@ public class ListHandler
 			 * la base de données. Si elle existe, on récupère l'ID correspondant 
 			 * à la liste dans la base de données, sinon il faut se réferer à la
 			 * ligne if(!row).
+			 *
 			 **/
 			
 			boolean row = res.first();
