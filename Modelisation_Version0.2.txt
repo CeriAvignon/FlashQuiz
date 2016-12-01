@@ -18,7 +18,7 @@ TABLE Session_Metadata :
 	VARCHAR(48) Title
 	VARCHAR(32) Password
 
-TABLE Session_Contenu :
+TABLE Session_Content :
 	INT ID_Session
 	INT ID_List
 
@@ -27,7 +27,7 @@ TABLE List_Metadata :			# Infos générales des Lists (titre...)	/ List, certain
 	INT ID_User
 	VARCHAR(32) Titre_List
 
-TABLE List_Contenu :			# Contenu (questions dans la List)
+TABLE List_Content :			# Contenu (questions dans la List)
 	INT ID_List
 	INT ID_Question
 
