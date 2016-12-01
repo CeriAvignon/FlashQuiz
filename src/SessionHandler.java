@@ -117,7 +117,7 @@ public void sendSession(Session s)
 		if(idSession == -1) // si session existe pas
 		{
 			//on insere les donnees dans la BDD
-			query = "INSERT INTO Session_Metadata(Opening_Date, Closing_Date, Type_Session, Title, Password) VALUES(?, ?, ?, ?, ?);";
+			query = "INSERT INTO Session_Metadata(Opening_Date, Closing_Date, Type, Title, Password) VALUES(?, ?, ?, ?, ?);";
 					prepare =  cnx.prepareStatement(query);
 					prepare.setObject(1,datedebut);
 					prepare.setObject(2,datefin);
@@ -154,7 +154,7 @@ public void sendSession(Session s)
 		else //si session existe
 		{	
 		//on fait la mise a jour de la BDD
-			query = "UPDATE Session_Metadata SET (Opening_Date=?, Closing_Date=?, Type_Session=?, Title=?, Password=?) WHERE ID_Session=idsession;"
+			query = "UPDATE Session_Metadata SET (Opening_Date=?, Closing_Date=?, Type=?, Title=?, Password=?) WHERE ID_Session=idsession;"
 			prepare = cnx.prepareStatement(query);
 			prepare.setObject(1,s.datedebut());
 			prepare.setObject(2,s.datefin());
