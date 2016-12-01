@@ -50,7 +50,7 @@ import java.util.*;
 			this.reponse=r;
 		}
 	
-		public void DataBaseConnexion()throws ClassNotFoundException, SQLException {
+		public void dataBaseConnexion()throws ClassNotFoundException, SQLException {
 			Class.forName("org.postgresql.Driver");
 			String url = "jdbc:postgresql://localhost:5432/quiz";
 			String user = "postgres";
@@ -58,7 +58,7 @@ import java.util.*;
 			con = DriverManager.getConnection(url, user, passwd);
 		}
 
-		public Integer DefineLastIdQuestion() throws ClassNotFoundException, SQLException{
+		public Integer defineLastIdQuestion() throws ClassNotFoundException, SQLException{
 			int res2=0;
 			PreparedStatement st2 = con.prepareStatement("select max(ID_Question) from Question;");
 			ResultSet result2 = st2.executeQuery();
@@ -68,7 +68,7 @@ import java.util.*;
      			return IdQuestion=res2+1;
 		}
 
-		public Integer DefineLastIdMedia() throws ClassNotFoundException, SQLException{
+		public Integer defineLastIdMedia() throws ClassNotFoundException, SQLException{
 			int res3=0;
 			PreparedStatement st3 = con.prepareStatement("select max(ID_Media) from Media;");
 			ResultSet result3 = st3.executeQuery();
@@ -78,7 +78,7 @@ import java.util.*;
 			return IdMedia=res3+1;
 		}
 
-		public void InsertQuestion()throws ClassNotFoundException, SQLException {
+		public void insertQuestion()throws ClassNotFoundException, SQLException {
 	
 			PreparedStatement st1 = con.prepareStatement("Insert into Question values(?,?,?,?);");
 			st1.setInt(1, IdQuestion);
@@ -89,7 +89,7 @@ import java.util.*;
 		
 		}
 
-		public void InsertReponse() throws ClassNotFoundException, SQLException{
+		public void insertReponse() throws ClassNotFoundException, SQLException{
 
 			PreparedStatement st6 =con.prepareStatement("Insert into Reponses values(?,?,?,?);");
 			st6.setInt(2, IdQuestion);
@@ -156,11 +156,11 @@ import java.util.*;
 			//**************DATA BASE CONNEXION***************
 	 		 NewQuestion.DataBaseConnexion();
 			//************************************************
-      			int Q_id=NewQuestion.DefineLastIdQuestion();
-      			int M_id=NewQuestion.DefineLastIdMedia();
-	 		NewQuestion.Question(Q_id,QConten,QType,M_id);
-	  		NewQuestion.InsertQuestion();
-	  		NewQuestion.InsertReponse();
+      			int Q_id=NewQuestion.defineLastIdQuestion();
+      			int M_id=NewQuestion.defineLastIdMedia();
+	 		NewQuestion.question(Q_id,QConten,QType,M_id);
+	  		NewQuestion.insertQuestion();
+	  		NewQuestion.insertReponse();
 		}
 
 	}
