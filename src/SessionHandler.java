@@ -1,10 +1,8 @@
-import java.io.*;
-import java.util.*;
-import java.sql.*;
-import java.util.Vector;
-import Session.java;
+import java.io.*;		// inclure toutes les classes defini dans java.io package
+import java.util.*;		// inclure toutes les utils defini dans defini dans java.util package
+import java.sql.*;		
+import Session.java;		
 import Liste.java;
-package ques;
 import ConnexionJM.java;
 
 /**
