@@ -7,16 +7,19 @@ import java.util.Vector;
  	*  @author Renaud Galy
  	*  @version 1.4
  	*  
- 	*  
- 	*  Cette classe va servir à coder toutes les fonctions permettant un accès 
- 	*  aux tables Liste_Contenu et Liste_Metadata de la base de données. 
- 	*  La fonction sendList(Liste list) permet de créer une liste de questions 
- 	*  et de modifier des listes existantes. Cela nécessitera un accès aux tables 
- 	*  Liste_Metadata et Liste_Contenu, ainsi qu'un accès à la classe QuestionHandler, 
- 	*  et aux classes du groupe édition de liste (EL).De même, la fonction 
- 	*  getList(int id) va récupérer l'id d'une liste dans la table Liste_Metadata et 
- 	*  retourner un objet Liste, le groupe édition de liste pourra alors afficher 
- 	*  la liste désirée via l'interface graphique du groupe du même nom.
+ 	*/  
+/** 
+ 	*  Cette classe va servir &agrave; coder toutes les fonctions permettant un 
+ 	*  acc&egrave;s aux tables Liste_Contenu et Liste_Metadata de la base de 
+ 	*  donn&eacute;es. La fonction sendList(Liste list) permet de cr&eacute;er une 
+ 	*  liste de questions et de modifier des listes existantes. 
+ 	*  Cela n&eacute;cessitera un acc&egrave;s aux tables Liste_Metadata et 
+ 	*  Liste_Contenu, ainsi qu'un acc&egrave;s &agrave; la classe QuestionHandler, 
+ 	*  et aux classes du groupe &eacute;dition de liste (EL).De m&ecircme, la fonction 
+ 	*  getList(int id) va r&eacute;cup&eacute;rer l'id d'une liste dans la table 
+ 	*  Liste_Metadata et retourner un objet Liste, le groupe &eacute;dition de 
+ 	*  liste pourra alors afficher la liste d&eacute;sir&eacute;e via l'interface 
+ 	*  graphique du groupe du m&ecircme nom.
  	* 
  	**/
 
@@ -26,7 +29,7 @@ public class ListHandler
 	 * 
 	 * @since 1.4
 	 * @param list
-	 * 		Une liste de questions.
+	 * 				Une liste de questions.
 	 * 
 	 **/ 
 	public void sendList(List list)
@@ -37,7 +40,8 @@ public class ListHandler
 
 		/** 
 		 * 
-		 * Récupération de la liste de question avec la fonction getIdList().
+		 * R&eacute;cup&eacute;ration de la liste de question avec la fonction 
+		 * getIdList().
 		 * 
 		 **/
 
@@ -48,8 +52,8 @@ public class ListHandler
 
 		/** 
 		 * 
-		 * Création d'une requête vide qui sera affectée selon les besoins de 
-		 * la fonction. 
+		 * Cr&eacute;ation d'une requ&ecircte vide qui sera affect&eacute;e selon 
+		 * les besoins de la fonction. 
 		 * 
 		 * */
 
@@ -60,8 +64,8 @@ public class ListHandler
 
 		/**
 		 * 
-		 *  Cas d'une liste qui n'existe pas (première vérification faite par le
-		 *  groupe Edition de Liste)
+		 *  Cas d'une liste qui n'existe pas (premi&egrave;re v&eacute;rification 
+		 *  faite par le groupe Edition de Liste).
 		 *  
 		 **/
 
@@ -70,8 +74,9 @@ public class ListHandler
 
 			/** 
 			 * 
-			 * Préparation de la requête, qui va parcourir la table Liste_Metadata.
-			 * Pour l'instant, il n'y a pas d'ajout ou de modification de liste. 
+			 * Pr&eacute;paration de la requ&ecircte, qui va parcourir la table 
+			 * Liste_Metadata. Pour l'instant, il n'y a pas d'ajout ou de 
+			 * modification de liste. 
 			 * 
 			 **/
 			
@@ -82,11 +87,11 @@ public class ListHandler
 			
 			/**
 			 * 
-			 * Deuxième vérification, pour savoir si la liste est déjà présente dans
-			 * la base de données. Si elle existe, on récupère l'ID correspondant 
-			 * à la liste dans la base de données, sinon il faut se réferer à la
-			 * ligne if(!row).
-			 *
+			 * Deuxi&egrave;me v&eacute;rification, pour savoir si la liste est 
+			 * d&eacute;jà pr&eacute;sente dans la base de donn&eacute;es. 
+			 * Si elle existe, on r&eacute;cup&egrave;re l'ID correspondant &agrave; 
+			 * la liste dans la base de donn&eacute;es, sinon il faut se 
+			 * r&eacute;ferer &agrave; la ligne if(!row).
 			 **/
 			
 			boolean row = res.first();
@@ -96,7 +101,7 @@ public class ListHandler
 
 			/**
 			 *
-			 *  Si la liste n'existe pas dans la base de données
+			 *  Si la liste n'existe pas dans la base de donn&eacute;es
 			 *  
 			 **/
 
@@ -127,12 +132,13 @@ public class ListHandler
 			/**
 			 * 
 			 *  Ajout du contenu de la liste dans la table Liste_Contenu. Ici, on
-			 *  appelle en boucle la fonction sendQuestion(Question question) jusqu'à
-			 *  avoir atteint la fin de la liste de question. Chaque ID de question
-			 *  est ensuite ajouté dans la table Liste_Contenu avec comme ID_Liste 
-			 *  correspondant l'ID de la liste qui la contient. Ainsi, la table 
-			 *  contiendra plusieurs fois un même ID de liste avec un ID de question
-			 *  différente à chaque fois.
+			 *  appelle en boucle la fonction sendQuestion(Question question) 
+			 *  jusqu'&agrave; avoir atteint la fin de la liste de question. 
+			 *  Chaque ID de question est ensuite ajout&eacute; dans la table 
+			 *  Liste_Contenu avec comme ID_Liste correspondant l'ID de la liste 
+			 *  qui la contient. Ainsi, la table contiendra plusieurs fois un 
+			 *  m&ecircme ID de liste avec un ID de question diff&eacute;rente 
+			 *  &agrave; chaque fois.
 			 *  
 			 **/
 			query="INSERT INTO Liste_Contenu(ID_Liste, ID_Question) VALUES(?,?);";
@@ -154,9 +160,9 @@ public class ListHandler
 	
 		/**
 		 * 
-		 *  Si la liste existe déjà, seule la modification du titre est possible 
-		 *  ici (voir sendQuestion(Question question) pour modifier une 
-		 *  question donnée)
+		 *  Si la liste existe d&eacute;j&agrave;, seule la modification du titre 
+		 *  est possible ici (voir sendQuestion(Question question) pour modifier 
+		 *  une question donn&eacute;e)
 		 * 
 		 **/
 		
