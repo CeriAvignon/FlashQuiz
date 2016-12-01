@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 import java.sql.*;
+import java.util.Vector;
+import Session.java;
 package ques;
 import ConnexionJM.java;
 
