@@ -7,7 +7,8 @@ package ques;
 import ConnexionJM.java;
 
 /**
- * La classe SessionHandler.
+ * <b>La classe SessionHandler.</b>
+ * <p>
  * 
  * @author Alexandra MOSHINA 
  *
@@ -72,7 +73,8 @@ protected Vector<Liste>listeliste;
 	
 	
 /**
-* Envoie une session vers le serveur pour l'enregistrer.
+* <b>Envoie une session vers le serveur pour l'enregistrer.</b>
+* <p>
 *
 * @author Alexandra MOSHINA 
 *
