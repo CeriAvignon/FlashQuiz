@@ -197,10 +197,10 @@ public void sendSession(Session s)
 
 		}
  
-	catch (Exception e) 
+	/*catch (Exception e) 
 	{
 		e.printStackTrace();
 		return null;
-	}
+	}*/
 	}
 }
