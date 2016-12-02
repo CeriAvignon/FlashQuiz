@@ -107,7 +107,7 @@ public class Question {
 	/**
 	 * Getter of the question statement
 	 *
-	 * @return An string that contain the question statement
+	 * @return A string that contain the question statement
 	 *
 	 * @see Question#statement
 	 */
@@ -119,7 +119,7 @@ public class Question {
 	 * Setter of the question statement
 	 *
 	 * @param s
-	 *            An string that contain the question statement
+	 *            A string that contain the question statement
 	 *
 	 * @see Question#statement
 	 */
@@ -128,9 +128,33 @@ public class Question {
 	}
 
 	/**
+	 * Get answers number.
+	 *
+	 * @return The number of answers inside the answers vector.
+	 * @see Question#answers
+	 * @see Answer
+	 */
+	public int getAnswersNumber()
+	{
+		return answers.size();
+	}
+	
+	/**
+	 * Get the Answer it the specified position inside the answers vector.
+	 *
+	 * @return An Answer object
+	 * @see Question#answers
+	 */
+	public Vector<Answer> getAnswerAt(int index)
+	{
+		if(getAnswersNumber < index) return null;
+		return answers[index];
+	}
+	
+	/**
 	 * Getter of the question statement
 	 *
-	 * @return An string vector that contain the question statement
+	 * @return A string vector that contain the question statement
 	 *
 	 * @see Question#statement
 	 */
@@ -142,7 +166,7 @@ public class Question {
 	 * Setter of the question statement
 	 *
 	 * @param S
-	 *            An string that contain the question statement
+	 *            A string that contain the question statement
 	 *
 	 * @see Question#statement
 	 */
@@ -153,7 +177,7 @@ public class Question {
 	/**
 	 * Getter of the question type
 	 *
-	 * @return An string that contain the question type
+	 * @return A string that contain the question type
 	 *
 	 * @see Question#type
 	 */
@@ -165,7 +189,7 @@ public class Question {
 	 * Setter of the question statement
 	 *
 	 * @param s
-	 *            An string that contain the question statement
+	 *            A string that contain the question statement
 	 *
 	 * @see Question#statement
 	 */
