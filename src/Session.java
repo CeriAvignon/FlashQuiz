@@ -1,3 +1,6 @@
+import java.util.Vector;
+import java.util.Collections;
+
 /**
  * Session
  *
@@ -30,6 +33,26 @@ public class Session {
 	 * @see Session#Session(String name, String nameCreator, int id)
 	 */
 	private int id;
+	
+	/**
+	 * Vecteur des question pas encore voté
+	 * 
+	 */
+	private Vector<Integer> questionsUnvoted;
+	
+	/**
+	 * 
+	 */
+	private Question currQuestion;
+	
+	
+	/**
+	 * True if questions list sort randomly
+	 * 
+	 * False otherwise
+	 * 
+	 */
+	private boolean isQuestionsOrderRandom;
 
 	/**
 	 * The current questions series
@@ -55,11 +78,13 @@ public class Session {
 	 * @see Session#id
 	 * @see Session#currSeries
 	 */
-	public Session(String name, String nameCreator, int id) {
+	public Session(String name, String nameCreator, int id,boolean isQuestionsOrderRandom) {
 		this.name = name;
 		this.nameCreator = nameCreator;
 		this.id = id;
 		this.currSeries = null;
+		this.isQuestionsOrderRandom = isQuestionsOrderRandom;
+		sortUnvotedQuestions();
 	}
 
 	/**
@@ -120,6 +145,34 @@ public class Session {
 	}
 
 	/**
+	 * @return the questionsUnvoted
+	 */
+	public Vector<Integer> getQuestionsUnvoted() {
+		return questionsUnvoted;
+	}
+
+	/**
+	 * @param questionsUnvoted the questionsUnvoted to set
+	 */
+	public void setQuestionsUnvoted(Vector<Integer> questionsUnvoted) {
+		this.questionsUnvoted = questionsUnvoted;
+	}
+
+	/**
+	 * @return the currQuestion
+	 */
+	public Question getCurrQuestion() {
+		return currQuestion;
+	}
+
+	/**
+	 * @param currQuestion the currQuestion to set
+	 */
+	public void setCurrQuestion(Question currQuestion) {
+		this.currQuestion = currQuestion;
+	}
+
+	/**
 	 * Getter of the current series
 	 *
 	 * @return The current series
@@ -140,5 +193,56 @@ public class Session {
 	 */
 	public void setCurrSeries(Series S) {
 		currSeries = S;
+	}
+	
+	/**
+	 * 
+	 * @author Schmidt Gaetan
+	 */
+	protected void sortUnvotedQuestions()
+	{
+		for (int i=0; i < currSeries.getQuestions().size(); i++)
+		{
+			questionsUnvoted.addElement(i);
+		}
+		
+		if (isQuestionsOrderRandom)
+		{
+			Collections.shuffle(questionsUnvoted);
+		}
+	}
+	
+	/**
+	 * 
+	 * @author Schmidt Gaetan
+	 * @return true if questionsUnvoted in empty
+	 */
+	protected boolean areAllquestionsVoted ()
+	{
+		return questionsUnvoted.isEmpty();
+	}
+	
+	/**
+	 * Refresh currQuestion with questionsUnvoted's first element.
+	 * Delete questionsUnvoted's first element
+	 *
+	 * @author Schmidt Gaetan
+	 */
+	protected void changementQuestion () {
+		if (areAllquestionsVoted())
+				return;
+				currQuestion = currSeries.getQuestions().elementAt(questionsUnvoted.elementAt(0));
+				questionsUnvoted.remove(0);
+				Integer a=2;
+				questionsUnvoted.remove(0);
+				
+				/*
+				 * Affichage de la question à implémenter.
+				 */
+				
+			/**
+			 * 
+			 * mettre à jour timer avec le temps de la nouvelle question
+			 */
 	}
 }
