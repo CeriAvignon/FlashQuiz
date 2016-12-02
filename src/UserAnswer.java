@@ -108,7 +108,7 @@ class UserAnswer {
 	 * @see setUserAnswer
 	 */
 	public UserAnswer recoverAnswer(String s) {
-		a = new UserAnswer;
+		UserAnswer a = new UserAnswer();
 		a.setUserAnswer(s);
 		return a;
 	}
