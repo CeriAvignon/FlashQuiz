@@ -8,7 +8,7 @@ import java.util.Vector;
 class Series {
 
 	/**
-	 * The series name, defined by his creator at its creation
+	 * The series' name, defined by his creator at its creation.
 	 *
 	 * @see Series#getName()
 	 * @see Series#setName(String s)
@@ -17,7 +17,7 @@ class Series {
 	private String name;
 
 	/**
-	 * The series creator name
+	 * The series' creator name.
 	 *
 	 * @see Series#getNameCreator()
 	 * @see Series#setNameCreator(String s)
@@ -26,7 +26,7 @@ class Series {
 	private String nameCreator;
 
 	/**
-	 * The session id, unique and can't be changed
+	 * The session id, unique and can't be changed.
 	 *
 	 * @see Session#getid()
 	 * @see Session#Session(String name, String nameCreator, int id)
@@ -34,7 +34,7 @@ class Series {
 	private int id;
 
 	/**
-	 * A vector that contain all the series questions
+	 * A vector that contain all the series questions.
 	 *
 	 * @see Series#getQuestions()
 	 * @see Series#setQuestion(Vector<Question>)
@@ -42,14 +42,14 @@ class Series {
 	private Vector<Question> questions;
 
 	/**
-	 * Series constructor
+	 * Series constructor.
 	 *
 	 * @param name
-	 *            A String that contain the Series name
+	 *            A String that contain the Series name.
 	 * @param nameCreator
-	 *            A String that contain the Series creator name
+	 *            A String that contain the Series creator name.
 	 * @param id
-	 *            An int that contain the Series id
+	 *            An int that contain the Series id.
 	 *
 	 * @see Series#name
 	 * @see Series#nameCreator
@@ -66,9 +66,9 @@ class Series {
 	}
 
 	/**
-	 * Getter of the series name
+	 * Getter of the series name.
 	 *
-	 * @return A string that contain the series name
+	 * @return A string that contain the series name.
 	 *
 	 * @see Session#name
 	 */
@@ -77,10 +77,10 @@ class Series {
 	}
 
 	/**
-	 * Setter of the series name
+	 * Setter of the series name.
 	 *
 	 * @param s
-	 *            A string that contain the series name
+	 *            A string that contain the series name.
 	 *
 	 * @see Session#name
 	 */
@@ -89,9 +89,9 @@ class Series {
 	}
 
 	/**
-	 * Getter of the series creator name
+	 * Getter of the series creator name.
 	 *
-	 * @return A string that contain the series creator name
+	 * @return A string that contain the series creator name.
 	 *
 	 * @see Session#nameCreator
 	 */
@@ -100,10 +100,10 @@ class Series {
 	}
 
 	/**
-	 * Setter of the series creator name
+	 * Setter of the series creator name.
 	 *
 	 * @param s
-	 *            A string that contain the series creator name
+	 *            A string that contain the series creator name.
 	 *
 	 * @see Session#nameCreator
 	 */
@@ -112,20 +112,43 @@ class Series {
 	}
 
 	/**
-	 * Getter of the series id
+	 * Getter of the series id.
 	 *
-	 * @return An int that contain the series id
+	 * @return An int that contain the series id.
 	 *
-	 * @see Session#id
+	 * @see Series#id
 	 */
-	public int getid() {
+	public int getId() {
 		return id;
+	}
+	
+	/**
+	 * Get the number of questions in the series.
+	 *
+	 * @return The number of questions in the series.
+	 *
+	 * @see Series#questions
+	 */
+	public int getQuestionsNumber() {
+		return questions.size();
 	}
 
 	/**
-	 * Getter of the series questions
+	 * Get the Question at the specified index inside the questions vector.
 	 *
-	 * @return A questions vector that contain the series questions
+	 * @return A Question object.
+	 *
+	 * @see Series#questions
+	 */
+	public Question getQuestionAt(int index) {
+		if(getQuestionsNumber < index) return null;
+		return questions[index];
+	}
+
+	/**
+	 * Getter of the series questions.
+	 *
+	 * @return A questions vector that contain the series questions.
 	 *
 	 * @see Session#questions
 	 */
@@ -134,10 +157,10 @@ class Series {
 	}
 
 	/**
-	 * Setter of the series questions
+	 * Setter of the series questions.
 	 *
 	 * @param Q
-	 *            A questions vector that contain the series questions
+	 *            A questions vector that contain the series questions.
 	 *
 	 * @see Session#questions
 	 */
