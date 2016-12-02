@@ -30,7 +30,7 @@ public class Question {
 	 * The question answers, a vector that contain all the correct answers if
 	 * its type is "Free" or 1 (or more) correct answer(s) and wrong answers if
 	 * its type is "Radio" or "Checkbox"
-	 * 
+	 *
 	 * @see Question#getAnswers()
 	 * @see Question#setAnswers(Vector<Answer> S)
 	 * @see Question#Question(int id, String statement, Vector<Answer> answers,
@@ -45,10 +45,10 @@ public class Question {
 	public enum Type {
 		FREE,RADIO,CHECKBOX;
 	}
-	
+
 	/**
 	 * The question type ("Type.FREE","Type.RADIO","Type.CHECKBOX")
-	 * 
+	 *
 	 * @see Question#Type
 	 * @see Question#getType()
 	 * @see Question#setType(Type type)
@@ -56,6 +56,17 @@ public class Question {
 	 *      Type type)
 	 */
 	private Type type;
+
+	/**
+	 * Time allocated to the question in seconds.
+	 *
+	 * @see Question#getAllocatedTime
+	 * @see Question#setAllocatedTime
+	 * @see Session#startQuestionTimer
+	 */
+	private int allocatedTime;
+
+
 
 	/**
 	 * Question constructor
@@ -160,5 +171,26 @@ public class Question {
 	 */
 	public void setType(Type type) {
 		this.type = type;
+	}
+
+	/**
+	 * Get allocated time.
+	 *
+	 * @return The number of seconds allocated to the question.
+	 * @see Question#allocatedTime
+	 */
+	public int getAllocatedTime()
+	{
+		return allocatedTime;
+	}
+
+	/**
+	 * Set allocated time.
+	 *
+	 * @see Question#allocatedTime
+	 */
+	public voit setAllocatedTime(int allocatedTime)
+	{
+		this.allocatedTime = allocatedTime;
 	}
 }

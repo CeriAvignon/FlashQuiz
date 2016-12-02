@@ -33,24 +33,24 @@ public class Session {
 	 * @see Session#Session(String name, String nameCreator, int id)
 	 */
 	private int id;
-	
+
 	/**
 	 * Vecteur des question pas encore voté
-	 * 
+	 *
 	 */
 	private Vector<Integer> questionsUnvoted;
-	
+
 	/**
-	 * 
+	 *
 	 */
 	private Question currQuestion;
-	
-	
+
+
 	/**
 	 * True if questions list sort randomly
-	 * 
+	 *
 	 * False otherwise
-	 * 
+	 *
 	 */
 	private boolean isQuestionsOrderRandom;
 
@@ -62,6 +62,14 @@ public class Session {
 	 * @see Session#setCurrSeries(Series S)
 	 */
 	private Series currSeries;
+
+	/**
+	 * Current Question timer
+	 * @see Question#allocatedTime
+	 * @see Session#startQuestionTimer
+	 * @see Session#getTimeLeft
+	 */
+	protected Timer timer;
 
 	/**
 	 * The session constructor
@@ -194,9 +202,9 @@ public class Session {
 	public void setCurrSeries(Series S) {
 		currSeries = S;
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @author Schmidt Gaetan
 	 */
 	protected void sortUnvotedQuestions()
@@ -205,15 +213,15 @@ public class Session {
 		{
 			questionsUnvoted.addElement(i);
 		}
-		
+
 		if (isQuestionsOrderRandom)
 		{
 			Collections.shuffle(questionsUnvoted);
 		}
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @author Schmidt Gaetan
 	 * @return true if questionsUnvoted in empty
 	 */
@@ -221,7 +229,7 @@ public class Session {
 	{
 		return questionsUnvoted.isEmpty();
 	}
-	
+
 	/**
 	 * Refresh currQuestion with questionsUnvoted's first element.
 	 * Delete questionsUnvoted's first element
@@ -230,19 +238,40 @@ public class Session {
 	 */
 	protected void changementQuestion () {
 		if (areAllquestionsVoted())
-				return;
-				currQuestion = currSeries.getQuestions().elementAt(questionsUnvoted.elementAt(0));
-				questionsUnvoted.remove(0);
-				Integer a=2;
-				questionsUnvoted.remove(0);
-				
-				/*
-				 * Affichage de la question à implémenter.
-				 */
-				
-			/**
-			 * 
-			 * mettre à jour timer avec le temps de la nouvelle question
-			 */
+		return;
+		currQuestion = currSeries.getQuestions().elementAt(questionsUnvoted.elementAt(0));
+		questionsUnvoted.remove(0);
+		// Affichage de la question
+		startQuestionTimer();
+	}
+
+	/**
+	 * Start the question timer.
+	 *
+	 * @see Question#allocatedTime
+	 * @see Question#getAllocatedTime
+	 */
+	protected void startQuestionTimer()
+	{
+		int delay = currQuestion.getAllocatedTime * 1000; // convert in milliseconds
+
+		ActionListener timeOutListener = new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				System.out.println("Time left!");
+			}
+		};
+
+		this.timer = new Timer(delay, timeOutListener);
+		this.timer.setRepeats(false); // happen once
+		this.timer.start();
+	}
+
+	/**
+	 * Get time left. Used to calculate the time spent by the voter to answer (statistics).
+	 * WIP
+	 */
+	protected int getTimeLeft()
+	{
+		return timer.getDelay();
 	}
 }
