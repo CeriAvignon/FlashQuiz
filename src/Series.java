@@ -121,7 +121,7 @@ class Series {
 	public int getId() {
 		return id;
 	}
-	
+
 	/**
 	 * Get the number of questions in the series.
 	 *
@@ -141,8 +141,9 @@ class Series {
 	 * @see Series#questions
 	 */
 	public Question getQuestionAt(int index) {
-		if(getQuestionsNumber < index) return null;
-		return questions[index];
+		if (getQuestionsNumber() < index)
+			return null;
+		return questions.get(index);
 	}
 
 	/**

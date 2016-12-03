@@ -1,4 +1,5 @@
 import java.util.Vector;
+import java.awt.event.ActionListener;
 import java.util.Collections;
 
 /**
@@ -45,7 +46,6 @@ public class Session {
 	 */
 	private Question currQuestion;
 
-
 	/**
 	 * True if questions list sort randomly
 	 *
@@ -65,6 +65,7 @@ public class Session {
 
 	/**
 	 * Current Question timer
+	 * 
 	 * @see Question#allocatedTime
 	 * @see Session#startQuestionTimer
 	 * @see Session#getTimeLeft
@@ -86,7 +87,8 @@ public class Session {
 	 * @see Session#id
 	 * @see Session#currSeries
 	 */
-	public Session(String name, String nameCreator, int id,boolean isQuestionsOrderRandom) {
+	public Session(String name, String nameCreator, int id,
+			boolean isQuestionsOrderRandom) {
 		this.name = name;
 		this.nameCreator = nameCreator;
 		this.id = id;
@@ -160,7 +162,8 @@ public class Session {
 	}
 
 	/**
-	 * @param questionsUnvoted the questionsUnvoted to set
+	 * @param questionsUnvoted
+	 *            the questionsUnvoted to set
 	 */
 	public void setQuestionsUnvoted(Vector<Integer> questionsUnvoted) {
 		this.questionsUnvoted = questionsUnvoted;
@@ -174,7 +177,8 @@ public class Session {
 	}
 
 	/**
-	 * @param currQuestion the currQuestion to set
+	 * @param currQuestion
+	 *            the currQuestion to set
 	 */
 	public void setCurrQuestion(Question currQuestion) {
 		this.currQuestion = currQuestion;
@@ -207,15 +211,12 @@ public class Session {
 	 *
 	 * @author Schmidt Gaetan
 	 */
-	protected void sortUnvotedQuestions()
-	{
-		for (int i=0; i < currSeries.getQuestions().size(); i++)
-		{
+	protected void sortUnvotedQuestions() {
+		for (int i = 0; i < currSeries.getQuestions().size(); i++) {
 			questionsUnvoted.addElement(i);
 		}
 
-		if (isQuestionsOrderRandom)
-		{
+		if (isQuestionsOrderRandom) {
 			Collections.shuffle(questionsUnvoted);
 		}
 	}
@@ -225,21 +226,21 @@ public class Session {
 	 * @author Schmidt Gaetan
 	 * @return true if questionsUnvoted in empty
 	 */
-	protected boolean areAllquestionsVoted ()
-	{
+	protected boolean areAllquestionsVoted() {
 		return questionsUnvoted.isEmpty();
 	}
 
 	/**
-	 * Refresh currQuestion with questionsUnvoted's first element.
-	 * Delete questionsUnvoted's first element
+	 * Refresh currQuestion with questionsUnvoted's first element. Delete
+	 * questionsUnvoted's first element
 	 *
 	 * @author Schmidt Gaetan
 	 */
-	protected void changementQuestion () {
+	protected void changementQuestion() {
 		if (areAllquestionsVoted())
-		return;
-		currQuestion = currSeries.getQuestions().elementAt(questionsUnvoted.elementAt(0));
+			return;
+		currQuestion = currSeries.getQuestions()
+				.elementAt(questionsUnvoted.elementAt(0));
 		questionsUnvoted.remove(0);
 		// Affichage de la question
 		startQuestionTimer();
@@ -251,9 +252,9 @@ public class Session {
 	 * @see Question#allocatedTime
 	 * @see Question#getAllocatedTime
 	 */
-	protected void startQuestionTimer()
-	{
-		int delay = currQuestion.getAllocatedTime * 1000; // convert in milliseconds
+	protected void startQuestionTimer() {
+		int delay = currQuestion.getAllocatedTime() * 1000; // convert in
+															// milliseconds
 
 		ActionListener timeOutListener = new ActionListener() {
 			public void actionPerformed(ActionEvent evt) {
@@ -267,11 +268,10 @@ public class Session {
 	}
 
 	/**
-	 * Get time left. Used to calculate the time spent by the voter to answer (statistics).
-	 * WIP
+	 * Get time left. Used to calculate the time spent by the voter to answer
+	 * (statistics). WIP
 	 */
-	protected int getTimeLeft()
-	{
+	protected int getTimeLeft() {
 		return timer.getDelay();
 	}
 }

@@ -43,7 +43,7 @@ public class Question {
 	 * Enumerator that contain all the question type
 	 */
 	public enum Type {
-		FREE,RADIO,CHECKBOX;
+		FREE, RADIO, CHECKBOX;
 	}
 
 	/**
@@ -65,8 +65,6 @@ public class Question {
 	 * @see Session#startQuestionTimer
 	 */
 	private int allocatedTime;
-
-
 
 	/**
 	 * Question constructor
@@ -134,23 +132,22 @@ public class Question {
 	 * @see Question#answers
 	 * @see Answer
 	 */
-	public int getAnswersNumber()
-	{
+	public int getAnswersNumber() {
 		return answers.size();
 	}
-	
+
 	/**
 	 * Get the Answer it the specified position inside the answers vector.
 	 *
 	 * @return An Answer object
 	 * @see Question#answers
 	 */
-	public Vector<Answer> getAnswerAt(int index)
-	{
-		if(getAnswersNumber < index) return null;
-		return answers[index];
+	public Answer getAnswerAt(int index) {
+		if (getAnswersNumber() < index)
+			return null;
+		return answers.get(index);
 	}
-	
+
 	/**
 	 * Getter of the question statement
 	 *
@@ -203,8 +200,7 @@ public class Question {
 	 * @return The number of seconds allocated to the question.
 	 * @see Question#allocatedTime
 	 */
-	public int getAllocatedTime()
-	{
+	public int getAllocatedTime() {
 		return allocatedTime;
 	}
 
@@ -213,8 +209,7 @@ public class Question {
 	 *
 	 * @see Question#allocatedTime
 	 */
-	public voit setAllocatedTime(int allocatedTime)
-	{
+	public void setAllocatedTime(int allocatedTime) {
 		this.allocatedTime = allocatedTime;
 	}
 }
