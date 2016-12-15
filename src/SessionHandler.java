@@ -112,8 +112,7 @@ public void sendSession(Session s)
 	Statement statement = cnx.createStatement();
 	ResultSet res=null;	
 	PreparedStatement prepare = cnx.prepareStatement();	
-	//try
-	//{
+	
 		if(idSession == -1) // si session existe pas
 		{
 			//on insere les donnees dans la BDD
@@ -195,12 +194,5 @@ public void sendSession(Session s)
 			}	
 		}
 
-		//}
- 
-	/*catch (Exception e) 
-	{
-		e.printStackTrace();
-		return null;
-	}*/
 	}
 }
