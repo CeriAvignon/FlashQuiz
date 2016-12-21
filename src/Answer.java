@@ -1,6 +1,6 @@
 /**
  * The question answer, it can be true, or false in the case of a radio/checkbox
- * question
+ * question, it's defined by the its creator.
  * 
  * @see Question
  * 

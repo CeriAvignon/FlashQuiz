@@ -60,9 +60,9 @@ public class Question {
 	/**
 	 * Time allocated to the question in seconds.
 	 *
-	 * @see Question#getAllocatedTime
-	 * @see Question#setAllocatedTime
-	 * @see Session#startQuestionTimer
+	 * @see Question#getAllocatedTime()
+	 * @see Question#setAllocatedTime(int)
+	 * @see Session#startQuestionTimer()
 	 */
 	private int allocatedTime;
 
@@ -83,8 +83,7 @@ public class Question {
 	 * @see Question#answers
 	 * @see Question#type
 	 */
-	public Question(int id, String statement, Vector<Answer> answers,
-			Type type) {
+	public Question(int id, String statement, Vector<Answer> answers, Type type) {
 		this.id = id;
 		this.statement = statement;
 		this.answers = answers;

@@ -12,65 +12,63 @@ import javax.swing.Timer;
 public class Session {
 
 	/**
-	 * The session name, defined by his creator at its creation
+	 * The session name, defined by its creator at its creation
 	 *
 	 * @see Session#getName()
-	 * @see Session#setName(String s)
-	 * @see Session#Session(String name, String nameCreator, int id)
+	 * @see Session#setName(String)
+	 * @see Session#Session(String, String, int)
 	 */
 	private String name;
 
 	/**
-	 * The session creator name
+	 * The session creator id
 	 *
 	 * @see Session#getNameCreator()
-	 * @see Session#setNameCreator(String s)
-	 * @see Session#Session(String name, String nameCreator, int id)
+	 * @see Session#setNameCreator(id)
+	 * @see Session#Session(String, int, int)
 	 */
-	private String nameCreator;
+	private int idCreator;
 
 	/**
 	 * The session id, unique and can't be changed
 	 *
 	 * @see Session#getid()
-	 * @see Session#Session(String name, String nameCreator, int id)
+	 * @see Session#Session(String, int, int)
 	 */
 	private int id;
 
 	/**
-	 * Vecteur des question pas encore voté
-	 *
+	 * A list of all the questions that haven't been used yet
+	 * 
+	 * @see Question
 	 */
 	private Vector<Integer> questionsUnvoted;
 
 	/**
-	 *
+	 * The question that is currently answered
+	 * 
+	 * @see Question
 	 */
 	private Question currQuestion;
 
 	/**
-	 * True if questions list sort randomly
-	 *
-	 * False otherwise
-	 *
+	 * 
 	 */
-	private boolean isQuestionsOrderRandom;
+	private List currList;
 
 	/**
-	 * The current questions series
-	 *
-	 * @see Series
-	 * @see Session#getCurrSeries()
-	 * @see Session#setCurrSeries(Series S)
+	 * State if the questions need to be randomly sorted
+	 * 
+	 * @see Question
 	 */
-	private Series currSeries;
+	private boolean isQuestionsOrderRandom;
 
 	/**
 	 * Current Question timer
 	 * 
 	 * @see Question#allocatedTime
-	 * @see Session#startQuestionTimer
-	 * @see Session#getTimeLeft
+	 * @see Session#startQuestionTimer()
+	 * @see Session#getTimeLeft()
 	 */
 	protected Timer timer;
 
@@ -78,23 +76,22 @@ public class Session {
 	 * The session constructor
 	 *
 	 * @param name
-	 *            A string that contain the session name
-	 * @param nameCreator
-	 *            A string that contain the session creator name
+	 *            The session name
+	 * @param idCreator
+	 *            The session creator id
 	 * @param id
-	 *            An int that contain the session id
+	 *            The session id
 	 *
 	 * @see Session#name
 	 * @see Session#nameCreator
 	 * @see Session#id
-	 * @see Session#currSeries
+	 * @see Session#currList
 	 */
-	public Session(String name, String nameCreator, int id,
-			boolean isQuestionsOrderRandom) {
+	public Session(String name, int idCreator, int id, boolean isQuestionsOrderRandom) {
 		this.name = name;
-		this.nameCreator = nameCreator;
+		this.idCreator = idCreator;
 		this.id = id;
-		this.currSeries = null;
+		this.currList = null;
 		this.isQuestionsOrderRandom = isQuestionsOrderRandom;
 		sortUnvotedQuestions();
 	}
@@ -123,32 +120,32 @@ public class Session {
 	}
 
 	/**
-	 * Getter of the session creator name
+	 * Getter of the session creator id
 	 *
-	 * @return A string that contain the session creator name
+	 * @return The session creator id
 	 *
 	 * @see Session#nameCreator
 	 */
-	public String getNameCreator() {
-		return nameCreator;
+	public int getIdCreator() {
+		return idCreator;
 	}
 
 	/**
-	 * Setter of the session creator name
+	 * Setter of the session creator id
 	 *
 	 * @param s
-	 *            A string that contain the session creator name
+	 *            The session creator id
 	 *
-	 * @see Session#nameCreator
+	 * @see Session#idCreator
 	 */
-	public void setNameCreator(String s) {
-		nameCreator = s;
+	public void setIdCreator(int id) {
+		idCreator = id;
 	}
 
 	/**
 	 * Getter of the session id
 	 *
-	 * @return An int that contain the session id
+	 * @return The session id
 	 *
 	 * @see Session#id
 	 */
@@ -157,15 +154,21 @@ public class Session {
 	}
 
 	/**
-	 * @return the questionsUnvoted
+	 * Getter of questionsUnvoted
+	 * 
+	 * @return A list of all the questions that haven't been used yet
+	 * 
+	 * @see questionsUnvoted
 	 */
 	public Vector<Integer> getQuestionsUnvoted() {
 		return questionsUnvoted;
 	}
 
 	/**
+	 * Setter of questionsUnvoted
+	 * 
 	 * @param questionsUnvoted
-	 *            the questionsUnvoted to set
+	 *            A list of all the questions that haven't been used yet
 	 */
 	public void setQuestionsUnvoted(Vector<Integer> questionsUnvoted) {
 		this.questionsUnvoted = questionsUnvoted;
@@ -191,10 +194,10 @@ public class Session {
 	 *
 	 * @return The current series
 	 *
-	 * @see Session#currSeries
+	 * @see Session#currList
 	 */
-	public Series getCurrSeries() {
-		return currSeries;
+	public List getcurrList() {
+		return currList;
 	}
 
 	/**
@@ -203,10 +206,10 @@ public class Session {
 	 * @param S
 	 *            A series
 	 *
-	 * @see Session#currSeries
+	 * @see Session#currList
 	 */
-	public void setCurrSeries(Series S) {
-		currSeries = S;
+	public void setcurrList(List S) {
+		currList = S;
 	}
 
 	/**
@@ -214,7 +217,7 @@ public class Session {
 	 * @author Schmidt Gaetan
 	 */
 	protected void sortUnvotedQuestions() {
-		for (int i = 0; i < currSeries.getQuestions().size(); i++) {
+		for (int i = 0; i < currList.getQuestions().size(); i++) {
 			questionsUnvoted.addElement(i);
 		}
 
@@ -241,8 +244,7 @@ public class Session {
 	protected void changementQuestion() {
 		if (areAllquestionsVoted())
 			return;
-		currQuestion = currSeries.getQuestions()
-				.elementAt(questionsUnvoted.elementAt(0));
+		currQuestion = currList.getQuestions().elementAt(questionsUnvoted.elementAt(0));
 		questionsUnvoted.remove(0);
 		// Affichage de la question
 		startQuestionTimer();
