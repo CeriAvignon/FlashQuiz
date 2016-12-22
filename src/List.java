@@ -1,7 +1,7 @@
 import java.util.Vector;
 
 /**
- * A list is a series of questions made by a user
+ * A list is a series of questions.
  *
  * @author Jean-Loup Gaussen
  * 
@@ -10,11 +10,11 @@ import java.util.Vector;
 class List {
 
 	/**
-	 * The title of the list
+	 * The title of the list.
 	 *
 	 * @see List#getName()
 	 * @see List#setName(String)
-	 * @see List#List(String, String, int)
+	 * @see List#List(String, int, int, Vector)
 	 */
 	private String name;
 
@@ -23,12 +23,12 @@ class List {
 	 *
 	 * @see List#getidCreator()
 	 * @see List#setidCreator(int)
-	 * @see List#List(String, int, int)
+	 * @see List#List(String, int, int, Vector)
 	 */
 	private int idCreator;
 
 	/**
-	 * The list id, unique and can't be changed.
+	 * The list id.
 	 *
 	 * @see List#getid()
 	 * @see List#List(String, int, int, Vector)
@@ -43,6 +43,7 @@ class List {
 	 * @see List#setQuestions(Vector)
 	 * @see List#getQuestionsSize()
 	 * @see List#getQuestionAt(int)
+	 * @see List#List(String, int, int, Vector)
 	 */
 	private Vector<Question> questions;
 
@@ -72,7 +73,7 @@ class List {
 	/**
 	 * Getter of the list name.
 	 *
-	 * @return The List name.
+	 * @return The list name.
 	 *
 	 * @see Session#name
 	 */
@@ -95,7 +96,7 @@ class List {
 	/**
 	 * Getter of the id of the list creator.
 	 *
-	 * @return The id of the list creator
+	 * @return The id of the list creator.
 	 *
 	 * @see Session#idCreator
 	 */
@@ -141,18 +142,18 @@ class List {
 	 * Setter of the list questions.
 	 *
 	 * @param Q
-	 *           The list questions.
+	 *            The list questions.
 	 *
 	 * @see Session#questions
 	 */
 	public void setQuestions(Vector<Question> Q) {
 		questions = Q;
 	}
-	
+
 	/**
 	 * Get the number of questions in the list.
 	 *
-	 * @return The number of questions in the List.
+	 * @return The number of questions in the list.
 	 *
 	 * @see List#questions
 	 */
@@ -164,7 +165,7 @@ class List {
 	 * Get a question at the specified index inside the questions vector.
 	 *
 	 * @param index
-	 *            The index of the question
+	 *            The index of the question.
 	 * @return A question.
 	 *
 	 * @see List#questions
