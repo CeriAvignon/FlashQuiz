@@ -1,14 +1,16 @@
 import java.util.Vector;
 
 /**
- * Question class
+ * A question contain a statement, one or more answers to this statement, a type
+ * (checkbox, radio, free) and the time given to answer to the question (<0 if
+ * infinite).
  *
  * @author Jean-Loup Gaussen
  */
 public class Question {
 
 	/**
-	 * The question id, unique and can't be changed
+	 * The question id.
 	 *
 	 * @see Question#getid()
 	 * @see Question#Question(int id, String statement, Vector<Answer> answers,
