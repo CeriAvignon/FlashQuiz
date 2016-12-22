@@ -13,6 +13,7 @@ class Answer {
 	 * 
 	 * @see Answer#getContent()
 	 * @see Answer#setContent()
+	 * @see Answer#Answer(String, boolean)
 	 */
 	private String content;
 
@@ -21,8 +22,22 @@ class Answer {
 	 * 
 	 * @see Answer#getState()
 	 * @see Answer#setState()
+	 * @see Answer#Answer(String, boolean)
 	 */
 	private boolean state;
+
+	/**
+	 * Constructor of answer
+	 * 
+	 * @param s
+	 *            The content of the answer
+	 * @param b
+	 *            The state of the answer (good or false)
+	 */
+	public Answer(String s, boolean b) {
+		this.content = s;
+		this.state = b;
+	}
 
 	/**
 	 * Getter of the content answer
