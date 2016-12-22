@@ -9,7 +9,7 @@
  */
 class Answer {
 	/**
-	 * The answer
+	 * The answer.
 	 * 
 	 * @see Answer#getContent()
 	 * @see Answer#setContent()
@@ -18,7 +18,7 @@ class Answer {
 	private String content;
 
 	/**
-	 * True if the answer is a good one, False else
+	 * True if the answer is a good one, false else.
 	 * 
 	 * @see Answer#getState()
 	 * @see Answer#setState()
@@ -27,12 +27,14 @@ class Answer {
 	private boolean state;
 
 	/**
-	 * Constructor of answer
+	 * Constructor of answer.
 	 * 
 	 * @param s
-	 *            The content of the answer
+	 *            The content of the answer.
 	 * @param b
-	 *            The state of the answer (good or false)
+	 *            The state of the answer.
+	 * @see Answer#content
+	 * @see Answer#state
 	 */
 	public Answer(String s, boolean b) {
 		this.content = s;
@@ -40,9 +42,9 @@ class Answer {
 	}
 
 	/**
-	 * Getter of the content answer
+	 * Getter of the content answer.
 	 * 
-	 * @return the content of the answer
+	 * @return The content of the answer.
 	 * 
 	 * @see Answer#content
 	 */
@@ -51,10 +53,10 @@ class Answer {
 	}
 
 	/**
-	 * Setter of the content answer
+	 * Setter of the content answer.
 	 * 
 	 * @param content
-	 * 
+	 *            The content of the answer.
 	 * @see Answer#content
 	 */
 	public void setContent(String content) {
@@ -64,7 +66,7 @@ class Answer {
 	/**
 	 * Getter of the state answer
 	 * 
-	 * @return the state answer
+	 * @return The state of the answer.
 	 * 
 	 * @see Answer#state
 	 */
@@ -73,10 +75,10 @@ class Answer {
 	}
 
 	/**
-	 * Setter of the state answer
+	 * Setter of the state answer.
 	 * 
 	 * @param state
-	 * 
+	 *            The state of the answer.
 	 * @see Answer#state
 	 */
 	public void setState(boolean state) {
