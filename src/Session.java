@@ -93,6 +93,7 @@ public class Session {
 		this.id = id;
 		this.currList = null;
 		this.isQuestionsOrderRandom = isQuestionsOrderRandom;
+		addUnvotedQuestions();
 		sortUnvotedQuestions();
 	}
 
@@ -221,7 +222,15 @@ public class Session {
 	{
 		int newQuestionIndex = this.list.addQuestion(question);
 		unvotedQuestions.add(newQuestionIndex);
-		// sortUnvotedQuestions();
+		sortUnvotedQuestions();
+	}
+
+	/**
+	 * Add the current list to the unvotedQuestions vector.
+	 *
+	 */
+	protected void addUnvotedQuestions() {
+		questionsUnvoted.addAll(currList);
 	}
 
 	/**
@@ -230,9 +239,6 @@ public class Session {
 	 * @author Schmidt Gaetan
 	 */
 	protected void sortUnvotedQuestions() {
-		for (int i = 0; i < currList.getQuestions().size(); i++) {
-			questionsUnvoted.addElement(i);
-		}
 		if (isQuestionsOrderRandom)
 			Collections.shuffle(questionsUnvoted);
 	}
