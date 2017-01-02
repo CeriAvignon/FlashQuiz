@@ -39,33 +39,33 @@ public class Session {
 
 	/**
 	 * A list of all the questions that haven't been used yet
-	 * 
+	 *
 	 * @see Question
 	 */
 	private Vector<Integer> questionsUnvoted;
 
 	/**
 	 * The question that is currently answered
-	 * 
+	 *
 	 * @see Question
 	 */
 	private Question currQuestion;
 
 	/**
-	 * 
+	 *
 	 */
 	private List currList;
 
 	/**
 	 * State if the questions need to be randomly sorted
-	 * 
+	 *
 	 * @see Question
 	 */
 	private boolean isQuestionsOrderRandom;
 
 	/**
 	 * Current Question timer
-	 * 
+	 *
 	 * @see Question#allocatedTime
 	 * @see Session#startQuestionTimer()
 	 * @see Session#getTimeLeft()
@@ -149,15 +149,15 @@ public class Session {
 	 *
 	 * @see Session#id
 	 */
-	public int getid() {
+	public int getId() {
 		return id;
 	}
 
 	/**
 	 * Getter of questionsUnvoted
-	 * 
+	 *
 	 * @return A list of all the questions that haven't been used yet
-	 * 
+	 *
 	 * @see questionsUnvoted
 	 */
 	public Vector<Integer> getQuestionsUnvoted() {
@@ -166,7 +166,7 @@ public class Session {
 
 	/**
 	 * Setter of questionsUnvoted
-	 * 
+	 *
 	 * @param questionsUnvoted
 	 *            A list of all the questions that haven't been used yet
 	 */
@@ -196,7 +196,7 @@ public class Session {
 	 *
 	 * @see Session#currList
 	 */
-	public List getcurrList() {
+	public List getCurrList() {
 		return currList;
 	}
 
@@ -208,11 +208,24 @@ public class Session {
 	 *
 	 * @see Session#currList
 	 */
-	public void setcurrList(List S) {
+	public void setCurrList(List S) {
 		currList = S;
 	}
 
 	/**
+	 * Add a question to the current list.
+	 * Then add its index to the unvotedQuestions vector, before sorting the
+	 * vector.
+	 */
+	public addQuestion(Question question)
+	{
+		int newQuestionIndex = this.list.addQuestion(question);
+		unvotedQuestions.add(newQuestionIndex);
+		// sortUnvotedQuestions();
+	}
+
+	/**
+	 * Sort the unvoted questions vector if isQuestionsOrderRandom is true.
 	 *
 	 * @author Schmidt Gaetan
 	 */
@@ -220,16 +233,14 @@ public class Session {
 		for (int i = 0; i < currList.getQuestions().size(); i++) {
 			questionsUnvoted.addElement(i);
 		}
-
-		if (isQuestionsOrderRandom) {
+		if (isQuestionsOrderRandom)
 			Collections.shuffle(questionsUnvoted);
-		}
 	}
 
 	/**
 	 *
 	 * @author Schmidt Gaetan
-	 * @return true if questionsUnvoted in empty
+	 * @return True if the questionsUnvoted vector is empty.
 	 */
 	protected boolean areAllquestionsVoted() {
 		return questionsUnvoted.isEmpty();
@@ -237,7 +248,7 @@ public class Session {
 
 	/**
 	 * Refresh currQuestion with questionsUnvoted's first element. Delete
-	 * questionsUnvoted's first element
+	 * the questionsUnvoted's first element.
 	 *
 	 * @author Schmidt Gaetan
 	 */

@@ -4,7 +4,7 @@ import java.util.Vector;
  * A list is a series of questions.
  *
  * @author Jean-Loup Gaussen
- * 
+ *
  * @see Question
  */
 class List {
@@ -175,5 +175,18 @@ class List {
 			return null;
 		}
 		return questions.get(index);
+	}
+
+	/**
+	 * Add question to the list.
+	 * Return the new question index inside the list
+	 * (normally the size of the questions vector).
+	 *
+	 * @return The question index inside the list.
+	 */
+	public int addQuestion(Question question)
+	{
+		this.questions.add(question);
+		return questions.size();
 	}
 }
