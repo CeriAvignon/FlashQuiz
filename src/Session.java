@@ -214,14 +214,14 @@ public class Session {
 	}
 
 	/**
-	 * Add a question to the current list.
-	 * Then add its index to the unvotedQuestions vector, before sorting the
-	 * vector.
+	 * Add a question to the current list. Then add its index to the
+	 * unvotedQuestions vector, before sorting the vector.
+	 * 
+	 * @return %TODO%
 	 */
-	public addQuestion(Question question)
-	{
-		int newQuestionIndex = this.list.addQuestion(question);
-		unvotedQuestions.add(newQuestionIndex);
+	public void addQuestion(Question question) {
+		int newQuestionIndex = this.currList.addQuestion(question);
+		questionsUnvoted.add(newQuestionIndex);
 		sortUnvotedQuestions();
 	}
 
@@ -230,7 +230,7 @@ public class Session {
 	 *
 	 */
 	protected void addUnvotedQuestions() {
-		questionsUnvoted.addAll(currList);
+		// questionsUnvoted.addAll(currList); %TODO%
 	}
 
 	/**
@@ -253,8 +253,8 @@ public class Session {
 	}
 
 	/**
-	 * Refresh currQuestion with questionsUnvoted's first element. Delete
-	 * the questionsUnvoted's first element.
+	 * Refresh currQuestion with questionsUnvoted's first element. Delete the
+	 * questionsUnvoted's first element.
 	 *
 	 * @author Schmidt Gaetan
 	 */

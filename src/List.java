@@ -178,14 +178,15 @@ class List {
 	}
 
 	/**
-	 * Add question to the list.
-	 * Return the new question index inside the list
+	 * Add question to the list. Return the new question index inside the list
 	 * (normally the size of the questions vector).
 	 *
 	 * @return The question index inside the list.
+	 * 
+	 * @see Question
+	 * @see List#questions
 	 */
-	public int addQuestion(Question question)
-	{
+	public int addQuestion(Question question) {
 		this.questions.add(question);
 		return questions.size();
 	}
