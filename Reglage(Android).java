@@ -2,6 +2,7 @@ package ceri.flashquizz;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -13,7 +14,7 @@ public class Reglage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reglage);
+        setContentView(R.layout.reglage);
 
         Button ButtonLanguage = (Button) findViewById(R.id.Language);
         ButtonLanguage.setOnClickListener(new View.OnClickListener() {
@@ -36,8 +37,6 @@ public class Reglage extends AppCompatActivity {
     private void ShowLanguage() {
 
         AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
-        helpBuilder.setTitle("Langue");
-        helpBuilder.setMessage("Choisissez la langue:");
 
         LayoutInflater inflater = getLayoutInflater();
         View languagelayout = inflater.inflate(R.layout.popuplanguagelayout, null);
@@ -54,12 +53,12 @@ public class Reglage extends AppCompatActivity {
         // Remember, create doesn't show the dialog
         AlertDialog helpDialog = helpBuilder.create();
         helpDialog.show();
+        Button ok =helpDialog.getButton(DialogInterface.BUTTON_POSITIVE);
+        ok.setTextColor(Color.BLUE);
     }
     private void ShowColor() {
 
         AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
-        helpBuilder.setTitle("Couleur");
-        helpBuilder.setMessage("Choisissez la couleur:");
 
         LayoutInflater inflater = getLayoutInflater();
         View colorlayout = inflater.inflate(R.layout.popupcolorlayout, null);
@@ -76,5 +75,7 @@ public class Reglage extends AppCompatActivity {
         // Remember, create doesn't show the dialog
         AlertDialog helpDialog = helpBuilder.create();
         helpDialog.show();
+        Button ok =helpDialog.getButton(DialogInterface.BUTTON_POSITIVE);
+        ok.setTextColor(Color.BLUE);
     }
 }
