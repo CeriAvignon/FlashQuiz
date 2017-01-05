@@ -574,7 +574,8 @@ public class Session
 				if (password.equals(B.getPassword())) B.printSession();
 				// Il faut ajouter une liste à une session 
 				// Fonction qui va créer un vector <List> et l'initialiser 
-				writeToFile(B);
+				//writeToFile(B);
+				sendSession(B);
  
         		}
  
@@ -586,7 +587,9 @@ public class Session
 				System.out.println("Pour voir les informations de la session, saisissez le mot de passe.");
 				password = encrypt(keyboard.nextLine());				
 				if (password.equals(B.getPassword())) B.printSession();
-				writeToFile(B);
+				//writeToFile(B);
+				sendSession(B);	
+				// function written by MOSHINA Alexandra (RES-BDD)
 			}
 		}
 
