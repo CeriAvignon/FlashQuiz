@@ -1,9 +1,9 @@
 import java.io.*;		// inclure toutes les classes defini dans java.io package
 import java.util.*;		// inclure toutes les utils defini dans defini dans java.util package
-import java.sql.*;		
+import java.sql.*;		// inclure toutes les utils defini dans defini dans java.sql package
 import Session.java;		
-import Liste.java;
-import Version.java;
+import Liste.java;		
+import Version.java;		// inclure Version.java pour pouvoir se connecter a la bdd
 
 /**
  * <b>La classe SessionHandler.</b>
