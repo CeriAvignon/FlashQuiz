@@ -217,6 +217,9 @@ public class Session {
 	 * Add a question to the current list. Then add its index to the
 	 * unvotedQuestions vector, before sorting the vector.
 	 * 
+	 * @param question
+	 *            The new question you want to add
+	 * 
 	 * @return %TODO%
 	 */
 	public void addQuestion(Question question) {
@@ -244,8 +247,10 @@ public class Session {
 	}
 
 	/**
+	 * Test if all the session's questions are done
 	 *
 	 * @author Schmidt Gaetan
+	 * 
 	 * @return True if the questionsUnvoted vector is empty.
 	 */
 	protected boolean areAllquestionsVoted() {
@@ -259,8 +264,9 @@ public class Session {
 	 * @author Schmidt Gaetan
 	 */
 	protected void changementQuestion() {
-		if (areAllquestionsVoted())
+		if (areAllquestionsVoted()) {
 			return;
+		}
 		currQuestion = currList.getQuestions().elementAt(questionsUnvoted.elementAt(0));
 		questionsUnvoted.remove(0);
 		// Affichage de la question
@@ -291,6 +297,8 @@ public class Session {
 	/**
 	 * Get time left. Used to calculate the time spent by the voter to answer
 	 * (statistics). WIP
+	 * 
+	 * @return The left time for the current question
 	 */
 	protected int getTimeLeft() {
 		return timer.getDelay();

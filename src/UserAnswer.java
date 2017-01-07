@@ -97,36 +97,37 @@ class UserAnswer {
 	public void setAnswered(boolean answered) {
 		this.answered = answered;
 	}
-	
+
 	/**
 	 * Function who recover the answer of an user.
 	 * 
 	 * @param string
+	 *            An answer
 	 * 
-	 * @return UserAnswer
+	 * @return An UserAnswer
 	 * 
-	 * @see setUserAnswer
+	 * @see UserAnswer#setUserAnswer(String)
 	 */
 	public UserAnswer recoverAnswer(String s) {
 		UserAnswer a = new UserAnswer();
 		a.setUserAnswer(s);
 		return a;
 	}
-	
+
 	/**
 	 * Check if it has an answer and set the statement.
 	 * 
 	 * @param UserAnswer
+	 *            An UserAnswer
 	 * 
-	 * @return UserAnswer
+	 * @return An UserAnswer
 	 * 
-	 * @see setAnswered
+	 * @see UserAnswer#setAnswered(boolean)
 	 */
 	public UserAnswer setIsAnswered(UserAnswer a) {
-		if(a.userAnswer == null || a.userAnswer.length() == 0) {
+		if (a.userAnswer == null || a.userAnswer.length() == 0) {
 			a.setAnswered(false);
-		} 
-		else {
+		} else {
 			a.setAnswered(true);
 		}
 		return a;
