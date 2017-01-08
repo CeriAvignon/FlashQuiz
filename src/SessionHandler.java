@@ -104,10 +104,10 @@ public void sendSession(Session s)
 	
 	idsession = s.getIdSession();						//recupere l'id de la session
 	datestart = s.getDateDebut();						//recupere la date de debut
-	dateend = s.getDateFin();						//recupere la date de debut
+	dateend = s.getDateFin();							//recupere la date de debut
 	typesession = s.getTypeSession();					//recupere le type de session
 	namesession = s.getNomSession();					//recupere le nom de session
-	password = s.getPassword();						//recupere le mot de passe
+	password = s.getPassword();							//recupere le mot de passe
 	listeliste = s.getListeListe(); 					//recupere la liste des listes
 	
 	String query="";
@@ -129,7 +129,7 @@ public void sendSession(Session s)
 			//on recupere l'id de la session
 			res = statement.executeQuery("SELECT currval(pg_get_serial_sequence('Session_Metadata','ID_Session')) as id;");
 			s.setIdSession(res.getInt(1));
-			for (List l:listeliste) 
+			for (String l:listeliste) 
 			{
 				//envoye la liste
 				sendListe(l);
@@ -155,7 +155,7 @@ public void sendSession(Session s)
 		{	
 		//on fait la mise a jour de la BDD
 			query = "UPDATE Session_Metadata SET (Opening_Date=?, Closing_Date=?, Type=?, Title=?, Password=?) WHERE ID_Session=idsession;";
-			prepare = cnx.prepareStatement(query);
+			PreparedStatement prepare = cnx.prepareStatement(query);
 			prepare.setObject(1,datestart);
 			prepare.setObject(2,dateend);
 			prepare.setObject(3,typesession);
@@ -171,7 +171,7 @@ public void sendSession(Session s)
 			
 			res.close();			
 
-			for (List l:listeliste) 
+			for (String l:listeliste) 
 			{
 				//envoye la liste
 				sendListe(l);
@@ -183,7 +183,7 @@ public void sendSession(Session s)
 					query = "INSERT INTO Session_Content (ID_Session,ID_Liste) values (?,?));";
 					prepare = cnx.prepareStatement(query);
 					prepare.setObject(1,idsession);
-					prepare.setObject(2,s.getIdListe());
+					prepare.setObject(2,l.getIdListe());
 					prepare.executeUpdate();
 					prepare.close();
 					res.close();
