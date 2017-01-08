@@ -1,3 +1,5 @@
+// package aAjouter;
+
 import java.io.*;		// inclure toutes les classes defini dans java.io package
 import java.util.*;		// inclure toutes les utils defini dans defini dans java.util package
 import java.sql.*;		// inclure toutes les utils defini dans defini dans java.sql package
@@ -30,7 +32,7 @@ private int idsession;
 *@see SessionHandler#sendSession(Session)
 *
 */	
-private String datedebut;
+private String datestart;
 	
 /**
 * La date du fin de la session.
@@ -39,7 +41,7 @@ private String datedebut;
 *@see SessionHandler#sendSession(Session)
 *
 */
-private String datefin;
+private String dateend;
 	
 /**
 * Le type de la session.
@@ -75,7 +77,7 @@ private String password;
 *@see SessionHandler#sendSession(Session)
 *
 */
-protected Vector<Liste>listeliste;
+protected ArrayList<String>listeliste = new ArrayList<String>();
 	
 	
 /**
@@ -88,8 +90,8 @@ protected Vector<Liste>listeliste;
 *	La session à écrire/modifier dans la BDD.
 *
 * @see idsession
-* @see datedubut
-* @see datefin
+* @see datestart
+* @see dateend
 * @see typesession
 * @see namesession
 * @see password
@@ -101,8 +103,8 @@ public void sendSession(Session s)
 	Connection cnx=connecterDB(); 						//connection à la BDD 
 	
 	idsession = s.getIdSession();						//recupere l'id de la session
-	datedebut = s.getDateDebut();						//recupere la date de debut
-	datefin = s.getDateFin();						//recupere la date de debut
+	datestart = s.getDateDebut();						//recupere la date de debut
+	dateend = s.getDateFin();						//recupere la date de debut
 	typesession = s.getTypeSession();					//recupere le type de session
 	namesession = s.getNomSession();					//recupere le nom de session
 	password = s.getPassword();						//recupere le mot de passe
@@ -111,15 +113,14 @@ public void sendSession(Session s)
 	String query="";
 	Statement statement = cnx.createStatement();
 	ResultSet res=null;	
-	PreparedStatement prepare = cnx.prepareStatement();	
 	
-		if(idSession == -1) // si session existe pas
+		if(idsession == -1) // si session existe pas
 		{
 			//on insere les donnees dans la BDD
 			query = "INSERT INTO Session_Metadata(Opening_Date, Closing_Date, Type, Title, Password) VALUES(?, ?, ?, ?, ?);";
-					prepare =  cnx.prepareStatement(query);
-					prepare.setObject(1,datedebut);
-					prepare.setObject(2,datefin);
+					PreparedStatement prepare =  cnx.prepareStatement(query);
+					prepare.setObject(1,datestart);
+					prepare.setObject(2,dateend);
 					prepare.setObject(3,typesession);
 					prepare.setObject(4,namesession);
 					prepare.setObject(5,password);
@@ -153,10 +154,10 @@ public void sendSession(Session s)
 		else //si session existe
 		{	
 		//on fait la mise a jour de la BDD
-			query = "UPDATE Session_Metadata SET (Opening_Date=?, Closing_Date=?, Type=?, Title=?, Password=?) WHERE ID_Session=idsession;"
+			query = "UPDATE Session_Metadata SET (Opening_Date=?, Closing_Date=?, Type=?, Title=?, Password=?) WHERE ID_Session=idsession;";
 			prepare = cnx.prepareStatement(query);
-			prepare.setObject(1,s.datedebut());
-			prepare.setObject(2,s.datefin());
+			prepare.setObject(1,datestart);
+			prepare.setObject(2,dateend);
 			prepare.setObject(3,typesession);
 			prepare.setObject(4,namesession);
 			prepare.setObject(5,password);
