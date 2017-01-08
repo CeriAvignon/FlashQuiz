@@ -15,7 +15,6 @@ import Version.java;		// inclure Version.java pour pouvoir se connecter a la bdd
  *
  */
 public class SessionHandler {
-	
 /**
 * L'ID de la session. Cet ID n'est pas modifiable.
 * <p>
@@ -98,8 +97,10 @@ protected ArrayList<String>listeliste = new ArrayList<String>();
 * @see listeliste
 *
 */
-public void sendSession(Session s)
+public void sendSession(Session s) throws SQLException
 	{
+	
+	try {
 	Connection cnx=connecterDB(); 						//connection à la BDD 
 	
 	idsession = s.getIdSession();						//recupere l'id de la session
@@ -110,6 +111,7 @@ public void sendSession(Session s)
 	password = s.getPassword();							//recupere le mot de passe
 	listeliste = s.getListeListe(); 					//recupere la liste des listes
 	
+	try {
 	String query="";
 	Statement statement = cnx.createStatement();
 	ResultSet res=null;	
@@ -194,6 +196,20 @@ public void sendSession(Session s)
 				}
 			}	
 		}
-
+		
+    } catch (SQLException e) 
+	{
+    	e.printStackTrace();    
+    }		
+	
+	}
+	finally 
+	{
+		if (connecterDB != null) 
+		{
+			connecterDB.close();
+		}
+    }
+	
 	}
 }
