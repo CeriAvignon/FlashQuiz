@@ -68,6 +68,7 @@ public class Question {
 	 */
 	private int allocatedTime;
 
+
 	/**
 	 * Question constructor
 	 *
@@ -216,5 +217,74 @@ public class Question {
 	 */
 	public void setAllocatedTime(int allocatedTime) {
 		this.allocatedTime = allocatedTime;
+	}
+
+
+	/**
+	*	Verify if the user's answer is correct
+	*
+	*	@param userAns
+	*				The user's answer
+	*/
+	public boolean verifyAnswer(UserAnswer userAns) {
+
+		// Get the default answers
+		Vector<Answer> definedAnswers = new Vector<Answer>();
+		definedAnswers = getAnswers();
+
+		// Get the user's answer
+		String ans = userAns.getUserAnswer();
+
+		// Get the question's type
+		Type type = getType();
+
+
+		if(type.toString() == "FREE") {
+
+			for(int i = 0; i <= definedAnswers.size(); i++) {
+				String test = definedAnswers.get(i).getContent();
+
+				if(ans.toLowerCase().contains(test.toLowerCase())) {
+					return true;
+				}
+			}
+
+		}else if(type.toString() == "RADIO") {
+
+			for(int i = 0; i <= definedAnswers.size(); i++) {
+				if(definedAnswers.get(i).getState()) {
+					if(definedAnswers.get(i).getContent() == ans) {
+						return true;
+					}
+				}
+
+			}
+		}else if(type.toString() == "CHECKBOX") {
+
+			int cpt = 0;							// Counts correct answer
+			int cpt2 = 0;							// Counts user's corect answers
+
+			// Counts the number of correct answers
+			for(int i = 0; i < definedAnswers.size(); i++) {
+				if(definedAnswers.get(i).getState())
+					cpt++;
+			}
+
+			// Split the user's answers
+			String[] delimited = new String[cpt];
+			delimited = ans.split(",");
+
+			// Counts the number of user's correct answers
+			for(int i = 0; i < definedAnswers.size(); i++) {
+				for(int j = 0; j < delimited.length; j++) {
+					if(delimited[i] == definedAnswers.get(i).getContent())
+						cpt2++;
+				}
+			}
+			if(cpt == cpt2)
+				return true;
+		}
+
+		return false;
 	}
 }
