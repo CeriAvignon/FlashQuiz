@@ -76,8 +76,7 @@ private String password;
 *@see SessionHandler#sendSession(Session)
 *
 */
-protected ArrayList<String>listeliste = new ArrayList<String>();
-	
+protected Vector<Liste> listeliste;	
 	
 /**
 * <b>Envoie une session vers le serveur pour l'enregistrer.</b>
@@ -131,7 +130,9 @@ public void sendSession(Session s) throws SQLException
 			//on recupere l'id de la session
 			res = statement.executeQuery("SELECT currval(pg_get_serial_sequence('Session_Metadata','ID_Session')) as id;");
 			s.setIdSession(res.getInt(1));
-			for (String l:listeliste) 
+			
+			
+			for (Vector l:listeliste) 
 			{
 				//envoye la liste
 				sendListe(l);
@@ -173,7 +174,7 @@ public void sendSession(Session s) throws SQLException
 			
 			res.close();			
 
-			for (String l:listeliste) 
+			for (Vector l:listeliste) 
 			{
 				//envoye la liste
 				sendListe(l);
