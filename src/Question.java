@@ -281,10 +281,10 @@ public class Question {
 						cpt2++;
 				}
 			}
-			if(cpt == cpt2)
+			if(cpt == cpt2) {
 				return true;
+			}		
 		}
-
 		return false;
 	}
 }
