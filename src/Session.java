@@ -65,7 +65,6 @@ public class Session
 	*/
 	private String password;
 	private boolean typesession;
-	//private int nbrquestion;
 	
 	/*********************** Constructors *******************************************/
 
@@ -82,7 +81,7 @@ public class Session
 		this.session = "no name";
 		this.idauthor= 0;
 		this.datedebut = "no beginning date";
-		//this.setIdAuthor(author);			// faire passer le string par l'IG
+		this.setIdAuthor(author);			// faire passer le string par l'IG
 		this.datefin = "no ending date";
 		this.password = "no password";
 		this.typesession = false;
@@ -105,7 +104,7 @@ public class Session
 		setNomSession(session);
 		setDatedebut(datedebut);
 		setDatefin(datefin);
-		//setIdAuthor(author);			// faire passer le string par l'IG
+		setIdAuthor(author);			// faire passer le string par l'IG
 		setPassword(password);
 		setTypeSession(typesession);
 	}
