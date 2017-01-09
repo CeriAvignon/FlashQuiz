@@ -35,25 +35,27 @@ import connexionjm.ConnexionJM;	 	//Package liée à la BDD --> Package @author 
 public class Session
 {
   	private static int idsession;
-	/* variable <int> globale privée:	implémentée via une requête SQL vers l'id de la session
+	/* variable <int> globale privée:	définit via une requête SQL vers l'id de la session
 						dépend fortement du groupe BDD
 	*/
 	private String session;
-	// Variable <String> privée:		implémentée via une chaîne de caractères saisie par l'utilisateur*/
+	// Variable <String> privée:		définit via une chaîne de caractères saisie par l'utilisateur*/
 	private int idauthor;
-	// Variable <Int> privée:		implémentée via une requête SQL vers l'id de l'auteur
+	/* Variable <Int> privée:		définit via une requête SQL vers l'id de l'auteur envoyé par le groupe
+						IG, puis récupération de l'information dans la table users.
+	*/
 	private int liste[];
-	/* Variable <Int> privée: 		implémentée durant une session, ou part la création de session.
+	/* Variable <Int> privée: 		définit durant une session, ou part la création de session.
 						
 	*/				
 	private int question[];
-	/* Variable <Int> privée: 		implémentée durant une session, ou part la création de question.
+	/* Variable <Int> privée: 		définit durant une session, ou part la création de question.
 						
 	*/
 	private String datedebut;
-	// Variable <String> privée:		implémentée par l'utilisateur.
+	// Variable <String> privée:		définit par l'utilisateur.
 	private String datefin;
-	/* Variable <String> privée:		implémentée par l'utilisateur.
+	/* Variable <String> privée:		définit par l'utilisateur.
 	
 /**
         * @see ConnexionJM
