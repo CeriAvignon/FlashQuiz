@@ -58,3 +58,4 @@ TABLE Media :
 #Cette version de la modélisation de la base de données sera celle sur laquelle les tests des fonctions se feront. Des modifications se feront peut etre en cas de besoin, mais la structure générale restera comme présenter.
 
 #EDIT 28/11/2016 : Il faut enregistrer les stat des sessions. a voir.
+#EDIT 09/01/2017 : Oubli, chaque session à un créateur.
