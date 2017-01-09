@@ -42,13 +42,13 @@ public class Session
 	// Variable <String> privée:		implémentée via une chaîne de caractères saisie par l'utilisateur*/
 	private int idauthor;
 	// Variable <Int> privée:		implémentée via une requête SQL vers l'id de l'auteur
-	private Vector<Liste> liste;
-	/* Variable <Vector> privée: 		implémentée durant une session, ou part la création de session.
-						dépend fortement du groupe TVS.
+	private int liste[];
+	/* Variable <Int> privée: 		implémentée durant une session, ou part la création de session.
+						
 	*/				
-	private Vector<Question> question;
-	/* Variable <Vector> privée: 		implémentée durant une session, ou part la création de question.
-						dépend fortement du groupe TVS.
+	private int question[];
+	/* Variable <Int> privée: 		implémentée durant une session, ou part la création de question.
+						
 	*/
 	private String datedebut;
 	// Variable <String> privée:		implémentée par l'utilisateur.
@@ -86,8 +86,8 @@ public class Session
 		this.datefin = "no ending date";
 		this.password = "no password";
 		this.typesession = false;
-		//this.liste=;
-		//this.question=;
+		this.liste = new int[100];			// limite de 100 identifiants
+		this.question= new int[100];
 	}
 
 	public Session (String session, String password, boolean typesession)
@@ -173,11 +173,12 @@ public class Session
 	* @return return liste vector <Liste> attribute value
 	*/
 	
-	/*public Vector<Liste> getListe()
+	public int[] getListe()
 	{
 		return this.liste;
+		// Ceci est une liste d'identifiants de listes 
 	}
-	*/
+	
 	
 /**
 	* question vector attribute getter
@@ -186,11 +187,11 @@ public class Session
 	* @return return question vector <Question> attribute value
 	*/
 	
-	/*
-	public Vector<Question> getQuestion()
+	
+	public int[] getQuestion()
 	{
 		return this.question;
-	}*/
+	}
 
 /**
 	* datedebut attribute getter
@@ -276,12 +277,12 @@ public class Session
 	* @author LE VEVE Mathieu
 	* @param liste = Vector<Liste> attributed to the session
 	*/
-	/*
-	public void setListe(Vector liste)
+	
+	public void setListe(int liste[])
 	{
 		this.liste = liste;
 	}
-	*/
+	
 	
 /**
 	* question setting
@@ -289,12 +290,12 @@ public class Session
 	* @author LE VEVE Mathieu
 	* @param question = Vector<Question> attributed to the session (or to the Liste) 
 	*/
-	/*
-	public void setQuestion(Vector question)
+	
+	public void setQuestion(int question[])
 	{
 		this.question = question;
 		//https://coderanch.com/t/392512/java/Geting-Current-Time-Seconds
-	}*/
+	}
 	
 /**
 	* datedebut setting
@@ -436,7 +437,7 @@ public class Session
 		System.out.println("\nVoici les informations à propos de la session n° "+ getIdSession()+".\n");
 		System.out.println("ID Session: " + getIdSession() + ".\n");
 		System.out.println("Nom Session: " + getNomSession() + ".\n");
-		//System.out.println("ID Auteur:" + getIdAuthor() + " .\n");
+		System.out.println("ID Auteur:" + getIdAuthor() + " .\n");
 		System.out.println("Date début: " + getDatedebut() + ".\n");
 		System.out.println("Date fin: " + getDatefin() + ".\n");
 		System.out.println("Type: " + getTypeSession() + ".\n");
@@ -496,7 +497,7 @@ public class Session
 	* @param no param
 	* @return (void) no return
 	* @description :
-		this function permits to test a timer with a printing calendar as screening result
+		this function permits to test a timer with a printing calendar such as screening result
 	*/
 	public void timer()
 	{
@@ -545,7 +546,34 @@ public class Session
     			System.out.println ("Erreur lors de la lecture : " + e.getMessage());
 		}
     	}
-
+/**
+	* Checking session name 
+	* @name find(Session B)
+	* @author Le Veve Mathieu
+	* @param String name = String written by user
+	* @return (boolean) return true/ false
+	* @description
+		This function calls a BDD function to check the session name.
+		If it is true,  it triggers the session information printing 
+		Else, it returns false
+	*/
+	public boolean find(String name)
+	{
+		if(existSessionName(name)) 
+		{
+		/* afficher informations de la session avec une String en argument,
+		à implémenter !!*/
+			return true;
+		}
+		/*@existSessionName
+		existSessionName: fonction de vérification de l'existance d'une session, normalement
+		implémentée par le groupe BDD-RES*/
+		else 
+		{
+			System.out.println("La session " + name + " n'existe pas.");
+			return false;
+		}
+	}
 	/********** Main Test to create session *********
 /** 
 		@author Le veve Mathieu
