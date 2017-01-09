@@ -60,7 +60,7 @@ public class Question {
 	private Type type;
 
 	/**
-	 * Time allocated to the question in seconds.
+	 * Time allocated to the question in seconds (0 if infinite).
 	 *
 	 * @see Question#getAllocatedTime()
 	 * @see Question#setAllocatedTime(int)
