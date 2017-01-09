@@ -32,31 +32,21 @@
         android:text="@string/checkbox_mdp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/checkBox"
+        android:id="@+id/checkBox_mdp"
         android:textSize="18dp"
+        android:checked="false"
+        android:button="@drawable/apptheme_btn_check_holo_light"
         android:layout_marginTop="69dp"
         android:layout_below="@+id/editText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <CheckBox
-        android:text="@string/checkbox_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="18dp"
-        android:id="@+id/checkBox3"
-        android:layout_marginTop="47dp"
-        android:layout_below="@+id/checkBox"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/checkBox"
-        android:layout_alignEnd="@+id/checkBox" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:inputType="textPersonName"
         android:ems="10"
+        android:textCursorDrawable="@color/colorPrimaryDark"
         android:maxLength="25"
         android:hint="Nom du Quizz"
         android:gravity="center"
@@ -68,5 +58,19 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <CheckBox
+        android:text="@string/checkbox_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:button="@drawable/apptheme_btn_check_holo_light"
+        android:id="@+id/checkBox_time"
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/checkBox_mdp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/checkBox_mdp"
+        android:layout_alignEnd="@+id/checkBox_mdp" />
 
 </RelativeLayout>
