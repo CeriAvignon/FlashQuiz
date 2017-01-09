@@ -12,6 +12,7 @@ TABLE User_FQ :
 
 TABLE Session_Metadata :
 	[INT ID_Session
+	INT ID_User
 	DATE Opening_Date
 	DATE Closing_Date
 	BOOL Type					#Session Live, ou Session Libre
