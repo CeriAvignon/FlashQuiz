@@ -2,7 +2,7 @@ CREATE DATABASE FlashQuiz; //PERMISSION DENIED
 
 CREATE TABLE User_FQ(ID_User SERIAL NOT NULL UNIQUE, First_Name VARCHAR(32), Last_Name VARCHAR(32), Login VARCHAR(32) NOT NULL UNIQUE, Password VARCHAR(32), Rank INT);
 
-CREATE TABLE Session_Metadata(ID_Session SERIAL NOT NULL UNIQUE, Opening_Date DATE, Closing_Date DATE, Type BOOL, Title VARCHAR(48), Password VARCHAR(32));
+CREATE TABLE Session_Metadata(ID_Session SERIAL NOT NULL UNIQUE, ID_User INT, Opening_Date DATE, Closing_Date DATE, Type BOOL, Title VARCHAR(48), Password VARCHAR(32));
 
 CREATE TABLE Session_Content(ID_Session INT, ID_List INT);
 
