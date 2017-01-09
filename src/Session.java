@@ -548,12 +548,12 @@ public class Session
     	}
 /**
 	* Checking session name 
-	* @name find(Session B)
+	* @name find(String name)
 	* @author Le Veve Mathieu
-	* @param String name = String written by user
+	* @param String name = String written by user 
 	* @return (boolean) return true/ false
 	* @description
-		This function calls a BDD function to check the session name.
+		This function calls a BDD-function to check the session name.
 		If it is true,  it triggers the session information printing 
 		Else, it returns false
 	*/
