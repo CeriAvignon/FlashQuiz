@@ -132,7 +132,7 @@ public void sendSession(Session s) throws SQLException
 			s.setIdSession(res.getInt(1));
 			
 			
-			for (Vector l:listeliste) 
+			for (Vector l:listeliste) // pour chaque element du Vecteur 
 			{
 				//envoye la liste
 				sendListe(l);
