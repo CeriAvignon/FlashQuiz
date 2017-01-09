@@ -177,7 +177,7 @@ public void sendSession(Session s) throws SQLException
 			for (Vector l:listeliste) 
 			{
 				//envoye la liste
-				sendListe(l);
+				//sendListe(l);
 				//si la liste s'est bien enregistrée
 
 				if (l.getIdListe() != -1)  
