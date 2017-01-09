@@ -125,7 +125,7 @@ public class Session
 		setNomSession(session);
 		setDatedebut(datedebut);
 		setDatefin(datefin);
-		//setIdAuthor(author);			// faire passer le string par l'IG
+		setIdAuthor(author);			// faire passer le string par l'IG
 		setPassword(password);
 		setTypeSession(typesession);
 	}
