@@ -1,7 +1,7 @@
 /**
  * Stat_session
  *
- * Produce statistics from the questions' answers.
+ * Produce statistics from the question's answers.
  *
  * @author Benoît Dorey
  */
