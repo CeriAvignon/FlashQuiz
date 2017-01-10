@@ -20,7 +20,7 @@ public class Createquizz extends AppCompatActivity {
     }
 
 
-    public void Change_checked(View v)
+    public void affichage_PopUp(View v)
     {
         CheckBox checkboxmdp = (CheckBox) findViewById(checkBox_mdp);
         if(checkboxmdp.isChecked())
