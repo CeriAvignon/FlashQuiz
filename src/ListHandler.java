@@ -79,7 +79,7 @@ public class ListHandler
 			 * 
 			 **/
 			
-			query = "SELECT FROM Liste_Metadata WHERE Titre_Liste = ?;";
+			query = "SELECT FROM List_Metadata WHERE Title = ?;";
 			prepare = cnx.prepareStatement(query);
 			prepare.setObject(1,idList);
 			res = prepare.executeQuery();
@@ -94,7 +94,7 @@ public class ListHandler
 			 **/
 			
 			boolean row = res.first();
-			if(row)idList = res.getInt("ID_Liste");
+			if(row)idList = res.getInt("ID_List");
 			prepare.close();
 			res.close();
 
@@ -115,7 +115,7 @@ public class ListHandler
 				 **/
 				
 				
-				query="INSERT INTO Liste_Metadata(ID_Utilisateur,Titre_Liste) VALUES(?,?);";
+				query="INSERT INTO List_Metadata(ID_User,Title) VALUES(?,?);";
 				prepare = cnx.prepareStatement(query);
 				prepare.setObject(1,idAuthor);
 				prepare.setObject(2,listName);
@@ -123,8 +123,8 @@ public class ListHandler
 				prepare.close();
 				res.close();
 
-				res=statement.executeQuery("SELECT currval(pg_get_serial_sequence('Liste_Metadata','ID_Liste'));");
-				idList = res.getInt("ID_Liste");
+				res=statement.executeQuery("SELECT currval(pg_get_serial_sequence('List_Metadata','ID_List'));");
+				idList = res.getInt("ID_List");
 				statement.close();
 				res.close();
 			}
@@ -140,7 +140,7 @@ public class ListHandler
 			 *  &agrave; chaque fois.
 			 *  
 			 **/
-			query="INSERT INTO Liste_Contenu(ID_Liste, ID_Question) VALUES(?,?);";
+			query="INSERT INTO List_Content(ID_List, ID_Question) VALUES(?,?);";
 			prepare = cnx.prepareStatement(query);
 			prepare.setObject(1,idList);
 
@@ -167,7 +167,7 @@ public class ListHandler
 		
 		else
 		{
-			query="UPDATE Liste_Contenu SET Titre_Liste=? WHERE ID_Liste=? ;";
+			query="UPDATE List_Content SET Title=? WHERE ID_List=? ;";
 			prepare = cnx.prepareStatement(query);
 			prepare.setObject(1,idList);
 			prepare.executeUpdate();
