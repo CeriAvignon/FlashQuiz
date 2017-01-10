@@ -1,8 +1,8 @@
-//package session;			// Package session liée a EL --> Package @author LE VEVE Mathieu
+//package session;				// Package session liée a EL --> Package \author :@LE VEVE Mathieu
 import java.util.Scanner;		// Saisie clavier: Scanner keyboard = new Scanner (...)
 import java.util.Vector;		// Création <vector> question / <vector> liste
 import java.sql.Connection;		// Connection connection = new Connection (...)
-import java.sql.DriverManager;		// Accès pour la BDD
+import java.sql.DriverManager;	// Accès pour la BDD
 import javax.swing.*;
 import java.util.Calendar;		//Calendrier
 import java.awt.event.*;
@@ -14,70 +14,75 @@ import java.lang.Throwable;
 import java.lang.Exception;		// relever des exceptions
 import java.io.IOException;		// relever exception IO
 import java.io.FileNotFoundException;
-import connexionjm.ConnexionJM;	 	//Package liée à la BDD --> Package @author HUOT AMAURY
 
-/** 
-	*	\file Session.java
-	*	\brief Fichier java Session
-	*	\author {Le Veve Mathieu, Ezzahidi Meryem}
-	*	\date xx/10/2016
-	*	\date 22/11/2016
-	*	\date 24/11/2016
-	*	\date 30/11/2016
-	*	\class <Session> Session.java 	Session
-	*	\brief	Fichier en java qui crée une session, pour le moment avec ses getters/ setters pour créer une session
-	*	pour le moment sans intéraction avec la BDD. 
-	*/
-
+//import connexionjm.ConnexionJM;		// Package liée à la BDD --> Package \author :@HUOT AMAURY
+/*! 
+*	\file Session.java
+*	\brief Fichier java Session
+*	\author {Le Veve Mathieu}
+*	\date xx/10/2016
+*	\date 22/11/2016
+*	\date 24/11/2016
+*
+*	\class <Session> Session.java 	Session
+*	\brief	Fichier en java qui crée une session, pour le moment avec ses getters/ setters pour créer une session
+*	pour le moment sans intéraction avec la BDD. 
+*/
 
 
 
 public class Session
 {
   	private static int idsession;
-	/* variable <int> globale privée:	définit via une requête SQL vers l'id de la session
-						dépend fortement du groupe BDD
+	/* 
+		variable <int> globale privée:	définit via une requête SQL vers l'id de la session
+										dépend fortement du groupe BDD
 	*/
 	private String session;
 	// Variable <String> privée:		définit via une chaîne de caractères saisie par l'utilisateur*/
 	private int idauthor;
-	/* Variable <Int> privée:		définit via une requête SQL vers l'id de l'auteur envoyé par le groupe
-						IG, puis récupération de l'information dans la table users.
+	/* 
+		Variable <Int> privée:			définit via une requête SQL vers l'id de l'auteur envoyé par le groupe
+										IG, puis récupération de l'information dans la table users.
 	*/
 	private int liste[];
-	/* Variable <Int> privée: 		définit durant une session, ou part la création de session.
+	/* 
+		Variable <Int> privée: 			définit durant une session, ou part la création de session.
 						
 	*/				
 	private int question[];
-	/* Variable <Int> privée: 		définit durant une session, ou part la création de question.
+	/* 
+		Variable <Int> privée: 			définit durant une session, ou part la création de question.
 						
 	*/
 	private String datedebut;
 	// Variable <String> privée:		définit par l'utilisateur.
 	private String datefin;
-	/* Variable <String> privée:		définit par l'utilisateur.
+	/* 
+		Variable <String> privée:		définit par l'utilisateur.
 	
 /**
         * @see ConnexionJM
 	*/
+
 	/*
 	private Connection connection;
-	Variable <Connection> privée: 	Objet implémenté par un accès BDD sql 
-	A implementer plus tard 
+		
+		Variable <Connection> privée: 	Objet implémenté par un accès BDD sql 
+		A implementer plus tard 
 	*/
 	private String password;
 	private boolean typesession;
-	
+
 	/*********************** Constructors *******************************************/
 
-	public Session ()
 /**
 	* parameters-free Constructor
 	* @author Le Veve Mathieu
-	* @description
-		Constructeur vide initialisée lorsque l'utilisateur créera une session sans paramètres
-	 sans lui associer de questions, sans lui associer de listes.
-	*/
+	* @description Constructeur vide initialisée lorsque l'utilisateur créera une session sans paramètres sans lui associer de questions, sans lui associer de listes.
+*/
+
+	public Session ()		
 	{	
 		this.idsession = 0;		// Pour le moment, initialiser quand BDD faite
 		this.session = "no name";
@@ -91,16 +96,13 @@ public class Session
 		this.question= new int[100];
 	}
 
-	public Session (String session, String password, boolean typesession)
 /**
 	* @author Le Veve Mathieu
-	* @parameters 	session = name session	(String)
-			password = password session (String)
-			typesession = session type (Boolean)
-	* @description
-		Constructeur avec 3 arguments, pour définir une session libre (avec mot de passe),
-		sans gestion du timer.
-	*/
+	* @param session = name session	(String) password = password session (String) typesession = session type (Boolean)
+	* @description Constructeur avec 3 arguments, pour définir une session libre (avec mot de passe), sans gestion du timer.
+*/
+	public Session (String session, String password, boolean typesession)
+
 	{
 		setIdSession(this.idsession);		// Pour le moment, initialiser quand BDD faite
 		setNomSession(session);
@@ -110,18 +112,14 @@ public class Session
 		setPassword(password);
 		setTypeSession(typesession);
 	}
-	
-	public Session (String session, String datedebut, String datefin, String password, boolean typesession)
+
 /**
 	* @author Le Veve Mathieu
-	* @parameters 	session = name session	(String)
-			datedebut = beginning date session (String)
-			datefin = ending date session (String)
-			password = password session (String)
-			typesession = session type (Boolean)
-	* @description
-		Constructeur avec 5 arguments, pour définir une session sous contraintes, avec gestion du timer
+	* @param session = name session	(String) datedebut = beginning date session (String) datefin = ending date session (String) password = password session (String) typesession = session type (Boolean)
+	* @description Constructeur avec 5 arguments, pour définir une session sous contraintes, avec gestion du timer
 	*/
+	public Session (String session, String datedebut, String datefin, String password, boolean typesession)
+
 	{
 		setIdSession(this.idsession);		// Pour le moment, initialiser quand BDD faite
 		setNomSession(session);
@@ -171,7 +169,7 @@ public class Session
 	* liste vector attribute getter
 	*
 	* @author LE VEVE Mathieu
-	* @return return liste vector <Liste> attribute value
+	* @return return liste int[] attribute value
 	*/
 	
 	public int[] getListe()
@@ -185,13 +183,14 @@ public class Session
 	* question vector attribute getter
 	*
 	* @author LE VEVE Mathieu
-	* @return return question vector <Question> attribute value
+	* @return return question int[] attribute value
 	*/
 	
 	
 	public int[] getQuestion()
 	{
 		return this.question;
+		//ceci est une liste d'identifiants de questions
 	}
 
 /**
@@ -238,6 +237,7 @@ public class Session
 	{
 		return this.typesession;
 	}
+
 	/*********************** SETTERS *******************************************/
 /**
 	* idsession setting
@@ -299,7 +299,7 @@ public class Session
 	}
 	
 /**
-	* datedebut setting
+	* beginningdate setting
 	*
 	* @author LE VEVE Mathieu
 	* @param datedebut = beginning date session
@@ -310,7 +310,7 @@ public class Session
 	}
 	
 /**
-	* datefin setting
+	* closingdate setting
 	*
 	* @author LE VEVE Mathieu
 	* @param datefin = ending date session
@@ -332,7 +332,7 @@ public class Session
 	}
 	
 /**
-	* typesession setting
+	* sessiontype setting
 	*
 	* @author LE VEVE Mathieu
 	* @param typesession = session type
@@ -342,7 +342,159 @@ public class Session
 		this.typesession = typesession;
 	}
 
-	/*********************** Methods *******************************************/
+
+	/*********************** LE VEVE Mathieu's Methods *******************************************/
+
+/**
+	* attributes session printing
+	* @name printSession()
+	* @author Le Veve Mathieu
+	* @param no param
+	* @return (void) no return
+	* @description this function permits to print information about a target session
+	*/
+	public void printSession()
+	{
+		System.out.println("\nVoici les informations à propos de la session n° "+ getIdSession()+".\n");
+		System.out.println("ID Session: " + getIdSession() + ".\n");
+		System.out.println("Nom Session: " + getNomSession() + ".\n");
+		System.out.println("ID Auteur:" + getIdAuthor() + " .\n");
+		System.out.println("Date début: " + getDatedebut() + ".\n");
+		System.out.println("Date fin: " + getDatefin() + ".\n");
+		System.out.println("Type: " + getTypeSession() + ".\n");
+		System.out.println("Mot de passe: " + getPassword() + ".\n");
+	}
+
+/**
+	* Keyboard checking
+	* @name readingOfKeyboard()
+	* @author Le Veve Mathieu
+	* @param no param
+	* @return (boolean) return true if correct, false if incorrect
+	* @description this function permits to check IOstream
+	*/
+	public static boolean readingOfKeyboard()
+	{
+		Scanner keyboard = new Scanner(System.in);
+		String tmp = keyboard.nextLine();
+		char c = tmp.charAt(0);
+		try
+		{
+			if (c == 'y' || c == 'Y') return true;
+			else if(c == 'n' || c == 'N') return false;
+			else throw new IOException("Aucune saisie valide");
+		}
+		catch(IOException e)
+		{
+			System.out.println ("Erreur lors de la verification : " + e.getMessage());
+		}
+		return false;
+	}
+/**
+	* encrypted password
+	* @name encrypt(String password)
+	* @author Le Veve Mathieu
+	* @param password : chosen password by user
+	* @return (String) return encrypted password
+	* @description this function permits to encrypt a password's session.
+	*/
+	public static String encrypt(String password)
+	{
+	    String encryption= "";
+	    for (int i=0; i<password.length();i++)  
+	    {
+	        int c=password.charAt(i)^48; 
+	        encryption=encryption+(char)c;
+	    }
+	   	return encryption;
+	}
+
+
+
+/**
+	* Testing timer
+	* @name timer()
+	* @author Le Veve Mathieu
+	* @param no param
+	* @return (void) no return
+	* @description this function permits to test a timer with a printing calendar such as screening result
+	*/
+
+	public void timer()
+	{
+		long temps = 2000;                      // délai avant de répéter la tache : 2000 = 2  seconde
+        	long startTime = 5000;                 	// délai avant la mise en route (0 demarre immediatement)
+        	Timer timer = new Timer();             	// création du timer
+        	TimerTask tache = new TimerTask() 
+        	{    	// création et spécification de la tache à effectuer
+            	public void run() 
+            	{	
+					Calendar calendar = Calendar.getInstance();
+					System.out.println("Nous sommes le " + calendar.get(Calendar.DAY_OF_MONTH) +"/"+ calendar.get(Calendar.MONTH)+"/"+calendar.get(Calendar.YEAR));
+					System.out.println("Seconds in current minute = " + calendar.get(Calendar.SECOND));
+					this.cancel();
+
+              	}
+   			};
+
+        	timer.scheduleAtFixedRate(tache,startTime,temps);  // ici on lance la mecanique
+      }
+
+/**
+	* Writing information about session to file
+	* @name writeToFile(Session B)
+	* @author Le Veve Mathieu
+	* @param Session B = Target session to write 
+	* @return (void) no return
+	* @description This function writes information B-session to the new file (xxxx."txt").
+	*/
+    	private static void writeToFile(Session B)
+    	{
+	    	File fichier = new File("bdd.txt");
+			String[] data ={B.getNomSession(), B.getDatedebut(), B.getDatefin(), B.getPassword()};
+			try
+			{
+				FileWriter writer = new FileWriter(fichier);
+				for (String donnees : data)
+	    			{
+	        			writer.write (String.valueOf (donnees));
+	       				writer.write ("\r\n");
+	   			}
+				writer.close();
+			}
+			catch (IOException e)
+			{
+	    			System.out.println ("Erreur lors de la lecture : " + e.getMessage());
+			}
+		}
+/**
+	* Checking session name 
+	* @name find(String name)
+	* @author Le Veve Mathieu
+	* @param String name = String written by user 
+	* @return (boolean) return true/ false
+	* @description This function calls a BDD-function to check the session name. If it is true,  it triggers the session information printing Else, it returns false
+	*/
+
+  	public boolean find(String name)
+	{
+		if(/*existSessionName(name)*/) 
+		{
+		/* afficher informations de la session avec une String en argument,
+		à implémenter !!*/
+			return true;
+		}
+		/*@existSessionName
+		existSessionName: fonction de vérification de l'existance d'une session, normalement
+		implémentée par le groupe BDD-RES*/
+		else 
+		{
+			System.out.println("La session " + name + " n'existe pas.");
+			return false;
+		}
+	}
+	
+	/*********************** Meryem's Methods *******************************************/
 /**
 	* Fonction de suppression de session
 	* @author Ezzahidi Meryem
@@ -422,163 +574,13 @@ public class Session
 			}
 		}
 		
-	}
+}
 
-/**
-	* attributes session printing
-	* @name printSession()
-	* @author Le Veve Mathieu
-	* @param no param
-	* @return (void) no return
-	* @description :
-		this function permits to print information about a target session
-	*/
-	public void printSession()
-	{
-		System.out.println("\nVoici les informations à propos de la session n° "+ getIdSession()+".\n");
-		System.out.println("ID Session: " + getIdSession() + ".\n");
-		System.out.println("Nom Session: " + getNomSession() + ".\n");
-		System.out.println("ID Auteur:" + getIdAuthor() + " .\n");
-		System.out.println("Date début: " + getDatedebut() + ".\n");
-		System.out.println("Date fin: " + getDatefin() + ".\n");
-		System.out.println("Type: " + getTypeSession() + ".\n");
-		System.out.println("Mot de passe: " + getPassword() + ".\n");
-	}
-
-/**
-	* Keyboard checking
-	* @name readingOfKeyboard()
-	* @author Le Veve Mathieu
-	* @param no param
-	* @return (boolean) return true if correct, false if incorrect
-	* @description :
-		this function permits to check IOstream
-	*/
-	public static boolean readingOfKeyboard()
-	{
-		Scanner keyboard = new Scanner(System.in);
-		String tmp = keyboard.nextLine();
-		char c = tmp.charAt(0);
-		try
-		{
-			if (c == 'y' || c == 'Y') return true;
-			else if(c == 'n' || c == 'N') return false;
-			else throw new IOException("Aucune saisie valide");
-		}
-		catch(IOException e)
-		{
-			System.out.println ("Erreur lors de la verification : " + e.getMessage());
-		}
-		return false;
-	}
-
-/**
-	* encrypted password
-	* @name encrypt(String password)
-	* @author Le Veve Mathieu
-	* @param password : chosen password by user
-	* @return (String) return encrypted password
-	* @description :
-		this function permits to encrypt a password's session.
-	*/
-	public static String encrypt(String password)
-	{
-		String encryption= "";				//chaîne vide   	
-		for (int i=0; i<password.length();i++)  	// longueur du password saisi
-	    	{
-	       		int c=password.charAt(i)^48; 		// modification de chaque caractère 
-	       		encryption=encryption+(char)c;		// reconstitution du mot de passe	
-	    	}
-	   	return encryption;				// return (String) password
-	}
-/**
-	* Testing timer
-	* @name timer()
-	* @author Le Veve Mathieu
-	* @param no param
-	* @return (void) no return
-	* @description :
-		this function permits to test a timer with a printing calendar such as screening result
-	*/
-	public void timer()
-	{
-		long temps = 2000;              // délai avant de répéter la tache : 2000 = 2  seconde
-        	long startTime = 5000;          // délai avant la mise en route (0 demarre immediatement)
-        	Timer timer = new Timer();      // création du timer
-        	TimerTask tache = new TimerTask() 
-        	{    				// création et spécification de la tache à effectuer
-            		public void run() 
-            		{	
-				Calendar calendar = Calendar.getInstance();
-				System.out.println("Nous sommes le " + calendar.get(Calendar.DAY_OF_MONTH) +"/"+ calendar.get(Calendar.MONTH)+"/"+calendar.get(Calendar.YEAR));
-				System.out.println("Seconds in current minute = " + calendar.get(Calendar.SECOND));
-				this.cancel();
-
-              		}
-   		};
-        	timer.scheduleAtFixedRate(tache,startTime,temps);  // ici on lance la mecanique
-      	}
-
-/**
-	* Writing information about session to file
-	* @name writeToFile(Session B)
-	* @author Le Veve Mathieu
-	* @param Session B = Target session to write 
-	* @return (void) no return
-	* @description
-		This function writes information B-session to the new file (xxxx."txt").
-	*/
-    	private static void writeToFile(Session B)
-    	{
-    		File fichier = new File("bdd.txt");
-		String[] data ={B.getNomSession(), B.getDatedebut(), B.getDatefin(), B.getPassword()};
-		try
-		{
-			FileWriter writer = new FileWriter(fichier);
-			for (String donnees : data)
-    			{
-        			writer.write (String.valueOf (donnees));
-       				writer.write ("\r\n");
-   			}
-			writer.close();
-		}
-		catch (IOException e)
-		{
-    			System.out.println ("Erreur lors de la lecture : " + e.getMessage());
-		}
-    	}
-/**
-	* Checking session name 
-	* @name find(String name)
-	* @author Le Veve Mathieu
-	* @param String name = String written by user 
-	* @return (boolean) return true/ false
-	* @description
-		This function calls a BDD-function to check the session name.
-		If it is true,  it triggers the session information printing 
-		Else, it returns false
-	*/
-	public boolean find(String name)
-	{
-		if(existSessionName(name)) 
-		{
-		/* afficher informations de la session avec une String en argument,
-		à implémenter !!*/
-			return true;
-		}
-		/*@existSessionName
-		existSessionName: fonction de vérification de l'existance d'une session, normalement
-		implémentée par le groupe BDD-RES*/
-		else 
-		{
-			System.out.println("La session " + name + " n'existe pas.");
-			return false;
-		}
-	}
 	/********** Main Test to create session *********
 /** 
 		@author Le veve Mathieu
 	*/
+
 	public static void main(String[] args)
 	{
 		System.out.println("Voulez vous créer une session? Please y/n");
@@ -624,6 +626,10 @@ public class Session
 
 		else System.exit(0);
 	}
+	
+	
+	
+	
 	/********** Main Test to Delete session*********
 	* 
 		@author Ezzahidi Meryem
