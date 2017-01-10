@@ -62,7 +62,8 @@ class List {
 	 * @see List#id
 	 * @see List#questions
 	 */
-	public List(String name, int idCreator, int id, Vector<Question> questions) {
+	public List(String name, int idCreator, int id,
+			Vector<Question> questions) {
 		this.name = name;
 		this.idCreator = idCreator;
 		this.id = id;

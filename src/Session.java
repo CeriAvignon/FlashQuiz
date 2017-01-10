@@ -87,7 +87,8 @@ public class Session {
 	 * @see Session#id
 	 * @see Session#currList
 	 */
-	public Session(String name, int idCreator, int id, boolean isQuestionsOrderRandom) {
+	public Session(String name, int idCreator, int id,
+			boolean isQuestionsOrderRandom) {
 		this.name = name;
 		this.idCreator = idCreator;
 		this.id = id;
@@ -267,7 +268,8 @@ public class Session {
 		if (areAllquestionsVoted()) {
 			return;
 		}
-		currQuestion = currList.getQuestions().elementAt(questionsUnvoted.elementAt(0));
+		currQuestion = currList.getQuestions()
+				.elementAt(questionsUnvoted.elementAt(0));
 		questionsUnvoted.remove(0);
 		// Affichage de la question
 		startQuestionTimer();

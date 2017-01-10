@@ -138,7 +138,8 @@ public class QuestionManagement {
 
 		int wait = 10000; // in milliseconds
 
-		QuestionManagement question = new QuestionManagement(timeLeft, button, force);
+		QuestionManagement question = new QuestionManagement(timeLeft, button,
+				force);
 
 		System.out.println("Hello world!");
 
