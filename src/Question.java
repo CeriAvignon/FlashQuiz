@@ -113,7 +113,146 @@ import java.util.*;
 	
 		}
 		//*********************Variable & Methode pour Modifier & Supprimer Question**************
-		
+		static Connexion ab = Connexion.getInst();
+
+	public static void modifiertype(String question, String type) {
+		String requete = null;
+
+		try {
+			requete = "UPDATE question SET type = '" + type + "'" + "WHERE id_question = '" + question + "'";
+			Statement state = ab.a().createStatement();
+			state.executeUpdate(requete);
+
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Modification non effectué", "ALERTE", JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		}
+	}
+	public static void modifierMedia(String question, String media) {
+		String requete = null;
+
+		try {
+			requete = "UPDATE question SET id_media = '" + media + "'" + "WHERE id_question = '" + question + "'";
+			Statement state = ab.a().createStatement();
+			state.executeUpdate(requete);
+
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Modification non effectué", "ALERTE", JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		}
+	}
+	public static void modifierContenu(String question, String contenu) {
+		String requete = null;
+
+		try {
+			requete = "UPDATE question SET contenu = '" + contenu + "'" + "WHERE id_question = '" + question + "'";
+			Statement state = ab.a().createStatement();
+			state.executeUpdate(requete);
+
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Modification non effectué", "ALERTE", JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		}
+	}
+
+	public static void modifierReponse(String question, ArrayList<String> rep, String RepV) {
+		String requete = null;
+		int max = max();
+
+		try {
+			requete = "DELETE FROM reponses " + "WHERE Id_quest =" + question;
+			Statement state = ab.a().createStatement();
+			state.executeUpdate(requete);
+
+			for (int i = 0; i < rep.size(); i++) {
+				String correcte = "false";
+				String contenu = rep.get(i).toString();
+				if (contenu.equals(RepV)) {
+					correcte = "true";
+				}
+				try {
+
+					PreparedStatement pr = (PreparedStatement) ab.a()
+							.prepareStatement("INSERT INTO reponses VALUES(?,?,?,?)");
+					pr.setInt(1, max + i + 1);
+					pr.setString(2, question);
+					pr.setString(3, contenu);
+					pr.setString(4, correcte);
+
+					pr.execute();
+
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+			}
+
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Modification non effectué", "ALERTE", JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		}
+	}
+
+	public static int max() {
+		int maxID = 0;
+		Statement s2;
+		try {
+			s2 = ab.a().createStatement();
+			s2.execute("SELECT MAX(Id_rep) FROM reponses");
+			ResultSet rs2 = s2.getResultSet(); //
+			if (rs2.next()) {
+				maxID = rs2.getInt(1);
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return maxID;
+
+	}
+    public static void ModifierQuestion(String quest,String type, ArrayList<String> rep, String RepV,String Contenu,String media){
+    	if(type!=null){
+    		modifiertype(quest,type);
+    		
+    	}
+    	if(rep!=null && RepV!=null){
+    		modifierReponse(quest, rep, RepV); 
+    	}
+    	if(Contenu !=null){
+    		modifierContenu(quest,Contenu);
+    	}
+    	if(media !=null){
+    		modifierMedia(quest,media);
+    	}
+    	
+    	
+    }
+    public static void SupprimerQuestion(String quest){
+    	String requete = null;
+    	try {
+    		
+    	
+			requete = "DELETE FROM reponses " + "WHERE Id_quest =" + quest;
+			Statement state = ab.a().createStatement();
+			state.executeUpdate(requete);
+    	}catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Modification non effectué", "ALERTE", JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		}
+    	try {
+    		
+        	
+			requete = "DELETE FROM question " + "WHERE Id_question =" + quest;
+			Statement state = ab.a().createStatement();
+			state.executeUpdate(requete);
+    	}catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "Modification non effectué", "ALERTE", JOptionPane.ERROR_MESSAGE);
+			e.printStackTrace();
+		}
+    	
+    }
 
 	//***************************** Main() ***************************	
 		public static void main(String[] args) throws ClassNotFoundException, SQLException {
