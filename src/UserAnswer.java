@@ -43,9 +43,9 @@ class UserAnswer {
 	 * @see UserAnswer#setUserAnswer(String)
 	 * @see UserAnswer#setQuestionId(int)
 	 */
-	public UserAnswer(String s, int id) {
-		setUserAnswer(s);
-		setQuestionId(id);
+	public UserAnswer(int questionId, String userAnswer) {
+		this.questionId = questionId;
+		this.userAnswer = userAnswer;
 	}
 
 	/**
