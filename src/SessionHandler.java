@@ -148,10 +148,6 @@ public void sendSession(Session s) throws SQLException
 					prepare.close();
 					res.close();
 				}
-				else
-				{
-					System.out.println("ERREUR!");
-				}
 			}
 		}
 		else //si session existe
@@ -190,10 +186,6 @@ public void sendSession(Session s) throws SQLException
 					prepare.executeUpdate();
 					prepare.close();
 					res.close();
-				}
-				else
-				{
-					System.out.println("ERREUR!");
 				}
 			}	
 		}
