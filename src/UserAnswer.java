@@ -31,7 +31,23 @@ class UserAnswer {
 	 * @see UserAnswer#setAnswered(boolean)
 	 */
 	private boolean answered;
-
+	
+	/**
+	 * Constructor of the class UserAnswer
+	 *
+	 * @param String
+	 *            An answer
+	 * @param int
+	 *            Id of the question
+	 *
+	 * @see UserAnswer#setUserAnswer(String)
+	 * @see UserAnswer#setQuestionId(int)
+	 */
+	public UserAnswer(String s, int id) {
+		setUserAnswer(s);
+		setQuestionId(id);
+	}
+	
 	/**
 	 * Getter of the question id
 	 * 
@@ -84,6 +100,7 @@ class UserAnswer {
 	 * @see UserAnswer#answered
 	 */
 	public boolean isAnswered() {
+		//return (!userAnswer.isEmpty());
 		return answered;
 	}
 
@@ -108,11 +125,11 @@ class UserAnswer {
 	 * 
 	 * @see UserAnswer#setUserAnswer(String)
 	 */
-	public UserAnswer recoverAnswer(String s) {
+	/*public UserAnswer recoverAnswer(String s) {
 		UserAnswer a = new UserAnswer();
 		a.setUserAnswer(s);
 		return a;
-	}
+	}*/
 
 	/**
 	 * Check if it has an answer and set the statement.
