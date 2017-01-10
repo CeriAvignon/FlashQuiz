@@ -62,8 +62,9 @@ n'apparaît plus dans la liste des sessions ouvertes)
 Il manque encore l'ajout d'une question en pleine session (ça se passe entre Session_Creator et Session_Server).
 
 
+## Votant
 
-
+```java
 public class Session_Voter {
 	/**
 	 * Start session
@@ -113,8 +114,12 @@ public class Session_Voter {
 		// Attente fermeture de la session de la part de l'utilisateur...
 	}
 }
+```
 
 
+## Créateur de la session
+
+```java
 public class Session_Creator {
 	/**
 	 * Start session
@@ -164,8 +169,12 @@ public class Session_Creator {
 		// Attente fermeture de la session de la part de l'utilisateur
 	}
 }
+```
 
 
+## Serveur
+
+```java
 public class Session_Server {
 	/**
 	 * Start session
@@ -215,3 +224,4 @@ public class Session_Server {
 		// Fermeture session
 	}
 }
+```
