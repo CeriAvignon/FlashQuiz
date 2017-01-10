@@ -112,54 +112,8 @@ import java.util.*;
 		
 	
 		}
-		//*********************Variable & Methode pour Modifier Question**************
-		public void updatequestion() throws ClassNotFoundException, SQLException{
-			
-			
-			Scanner sc = new Scanner(System.in);
-			Scanner qd = new Scanner(System.in);
-			System.out.println("\nEntrer l'id de question que vous souhaitez modifier : ");
-			Integer id= sc.nextInt();
-			System.out.println("\nQu'est ce que vous souhaitez modifier dans cette question ?\n");
-			System.out.println("\n1.Type_question:          2.Contenu_question:         3.Id_media:");
-			Integer choix= sc.nextInt();
-			String choixx=null;
-			switch (choix) {
-			case 1 :choixx="type_question";	        break;
-			case 2 :choixx="contenu_question";			break;
-			case 3 :choixx="id_media";			break;
-					}
-
-			Statement state =conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-			PreparedStatement prepare = conn.prepareStatement("update question set "+choixx+"=? "+"where id_question = "+id+"");
-			String query = "select * FROM question "+"where id_question ="+id+"";
-			ResultSet res = state.executeQuery(query);
-			res.first();
-
-			System.out.println("\n\tDonnées origine :" + choixx +"= "+ res.getObject(""+choixx+""));
-			System.out.println("\t-------------------");
-
-			if (choixx=="contenu_question")
-				{
-					System.out.println("\nEntrer votre modification : ");
-					String modif= qd.nextLine();
-					prepare.setString(1,""+modif+"");
-				}
-			else{	System.out.println("\nEntrer votre modification : ");
-	    			int modif= qd.nextInt();
-         			prepare.setObject(1,modif);
-				}
-			prepare.executeUpdate();
-			res = state.executeQuery(query);
-			res.first();
-			System.out.println("\n\t\t Apres Modification du question : " + choixx +"= "+res.getObject(""+choixx+""));
-
-			prepare.close();
-			res.close();
-			state.close();
-
-
-			}
+		//*********************Variable & Methode pour Modifier & Supprimer Question**************
+		
 
 	//***************************** Main() ***************************	
 		public static void main(String[] args) throws ClassNotFoundException, SQLException {
