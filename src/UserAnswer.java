@@ -31,7 +31,7 @@ class UserAnswer {
 	 * @see UserAnswer#setAnswered(boolean)
 	 */
 	private boolean answered;
-	
+
 	/**
 	 * Constructor of the class UserAnswer
 	 *
@@ -47,7 +47,7 @@ class UserAnswer {
 		setUserAnswer(s);
 		setQuestionId(id);
 	}
-	
+
 	/**
 	 * Getter of the question id
 	 * 
@@ -100,7 +100,7 @@ class UserAnswer {
 	 * @see UserAnswer#answered
 	 */
 	public boolean isAnswered() {
-		//return (!userAnswer.isEmpty());
+		// return (!userAnswer.isEmpty());
 		return answered;
 	}
 
@@ -125,11 +125,10 @@ class UserAnswer {
 	 * 
 	 * @see UserAnswer#setUserAnswer(String)
 	 */
-	/*public UserAnswer recoverAnswer(String s) {
-		UserAnswer a = new UserAnswer();
-		a.setUserAnswer(s);
-		return a;
-	}*/
+	/*
+	 * public UserAnswer recoverAnswer(String s) { UserAnswer a = new
+	 * UserAnswer(); a.setUserAnswer(s); return a; }
+	 */
 
 	/**
 	 * Check if it has an answer and set the statement.
@@ -139,13 +138,13 @@ class UserAnswer {
 	 * 
 	 * @see UserAnswer#setAnswered(boolean)
 	 */
-	public setIsAnswered() {
-		//setAnswered(!getUserAnswer().isEmpty());
-		
+	public void setIsAnswered() {
+		// setAnswered(!getUserAnswer().isEmpty());
+
 		if (userAnswer.length() == 0) {
-			a.setAnswered(false);
+			setAnswered(false);
 		} else {
-			a.setAnswered(true);
+			setAnswered(true);
 		}
 	}
 }
