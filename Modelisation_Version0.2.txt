@@ -54,9 +54,14 @@ TABLE Media :
 	[INT ID_Media
 	INT Type
 	TEXT Content				#url, ou chemin local
+!!! TEMP !!!
+Table StatAnswer :
+	[INT ID_Answer
+	INT Number_Answer			#Nombre de gens qui ont répondu a cette réponse
 
 #Cette version de la modélisation de la base de données sera celle sur laquelle les tests des fonctions se feront. Des modifications se feront peut etre en cas de besoin, mais la structure générale restera comme présenter.
 
-##EDIT 28/11/2016 : 	Il faut enregistrer les stat des sessions. a voir.
+#EDIT 28/11/2016 : 	Il faut enregistrer les stat des sessions. a voir.
+
 #EDIT 09/01/2017 : 	-Oubli, chaque session à un créateur.
-			-Modelisation de la partie statistique sur les réponses.
+				-Modelisation de la partie statistique sur les réponses.
