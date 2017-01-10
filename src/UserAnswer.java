@@ -137,16 +137,15 @@ class UserAnswer {
 	 * @param UserAnswer
 	 *            An UserAnswer
 	 * 
-	 * @return An UserAnswer
-	 * 
 	 * @see UserAnswer#setAnswered(boolean)
 	 */
-	public UserAnswer setIsAnswered(UserAnswer a) {
-		if (a.userAnswer == null || a.userAnswer.length() == 0) {
+	public setIsAnswered() {
+		//setAnswered(!getUserAnswer().isEmpty());
+		
+		if (userAnswer.length() == 0) {
 			a.setAnswered(false);
 		} else {
 			a.setAnswered(true);
 		}
-		return a;
 	}
 }
