@@ -76,7 +76,7 @@ private String password;
 *@see SessionHandler#sendSession(Session)
 *
 */
-protected Vector<Liste> listeliste;	
+protected Vector<int> listeliste;	
 	
 /**
 * <b>Envoie une session vers le serveur pour l'enregistrer.</b>
@@ -132,7 +132,7 @@ public void sendSession(Session s) throws SQLException
 			s.setIdSession(res.getInt(1));
 			
 			
-			for (Liste l:listeliste) // pour chaque element du Vecteur
+			for (int l:listeliste) // pour chaque element du Vecteur
 			{
 				//envoye la liste
 				//sendListe(l);
@@ -170,7 +170,7 @@ public void sendSession(Session s) throws SQLException
 			
 			res.close();			
 
-			for (Liste l:listeliste) 
+			for (int l:listeliste) 
 			{
 				//envoye la liste
 				//sendListe(l);
