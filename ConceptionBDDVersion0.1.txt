@@ -19,3 +19,6 @@ CREATE TABLE Answer(ID_Answer SERIAL NOT NULL UNIQUE, ID_Question INT, Content T
 CREATE TABLE Media(ID_Media SERIAL NOT NULL UNIQUE, Type INT, Content TEXT);
 
 //$co = new PDO("pgsql:host=localhost;dbname=etd","uapv1504061","2TD1MN");
+
+!! TEMP !!!
+CREATE TABLE StatAnswer(ID_Answer INT, Number_Answer INT);
