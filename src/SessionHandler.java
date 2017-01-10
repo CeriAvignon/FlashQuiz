@@ -70,13 +70,13 @@ private String namesession;
 private String password;
 	
 /**
-* La liste de listes. Contient des IDs de listes.
+* La liste des IDs de listes.
 * <p>
 *
 *@see SessionHandler#sendSession(Session)
 *
 */
-protected Vector<int> listeliste;	
+private int listeliste[];	
 	
 /**
 * <b>Envoie une session vers le serveur pour l'enregistrer.</b>
@@ -132,7 +132,7 @@ public void sendSession(Session s) throws SQLException
 			s.setIdSession(res.getInt(1));
 			
 			
-			for (int l:listeliste) // pour chaque element du Vecteur
+			for (int l:listeliste) // pour chaque element du tableau
 			{
 				//envoye la liste
 				//sendListe(l);
