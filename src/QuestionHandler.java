@@ -19,8 +19,8 @@ public class QuestionHandler {
 	/**
 	 * 
 	 * @since 1.4
-	 * @param list
-	 * 				Une question.
+	 * @param Question
+	 * Une question.
 	 * 
 	 **/ 
 	
