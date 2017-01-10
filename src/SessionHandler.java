@@ -70,7 +70,7 @@ private String namesession;
 private String password;
 	
 /**
-* La liste de listes.
+* La liste de listes. Contient des IDs de listes.
 * <p>
 *
 *@see SessionHandler#sendSession(Session)
