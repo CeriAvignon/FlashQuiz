@@ -33,7 +33,8 @@ public class stat_session {
 	// des réponses. Bonne réponse à la session = X% et mauvaise
 	// réponses à la session = Y%
 	//
-	public static double[] stat_mult(String[] prop, String[] res_true, String[] res_false) {
+	public static double[] stat_mult(String[] prop, String[] res_true,
+			String[] res_false) {
 		// Total de réponses
 		double total = res_true.length + res_false.length;
 		// Nombre de proposition à la question
@@ -131,13 +132,13 @@ public class stat_session {
 
 		// Test fonction stat_mult
 		String[] prop = { "A", "B", "C", "D" };
-		String[] res_true = { "B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "B",
-				"B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "D", "D", "D", "D", "D",
-				"D", "D", "D", "D", "D", "D", "D", "D", "D", "D", "D", "D", "D", "D", "D", "D",
-				"D" };
-		String[] res_false = { "A", "A", "A", "C", "C", "A", "C", "C", "C", "A", "C", "C", "A", "C",
-				"C", "C", "A", "C", "C", "A", "C", "C", "C", "A", "C", "C", "A", "C", "C", "C", "A",
-				"C", "C", "A", "C" };
+		String[] res_true = { "B", "B", "B", "B", "B", "B", "B", "B", "B", "B",
+				"B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "B",
+				"B", "B", "B", "D", "D", "D", "D", "D", "D", "D", "D", "D", "D",
+				"D", "D", "D", "D", "D", "D", "D", "D", "D", "D", "D", "D" };
+		String[] res_false = { "A", "A", "A", "C", "C", "A", "C", "C", "C", "A",
+				"C", "C", "A", "C", "C", "C", "A", "C", "C", "A", "C", "C", "C",
+				"A", "C", "C", "A", "C", "C", "C", "A", "C", "C", "A", "C" };
 		double[] Res2 = stat_mult(prop, res_true, res_false);
 
 		for (int i = 0; i < Res2.length; i++) {
