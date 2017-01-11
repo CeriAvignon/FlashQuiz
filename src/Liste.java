@@ -383,7 +383,7 @@ static Connection con;
 		Class.forName("org.postgresql.Driver");
 		String url = "jdbc:postgresql://localhost:5432/quiz";
 		String user = "postgres";
-		String passwd = "DutDaiDutDai00";
+		String passwd = "*********";
 		con = DriverManager.getConnection(url, user, passwd);
 		}
 public Integer defineLastIdListe() throws ClassNotFoundException, SQLException{
