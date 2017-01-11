@@ -1,16 +1,24 @@
 
-import java.sql.Connection;//
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
+import java.io.File;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
 
 	public class Question
 	{
 		//*********************Variable & Methode pour Ajout Question**************
-		static Integer NbrQ=1;
 		static Connection con;
+	        static String filelink;
+                static String filetype;
+    		static String filename;
+		static Integer NbrQ=1;
 		static Integer IdQuestion;
 		static String QuestConten;
 		static String QuestType;
@@ -22,96 +30,125 @@ import java.util.*;
 	
 	
 	
-		void Question() {
-			this.IdQuestion=0;
-			this.QuestConten=null;
-			this.QuestType=null;
-			this.IdMedia=0;
-			this.IdReponse=0;
-			this.reponse=null;
-			this.Reponse=new String[0][0];
-			this.correct=true;
+		Question() {
+	    			filelink=null;
+	    			filetype=null;
+	    			filename=null;
+				IdQuestion=0;
+				QuestConten=null;
+				QuestType=null;
+				IdMedia=0;
+				IdReponse=0;
+				reponse=null;
+				Reponse=new String[0][0];
+				correct=true;
 		}
 	
-		void Question(int a,String b,String c,int d) {
-			this.IdQuestion=a;
-			this.QuestConten=b;
-			this.QuestType=c;
-			this.IdMedia=d;
-			this.IdReponse=0;
-			this.correct=true;
+		void Dquestion(String b,String c) {
+				QuestConten=b;
+				QuestType=c;
 		}
 	
-		void Question(String [][]tab){
-			this.Reponse = (String[][]) tab.clone();
+		void Rep(String [][]tab){
+				Reponse = (String[][]) tab.clone();
 		}
 	
-		void Question(String r){
-			this.reponse=r;
+    		void RepText(String r){
+				reponse=r;
 		}
 	
 		public void dataBaseConnexion()throws ClassNotFoundException, SQLException {
 			Class.forName("org.postgresql.Driver");
-			String url = "jdbc:postgresql://localhost:5432/quiz";
+			String url = "jdbc:postgresql://localhost:5432/flashquiz";
 			String user = "postgres";
-			String passwd = "DutDaiDutDai00";
+			String passwd = "***********";
 			con = DriverManager.getConnection(url, user, passwd);
 		}
 
-		public Integer defineLastIdQuestion() throws ClassNotFoundException, SQLException{
+		public void DefineLastIdQuestion() throws ClassNotFoundException, SQLException{
+			int res1=0;
+			PreparedStatement st1 = con.prepareStatement("select max(ID_Question) from Question;");
+			ResultSet result1 = st1.executeQuery();
+     			while(result1.next()) {
+  				 res1=result1.getInt(1);
+    			}
+    			IdQuestion=res1+1;
+		}
+
+		public void DefineLastIdMedia() throws ClassNotFoundException, SQLException{
 			int res2=0;
-			PreparedStatement st2 = con.prepareStatement("select max(ID_Question) from Question;");
+			PreparedStatement st2 = con.prepareStatement("select max(ID_Media) from Media;");
 			ResultSet result2 = st2.executeQuery();
-     			while(result2.next()) {
+    			while(result2.next()) {
   	 			res2=result2.getInt(1);
-    		 	}
-     			return IdQuestion=res2+1;
-		}
-
-		public Integer defineLastIdMedia() throws ClassNotFoundException, SQLException{
-			int res3=0;
-			PreparedStatement st3 = con.prepareStatement("select max(ID_Media) from Media;");
-			ResultSet result3 = st3.executeQuery();
-    			 while(result3.next()) {
-  	 			res3=result3.getInt(1);
      			}
-			return IdMedia=res3+1;
+			IdMedia=res2+1;
 		}
 
-		public void insertQuestion()throws ClassNotFoundException, SQLException {
-	
-			PreparedStatement st1 = con.prepareStatement("Insert into Question values(?,?,?,?);");
-			st1.setInt(1, IdQuestion);
-			st1.setString(2, QuestType);
-			st1.setString(3, QuestConten);
-			st1.setInt(4, IdMedia);
-			st1.executeUpdate();
-		
+		public void InsertQuestion()throws ClassNotFoundException, SQLException {
+			PreparedStatement st3 = con.prepareStatement("Insert into Question values(?,?,?,?);");
+			st3.setInt(1, IdQuestion);
+			st3.setString(2, QuestType);
+			st3.setString(3, QuestConten);
+			if(filelink==null) {
+				st3.setInt(4,0);
+			}
+			else {
+				st3.setInt(4, IdMedia);
+			}
+			st3.executeUpdate();
 		}
 
-		public void insertReponse() throws ClassNotFoundException, SQLException{
+		public void InsertReponse() throws ClassNotFoundException, SQLException{
 
-			PreparedStatement st6 =con.prepareStatement("Insert into Reponses values(?,?,?,?);");
-			st6.setInt(2, IdQuestion);
+			PreparedStatement st4 =con.prepareStatement("Insert into Reponses values(?,?,?,?);");
+			st4.setInt(2, IdQuestion);
 			
 			for(int j=0;j<NbrQ;j++) {
 				if(NbrQ==1) {
-				st6.setString(3, reponse);
+					st4.setString(3, reponse);
 				}
 				else{
-			
-			st6.setString(3, Reponse[j][0]);
-			Reponse[j][1].toLowerCase();
-			correct = Boolean.valueOf(Reponse[j][1]).booleanValue() ;
+					st4.setString(3, Reponse[j][0]);
+					Reponse[j][1].toLowerCase();
+					correct = Boolean.valueOf(Reponse[j][1]).booleanValue() ;
+				}
+				st4.setBoolean(4, correct);
+				st4.setInt(1, IdReponse);
+				st4.executeUpdate();
+				IdReponse++;
 			}
-			st6.setBoolean(4, correct);
-			st6.setInt(1, IdReponse);
-			st6.executeUpdate();
-			IdReponse++;
-			}
-		
-	
 		}
+		
+		public void InsertMediaFile() throws ClassNotFoundException, Exception{
+			int linkl=0;
+    			BufferedImage image = null;
+    			File f = null;
+    			//********* file reading 
+    			int width = 963;    
+    			int height = 640;   
+    			filelink="E:\\images\\New folder\\new.png"; //Reste à redéfinir
+    			linkl=filelink.length();
+    			filetype=filelink.substring(linkl-3);
+    			f = new File(filelink);
+    			image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+    			image = ImageIO.read(f);
+    			System.out.println("Reading complete.");
+    			//********* file writing
+    			filename=IdQuestion+"."+filetype;
+    			f = new File("..\\FlachQuiz\\src\\media\\"+filename);  
+    			ImageIO.write(image, filetype, f);
+    			System.out.println("Writing complete.");
+		}
+		
+		public void InserMediaDb() throws ClassNotFoundException, SQLException {
+			PreparedStatement st5 = con.prepareStatement("Insert into Media values(?,?,?);");
+			st5.setInt(1, IdMedia);
+			st5.setString(2, filetype);
+			st5.setString(3, filename);
+			st5.executeUpdate();
+		}
+		
 		//*********************Variable & Methode pour Modifier & Supprimer Question**************
 		static Connexion ab = Connexion.getInst();
 
@@ -254,12 +291,17 @@ import java.util.*;
     	
     }
 
-	//***************************** Main() ***************************	
-		public static void main(String[] args) throws ClassNotFoundException, SQLException {
+				//***************************** Main() ***************************
+		
+		public static void main(String[] args) throws ClassNotFoundException, Exception {
 			Question NewQuestion= new Question();
 			Scanner sc = new Scanner(System.in);
-	
-	
+			//**************DATA BASE CONNEXION***************
+	 		NewQuestion.DataBaseConnexion();
+			//************************************************
+    			NewQuestion.DefineLastIdQuestion();
+    			NewQuestion.DefineLastIdMedia();
+			//************************************************
 			System.out.println("\nEnoncé de question: ");
 			String QConten= sc.nextLine();
 			System.out.println("\n1.Radio:          2.Text libre:          3.TextBox:");
@@ -269,22 +311,21 @@ import java.util.*;
 			//*****************************************
 			switch (QTyp) {
 				case 1 :QType="Radio";	        	break;
-				case 2 :QType="Text libre";		break;
-				case 3 :QType="TextBox";		break;
+				case 2 :QType="Text libre";		    break;
+				case 3 :QType="TextBox";			break;
 			}
 			//******************************************
 	 		String rep=null;
 			if(QType.equals("Text libre")) {
         			System.out.println("\nCorrect Answer : ");
         			rep= sc.next();
-        			NewQuestion.Question(rep);
-			}
+        			NewQuestion.RepText(rep);
+			}	
 	
-	
-			if (QType.equals("Radio") || QType.equals("TextBox")) {
+			else if (QType.equals("Radio") || QType.equals("TextBox")) {
 
 				System.out.println("\nNombre de reponses proposées: ");
-				NbrQ= sc.nextInt();
+		 		NbrQ= sc.nextInt();
 		 		String [][] Rep=new String[NbrQ][2];
 				for(int i=1;i<=NbrQ;i++) {
 		    			System.out.println("\nRéponse "+i+" : ");
@@ -292,17 +333,20 @@ import java.util.*;
 		    			System.out.println("\nIs it True or False ?");
 		    			Rep[i-1][1]=sc.next();
 				}
-	  		NewQuestion.Question(Rep);
+			 	NewQuestion.Rep(Rep);
 			}
-		
-			//**************DATA BASE CONNEXION***************
-	 		 NewQuestion.DataBaseConnexion();
-			//************************************************
-      			int Q_id=NewQuestion.defineLastIdQuestion();
-      			int M_id=NewQuestion.defineLastIdMedia();
-	 		NewQuestion.question(Q_id,QConten,QType,M_id);
-	  		NewQuestion.insertQuestion();
-	  		NewQuestion.insertReponse();
+			//******************************************
+			NewQuestion.Dquestion(QConten,QType);
+    			NewQuestion.InsertReponse();
+			//******************************************
+			System.out.println("Voulez-vous ajouter une Image? ");
+			String res=sc.next();
+			res.toLowerCase();
+			if(res.equals("oui")) {
+				NewQuestion.InsertMediaFile();
+			}
+ 			sc.close();
+			//*****************************************
+	 		NewQuestion.InsertQuestion();
 		}
-
 	}
