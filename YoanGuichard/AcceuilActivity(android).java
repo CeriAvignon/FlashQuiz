@@ -1,5 +1,4 @@
-package com.example.flashquizz;
-
+package com.example.yoan.flashquizz;
 
 import android.app.Activity;
 import android.content.Intent;
