@@ -16,7 +16,8 @@ import javax.imageio.ImageIO;
 		//*********************Variable & Methode pour Ajout Question**************
 		static Connection con;
 	        static String filelink;
-                static String filetype;
+                static Integer filetype;
+    		static String extension;
     		static String filename;
 		static Integer NbrQ=1;
 		static Integer IdQuestion;
@@ -32,7 +33,7 @@ import javax.imageio.ImageIO;
 	
 		Question() {
 	    			filelink=null;
-	    			filetype=null;
+	    			extension=null;
 	    			filename=null;
 				IdQuestion=0;
 				QuestConten=null;
@@ -127,18 +128,19 @@ import javax.imageio.ImageIO;
     			//********* file reading 
     			int width = 963;    
     			int height = 640;   
-    			filelink="E:\\images\\New folder\\new.png"; //Reste à redéfinir
+    			filelink="E:\\images\\New folder\\new.png"; //Reste à définir
     			linkl=filelink.length();
-    			filetype=filelink.substring(linkl-3);
+    			extension=filelink.substring(linkl-3);
     			f = new File(filelink);
     			image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
     			image = ImageIO.read(f);
     			System.out.println("Reading complete.");
     			//********* file writing
-    			filename=IdQuestion+"."+filetype;
-    			f = new File("..\\FlachQuiz\\src\\media\\"+filename);  
-    			ImageIO.write(image, filetype, f);
+    			filename=IdQuestion+"."+extension;
+    			f = new File("..\\flachquiz\\src\\media\\"+filename);  
+    			ImageIO.write(image, extension, f);
     			System.out.println("Writing complete.");
+    			filetype=0;
 		}
 		
 		public void InserMediaDb() throws ClassNotFoundException, SQLException {
@@ -344,6 +346,7 @@ import javax.imageio.ImageIO;
 			res.toLowerCase();
 			if(res.equals("oui")) {
 				NewQuestion.InsertMediaFile();
+				NewQuestion.InserMediaDb();
 			}
  			sc.close();
 			//*****************************************
