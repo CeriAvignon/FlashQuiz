@@ -1,7 +1,11 @@
 <resources>
-    <string name="app_name">FlashQuizz</string>
+    <string name="app_name">CreateQuizz</string>
     <string name="textview_create">Entrez le Nom de votre Quizz!</string>
     <string name="checkbox_mdp">Mot de Passe</string>
     <string name="checkbox_view_mdp">Afficher le Mot de Passe</string>
     <string name="checkbox_time">Minuteur</string>
+    <string name="suivant">Suivant</string>
+    <string name="ajouter">Ajouter une question</string>
+    <string name="modifier">Modifier une question</string>
+    <string name="valider">Valider le questionnaire</string>
 </resources>
