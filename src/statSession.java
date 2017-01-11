@@ -1,5 +1,5 @@
 /**
- * Stat_session
+ * StatSession
  *
  * Produce statistics from the question's answers.
  *
@@ -13,10 +13,10 @@ public class statSession {
 	 * @param prop
 	 *            String array that contain all the propositions for the
 	 *            question
-	 * @param res_true
+	 * @param resTrue
 	 *            String array that contain all the right answers for this
 	 *            question, like ['A','A','B',...]
-	 * @param res_false
+	 * @param resFalse
 	 *            String array that contain all the wrong answers for this
 	 *            question, like ['C','D','D',...]
 	 * @return Double array that contain all the statistics values of the
@@ -43,10 +43,10 @@ public class statSession {
 		double Res[] = new double[nbrProp];
 		/*
 		 * // Tableau qui contient "true" ou "false" en fonction des prop
-		 * boolean T_F[] = new boolean[nbr_prop];
+		 * boolean TF[] = new boolean[nbrProp];
 		 * 
-		 * for (int i=0;i<nbr_prop;i++) { for(int j=0;j<res_true.length;j++) {
-		 * if (prop[i] == res_true[j]) { T_F[i] = true; break; r} else T_F[i] =
+		 * for (int i=0;i<nbrProp;i++) { for(int j=0;j<resTrue.length;j++) {
+		 * if (prop[i] == resTrue[j]) { TF[i] = true; break; r} else TF[i] =
 		 * false; break; } }
 		 */
 
@@ -84,10 +84,10 @@ public class statSession {
 	 * Function who calculate statistic of the session (all type of question
 	 * together)
 	 *
-	 * @param res_true
+	 * @param resTrue
 	 *            Int array that contain the number of good answer for this
 	 *            session
-	 * @param res_false
+	 * @param resFalse
 	 *            Int array that contain the number of bad answer for this
 	 *            session
 	 * @return Double array that contain statistics values for good and bad
@@ -115,9 +115,9 @@ public class statSession {
 	 */
 	// Main de test des deux fonctions et de présentation des entrées
 	//
-	// stat_result demande le nombre de bonne réponses et de mauvaises
+	// statResult demande le nombre de bonne réponses et de mauvaises
 	//
-	// stat_mult demande le tableau de string contenant les propositions
+	// statMult demande le tableau de string contenant les propositions
 	// et les tableaux des bonnes réponses et mauvais réponses
 	// en réalité dans ce cas là, la dissociation des bonnes et mauvaises
 	// réponses est inutile car on peut s'arrêter à " réponse A 25% etc..."
@@ -125,12 +125,12 @@ public class statSession {
 	// arriveraient après
 	//
 	public static void main(String[] args) {
-		// Test fonction stat_result
+		// Test fonction statResult
 		double[] Res = statResult(45641, 12737);
 
 		System.out.println("Res[0] = " + Res[0] + "\nRes[1] = " + Res[1]);
 
-		// Test fonction stat_mult
+		// Test fonction statMult
 		String[] prop = { "A", "B", "C", "D" };
 		String[] resTrue = { "B", "B", "B", "B", "B", "B", "B", "B", "B", "B",
 				"B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "B",
