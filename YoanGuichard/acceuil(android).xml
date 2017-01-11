@@ -4,64 +4,61 @@
     android:id="@+id/activity_acceuil"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.yoan.flashQuizz.acceuil" >
+    tools:context="com.example.yoan.flashquizz.acceuilActivity" >
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
         android:text="@string/acceuil" />
-        
-//Le boutton pour la création du quizz
+
     <Button
         android:id="@+id/newQuizz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView2"
         android:layout_marginTop="12dp"
         android:background="@android:color/darker_gray"
-        android:text="Creer un nouveau quizz" />
-        
-//Le boutton pour voir ses stat
+        android:text="@string/title_activity_nouveauquizz" />
+
     <Button
         android:id="@+id/stat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/participQuizz"
         android:layout_marginTop="26dp"
         android:background="@android:color/darker_gray"
-        android:text="Voir mes statistique" />
-        
-//Le boutton pour acceder a la recherche de quizz
+        android:text="@string/title_activity_stat" />
+
     <Button
         android:id="@+id/participQuizz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/newQuizz"
         android:layout_marginTop="30dp"
         android:background="@android:color/darker_gray"
-        android:text="Participer à un quizz" />
-        
-//Le boutton pour acceder aux réglages 
+        android:text="@string/title_activity_particip" />
+
     <Button
         android:id="@+id/reglage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginBottom="9dp"
-        android:layout_marginRight="39dp" />
+        android:layout_marginRight="39dp"
+        android:layout_marginEnd="39dp"/>
 
 </RelativeLayout>
+
