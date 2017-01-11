@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.yoan.flashquizz" >
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.yoan.flashquizz.acceuilActivity"
+            android:label="@string/title_activity_acceuil" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.yoan.flashquizz.nouveauquizzActivity"
+            android:label="@string/title_activity_nouveauquizz" >
+        </activity>
+        <activity
+            android:name="com.example.yoan.flashquizz.participQuizzActivity"
+            android:label="@string/title_activity_particip" >
+        </activity>
+        <activity
+            android:name="com.example.yoan.flashquizz.statActivity"
+            android:label="@string/title_activity_stat" >
+        </activity>
+        <activity
+            android:name="com.example.yoan.flashquizz.reglageActivity"
+            android:label="@string/title_activity_reglage" >
+        </activity>
+        <activity
+            android:name="com.example.yoan.flashquizz.stat1Activity"
+            android:label="@string/title_activity_stat1" >
+        </activity>
+        <activity
+            android:name="com.example.yoan.flashquizz.stat2Activity"
+            android:label="@string/title_activity_stat2" >
+        </activity>
+    </application>
+
+</manifest>
