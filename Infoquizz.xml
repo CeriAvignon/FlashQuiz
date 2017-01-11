@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="ig.flash.MainActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="300dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+
+        android:radius="8dp"
+        android:bottomLeftRadius="100dp"
+        android:bottomRightRadius="100dp"
+        android:background="@drawable/corner">
+
+        <TextView
+            android:text="Récupération des données dans la BDD sur le n° de session et le nom du quizz associé."
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:paddingRight="16dp"
+            android:id="@+id/NomSession"
+            android:textSize="20sp"
+            android:background="@drawable/corner_int"
+            android:textColor="#000000"
+            />
+
+    </FrameLayout>
+
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:background="@drawable/corner"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="300dp">
+
+        <TextView
+            android:text="Récupération des données dans la BDD sur nombre de question et le temps entre chaque question."
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="16dp"
+            android:id="@+id/NbQuestion"
+            android:textSize="20sp"
+            android:background="@drawable/corner_int"
+            android:textColor="#000000"
+
+            />
+    </FrameLayout>
+
+    <Button
+        android:text="Démarrer"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:id="@+id/start"
+        android:elevation="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#ffffff"
+        android:background="@drawable/corner"
+        android:onClick="onclick"/>
+
+</RelativeLayout>
