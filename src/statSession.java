@@ -5,7 +5,7 @@
  *
  * @author Benoît Dorey
  */
-public class stat_session {
+public class statSession {
 
 	/**
 	 * Function for multiple choice
@@ -33,14 +33,14 @@ public class stat_session {
 	// des réponses. Bonne réponse à la session = X% et mauvaise
 	// réponses à la session = Y%
 	//
-	public static double[] stat_mult(String[] prop, String[] res_true,
-			String[] res_false) {
+	public static double[] statMult(String[] prop, String[] resTrue,
+			String[] resFalse) {
 		// Total de réponses
-		double total = res_true.length + res_false.length;
+		double total = resTrue.length + resFalse.length;
 		// Nombre de proposition à la question
-		int nbr_prop = prop.length;
+		int nbrProp = prop.length;
 		// Tableau contenant les statistiques demandées
-		double Res[] = new double[nbr_prop];
+		double Res[] = new double[nbrProp];
 		/*
 		 * // Tableau qui contient "true" ou "false" en fonction des prop
 		 * boolean T_F[] = new boolean[nbr_prop];
@@ -51,28 +51,28 @@ public class stat_session {
 		 */
 
 		// Tableau qui contient la population pour chaque variable proposition
-		double NBR[] = new double[nbr_prop];
+		double NBR[] = new double[nbrProp];
 
 		// Boucle de remplissage de NBR depuis les propositions justes
-		for (int i = 0; i < nbr_prop; i++) {
-			for (int j = 0; j < res_true.length; j++) {
-				if (prop[i] == res_true[j]) {
+		for (int i = 0; i < nbrProp; i++) {
+			for (int j = 0; j < resTrue.length; j++) {
+				if (prop[i] == resTrue[j]) {
 					NBR[i]++;
 				}
 			}
 		}
 
 		// Boucle de remplissage de NBR depuis les propositions fausses
-		for (int i = 0; i < nbr_prop; i++) {
-			for (int j = 0; j < res_false.length; j++) {
-				if (prop[i] == res_false[j]) {
+		for (int i = 0; i < nbrProp; i++) {
+			for (int j = 0; j < resFalse.length; j++) {
+				if (prop[i] == resFalse[j]) {
 					NBR[i]++;
 				}
 			}
 		}
 
 		// Boucle de remplissage de Res, calcul des pourcentages
-		for (int i = 0; i < nbr_prop; i++) {
+		for (int i = 0; i < nbrProp; i++) {
 			Res[i] = (NBR[i] * 100) / total;
 		}
 
@@ -95,16 +95,16 @@ public class stat_session {
 	 *         false
 	 */
 	// Fonction pour les tests autres que choix multiples
-	public static double[] stat_result(int res_true, int res_false) {
+	public static double[] statResult(int resTrue, int resFalse) {
 		// Total des votes
-		double total = res_true + res_false;
+		double total = resTrue + resFalse;
 		// Tableau avec le pourcentage de juste et de faux
 		double Res[] = { 0, 0 };
 
 		// Pourcentage de réponses vraies
-		Res[0] = (res_true * 100) / total;
+		Res[0] = (resTrue * 100) / total;
 		// pourcentages de réponses fausses
-		Res[1] = (res_false * 100) / total;
+		Res[1] = (resFalse * 100) / total;
 
 		// Tableau des pourcentages
 		return Res;
@@ -126,20 +126,20 @@ public class stat_session {
 	//
 	public static void main(String[] args) {
 		// Test fonction stat_result
-		double[] Res = stat_result(45641, 12737);
+		double[] Res = statResult(45641, 12737);
 
 		System.out.println("Res[0] = " + Res[0] + "\nRes[1] = " + Res[1]);
 
 		// Test fonction stat_mult
 		String[] prop = { "A", "B", "C", "D" };
-		String[] res_true = { "B", "B", "B", "B", "B", "B", "B", "B", "B", "B",
+		String[] resTrue = { "B", "B", "B", "B", "B", "B", "B", "B", "B", "B",
 				"B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "B", "B",
 				"B", "B", "B", "D", "D", "D", "D", "D", "D", "D", "D", "D", "D",
 				"D", "D", "D", "D", "D", "D", "D", "D", "D", "D", "D", "D" };
-		String[] res_false = { "A", "A", "A", "C", "C", "A", "C", "C", "C", "A",
+		String[] resFalse = { "A", "A", "A", "C", "C", "A", "C", "C", "C", "A",
 				"C", "C", "A", "C", "C", "C", "A", "C", "C", "A", "C", "C", "C",
 				"A", "C", "C", "A", "C", "C", "C", "A", "C", "C", "A", "C" };
-		double[] Res2 = stat_mult(prop, res_true, res_false);
+		double[] Res2 = statMult(prop, resFrue, resFalse);
 
 		for (int i = 0; i < Res2.length; i++) {
 			System.out.println("Res2[" + i + "] = " + Res2[i]);
