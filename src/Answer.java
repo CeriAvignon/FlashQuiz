@@ -4,7 +4,7 @@
  * 
  * @see Question
  * 
- * @author J-loup
+ * @author Jean-Loup Gaussen
  *
  */
 class Answer {

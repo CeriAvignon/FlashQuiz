@@ -220,8 +220,6 @@ public class Session {
 	 * 
 	 * @param question
 	 *            The new question you want to add
-	 * 
-	 * @return %TODO%
 	 */
 	public void addQuestion(Question question) {
 		int newQuestionIndex = this.currList.addQuestion(question);

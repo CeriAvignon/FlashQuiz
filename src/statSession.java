@@ -139,7 +139,7 @@ public class statSession {
 		String[] resFalse = { "A", "A", "A", "C", "C", "A", "C", "C", "C", "A",
 				"C", "C", "A", "C", "C", "C", "A", "C", "C", "A", "C", "C", "C",
 				"A", "C", "C", "A", "C", "C", "C", "A", "C", "C", "A", "C" };
-		double[] Res2 = statMult(prop, resFrue, resFalse);
+		double[] Res2 = statMult(prop, resTrue, resFalse);
 
 		for (int i = 0; i < Res2.length; i++) {
 			System.out.println("Res2[" + i + "] = " + Res2[i]);
