@@ -40,7 +40,7 @@ import javax.imageio.ImageIO;
 			st3.setInt(1, IdQuestion);
 			st3.setString(2, QuestType);
 			st3.setString(3, QuestConten);
-			if(filelink==null) {
+			if(med==false) {
 				st3.setInt(4,0);
 			}
 			else {
