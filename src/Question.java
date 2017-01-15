@@ -19,13 +19,6 @@ import javax.imageio.ImageIO;
 			filetype=null;
 		}
 	
-		public void dataBaseConnexion()throws ClassNotFoundException, SQLException {
-			Class.forName("org.postgresql.Driver");
-			String url = "jdbc:postgresql://localhost:5432/flashquiz";
-			String user = "postgres";
-			String passwd = "***********";
-			con = DriverManager.getConnection(url, user, passwd);
-		}
 
 		public int DefineLastIdQuestion() throws ClassNotFoundException, SQLException{
 			int res1=0;
