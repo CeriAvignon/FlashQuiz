@@ -9,7 +9,6 @@ import javax.imageio.ImageIO;
 	public class Question
 	{
 		//*********************Variable & Methode pour Ajout Question**************
-		static Connection con;
 		static Integer filetype;
     		static String filename;
 	
