@@ -77,7 +77,7 @@ import javax.imageio.ImageIO;
 		//Méthode permettant l'Upload d'un fichier dans un dossier "..\\flachquiz\\media\\" où on trouve un dossier "img" pour les Images et "vdo" pour les vidéos.
 		//Pour l'instant il manque l'upload de vidéo.
 		//La méthode prend en arguments l'id de la question et l'url qui permettra de lire le fichier à utiliser.
-		public void uploadMediaFile(int IdQuestion,String filelink) throws ClassNotFoundException, Exception{
+		public void UploadMediaFile(int IdQuestion,String filelink) throws ClassNotFoundException, Exception{
 			BufferedImage image = null;
     			File f = null;
     			String extension=null;
