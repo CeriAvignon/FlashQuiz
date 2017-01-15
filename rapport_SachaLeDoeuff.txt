@@ -1,0 +1,88 @@
+Carnet de bord, gestion et réalisation du projet
+
+Modélisation et conception de la base de données
+
+NB: Les dates correspondent ici aux scéances durant laquelle je me retrouve avec le reste de mon équipe,
+ou à des dates choisis pour éditer le carnet de bord.
+Ce ne sont pas les seuls jours ou je travail, du travail est fournis entre chaqu'une de ces dates.
+
+Jeudi 6 Octobre 2016
+
+Avant aujourd'hui, nous étions encore dans une phase de compréhension du produit à créer,
+et à la répartition des tâches, celle ci ayant été décider aujourd'hui, il m'a été donc assigner
+jusqu'au premier incrément la modélisation de la modélisation de la base de données.
+J'ai donc lister tout les element qui nécéssitait potentiellement un engeristrement
+dans une base de données présent dans les documents fournis.
+
+Mercredi 2 Novembre 2016
+
+Après un listing de plusieurs élément potentiellement présent dans la base de données,
+les éléments suivant feront office de première "structure" pour la modélisation:
+Utilisateurs, Session, Liste, Question, Reponse.
+Chacun d'entre eux possèderont un ID (identifiant) propre, et unique dans chacune de leur table
+pour les différencier, ainsi que de composante les définissants. Plusieurs autres éléments
+seront rajouter suite a des réunion avec des personnes des autres équipes.
+
+Premier modèle:
+Table Utilisateur:ID_Utilisateur,Nom,Prenom,Login,MDP
+Table Session:ID_Session,Créateur,Type
+Table Liste:ID_Liste,créateur, session_lié
+Table question:ID_Question, type, contenu
+Table réponse:ID_Réponse, question_lié, contenu, correct?
+
+Jeudi 10 Novembre 2016
+
+Rendez vous avec ceux qui travailleront avec moi: l'équipe Edition de Liste
+et l'equipe Traitement des votes et statistiques. Résumer des besoin de chacun
+des groupes:
+
+Modelisation de la table dont le groupe "Statistique" aura besoin:
+/*
+*	Session:
+*	ID_session
+*	Date_ouverture
+*	date_fermeture
+*	ID_utilisateur
+*	type_session
+*/
+Modelisation de la table dont le groupe "prog" aura besoin:
+/*
+*	users(IDusers,typeUsers)
+*	question(IDquestion, IDusers, question, type, reponses)      //type = QCM, checkbox, etc
+*	serie(IDserie, ListeQuestion, IDusers, NbQuestion)
+*	session(IDsession, DateDebut, DateFin, ListeDeSerie, NbQuestion, IDusers, password)
+*/
+
+Il s'agit la de leurs besoins comme ils l'ont décrit, je les reformulerais afin de
+le rendre uniforme et logique.
+
+Lundi 21 Novembre 2016
+
+Premier Incrément et fin de la modélisation d'une première version de la base de données.
+Le projet s'étalant sur environ 8-9 mois, des changements peuvent avoir lieu, ou des
+erreurs passé peuvent être détéctée et corrigé, celle ci peut changer, mais gardera
+cette structure. Celle ci est suffisante pour que les groupes qui en ont besoin
+peuvent travailler.
+
+Jeudi 1 Decembre
+
+Debut de la conception de la base de données, cette tâche sera accompagnée d'un suivi sur
+la modélisation de la base de données. Celle ci ne dépendent avant tout que des autres groupes.
+
+Mercredi 14 Decembre 2016
+
+Le groupe Statistique à peut etre besoin d'ajouter une partie qui regroupe les statistique 
+des joueur sur une question, sur une session. En attendant la modélisation, et de savoir
+s'ils sont sur d'en avoir besoin, je vais faire une modélisation temporaire de leur besoins.
+
+Mardi 3 Janvier 2017
+
+Continuation et finalisation de la conception. Petit ajout suite à un oublie de ma part,
+d'un titre aux sessions.
+
+Mardi 10 Janvier 2017
+
+Deuxième Incrément, fin de la conception avec modification de la modélisation. Une
+deuxième de celle ci a vu le jour. La modélisation aura toujours besoin d'un suivi
+mais celle ci aura un statut "fini". Pour la suite, j'aiderais mes collègue sur le
+reste du projet.
