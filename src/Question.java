@@ -111,7 +111,7 @@ import javax.imageio.ImageIO;
 		//*********************Variable & Methode pour Modifier & Supprimer Question**************
 		static Connexion ab = Connexion.getInst();
 
-	public static void modifiertype(String question, String type) {
+	public static void modifiertype(int question, String type) {
 		String requete = null;
 
 		try {
@@ -124,7 +124,7 @@ import javax.imageio.ImageIO;
 			e.printStackTrace();
 		}
 	}
-	public static void modifierMedia(String question, String media) {
+	public static void modifierMedia(int question, String media) {
 		String requete = null;
 
 		try {
@@ -137,7 +137,7 @@ import javax.imageio.ImageIO;
 			e.printStackTrace();
 		}
 	}
-	public static void modifierContenu(String question, String contenu) {
+	public static void modifierContenu(int question, String contenu) {
 		String requete = null;
 
 		try {
@@ -151,7 +151,7 @@ import javax.imageio.ImageIO;
 		}
 	}
 
-	public static void modifierReponse(String question, ArrayList<String> rep, String RepV) {
+	public static void modifierReponse(int question, ArrayList<String> rep, String RepV) {
 		String requete = null;
 		int max = max();
 
@@ -208,7 +208,7 @@ import javax.imageio.ImageIO;
 		return maxID;
 
 	}
-    public static void ModifierQuestion(String quest,String type, ArrayList<String> rep, String RepV,String Contenu,String media){
+    public static void ModifierQuestion(int quest,String type, ArrayList<String> rep, String RepV,String Contenu,String media){
     	if(type!=null){
     		modifiertype(quest,type);
     		
@@ -225,7 +225,7 @@ import javax.imageio.ImageIO;
     	
     	
     }
-    public static void SupprimerQuestion(String quest){
+    public static void SupprimerQuestion(int quest){
     	String requete = null;
     	try {
     		
