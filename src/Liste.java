@@ -358,7 +358,7 @@ class Liste
 	}
 	
 }
-//******************************************************
+//******************************variables et méthodes pour la création de liste************************
 static Connection con;
 	static Integer IdQuestion;
 	static Integer IdListe;
@@ -379,13 +379,7 @@ static Connection con;
 	void Liste(int a) {
 		this.IdQuestion=a;
 	 	}
-	public void dataBaseConnexion()throws ClassNotFoundException, SQLException {
-		Class.forName("org.postgresql.Driver");
-		String url = "jdbc:postgresql://localhost:5432/quiz";
-		String user = "postgres";
-		String passwd = "*********";
-		con = DriverManager.getConnection(url, user, passwd);
-		}
+	//méthodes pour définir les id des listes lors de l'insertion d'une nouvelle liste
 public Integer defineLastIdListe() throws ClassNotFoundException, SQLException{
 		int idList=0;
 		PreparedStatement statement = con.prepareStatement("select max(IdListe) from  ListMetadata;");
@@ -395,6 +389,8 @@ public Integer defineLastIdListe() throws ClassNotFoundException, SQLException{
 		}
 		return IdListe=IdList+1;
 		}
+	//méthode permettant de récupérer les informations sur la liste dans la table listMetadata.
+	//la méthode permet d'ajouter l id de la liste ,id du user et le titre de la liste
 	public void insertListMetadata() throws ClassNotFoundException, SQLException{
 		PreparedStatement statement2 = con.prepareStatement("Insert into ListMetadata values(?,?,?);");
 		statement2.setInt(1, IdListe);
@@ -402,6 +398,7 @@ public Integer defineLastIdListe() throws ClassNotFoundException, SQLException{
 		statement2.setString(3,TitreListe);
 		statement2.executeUpdate();
 		}
+	// la méthode permet de récuperer une question et de l'ajouter a une liste depuis la table ListContent.
 	public void insertListContent() throws ClassNotFoundException, SQLException{
 		PreparedStatement statement3 = con.prepareStatement("Insert into ListContent values(?,?);");
 		statement3.setInt(1, IdListe);
