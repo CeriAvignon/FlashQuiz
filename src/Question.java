@@ -51,8 +51,9 @@ import javax.imageio.ImageIO;
 		
 		//Méthode permettant de traiter les réponses par rapport au type de la question et les insérer.
 		//La méthode prend en argument l'id de la question, le nombre de réponses qu'aura la question.
-		//la réponse si la question a une seule réponse sinon la variable « reponse » aura une valeur null.
-		//un tableau de réponses si la question a plusieurs réponses sinon le tableau sera vide.
+		//la réponse si la question a une seule réponse qu'on définira par défaut "correcte",
+		//sinon la variable « reponse » aura une valeur null.
+		//un tableau de réponses et leurs corrections (Boolean) si la question a plusieurs réponses, sinon le tableau sera vide.
 		public void InsertReponse(int IdQuestion,int NbrR,String reponse,String [][]Reponse) throws ClassNotFoundException, SQLException{
 			boolean correct=true;
 			Integer IdReponse=0;
