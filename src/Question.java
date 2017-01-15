@@ -116,7 +116,7 @@ import javax.imageio.ImageIO;
 			e.printStackTrace();
 		}
 	}
-	public static void modifierMedia(int question, String media) {
+	public static void modifierMedia(int question, int media) {
 		String requete = null;
 
 		try {
@@ -163,7 +163,7 @@ import javax.imageio.ImageIO;
 					PreparedStatement pr = (PreparedStatement) ab.a()
 							.prepareStatement("INSERT INTO reponses VALUES(?,?,?,?)");
 					pr.setInt(1, max + i + 1);
-					pr.setString(2, question);
+					pr.setInt(2, question);
 					pr.setString(3, contenu);
 					pr.setString(4, correcte);
 
@@ -200,7 +200,7 @@ import javax.imageio.ImageIO;
 		return maxID;
 
 	}
-    public static void ModifierQuestion(int quest,String type, ArrayList<String> rep, String RepV,String Contenu,String media){
+    public static void ModifierQuestion(int quest,String type, ArrayList<String> rep, String RepV,String Contenu,int media){
     	if(type!=null){
     		modifiertype(quest,type);
     		
