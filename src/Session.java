@@ -501,14 +501,14 @@ public class Session
 	* @param name= session name (String)
 	* @return retourne false en cas d'erreur, true si tout s'est bien deroulé
 	*/
-
+	ConnectionJM conn=null;	
 	public Boolean deleteSession(String name)throws SQLException 
 	{
 		boolean result=false;
-		/*Se connecter a la BD*////		delete la session en cascade;
-		ConnectionJM conn=null;		
+		
+			
 		try {
-		Connection cnx=conn.ConnectionDB();
+		 cnx=conn.ConnectionDB();
 		 
 		PreparedStatement preparedStatement = null;
 		String deleteSQL = "DELETE Sessions WHERE idsession  =  ?";
@@ -544,9 +544,9 @@ public class Session
 	public Boolean modifySession(Session session,String ancien_session)
 	{
 		boolean result=false;
-		ConnectionJM conn=null;		
+			
 		try {
-		Connection cnx=conn.ConnectionDB();
+		 cnx=conn.ConnectionDB();
 		 
 		PreparedStatement preparedStatement = null;
 		String updateSQL = "UPDATE Sessions SET datedebut=?,datefin=?,session =?,password=? WHERE session  =  ?";
