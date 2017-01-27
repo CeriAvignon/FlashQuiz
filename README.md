@@ -1,12 +1,10 @@
 # FlashQuiz
 
-Le fichier : SimpleServer.java est une esquisse , un test , effectué pour comprendre le fonctionnement des sockets /   
-
-Le fichier Version est "le squelette" qui permet la connexion à la base de données / 
+Le fichier rapport_SachaLeDoeuff.txt est un rapport du premier semestre sur le travail effectué/   
   
-Le fichier Modelisation_Version0.1.txt contient la modélisation de la base de données qui sera utilisée pour le projet / 
+Le fichier Modelisation_Version0.2.txt contient la modélisation de la base de données qui sera utilisée pour le projet / 
   
 Le fichier ModelisationBDD_recap est comme son nom l'indique un récapitulatif des pensées et des reflexions qui ont aboutis à cette modélisation /   
 
-le fichier .jar est la librairie utilisé pour effectuer la connexion à la base de donnée
+le fichier ConceptionBDDVersion0.2.txt contient les requetes SQL permettant de créer la base de données correspondant à la modélisation
 
