@@ -15,25 +15,25 @@ GAUSSEN   JEAN-LOUP
 
 --> Pour la classe Question (Abdeljalil Nioua, Kharmouch Anas) 
 GROUPE	REFERENCE		AUTEUR	BESOIN	                    INFORMATIONS	
-RESBDD	RESBDD-05		ROCK		_______	                    On envoie l'objet list à la BDD	dans le cas d'un ajout.	 
-RESBDD	RESBDD-09		ROCK		getQuestionById(int)	      Envoi id et reception du retour de la BDD. 
-IG		  IG-08			  HUEBER	VUE ET ENVOI INFOS			    lorsque click sur "modifier question", créer une vue avec la 
-                                                        selection des 	questions à modifier, une vue avec un formulaire de
-                                                        modifications faites sur les questions, et envoi des modifications que 
-                                                        nous traiterons 
-TVS		  TVS-03		GAUSSEN	  Voir QUESTION	              voir comment ils créent leurs questions 
-TOUS		TOUTES		tous		  _______                     Uniformiser les variables 
+RESBDD	RESBDD-05		ROCK	_______	                    On envoie l'objet list à la BDD dans le cas d'un ajout.	 
+RESBDD	RESBDD-09		ROCK	getQuestionById(int)	    Envoi id et reception du retour de la BDD. 
+IG	IG-08			HUEBER	VUE ET ENVOI INFOS	    lorsque click sur "modifier question", créer une vue avec la
+                                                        	    selection des questions à modifier, une vue avec un formulaire 
+								    de modifications faites sur les questions, et envoi des 
+								    modifications que nous traiterons 
+TVS	TVS-03			GAUSSEN	Voir QUESTION	    	    voir comment ils créent leurs questions 
+TOUS	TOUTES			tous	_______           	    Uniformiser les variables 
 
 --> Pour la classe List (Snina Amine, Demogue Bruno) 
-GROUPE	REFERENCE		AUTEUR	  BESOIN	                    INFORMATIONS 					 
-RESBDD	RESBDD-06		GALY		  _______	                    On envoie l'objet list à la BDD	dans le cas d'un ajout.	 
-RESBDD	RESBDD-10		GALY	    getListById(int)	          Envoi id et reception du retour de la BDD. 
-IG		  IG-08			  HUEBER    ENVOI de la question	      lorsque click sur "ajout question" créer une vue qui affiche un bouton
-                                                          "ajouter à une liste" et "ajouter à une session" qui aura d'autres vues 
-                                                          en conséquences pour nous envoyer l'id d'une liste et la ou les questions 
-                                                          à ajouter. 
-TVS		  TVS-02		GAUSSEN		Voir SERIES							      voir comment ils créent leurs séries.  
-TOUS		TOUTES		tous			________                      Uniformiser les variables 
+GROUPE	REFERENCE		AUTEUR	  BESOIN	            INFORMATIONS 					 
+RESBDD	RESBDD-06		GALY      _______	            On envoie l'objet list à la BDD dans le cas d'un ajout.	 
+RESBDD	RESBDD-10		GALY	  getListById(int)	    Envoi id et reception du retour de la BDD. 
+IG	IG-08			HUEBER    ENVOI de la question	    lorsque click sur "ajout question" créer une vue qui affiche un bouton
+                                                          	    "ajouter à une liste" et "ajouter à une session" qui aura 
+								    d'autres vues en conséquences pour nous envoyer l'id d'une 
+								    liste et la ou les questions à ajouter. 
+TVS	TVS-02			GAUSSEN	  Voir SERIES		    voir comment ils créent leurs séries.  
+TOUS	TOUTES			tous	  ________                  Uniformiser les variables 
 
 	Spécifités pour DEMOGUE BRUNO: 	 
 	--> getQuestionByIdList(int) : envoi id d'une liste, et attend la liste des questions qui y correspondent. 
@@ -49,16 +49,17 @@ Informations : L'objet Session est quasiment stable.
 Les fonctions de modifications et de suppression de session ont été réalisées en faisant des requêtes SQL, travail préalablement
 réalisé par les BDD.  FONCTIONS A REFAIRE et A NE PAS EXPLOITER !! 
 
-GROUPE	REFERENCE		AUTEUR	  BESOIN		                 INFORMATIONS					 
-RESBDD	RESBDD-07		MOSHINA	  sendSession(Session)		  On envoie l'objet session à la BDD	dans le cas d'un ajout.	 
-RESBDD	RESBDD-11		MOSHINA	  getSessionById(int)		    Envoi id et reception du retour de la BDD. 
+GROUPE	REFERENCE		AUTEUR	  BESOIN		          INFORMATIONS					 
+RESBDD	RESBDD-07		MOSHINA	  sendSession(Session)		  On envoie l'objet session à la BDD dans le cas d'un ajout.	 
+RESBDD	RESBDD-11		MOSHINA	  getSessionById(int)		  Envoi id et reception du retour de la BDD. 
 RESBDD	________		_______	  deleteSessionById(int)	  Envoi id et supprime la session liée. 
-IG		  IG-08			  HUEBER	  VUE ET ENVOI INFOS				lorsque click sur "ajout question" créer une vue qui affiche un bouton
-                                                        "ajouter à une liste" et "ajouter à une 	session"
-                                                        qui aura d'autres vues en conséquences pour nous 
-                                                        envoyer l'id d'une liste etla ou les questions à ajouter. 
-TVS		  TVS-03		  GAUSSEN	  Voir Session		          voir comment ils créent leurs sessions 
-TOUS		TOUTES		  tous			______                    Uniformiser les variables 
+IG	IG-08			HUEBER	  VUE ET ENVOI INFOS		  lorsque click sur "ajout question" créer une vue qui 
+									  affiche un bouton "ajouter à une liste" et 
+									  "ajouter à une session" qui aura d'autres vues en 
+									  conséquences pour nous envoyer l'id d'une liste et 
+									  la ou les questions à ajouter. 
+TVS	TVS-03		  	GAUSSEN	  Voir Session		          voir comment ils créent leurs sessions 
+TOUS	TOUTES		  	tous	   ______                    	  Uniformiser les variables 
 
   Spécifités pour LE VEVE Mathieu:
     --> IG: Il faudrait que vous prevoyiez un getter pour récupérer l'id de celui qui est connecté, que je puisse
