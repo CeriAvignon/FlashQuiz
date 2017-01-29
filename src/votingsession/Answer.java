@@ -1,16 +1,19 @@
+
+package votingsession;
+
 /**
  * The question answer, it can be true, or false in the case of a radio/checkbox
  * question, it's defined by the its creator.
- * 
+ *
  * @see Question
- * 
+ *
  * @author Jean-Loup Gaussen
  *
  */
 class Answer {
 	/**
 	 * The answer.
-	 * 
+	 *
 	 * @see Answer#getContent()
 	 * @see Answer#setContent()
 	 * @see Answer#Answer(String, boolean)
@@ -19,7 +22,7 @@ class Answer {
 
 	/**
 	 * True if the answer is a good one, false else.
-	 * 
+	 *
 	 * @see Answer#getState()
 	 * @see Answer#setState()
 	 * @see Answer#Answer(String, boolean)
@@ -28,7 +31,7 @@ class Answer {
 
 	/**
 	 * Constructor of answer.
-	 * 
+	 *
 	 * @param s
 	 *            The content of the answer.
 	 * @param b
@@ -43,9 +46,9 @@ class Answer {
 
 	/**
 	 * Getter of the content answer.
-	 * 
+	 *
 	 * @return The content of the answer.
-	 * 
+	 *
 	 * @see Answer#content
 	 */
 	public String getContent() {
@@ -54,7 +57,7 @@ class Answer {
 
 	/**
 	 * Setter of the content answer.
-	 * 
+	 *
 	 * @param content
 	 *            The content of the answer.
 	 * @see Answer#content
@@ -65,9 +68,9 @@ class Answer {
 
 	/**
 	 * Getter of the state answer
-	 * 
+	 *
 	 * @return The state of the answer.
-	 * 
+	 *
 	 * @see Answer#state
 	 */
 	public boolean getState() {
@@ -76,7 +79,7 @@ class Answer {
 
 	/**
 	 * Setter of the state answer.
-	 * 
+	 *
 	 * @param state
 	 *            The state of the answer.
 	 * @see Answer#state

@@ -1,8 +1,12 @@
+
+package votingsession;
+
 import java.util.Vector;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Collections;
 import javax.swing.Timer;
+
 
 /**
  * Session
@@ -217,7 +221,7 @@ public class Session {
 	/**
 	 * Add a question to the current list. Then add its index to the
 	 * unvotedQuestions vector, before sorting the vector.
-	 * 
+	 *
 	 * @param question
 	 *            The new question you want to add
 	 */
@@ -249,7 +253,7 @@ public class Session {
 	 * Test if all the session's questions are done
 	 *
 	 * @author Schmidt Gaetan
-	 * 
+	 *
 	 * @return True if the questionsUnvoted vector is empty.
 	 */
 	protected boolean areAllquestionsVoted() {
@@ -297,7 +301,7 @@ public class Session {
 	/**
 	 * Get time left. Used to calculate the time spent by the voter to answer
 	 * (statistics). WIP
-	 * 
+	 *
 	 * @return The left time for the current question
 	 */
 	protected int getTimeLeft() {

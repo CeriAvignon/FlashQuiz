@@ -1,3 +1,6 @@
+
+package stat;
+
 /**
  * StatUser
  *
@@ -42,8 +45,8 @@ public class statUser {
 
 	/**********
 	 * /********** /********** /********** /**********
-	 * 
-	 * 
+	 *
+	 *
 	 * /** Function who calculate statistic of the User for one session
 	 *
 	 *

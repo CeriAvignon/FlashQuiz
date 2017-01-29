@@ -1,3 +1,6 @@
+
+package votingsession;
+
 import java.util.Vector;
 
 /**
@@ -183,7 +186,7 @@ class List {
 	 * (normally the size of the questions vector).
 	 *
 	 * @return The question index inside the list.
-	 * 
+	 *
 	 * @see List#questions
 	 */
 	public int addQuestion(Question question) {

@@ -1,3 +1,6 @@
+
+package stat;
+
 /**
  * StatSession
  *
@@ -44,7 +47,7 @@ public class statSession {
 		/*
 		 * // Tableau qui contient "true" ou "false" en fonction des prop
 		 * boolean TF[] = new boolean[nbrProp];
-		 * 
+		 *
 		 * for (int i=0;i<nbrProp;i++) { for(int j=0;j<resTrue.length;j++) {
 		 * if (prop[i] == resTrue[j]) { TF[i] = true; break; r} else TF[i] =
 		 * false; break; } }

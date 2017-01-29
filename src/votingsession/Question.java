@@ -1,3 +1,6 @@
+
+package votingsession;
+
 import java.util.Vector;
 
 /**
@@ -200,7 +203,7 @@ public class Question {
 	 * Getter of the allocated time for the question.
 	 *
 	 * @return The number of seconds allocated to the question.
-	 * 
+	 *
 	 * @see Question#allocatedTime
 	 */
 	public int getAllocatedTime() {
@@ -209,7 +212,7 @@ public class Question {
 
 	/**
 	 * Setter of the allocated time for the question.
-	 * 
+	 *
 	 * @param allocatedTime
 	 *            The new allocated time you want to set.
 	 *
