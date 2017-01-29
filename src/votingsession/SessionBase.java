@@ -9,35 +9,35 @@ import javax.swing.Timer;
 
 
 /**
- * Session
+ * SessionBase
  *
  * @author Jean-Loup Gaussen
  */
-public class Session {
+public abstract class SessionBase {
 
 	/**
 	 * The session name, defined by its creator at its creation
 	 *
-	 * @see Session#getName()
-	 * @see Session#setName(String)
-	 * @see Session#Session(String, String, int)
+	 * @see SessionBase#getName()
+	 * @see SessionBase#setName(String)
+	 * @see SessionBase#SessionBase(String, String, int)
 	 */
 	private String name;
 
 	/**
 	 * The session creator id
 	 *
-	 * @see Session#getNameCreator()
-	 * @see Session#setNameCreator(id)
-	 * @see Session#Session(String, int, int)
+	 * @see SessionBase#getNameCreator()
+	 * @see SessionBase#setNameCreator(id)
+	 * @see SessionBase#SessionBase(String, int, int)
 	 */
 	private int idCreator;
 
 	/**
 	 * The session id, unique and can't be changed
 	 *
-	 * @see Session#getid()
-	 * @see Session#Session(String, int, int)
+	 * @see SessionBase#getid()
+	 * @see SessionBase#SessionBase(String, int, int)
 	 */
 	private int id;
 
@@ -71,8 +71,8 @@ public class Session {
 	 * Current Question timer
 	 *
 	 * @see Question#allocatedTime
-	 * @see Session#startQuestionTimer()
-	 * @see Session#getTimeLeft()
+	 * @see SessionBase#startQuestionTimer()
+	 * @see SessionBase#getTimeLeft()
 	 */
 	protected Timer timer;
 
@@ -86,12 +86,12 @@ public class Session {
 	 * @param id
 	 *            The session id
 	 *
-	 * @see Session#name
-	 * @see Session#nameCreator
-	 * @see Session#id
-	 * @see Session#currList
+	 * @see SessionBase#name
+	 * @see SessionBase#nameCreator
+	 * @see SessionBase#id
+	 * @see SessionBase#currList
 	 */
-	public Session(String name, int idCreator, int id,
+	public SessionBase(String name, int idCreator, int id,
 			boolean isQuestionsOrderRandom) {
 		this.name = name;
 		this.idCreator = idCreator;
@@ -107,7 +107,7 @@ public class Session {
 	 *
 	 * @return A string that contain the session name
 	 *
-	 * @see Session#name
+	 * @see SessionBase#name
 	 */
 	public String getName() {
 		return name;
@@ -119,7 +119,7 @@ public class Session {
 	 * @param s
 	 *            A string that contain the session name
 	 *
-	 * @see Session#name
+	 * @see SessionBase#name
 	 */
 	public void setName(String s) {
 		name = s;
@@ -130,7 +130,7 @@ public class Session {
 	 *
 	 * @return The session creator id
 	 *
-	 * @see Session#nameCreator
+	 * @see SessionBase#nameCreator
 	 */
 	public int getIdCreator() {
 		return idCreator;
@@ -142,7 +142,7 @@ public class Session {
 	 * @param s
 	 *            The session creator id
 	 *
-	 * @see Session#idCreator
+	 * @see SessionBase#idCreator
 	 */
 	public void setIdCreator(int id) {
 		idCreator = id;
@@ -153,7 +153,7 @@ public class Session {
 	 *
 	 * @return The session id
 	 *
-	 * @see Session#id
+	 * @see SessionBase#id
 	 */
 	public int getId() {
 		return id;
@@ -200,7 +200,7 @@ public class Session {
 	 *
 	 * @return The current series
 	 *
-	 * @see Session#currList
+	 * @see SessionBase#currList
 	 */
 	public List getCurrList() {
 		return currList;
@@ -212,7 +212,7 @@ public class Session {
 	 * @param S
 	 *            A series
 	 *
-	 * @see Session#currList
+	 * @see SessionBase#currList
 	 */
 	public void setCurrList(List S) {
 		currList = S;
