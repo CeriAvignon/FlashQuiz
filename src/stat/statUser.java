@@ -8,7 +8,7 @@ package stat;
  *
  * @author Benoît Dorey
  */
-public class statUser {
+class statUser {
 
 	/**
 	 * Function who calculate statistic of the User for more than one session

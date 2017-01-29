@@ -10,7 +10,7 @@ import java.util.Vector;
  *
  * @author Jean-Loup Gaussen
  */
-public class Question {
+class Question {
 
 	/**
 	 * The question id.

@@ -8,7 +8,7 @@ package stat;
  *
  * @author Benoît Dorey
  */
-public class statSession {
+class statSession {
 
 	/**
 	 * Function for multiple choice

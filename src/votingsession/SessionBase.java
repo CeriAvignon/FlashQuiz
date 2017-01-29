@@ -13,7 +13,7 @@ import javax.swing.Timer;
  *
  * @author Jean-Loup Gaussen
  */
-public abstract class SessionBase {
+abstract class SessionBase {
 
 	/**
 	 * The session name, defined by its creator at its creation

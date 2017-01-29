@@ -9,7 +9,7 @@ import javax.swing.Timer;
  *
  * @author Delvaux and Boge Julien
  */
-public class QuestionManagement {
+class QuestionManagement {
 
 	/**
 	 * The time remaining allocated to the question in seconds. It is set by the
