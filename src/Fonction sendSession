@@ -106,19 +106,17 @@ public void sendSession(Session s) throws SQLException
 			}	
 		}
 		
-    } catch (SQLException e) 
-	{
+    } 
+    catch (SQLException e){
     	e.printStackTrace();    
     }		
 	
 	}
-	finally 
-	{
+	finally {
 		if (connecterDB != null) 
 		{
 			connecterDB.close();
 		}
-    }
-	
-}
+    	}
+
 }
