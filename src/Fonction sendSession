@@ -1,0 +1,124 @@
+/**
+* <b>Envoie une session vers le serveur pour l'enregistrer.</b>
+* <p>
+*
+* @author Alexandra MOSHINA 
+*
+* @param s
+*	La session à écrire/modifier dans la BDD.
+*
+* @see idsession
+* @see idauthor
+* @see datestart
+* @see dateend
+* @see typesession
+* @see namesession
+* @see password
+* @see listeliste
+*
+*/
+
+public void sendSession(Session s) throws SQLException
+	{
+	
+	try {
+	Connection cnx=connecterDB(); 						//connection à la BDD
+	
+	try {
+	String query="";
+	Statement statement = cnx.createStatement();
+	ResultSet res=null;	
+	
+		if(idsession == -1) // si session existe pas
+		{
+			//on insere les donnees dans la BDD
+			query = "INSERT INTO Session_Metadata(D_User, Opening_Date, Closing_Date, Type, Title, Password) VALUES(?, ?, ?, ?, ?);";
+					PreparedStatement prepare =  cnx.prepareStatement(query);
+                    prepare.setObject(1,s.getIdAuthor());
+					prepare.setObject(2,s.getDatedebut());
+					prepare.setObject(3,s.getDatefin());
+					prepare.setObject(4,s.getTypeSession());
+					prepare.setObject(5,s.getNomSession());
+					prepare.setObject(6,s.getPassword());
+					prepare.executeUpdate();
+					prepare.close();
+			//on recupere l'id de la session
+			res = statement.executeQuery("SELECT currval(pg_get_serial_sequence('Session_Metadata','ID_Session')) as id;");
+			s.setIdSession(res.getInt(1));
+			
+			
+			for (int l:listeliste) // pour chaque element du tableau
+			{
+				//envoye la liste
+				//sendListe(l);
+				//si la liste s'est bien enregistrée
+				if (l.getIdListe() != -1)  
+				{
+					// Ajouter dans Session_Content
+					query = "INSERT INTO Session_Content (ID_Session,ID_Liste) values (?,?));";
+					prepare =  cnx.prepareStatement(query);
+					prepare.setObject(1,s.getIdSession());
+					prepare.setObject(2,s.getIdListe());
+					prepare.executeUpdate();
+					prepare.close();
+					res.close();
+				}
+			}
+		}
+		else //si session existe
+		{	
+		//on fait la mise a jour de la BDD
+			query = "UPDATE Session_Metadata SET (D_User=?, Opening_Date=?, Closing_Date=?, Type=?, Title=?, Password=?) WHERE ID_Session=idsession;";
+                    PreparedStatement prepare = cnx.prepareStatement(query);
+                    prepare.setObject(1,s.getIdAuthor());
+                    prepare.setObject(2,s.getDatedebut());
+                    prepare.setObject(3,s.getDatefin());
+                    prepare.setObject(4,s.getTypeSession());
+                    prepare.setObject(5,s.getNomSession());
+                    prepare.setObject(6,s.getPassword());
+                    res = statement.executeQuery(query);
+                    prepare.close();
+                    res.close();
+			
+			//supprimer continu Session_Content		
+			//suppression 
+			res = statement.executeQuery("DELETE FROM Session_Content WHERE ID_Session=idsession;");
+			
+			res.close();			
+
+			for (int l:listeliste) 
+			{
+				//envoye la liste
+				//sendListe(l);
+				//si la liste s'est bien enregistrée
+
+				if (l.getIdListe() != -1)  
+				{
+					// Ajouter dans Session_Content
+					query = "INSERT INTO Session_Content (ID_Session,ID_Liste) values (?,?));";
+					prepare = cnx.prepareStatement(query);
+					prepare.setObject(1,s.getIdSession());
+					prepare.setObject(2,l.getIdListe());
+					prepare.executeUpdate();
+					prepare.close();
+					res.close();
+				}
+			}	
+		}
+		
+    } catch (SQLException e) 
+	{
+    	e.printStackTrace();    
+    }		
+	
+	}
+	finally 
+	{
+		if (connecterDB != null) 
+		{
+			connecterDB.close();
+		}
+    }
+	
+}
+}
