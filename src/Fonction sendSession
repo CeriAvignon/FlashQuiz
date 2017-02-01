@@ -24,7 +24,6 @@ public void sendSession(Session s) throws SQLException
 	try {
 	Connection cnx=connecterDB(); 						//connection à la BDD
 	
-	try {
 	String query="";
 	Statement statement = cnx.createStatement();
 	ResultSet res=null;	
@@ -117,6 +116,5 @@ public void sendSession(Session s) throws SQLException
 		{
 			connecterDB.close();
 		}
-    	}
 
 }
