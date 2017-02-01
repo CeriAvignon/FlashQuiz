@@ -81,7 +81,7 @@ public void sendSession(Session s) throws SQLException
 			
 			//supprimer continu Session_Content		
 			//suppression 
-			res = statement.executeQuery("DELETE FROM Session_Content WHERE ID_Session=idsession;");
+			res = statement.executeQuery("DELETE * FROM Session_Content WHERE ID_Session=idsession;");
 			
 			res.close();			
 
