@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Collections;
 import javax.swing.Timer;
+import java.io.Serializable;
 
 
 /**
@@ -13,8 +14,7 @@ import javax.swing.Timer;
  *
  * @author Jean-Loup Gaussen
  */
-abstract class SessionBase {
-
+abstract class SessionBase implements Serializable {
 	/**
 	 * The session name, defined by its creator at its creation
 	 *

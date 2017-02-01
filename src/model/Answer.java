@@ -1,6 +1,8 @@
 
 package model;
 
+import java.io.Serializable;
+
 /**
  * The question answer, it can be true, or false in the case of a radio/checkbox
  * question, it's defined by the its creator.
@@ -10,7 +12,7 @@ package model;
  * @author Jean-Loup Gaussen
  *
  */
-class Answer {
+class Answer implements Serializable {
 	/**
 	 * The answer.
 	 *
