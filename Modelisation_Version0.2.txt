@@ -32,7 +32,6 @@ TABLE List_Content :			# Contenu (questions dans la List)
 	INT ID_List
 	INT ID_Question
 
-
 TABLE Question :
 	[INT ID_Question
 	INT Type					#radio, checkbox, etc
@@ -55,7 +54,7 @@ TABLE Media :
 	INT Type
 	TEXT Content				#url, ou chemin local
 
-Table VoterAnswer :
+TABLE VoterAnswer :
 	INT ID_Session
 	INT ID_Question
 	INT ID_User
