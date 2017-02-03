@@ -1,16 +1,13 @@
 # FlashQuiz
 
-Pour compiler:
+__Compiler et exécuter:__
+
 ```
-javac -classpath bin -d bin -sourcepath src src/{Client,Server}.java
+make Server
 ```
 
-Pour exécuter:
-```
-java -cp bin Server
-```
+Puis dans un autre terminal:
 
-Puis:
 ```
-java -cp bin Client
+make Client
 ```
