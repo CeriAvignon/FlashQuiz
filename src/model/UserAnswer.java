@@ -1,5 +1,5 @@
 
-package votingsession;
+package model;
 
 /**
  * Contain the answer that the user has given to a question, the question and if

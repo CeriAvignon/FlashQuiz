@@ -1,5 +1,5 @@
 
-package votingsession;
+package model;
 
 import java.util.Vector;
 
