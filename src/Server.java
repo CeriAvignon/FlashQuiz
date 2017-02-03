@@ -1,6 +1,7 @@
 import java.net.*;
 import java.io.IOException;
 import lib.server.ClientHandler;
+import lib.display.*;
 
 //=============================================================================
 // ▼ Server
@@ -60,9 +61,8 @@ public class Server
 	{
 		Server server = new Server();
 
-		System.out.println("Serveur démarré!");
-		System.out.println("================");
-		System.out.println();
+		Console.print("Serveur démarré!");
+		Console.print("================\n");
 
 		server.listen();
 	}
