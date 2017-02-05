@@ -6,6 +6,8 @@ import java.io.ObjectOutputStream;
 import java.net.*;
 import lib.display.*;
 
+import lib.net.SocketStreams;
+
 //=============================================================================
 // ▼ ClientHandler
 // ----------------------------------------------------------------------------
@@ -14,32 +16,21 @@ import lib.display.*;
 //=============================================================================
 public class ClientHandler extends Thread
 {
-	private Socket socket;
 	private int clientNumber;
-
-	private ObjectInputStream inputStream;
-	private ObjectOutputStream outputStream;
+	private SocketStreams socket;
 
 	//---------------------------------------------------------------------------
 	// * Constructeur
-	// Définit le socket et initialise les flots (I/O).
+	// Définit le numéro client et créer un objet SocketStreams qui établit des
+	// flots (I/O) avec le client.
 	//---------------------------------------------------------------------------
 	public ClientHandler(Socket socket, int clientNumber)
 	{
 		super("ClientHandler");
-		this.socket       = socket;
+		this.socket = new SocketStreams(socket);
 		this.clientNumber = clientNumber;
-
-		try {
-			outputStream = new ObjectOutputStream(socket.getOutputStream());
-			inputStream  = new ObjectInputStream(socket.getInputStream());
-		} catch (IOException e) {
-			log(e.getMessage());
-		}
 		log("nouvelle connexion établie");
 	}
-
-
 
 	//---------------------------------------------------------------------------
 	// * Run
@@ -49,56 +40,23 @@ public class ClientHandler extends Thread
 	public void run()
 	{
 		try {
-			sendObject("Bienvenue #" + clientNumber + "!"); // message de bienvenue
+			socket.sendObject("Bienvenue #" + clientNumber + "!"); // message de bienvenue
 
 			Object receivedObject;
 			String userInput;
 
 			while (true) {
-				receivedObject = getObject();
+				receivedObject = socket.getObject();
 				if (receivedObject == null) break;
 				userInput = (String) receivedObject;
 				log("Reçu: " + userInput);
-				sendObject(userInput.toUpperCase());
+				socket.sendObject(userInput.toUpperCase());
 			}
 
 		} finally {
-			try {
-				socket.close();
-			} catch (IOException e) {
-				log("couldn't close a socket, what's going on?");
-			}
+			socket.closeSocket();
 			log("connexion terminée");
 		}
-	}
-
-	//---------------------------------------------------------------------------
-	// * Send object
-	//---------------------------------------------------------------------------
-	private void sendObject(Object object)
-	{
-		try {
-			outputStream.writeObject(object);
-			outputStream.flush();
-		} catch(IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	//---------------------------------------------------------------------------
-	// * Get object
-	//---------------------------------------------------------------------------
-	private Object getObject()
-	{
-		try {
-			Object object = inputStream.readObject();
-			return object;
-		} catch(IOException e) {
-			// e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		return null;
 	}
 
 	//---------------------------------------------------------------------------
@@ -106,7 +64,7 @@ public class ClientHandler extends Thread
 	// Affiche un message sur la sortie standard du serveur. Indique le numéro
 	// du client avant le message.
 	//---------------------------------------------------------------------------
-	private void log(String message)
+	protected void log(String message)
 	{
 		Console.print("#" + clientNumber + " " + message);
 	}

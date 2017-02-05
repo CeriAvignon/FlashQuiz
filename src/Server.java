@@ -46,11 +46,15 @@ public class Server
 	public void listen() throws IOException
 	{
 		listening = true;
+		Socket socket;
+		ClientHandler client;
+
 		while(listening) {
-			Socket clientSocket = listener.accept();
-			ClientHandler client = new ClientHandler(clientSocket,clientsNumber++);
+			socket = listener.accept();
+			client = new ClientHandler(socket,clientsNumber++);
 			client.start();
 		}
+
 		listener.close();
 	}
 

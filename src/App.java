@@ -5,6 +5,8 @@ import java.net.*;
 import lib.display.*;
 import java.util.Scanner;
 
+import lib.net.SocketStreams;
+
 //=============================================================================
 // ▼ App
 // ----------------------------------------------------------------------------
@@ -12,9 +14,7 @@ import java.util.Scanner;
 //=============================================================================
 class App
 {
-	private static Socket socket;
-	private static ObjectInputStream inputStream;
-	private static ObjectOutputStream outputStream;
+	private static SocketStreams server;
 
 	//---------------------------------------------------------------------------
 	// * Demande à l'utilisateur une chaîne de caractères, l'envoie au serveur
@@ -48,8 +48,8 @@ class App
 				// Défaut
 				default:
 					// Renvoie la chaîne de caractères en majuscules
-					sendObject(inputs[0]);
-					receivedObject = getObject();
+					server.sendObject(inputs[0]);
+					receivedObject = server.getObject();
 					if(receivedObject == null) System.exit(0);
 					response = (String) receivedObject;
 					System.out.println("Reçu: " + response);
@@ -58,46 +58,17 @@ class App
 	}
 
 	//---------------------------------------------------------------------------
-	// * Etablit la connexion et initialise les flots (I/O)
+	// * Etablit la connexion avec le serveur et créer un objet SocketStreams
+	// qui initialise les flots (I/O) avec le serveur.
 	//---------------------------------------------------------------------------
 	public static void connectToServer()
 	{
 		try {
-			socket = new Socket("localhost", 9090);
-			outputStream = new ObjectOutputStream(socket.getOutputStream());
-			inputStream  = new ObjectInputStream(socket.getInputStream());
-			Console.print((String) getObject()); // affiche le message de bienvenue du serveur
+			Socket socket = new Socket("localhost", 9090);
+			server = new SocketStreams(socket);
+			Console.print((String) server.getObject()); // affiche le message de bienvenue du serveur
 		} catch (IOException ex) {
 			Console.print("Can't connect to server");
-		}
-	}
-
-	//---------------------------------------------------------------------------
-	// * Get object
-	//---------------------------------------------------------------------------
-	private static Object getObject()
-	{
-		try {
-			Object object = inputStream.readObject();
-			return object;
-		} catch(IOException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	//---------------------------------------------------------------------------
-	// * Send object
-	//---------------------------------------------------------------------------
-	private static void sendObject(Object object)
-	{
-		try {
-			outputStream.writeObject(object);
-			outputStream.flush();
-		} catch(IOException e) {
-			e.printStackTrace();
 		}
 	}
 
