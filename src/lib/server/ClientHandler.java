@@ -1,5 +1,6 @@
 package lib.server;
 
+import java.net.*;
 import lib.net.*;
 import lib.display.*;
 import controller.LocalServer;
@@ -12,7 +13,7 @@ import controller.LocalServer;
 //=============================================================================
 public class ClientHandler extends Thread
 {
-	private int clientNumber;
+	private int clientId;
 	private SocketStreams socket;
 
 	//---------------------------------------------------------------------------
@@ -20,11 +21,11 @@ public class ClientHandler extends Thread
 	// Définit le numéro client et créer un objet SocketStreams qui établit des
 	// flots (I/O) avec le client.
 	//---------------------------------------------------------------------------
-	public ClientHandler(Socket socket, int clientNumber)
+	public ClientHandler(Socket socket)
 	{
 		super("ClientHandler");
 		this.socket = new SocketStreams(socket);
-		this.clientNumber = clientNumber;
+		this.clientId = Clients.add(this);
 		log("nouvelle connexion établie");
 	}
 
@@ -33,22 +34,16 @@ public class ClientHandler extends Thread
 	//---------------------------------------------------------------------------
 	public void run()
 	{
-		try {
 		sendRequest("printReceived","Bienvenue #" + clientId + "!"; // message de bienvenue
 		Request request;
 
-			while (true) {
-				request = socket.getRequest();
-				if(request == null) break;
-
-				if(request.getAction().equals("capitalize"))
-					capitalize((String) request.getObject());
-			}
-
-		} finally {
-			socket.closeSocket();
-			log("connexion terminée");
+		while (true) {
+			request = socket.getRequest();
+			if(request == null) break;
+			LocalServer.interpreter(this,request);
 		}
+
+		close();
 	}
 
 	//---------------------------------------------------------------------------
@@ -76,6 +71,6 @@ public class ClientHandler extends Thread
 	//---------------------------------------------------------------------------
 	protected void log(String message)
 	{
-		Console.print("#" + clientNumber + " " + message);
+		Console.printAsync(Ansi.BLUE + "#" + clientId + Ansi.RESET + " " + message);
 	}
 }

@@ -2,7 +2,7 @@ package lib.server;
 
 import java.net.*;
 import java.io.IOException;
-import lib.server.ClientHandler;
+import lib.server.*;
 import lib.display.*;
 
 //=============================================================================
@@ -15,8 +15,6 @@ public class Server extends Thread
 {
 	private ServerSocket listener;
 	private boolean listening;
-
-	private Integer clientsNumber;
 
 	//---------------------------------------------------------------------------
 	// * Constructor
@@ -37,7 +35,7 @@ public class Server extends Thread
 	//---------------------------------------------------------------------------
 	// * Listen
 	// Créer un nouveau socket et un nouvel objet ClientHandler à chaque fois
-	// qu'un client essaie de se connecter. Attribue à ce client un numéro.
+	// qu'un client essaie de se connecter.
 	//---------------------------------------------------------------------------
 	public void run()
 	{
@@ -48,9 +46,14 @@ public class Server extends Thread
 		Console.printAsync(Ansi.GREEN + "Serveur démarré!" + Ansi.RESET);
 
 		while(listening) {
-			socket = listener.accept();
-			client = new ClientHandler(socket,clientsNumber++);
-			client.start();
+			try {
+				socket = listener.accept();
+				client = new ClientHandler(socket);
+				client.start();
+			} catch (IOException e) {
+				// e.getMessage();
+				// e.printStackTrace();
+			}
 		}
 	}
 
