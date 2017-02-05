@@ -6,6 +6,7 @@ import java.io.ObjectOutputStream;
 import java.net.*;
 import lib.display.*;
 
+import lib.net.Request;
 import lib.net.SocketStreams;
 
 //=============================================================================
@@ -42,21 +43,29 @@ public class ClientHandler extends Thread
 		try {
 			socket.sendObject("Bienvenue #" + clientNumber + "!"); // message de bienvenue
 
-			Object receivedObject;
-			String userInput;
+			Request request;
 
 			while (true) {
-				receivedObject = socket.getObject();
-				if (receivedObject == null) break;
-				userInput = (String) receivedObject;
-				log("Reçu: " + userInput);
-				socket.sendObject(userInput.toUpperCase());
+				request = socket.getRequest();
+				if(request == null) break;
+
+				if(request.getAction().equals("capitalize"))
+					capitalize((String) request.getObject());
 			}
 
 		} finally {
 			socket.closeSocket();
 			log("connexion terminée");
 		}
+	}
+
+	//---------------------------------------------------------------------------
+	// * Capitalize
+	// Renvoie la chaîne de caractères en majuscules.
+	//---------------------------------------------------------------------------
+	public void capitalize(String line)
+	{
+		socket.sendObject(line.toUpperCase());
 	}
 
 	//---------------------------------------------------------------------------
