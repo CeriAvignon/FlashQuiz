@@ -1,3 +1,5 @@
+package lib.server;
+
 import java.net.*;
 import java.io.IOException;
 import lib.server.ClientHandler;
@@ -9,7 +11,7 @@ import lib.display.*;
 // Créer un nouvel objet ClientHandler pour chaque client connecté.
 // Fonctionne en local pour les tests.
 //=============================================================================
-public class Server
+public class Server extends Thread
 {
 	private ServerSocket listener;
 	private boolean listening;
@@ -19,23 +21,17 @@ public class Server
 	//---------------------------------------------------------------------------
 	// * Constructor
 	//---------------------------------------------------------------------------
-	public Server()
+	public Server(Integer port) throws IOException, UnknownHostException
 	{
-		setListener();
-		clientsNumber = 0;
+		setListener(port);
 	}
 
 	//---------------------------------------------------------------------------
-	// * Set listner
+	// * Set listener
 	//---------------------------------------------------------------------------
-	private void setListener()
+	private void setListener(Integer port) throws IOException, UnknownHostException
 	{
-		try {
-			listener = new ServerSocket(9090, 0, InetAddress.getByName(null));
-		} catch (IOException e) {
-			System.err.println("Could not listen on port: 9090");
-			System.exit(1);
-		}
+		listener = new ServerSocket(port, 0, InetAddress.getByName(null));
 	}
 
 	//---------------------------------------------------------------------------
@@ -43,31 +39,43 @@ public class Server
 	// Créer un nouveau socket et un nouvel objet ClientHandler à chaque fois
 	// qu'un client essaie de se connecter. Attribue à ce client un numéro.
 	//---------------------------------------------------------------------------
-	public void listen() throws IOException
+	public void run()
 	{
 		listening = true;
 		Socket socket;
 		ClientHandler client;
+
+		Console.printAsync(Ansi.GREEN + "Serveur démarré!" + Ansi.RESET);
 
 		while(listening) {
 			socket = listener.accept();
 			client = new ClientHandler(socket,clientsNumber++);
 			client.start();
 		}
-
-		listener.close();
 	}
 
 	//---------------------------------------------------------------------------
-	// * Main
+	// * Close
+	// Cesse "l'écoute" et ferme toutes les connexions en cours.
 	//---------------------------------------------------------------------------
-	public static void main(String[] args) throws IOException
+	public void close()
 	{
-		Server server = new Server();
+		stopListening();
+		Clients.closeAll();
+	}
 
-		Console.print("Serveur démarré!");
-		Console.print("================\n");
-
-		server.listen();
+	//---------------------------------------------------------------------------
+	// * Stop listening
+	// Cesse d'établir de nouvelles connexions.
+	//---------------------------------------------------------------------------
+	public void stopListening()
+	{
+		listening = false;
+		try {
+			listener.close();
+		} catch (IOException e) {
+			e.getMessage();
+			e.printStackTrace();
+		}
 	}
 }

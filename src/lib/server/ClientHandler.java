@@ -1,13 +1,8 @@
 package lib.server;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.*;
+import lib.net.*;
 import lib.display.*;
-
-import lib.net.Request;
-import lib.net.SocketStreams;
+import controller.LocalServer;
 
 //=============================================================================
 // ▼ ClientHandler
@@ -35,15 +30,12 @@ public class ClientHandler extends Thread
 
 	//---------------------------------------------------------------------------
 	// * Run
-	// Reçoit une chaîne de caractères envoyée par le client et la renvoie en
-	// majuscules.
 	//---------------------------------------------------------------------------
 	public void run()
 	{
 		try {
-			socket.sendObject("Bienvenue #" + clientNumber + "!"); // message de bienvenue
-
-			Request request;
+		sendRequest("printReceived","Bienvenue #" + clientId + "!"; // message de bienvenue
+		Request request;
 
 			while (true) {
 				request = socket.getRequest();
@@ -60,18 +52,27 @@ public class ClientHandler extends Thread
 	}
 
 	//---------------------------------------------------------------------------
-	// * Capitalize
-	// Renvoie la chaîne de caractères en majuscules.
+	// * Send request to client
 	//---------------------------------------------------------------------------
-	public void capitalize(String line)
+	public void sendRequest(String action, Object object)
 	{
-		socket.sendObject(line.toUpperCase());
+		socket.sendRequest(action,object);
+	}
+
+	//---------------------------------------------------------------------------
+	// * Close
+	//---------------------------------------------------------------------------
+	public void close()
+	{
+		socket.closeSocket();
+		Clients.remove(clientId);
+		log("connexion terminée");
 	}
 
 	//---------------------------------------------------------------------------
 	// * Log
-	// Affiche un message sur la sortie standard du serveur. Indique le numéro
-	// du client avant le message.
+	// Affiche un message sur la sortie standard. Indique le numéro du client
+	// avant le message.
 	//---------------------------------------------------------------------------
 	protected void log(String message)
 	{

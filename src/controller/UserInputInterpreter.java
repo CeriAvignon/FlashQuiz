@@ -39,12 +39,38 @@ public abstract class UserInputInterpreter
 
 			// Quitter
 			case "q":
-				System.out.println("Bye!");
 				return false;
 
-			// Défaut
+			// Gestion du serveur
+			case "os":
+				LocalServer.open(9090);
+				break;
+			case "js":
+				RemoteServer.connect(9090);
+				break;
+			case "open-server":
+				LocalServer.open(Integer.parseInt(inputs[1]));
+				break;
+			case "join-server":
+				RemoteServer.connect(Integer.parseInt(inputs[1]));
+				break;
+			case "close-server":
+				LocalServer.close();
+				break;
+			case "quit-server":
+				RemoteServer.close();
+				break;
+
+			// Actions sur le serveur
+			case "send-to-all":
+				LocalServer.sendMessageToAll(input.replaceFirst("send-message-to-all",""));
+				break;
+			case "capitalize":
+				RemoteServer.capitalize(input.replaceFirst("capitalize ",""));
+				break;
+
 			default:
-				MainController.capitalize(input.replaceFirst("capitalize ",""));
+
 		}
 		return true;
 	}

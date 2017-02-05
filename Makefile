@@ -13,18 +13,16 @@ CRDIRS  := $(BIN)
 
 # Exécutables
 APP     := App
-SER     := Server
-DEFAULT :=
+DEFAULT := $(APP)
 
 # Liste des exécutables
-LISTEXES := $(APP) $(SER)
+LISTEXES := $(APP)
 
 # Source des exécutables
 SRCAPP := $(SRC)/$(APP)
-SRCSER := $(SRC)/$(SER)
 
 # Liste des sources des exécutables
-SRCEXES  := $(SRCAPP) $(SRCSER)
+SRCEXES  := $(SRCAPP)
 
 #####################
 #   Configuration   #
