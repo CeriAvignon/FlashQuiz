@@ -1,7 +1,6 @@
 import java.io.IOException;
-import java.io.BufferedReader;
-import java.io.PrintWriter;
-import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.*;
 import lib.display.*;
 
@@ -13,8 +12,8 @@ import lib.display.*;
 class App
 {
 	private static Socket socket;
-	private static BufferedReader in;
-	private static PrintWriter out;
+	private static ObjectInputStream inputStream;
+	private static ObjectOutputStream outputStream;
 
 	//---------------------------------------------------------------------------
 	// * Etablit la connexion et initialise les flots (I/O)
@@ -23,12 +22,28 @@ class App
 	{
 		try {
 			socket = new Socket("localhost", 9090);
-			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			out = new PrintWriter(socket.getOutputStream(),true);
-			Console.print(in.readLine()); // affiche le message de bienvenue du serveur
+			outputStream = new ObjectOutputStream(socket.getOutputStream());
+			inputStream  = new ObjectInputStream(socket.getInputStream());
+			Console.print((String) getObject()); // affiche le message de bienvenue du serveur
 		} catch (IOException ex) {
 			Console.print("Can't connect to server");
 		}
+	}
+
+	//---------------------------------------------------------------------------
+	// * Get object
+	//---------------------------------------------------------------------------
+	private static Object getObject()
+	{
+		try {
+			Object object = inputStream.readObject();
+			return object;
+		} catch(IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	//---------------------------------------------------------------------------
