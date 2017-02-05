@@ -50,6 +50,18 @@ public class ClientHandler extends Thread
 	{
 		try {
 			sendObject("Bienvenue #" + clientNumber + "!"); // message de bienvenue
+
+			Object receivedObject;
+			String userInput;
+
+			while (true) {
+				receivedObject = getObject();
+				if (receivedObject == null) break;
+				userInput = (String) receivedObject;
+				log("Reçu: " + userInput);
+				sendObject(userInput.toUpperCase());
+			}
+
 		} finally {
 			try {
 				socket.close();
@@ -71,6 +83,22 @@ public class ClientHandler extends Thread
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	//---------------------------------------------------------------------------
+	// * Get object
+	//---------------------------------------------------------------------------
+	private Object getObject()
+	{
+		try {
+			Object object = inputStream.readObject();
+			return object;
+		} catch(IOException e) {
+			// e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	//---------------------------------------------------------------------------
