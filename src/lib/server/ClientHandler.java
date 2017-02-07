@@ -10,11 +10,11 @@ import controller.LocalServer;
 // ----------------------------------------------------------------------------
 // Créée après l'établissement d'une connexion avec un utilisateur.
 // Gère les actions de l'utilisateur.
+// Les requêtes reçues seront traitées par le contrôleur 'LocalServer'.
 //=============================================================================
-public class ClientHandler extends Thread
+public class ClientHandler extends SocketHandler
 {
 	private int clientId;
-	private SocketStreams socket;
 
 	//---------------------------------------------------------------------------
 	// * Constructeur
@@ -23,35 +23,19 @@ public class ClientHandler extends Thread
 	//---------------------------------------------------------------------------
 	public ClientHandler(Socket socket)
 	{
-		super("ClientHandler");
-		this.socket = new SocketStreams(socket);
+		super(socket);
 		this.clientId = Clients.add(this);
 		log("nouvelle connexion établie");
+		sendRequest("printReceived","Bienvenue #" + clientId + "!"); // message de bienvenue
 	}
 
 	//---------------------------------------------------------------------------
-	// * Run
+	// * Process Request
+	// Les requêtes reçues seront traitées par le contrôleur 'LocalServer'.
 	//---------------------------------------------------------------------------
-	public void run()
+	public void processRequest(Request request)
 	{
-		sendRequest("printReceived","Bienvenue #" + clientId + "!"; // message de bienvenue
-		Request request;
-
-		while (true) {
-			request = socket.getRequest();
-			if(request == null) break;
-			LocalServer.interpreter(this,request);
-		}
-
-		close();
-	}
-
-	//---------------------------------------------------------------------------
-	// * Send request to client
-	//---------------------------------------------------------------------------
-	public void sendRequest(String action, Object object)
-	{
-		socket.sendRequest(action,object);
+		LocalServer.interpreter(this,request);
 	}
 
 	//---------------------------------------------------------------------------
@@ -59,7 +43,7 @@ public class ClientHandler extends Thread
 	//---------------------------------------------------------------------------
 	public void close()
 	{
-		socket.closeSocket();
+		super.close();
 		Clients.remove(clientId);
 		log("connexion terminée");
 	}

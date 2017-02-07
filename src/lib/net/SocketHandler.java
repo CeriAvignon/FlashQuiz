@@ -4,15 +4,15 @@ import java.io.*;
 import java.net.*;
 
 //=============================================================================
-// ▼ SocketStreams
+// ▼ SocketHandler
 // ----------------------------------------------------------------------------
 // Initialise des flots (I/O) à partir d'un socket et permet la réception et
 // l'envoi d'objets et de requêtes sur ces flots.
+// Gère de manière asynchrone la réception de requêtes.
 //=============================================================================
-public class SocketStreams
+public abstract class SocketHandler extends Thread
 {
 	private Socket socket;
-
 	private ObjectInputStream inputStream;
 	private ObjectOutputStream outputStream;
 
@@ -20,8 +20,9 @@ public class SocketStreams
 	// * Constructeur
 	// Initialise les flots (I/O) à partir d'un socket passé en paramètre.
 	//---------------------------------------------------------------------------
-	public SocketStreams(Socket socket)
+	public SocketHandler(Socket socket)
 	{
+		super("SocketHandler");
 		this.socket = socket;
 		try {
 			outputStream = new ObjectOutputStream(socket.getOutputStream());
@@ -32,9 +33,30 @@ public class SocketStreams
 	}
 
 	//---------------------------------------------------------------------------
+	// * Run
+	//---------------------------------------------------------------------------
+	public void run()
+	{
+		Request request;
+
+		while (true) {
+			request = getRequest();
+			if(request == null) break;
+			processRequest(request);
+		}
+
+		close();
+	}
+
+	//---------------------------------------------------------------------------
+	// * Process Request
+	//---------------------------------------------------------------------------
+	public abstract void processRequest(Request request);
+
+	//---------------------------------------------------------------------------
 	// * Send object
 	//---------------------------------------------------------------------------
-	public void sendObject(Object object)
+	private void sendObject(Object object)
 	{
 		try {
 			outputStream.writeObject(object);
@@ -47,7 +69,7 @@ public class SocketStreams
 	//---------------------------------------------------------------------------
 	// * Get object
 	//---------------------------------------------------------------------------
-	public Object getObject()
+	private Object getObject()
 	{
 		try {
 			Object object = inputStream.readObject();
@@ -66,13 +88,13 @@ public class SocketStreams
 	//---------------------------------------------------------------------------
 	public void sendRequest(String action, Object object)
 	{
-		// System.out.println("action: " + action);
+	 	// System.out.println("action: " + action);
 		// System.out.println("object: " + object.toString());
 		sendObject(new Request(action,object));
 	}
 
 	//---------------------------------------------------------------------------
-	// * Get request
+	// * Get object
 	// Récupère et retourne un objet Request.
 	//---------------------------------------------------------------------------
 	public Request getRequest()
@@ -81,11 +103,12 @@ public class SocketStreams
 	}
 
 	//---------------------------------------------------------------------------
-	// * Close socket
+	// * Close
 	//---------------------------------------------------------------------------
-	public void closeSocket()
+	public void close()
 	{
 		try {
+			if(socket.isClosed()) return;
 			socket.close();
 		} catch(IOException e) {
 			// e.printStackTrace();
