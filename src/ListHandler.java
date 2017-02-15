@@ -79,7 +79,7 @@ public class ListHandler
 			 * 
 			 **/
 			
-			query = "SELECT FROM List_Metadata WHERE Title = ?;";
+			query = "SELECT * FROM List_Metadata WHERE Title = ?;";
 			prepare = cnx.prepareStatement(query);
 			prepare.setObject(1,idList);
 			res = prepare.executeQuery();
