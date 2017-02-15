@@ -19,8 +19,8 @@ public class QuestionHandler {
 	/**
 	 * 
 	 * @since 1.4
-	 * @param Question
-	 * Une question.
+	 * @param list
+	 * 				Une question.
 	 * 
 	 **/ 
 	
@@ -132,5 +132,33 @@ public class QuestionHandler {
 		}
 	}
 
+	public Question getQuestion(int id_question)
+	{
+		Connection cnx=connecterDB();
+		
+		try{
+			PreparedStatement prepare = cnx.prepareStatement();
+			Statement statement = cnx.createStatement();
+			ResultSet res;
+			
+			query="SELECT * FROM Question WHERE ID_Question=?;";
+			
+			prepare = cnx.prepareStatement(query);
+			prepare.setObject(1,id_question);
+			
+			res = prepare.executeQuery();
+			
+			Question question = new Question(res.getInt("ID_Question"),res.getInt("Type"),res.getInt("Content"),res.getInt("ID_Media"))
+			
+			prepare.close();
+			res.close();
+			
+			return question;
+		}
+		catch(exception e)
+		{
+			
+		}
+	}
 	
 };
