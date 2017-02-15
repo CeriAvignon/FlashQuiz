@@ -58,8 +58,7 @@ TABLE VoterAnswer :
 	INT ID_Session
 	INT ID_Question
 	INT ID_User
-	INT ID_Answer
-	VARCHAR(32) Content_FreeAnswer
+	TEXT Content_FreeAnswer
 
 #Cette version de la modélisation de la base de données sera celle sur laquelle les tests des fonctions se feront. Des modifications se feront peut etre en cas de besoin, mais la structure générale restera comme présenter.
 
