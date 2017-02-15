@@ -14,7 +14,7 @@
 * @see typesession
 * @see namesession
 * @see password
-* @see listeliste
+* @see liste
 *
 */
 
@@ -46,7 +46,7 @@ public void sendSession(Session s) throws SQLException
 			s.setIdSession(res.getInt(1));
 			
 			
-			for (int l:listeliste) // pour chaque element du tableau
+			for (int l:liste) // pour chaque element du tableau
 			{
 				//envoye la liste
 				//sendListe(l);
@@ -85,7 +85,7 @@ public void sendSession(Session s) throws SQLException
 			
 			res.close();			
 
-			for (int l:listeliste) 
+			for (int l:liste) 
 			{
 				//envoye la liste
 				//sendListe(l);
