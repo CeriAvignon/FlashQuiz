@@ -1,5 +1,7 @@
 
-package votingsession;
+package model;
+
+import java.io.Serializable;
 
 /**
  * Contain the answer that the user has given to a question, the question and if
@@ -8,7 +10,7 @@ package votingsession;
  * @author Jean-Loup Gaussen
  *
  */
-class UserAnswer {
+class UserAnswer implements Serializable {
 	/**
 	 * The question id that the user answered with this answer
 	 *

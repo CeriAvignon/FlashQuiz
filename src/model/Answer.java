@@ -1,5 +1,7 @@
 
-package votingsession;
+package model;
+
+import java.io.Serializable;
 
 /**
  * The question answer, it can be true, or false in the case of a radio/checkbox
@@ -10,7 +12,7 @@ package votingsession;
  * @author Jean-Loup Gaussen
  *
  */
-class Answer {
+class Answer implements Serializable {
 	/**
 	 * The answer.
 	 *

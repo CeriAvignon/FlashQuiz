@@ -1,7 +1,8 @@
 
-package votingsession;
+package model;
 
 import java.util.Vector;
+import java.io.Serializable;
 
 /**
  * A list is a series of questions.
@@ -10,7 +11,7 @@ import java.util.Vector;
  *
  * @see Question
  */
-class List {
+class List implements Serializable {
 
 	/**
 	 * The title of the list.

@@ -1,7 +1,8 @@
 
-package votingsession;
+package model;
 
 import java.util.Vector;
+import java.io.Serializable;
 
 /**
  * A question contain a statement, one or more answers to this statement, a type
@@ -10,7 +11,7 @@ import java.util.Vector;
  *
  * @author Jean-Loup Gaussen
  */
-class Question {
+class Question implements Serializable {
 
 	/**
 	 * The question id.
