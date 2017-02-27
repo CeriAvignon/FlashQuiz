@@ -1,5 +1,5 @@
 
-import package model;
+package model;
 
 import java.util.Vector;
 import java.io.Serializable;
@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @see Question
  */
-abstract class ListBase implements Serializable {
+public abstract class ListBase implements Serializable {
 
 	/**
 	 * The list id.

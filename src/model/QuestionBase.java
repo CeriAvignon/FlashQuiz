@@ -10,7 +10,7 @@ import java.io.Serializable;
  *
  * @author Jean-Loup Gaussen
  */
-abstract class QuestionBase implements Serializable {
+public abstract class QuestionBase implements Serializable {
 
 	/**
 	 * The question id.

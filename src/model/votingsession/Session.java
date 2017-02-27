@@ -5,7 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Collections;
 import javax.swing.Timer;
+import java.util.Date;
 import java.io.Serializable;
+import model.*;
 
 /**
  * Session
@@ -13,7 +15,7 @@ import java.io.Serializable;
  * @author Adrien Sartori
  */
  
-class Session extends SessionBase implements Serializable {
+public class Session extends SessionBase implements Serializable {
 	
 	public Vector<List> lists;
 	

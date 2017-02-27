@@ -2,6 +2,8 @@
 package model.votingsession;
 
 import java.io.Serializable;
+import java.util.Vector;
+import model.*;
 
 /**
  * Contain the answer that the user has given to a question, the question and if
@@ -10,7 +12,7 @@ import java.io.Serializable;
  * @author Jean-Loup Gaussen
  *
  */
-class VoterAnswer implements Serializable {
+public class VoterAnswer implements Serializable {
 	/**
 	 * The question id that the user answered with this answer
 	 *

@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author Jean-Loup Gaussen
  *
  */
-class Answer implements Serializable {
+public class Answer implements Serializable {
 	/**
 	 * The answer.
 	 *

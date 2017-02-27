@@ -3,7 +3,7 @@ package model;
 
 import java.io.Serializable;
 
-class Media implements Serializable {
+public class Media implements Serializable {
 
 	public int id;
 	

@@ -3,6 +3,7 @@ package model.votingsession;
 
 import java.util.Vector;
 import java.io.Serializable;
+import model.*;
 
 /**
  * A list is a series of questions.
@@ -11,7 +12,7 @@ import java.io.Serializable;
  *
  * @see Question
  */
-class List extends ListBase implements Serializable {
+public class List extends ListBase implements Serializable {
 
 	/**
 	 * A vector that contain all the list questions.

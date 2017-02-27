@@ -3,6 +3,7 @@ package model.votingsession;
 
 import java.util.Vector;
 import java.io.Serializable;
+import model.*;
 
 /**
  * A question contain a statement, one or more answers to this statement, a type
@@ -11,7 +12,7 @@ import java.io.Serializable;
  *
  * @author Jean-Loup Gaussen
  */
-class Question extends QuestionBase implements Serializable {
+public class Question extends QuestionBase implements Serializable {
 
 	public Vector<Answer> answers;
 	

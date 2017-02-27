@@ -5,9 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Collections;
 import javax.swing.Timer;
+import java.util.Date;
 import java.io.Serializable;
 
-abstract class SessionBase implements Serializable {
+public abstract class SessionBase implements Serializable {
 
 	public int id;
 	
@@ -27,7 +28,7 @@ abstract class SessionBase implements Serializable {
 		this.name = name;
 		this.creatorName = creatorName;
 		this.password = password;
-		this.date = date;
+		this.startingDate = date;
 		this.isQuestionOrderRandom = rand;
 	}
 }
