@@ -20,7 +20,7 @@ class Answer implements Serializable {
 	 * @see Answer#setContent()
 	 * @see Answer#Answer(String, boolean)
 	 */
-	private String content;
+	public String content;
 
 	/**
 	 * True if the answer is a good one, false else.
@@ -29,11 +29,15 @@ class Answer implements Serializable {
 	 * @see Answer#setState()
 	 * @see Answer#Answer(String, boolean)
 	 */
-	private boolean state;
+	public boolean state;
 
+	public int id;
+	
 	/**
 	 * Constructor of answer.
 	 *
+	 * @param i 
+	 *			  The id of the answer
 	 * @param s
 	 *            The content of the answer.
 	 * @param b
@@ -41,53 +45,11 @@ class Answer implements Serializable {
 	 * @see Answer#content
 	 * @see Answer#state
 	 */
-	public Answer(String s, boolean b) {
+	 
+	public Answer(int i, String s, boolean b) {
+		this.id = i;
 		this.content = s;
 		this.state = b;
-	}
-
-	/**
-	 * Getter of the content answer.
-	 *
-	 * @return The content of the answer.
-	 *
-	 * @see Answer#content
-	 */
-	public String getContent() {
-		return content;
-	}
-
-	/**
-	 * Setter of the content answer.
-	 *
-	 * @param content
-	 *            The content of the answer.
-	 * @see Answer#content
-	 */
-	public void setContent(String content) {
-		this.content = content;
-	}
-
-	/**
-	 * Getter of the state answer
-	 *
-	 * @return The state of the answer.
-	 *
-	 * @see Answer#state
-	 */
-	public boolean getState() {
-		return state;
-	}
-
-	/**
-	 * Setter of the state answer.
-	 *
-	 * @param state
-	 *            The state of the answer.
-	 * @see Answer#state
-	 */
-	public void setState(boolean state) {
-		this.state = state;
 	}
 
 }
