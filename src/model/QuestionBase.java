@@ -40,11 +40,11 @@ public abstract class QuestionBase implements Serializable {
 	 */
 	public int allocatedTime;
 
-	public String type;
+	public int type;
 	
 	public String title;
 	
-	public QuestionBase(int id, String title, String statement, String type, int allocatedTime) {
+	public QuestionBase(int id, String title, String statement, int type, int allocatedTime) {
 		this.id = id;
 		this.title = title;
 		this.statement = statement;
