@@ -33,8 +33,7 @@ public class ListHandler
 	 **/ 
 	public void sendList(List list)
 	{
-		Question question;
-		int idQuestion;
+		int idQuestion[];
 		Connection cnx=connecterDB();
 
 		/** 
@@ -44,10 +43,9 @@ public class ListHandler
 		 * 
 		 **/
 
-		int idList = list.getIdList();
-		int idAuthor = list.getIdAuthor();
-		String listName = list.getListName();
-		Vector<Question>listQuestion = list.getListQuestion();
+		int idList = list.getId();
+		int idAuthor = list.getAuthor();
+		String listName = list.getName();
 
 		/** 
 		 * 
@@ -81,7 +79,7 @@ public class ListHandler
 			
 			query = "SELECT * FROM List_Metadata WHERE Title = ?;";
 			prepare = cnx.prepareStatement(query);
-			prepare.setObject(1,idList);
+			prepare.setObject(1,listName);
 			res = prepare.executeQuery();
 			
 			/**
@@ -144,11 +142,8 @@ public class ListHandler
 			prepare = cnx.prepareStatement(query);
 			prepare.setObject(1,idList);
 
-				for(int i = 0; i< listQuestion.size(); i++)
+				for(int i = 0; i< idQuestion.size(); i++)
 				{
-					question = listQuestion[i];
-					sendQuestion(question);
-					idQuestion = question.getIdQuestion();
 					prepare.setObject(2,idQuestion);
 					prepare.executeUpdate();
 					prepare.close();
