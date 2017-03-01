@@ -12,9 +12,9 @@ import model.*;
  *
  * @author Jean-Loup Gaussen
  */
-public class Question extends QuestionBase implements Serializable {
+public class QuestionTVS extends QuestionBase implements Serializable {
 
-	public Vector<Answer> answers;
+	public List<Answer> answers;
 	
 	/**
 	 * Question constructor
@@ -33,7 +33,7 @@ public class Question extends QuestionBase implements Serializable {
 	 * @see Question#answers
 	 * @see Question#type
 	 */
-	public Question(int id, String title, String statement, int type, int allocatedTime, int[] answersId) {
+	public QuestionTVS(int id, String title, String statement, int type, int allocatedTime, int[] answersId) {
 		super(id, title, statement, type, allocatedTime);
 		// for(Integer answer : answersId)
 			// this.answers.add(getAnswer(answer)); // AnswerHandler 

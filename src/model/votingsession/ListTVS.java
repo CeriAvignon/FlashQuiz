@@ -12,7 +12,7 @@ import model.*;
  *
  * @see Question
  */
-public class List extends ListBase implements Serializable {
+public class ListTVS extends ListBase implements Serializable {
 
 	/**
 	 * A vector that contain all the list questions.
@@ -24,7 +24,7 @@ public class List extends ListBase implements Serializable {
 	 * @see List#getQuestionAt(int)
 	 * @see List#List(String, int, int, Vector)
 	 */
-	public Vector<Question> questions;
+	public List<Question> questions;
 
 	/**
 	 * The List constructor.
@@ -41,7 +41,7 @@ public class List extends ListBase implements Serializable {
 	 * @see List#id
 	 * @see List#questions
 	 */
-	public List(int id, String name, String creatorName, int[]
+	public ListTVS(int id, String name, String creatorName, int[]
 			 questionsId) {
 		super(id, name, creatorName);
 		// for(Integer question : questionsId)

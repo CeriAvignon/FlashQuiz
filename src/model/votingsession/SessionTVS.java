@@ -15,11 +15,11 @@ import model.*;
  * @author Adrien Sartori
  */
  
-public class Session extends SessionBase implements Serializable {
+public class SessionTVS extends SessionBase implements Serializable {
 	
-	public Vector<List> lists;
+	public List<ListTVS> lists;
 	
-	public Session(int id, String name, String creatorName, String password, Date date, boolean rand, int[] listsId)
+	public SessionTVS(int id, String name, String creatorName, String password, Date date, boolean rand, int[] listsId)
 	{
 		super(id, name, creatorName, password, date, rand);
 		// for(Integer list : listsId)

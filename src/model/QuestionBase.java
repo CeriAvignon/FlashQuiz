@@ -42,7 +42,7 @@ public abstract class QuestionBase implements Serializable {
 
 	public int type;
 	
-	public String title;
+	//public String title;
 	
 	public QuestionBase(int id, String title, String statement, int type, int allocatedTime) {
 		this.id = id;

@@ -30,7 +30,7 @@ public class VoterAnswer implements Serializable {
 	 */
 	public String answer;
 
-	public Vector<Integer> answers;
+	public List<Integer> answers;
 
 	/**
 	 * Constructor of the class VoterAnswer
