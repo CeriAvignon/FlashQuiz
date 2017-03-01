@@ -171,4 +171,51 @@ public class ListHandler
 		}
 	}
 	
+	public List getList (int idList)
+	{
+		
+		Connection cnx=connecterDB();
+		int idQuestion [];
+		/** 
+		 * 
+		 * R&eacute;cup&eacute;ration de la liste de question avec la fonction 
+		 * getIdList().
+		 * 
+		 **/
+
+		try{
+			PreparedStatement prepare = cnx.prepareStatement();
+			Statement statement = cnx.createStatement();
+			ResultSet res;
+			
+			query="SELECT * FROM List_Metadata WHERE ID_List=?;";
+			
+			prepare = cnx.prepareStatement(query);
+			prepare.setObject(1,idList);
+			
+			res = prepare.executeQuery();
+			
+			List list = new List(res.getInt("Id_List"),res.getInt("ID_User"),res.getInt("Title"));
+			
+			prepare.close();
+			res.close();
+			
+			query="SELECT ID_Question FROM List_Content WHERE ID_List=?;";
+			prepare = cnx.prepareStatement(query);
+			prepare.setObject(1,idList);
+			
+			res = prepare.executeQuery();
+			idQuestion = res;
+			list.setQuestion(idQuestion);
+			
+			return list;
+		}
+		catch(exception e)
+		{
+			
+		}
+
+	}
+	
+	
 }
