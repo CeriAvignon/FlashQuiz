@@ -17,31 +17,30 @@ public class VoterAnswer implements Serializable {
 	 * The question id that the user answered with this answer
 	 *
 	 * @see Question
-	 * @see VoterAnswer#getQuestionId()
-	 * @see VoterAnswer#setQuestionId(int)
 	 */
 	public int questionId;
 
 	/**
 	 * The user answer
 	 *
-	 * @see VoterAnswer#getVoterAnswer()
-	 * @see VoterAnswer#setVoterAnswer(String)
 	 */
 	public String answer;
 
+	/**
+	 * A list that contain the answers
+	 *
+	 */
 	public List<Integer> answers;
 
 	/**
 	 * Constructor of the class VoterAnswer
 	 *
-	 * @param String
+	 * @param answer
 	 *            An answer
-	 * @param int
+	 * @param questionId
 	 *            Id of the question
-	 *
-	 * @see VoterAnswer#setVoterAnswer(String)
-	 * @see VoterAnswer#setQuestionId(int)
+	 * @param answersId
+	 * 			  Id of the answers
 	 */
 	public VoterAnswer(int questionId, String answer, int[] answersId) {
 		this.questionId = questionId;

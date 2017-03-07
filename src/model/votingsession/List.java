@@ -10,38 +10,34 @@ import model.*;
  *
  * @author Jean-Loup Gaussen
  *
- * @see Question
+ * @see QuestionBase
+ * @see ListBase
  */
-public class ListTVS extends ListBase implements Serializable {
+public class List extends ListBase implements Serializable {
 
 	/**
-	 * A vector that contain all the list questions.
+	 * A list that contain all the list questions.
 	 *
 	 * @see Question
-	 * @see List#getQuestions()
-	 * @see List#setQuestions(Vector)
-	 * @see List#getQuestionsSize()
-	 * @see List#getQuestionAt(int)
-	 * @see List#List(String, int, int, Vector)
+	 * @see ListBase#ListBase(int,String, String)
 	 */
 	public List<Question> questions;
 
 	/**
 	 * The List constructor.
 	 *
-	 * @param name
-	 *            The list name.
-	 * @param idCreator
-	 *            The creator id.
 	 * @param id
 	 *            The list id.
+	 * @param name
+	 *            The list name.
+	 * @param creatorName
+	 *            The creator name.
+	 * @param questionsID
+	 *			  All the id of the questions
 	 *
-	 * @see List#name
-	 * @see List#idCreator
-	 * @see List#id
 	 * @see List#questions
 	 */
-	public ListTVS(int id, String name, String creatorName, int[]
+	public List(int id, String name, String creatorName, int[]
 			 questionsId) {
 		super(id, name, creatorName);
 		// for(Integer question : questionsId)

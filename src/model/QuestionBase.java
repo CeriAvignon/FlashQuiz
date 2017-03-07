@@ -15,17 +15,14 @@ public abstract class QuestionBase implements Serializable {
 	/**
 	 * The question id.
 	 *
-	 * @see Question#getid()
-	 * @see Question#Question(int id, String statement, Vector<Answer> answers,
-	 *      String type)
+	 * @see QuestionBase#QuestionBase(int id, int type, String statement,
+	 *      int allocatedTime)
 	 */
 	public int id;
 
 	/**
 	 * The question statement
 	 *
-	 * @see Question#getStatement()
-	 * @see Question#setStatement(String s)
 	 * @see Question#Question(int id, String statement, Vector<Answer> answers,
 	 *      String type)
 	 */
@@ -34,19 +31,33 @@ public abstract class QuestionBase implements Serializable {
 	/**
 	 * Time allocated to the question in seconds (0 if infinite).
 	 *
-	 * @see Question#getAllocatedTime()
-	 * @see Question#setAllocatedTime(int)
-	 * @see Session#startQuestionTimer()
 	 */
 	public int allocatedTime;
 
+	/**
+	 * The type of the question
+	 *
+	 */
 	public int type;
 	
-	//public String title;
-	
-	public QuestionBase(int id, String title, String statement, int type, int allocatedTime) {
+	/**
+	 * Constructor
+	 *
+	 * @param id 
+	 *			  The id of the question
+	 * @param statement
+	 *            The statement of the question.
+	 * @param type
+	 *            The type of the question.
+	 * @param allocatedTime
+	 * 			  Time allocated to the question
+	 * @see QuestionBase#id
+	 * @see QuestionBase#statement
+	 * @see QuestionBase#type
+	 * @see QuestionBase#allocatedTime
+	 */
+	public QuestionBase(int id, String statement, int type, int allocatedTime) {
 		this.id = id;
-		this.title = title;
 		this.statement = statement;
 		this.type = type;
 		this.allocatedTime = allocatedTime;

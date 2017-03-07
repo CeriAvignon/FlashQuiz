@@ -10,10 +10,16 @@ import model.*;
  * (checkbox, radio, free) and the time given to answer to the question (<0 if
  * infinite).
  *
+ * @see QuestionBase
+ *
  * @author Jean-Loup Gaussen
  */
-public class QuestionTVS extends QuestionBase implements Serializable {
-
+public class Question extends QuestionBase implements Serializable {
+	/**
+	 * A list that contain the answers
+	 *
+	 * @see Answer
+	 */
 	public List<Answer> answers;
 	
 	/**
@@ -23,17 +29,20 @@ public class QuestionTVS extends QuestionBase implements Serializable {
 	 *            An int that contain the question id
 	 * @param statement
 	 *            A string that contain the question statement
-	 * @param answers
-	 *            A vector that contain the question answers
+	 * @param answersId
+	 *            A list that contain the answers id
 	 * @param type
 	 *            A string that contain the question type (Free,Radio,Checkbox)
+	 * @param allocatedTime
+	 *			  Time allocated to the question
 	 *
-	 * @see Question#id
-	 * @see Question#statement
-	 * @see Question#answers
-	 * @see Question#type
+	 * @see QuestionBase#id
+	 * @see QuestionBase#statement
+	 * @see Question#answersId
+	 * @see QuestionBase#type
+	 * @see QuestionBase#allocatedTime
 	 */
-	public QuestionTVS(int id, String title, String statement, int type, int allocatedTime, int[] answersId) {
+	public Question(int id, String statement, int type, int allocatedTime, int[] answersId) {
 		super(id, title, statement, type, allocatedTime);
 		// for(Integer answer : answersId)
 			// this.answers.add(getAnswer(answer)); // AnswerHandler 
@@ -50,7 +59,7 @@ public class QuestionTVS extends QuestionBase implements Serializable {
 	 * @param userAns
 	 *            The user's answer
 	 */
-	/*public boolean verifyAnswer(VoterAnswer voterAns) {
+	public boolean verifyAnswer(VoterAnswer voterAns) {
 
 		// Get the default answers
 		Vector<Answer> definedAnswers = new Vector<Answer>();
@@ -108,5 +117,5 @@ public class QuestionTVS extends QuestionBase implements Serializable {
 			}
 		}
 		return false;
-	}*/
+	}
 }

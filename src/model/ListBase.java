@@ -9,40 +9,39 @@ import java.io.Serializable;
  *
  * @author Jean-Loup Gaussen
  *
- * @see Question
+ * @see QuestionBase
  */
 public abstract class ListBase implements Serializable {
 
 	/**
 	 * The list id.
 	 *
-	 * @see List#getid()
-	 * @see List#List(String, int, int, Vector)
+	 * @see ListBase#ListBase(int, String, String)
 	 */
 	public int id;
 
 	/**
 	 * The title of the list.
 	 *
-	 * @see List#getName()
-	 * @see List#setName(String)
-	 * @see List#List(String, int, int, Vector)
+	 * @see ListBase#ListBase(int, String, String)
 	 */
 	public String name;
 
 	/**
-	 * The id of the list creator.
+	 * The name of the list creator.
 	 *
-	 * @see List#getidCreator()
-	 * @see List#setidCreator(int)
-	 * @see List#List(String, int, int, Vector)
+	 * @see ListBase#ListBase(int, String, String)
 	 */
 	public String creator;
 	
 	/**
 	 * Constructor
+	 *
+	 * @see ListBase#id
+	 * @see ListBase#name
+	 * @see ListBase#creator
 	 */	
-	public ListBase(int id, String creator, String name)
+	public ListBase(int id, String name, String creator)
 	{
 		this.id = id;
 		this.creator = creator;
