@@ -8,13 +8,13 @@
 *	La session à écrire/modifier dans la BDD.
 *
 * @see idsession
-* @see idauthor
+* @see iduser
 * @see datestart
-* @see dateend
+* @see datefin
 * @see typesession
 * @see namesession
 * @see password
-* @see liste
+* @see list
 *
 */
 
@@ -31,13 +31,13 @@ public void sendSession(Session s) throws SQLException
 		if(idsession == -1) // si session existe pas
 		{
 			//on insere les donnees dans la BDD
-			query = "INSERT INTO Session_Metadata(D_User, Opening_Date, Closing_Date, Type, Title, Password) VALUES(?, ?, ?, ?, ?);";
+			query = "INSERT INTO Session_Metadata(ID_User, Opening_Date, Closing_Date, Type, Title, Password) VALUES(?, ?, ?, ?, ?);";
 					PreparedStatement prepare =  cnx.prepareStatement(query);
-                    prepare.setObject(1,s.getIdAuthor());
-					prepare.setObject(2,s.getDatedebut());
-					prepare.setObject(3,s.getDatefin());
-					prepare.setObject(4,s.getTypeSession());
-					prepare.setObject(5,s.getNomSession());
+                   			prepare.setObject(1,s.getAuthor());
+					prepare.setObject(2,s.getDebut());
+					prepare.setObject(3,s.getFin());
+					prepare.setObject(4,s.getType());
+					prepare.setObject(5,s.getName());
 					prepare.setObject(6,s.getPassword());
 					prepare.executeUpdate();
 					prepare.close();
@@ -56,7 +56,7 @@ public void sendSession(Session s) throws SQLException
 					// Ajouter dans Session_Content
 					query = "INSERT INTO Session_Content (ID_Session,ID_Liste) values (?,?));";
 					prepare =  cnx.prepareStatement(query);
-					prepare.setObject(1,s.getIdSession());
+					prepare.setObject(1,s.getId());
 					prepare.setObject(2,s.getIdListe());
 					prepare.executeUpdate();
 					prepare.close();
@@ -69,11 +69,11 @@ public void sendSession(Session s) throws SQLException
 		//on fait la mise a jour de la BDD
 			query = "UPDATE Session_Metadata SET (D_User=?, Opening_Date=?, Closing_Date=?, Type=?, Title=?, Password=?) WHERE ID_Session=idsession;";
                     PreparedStatement prepare = cnx.prepareStatement(query);
-                    prepare.setObject(1,s.getIdAuthor());
-                    prepare.setObject(2,s.getDatedebut());
-                    prepare.setObject(3,s.getDatefin());
-                    prepare.setObject(4,s.getTypeSession());
-                    prepare.setObject(5,s.getNomSession());
+                    prepare.setObject(1,s.getAuthor());
+                    prepare.setObject(2,s.getDebut());
+                    prepare.setObject(3,s.getFin());
+                    prepare.setObject(4,s.getType());
+                    prepare.setObject(5,s.getName());
                     prepare.setObject(6,s.getPassword());
                     res = statement.executeQuery(query);
                     prepare.close();
@@ -96,7 +96,7 @@ public void sendSession(Session s) throws SQLException
 					// Ajouter dans Session_Content
 					query = "INSERT INTO Session_Content (ID_Session,ID_Liste) values (?,?));";
 					prepare = cnx.prepareStatement(query);
-					prepare.setObject(1,s.getIdSession());
+					prepare.setObject(1,s.getId());
 					prepare.setObject(2,l.getIdListe());
 					prepare.executeUpdate();
 					prepare.close();
@@ -118,3 +118,4 @@ public void sendSession(Session s) throws SQLException
 		}
 
 }
+
