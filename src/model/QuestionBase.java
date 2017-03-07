@@ -1,6 +1,5 @@
 package model;
 
-import java.util.Vector;
 import java.io.Serializable;
 
 /**

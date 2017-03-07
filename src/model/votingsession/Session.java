@@ -1,10 +1,6 @@
 package model.votingsession;
 
-import java.util.Vector;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Collections;
-import javax.swing.Timer;
 import java.util.Date;
 import java.io.Serializable;
 import model.*;
@@ -20,7 +16,7 @@ public class Session extends SessionBase implements Serializable {
 	 * A list that contain all the questions series (lists)
 	 *
 	 */
-	public List<List> lists;
+	public java.util.List<List> lists;
 	
 	/**
 	 * Constructor

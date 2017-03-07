@@ -1,7 +1,6 @@
 
 package model.votingsession;
 
-import java.util.Vector;
 import java.io.Serializable;
 import model.*;
 
@@ -21,7 +20,7 @@ public class List extends ListBase implements Serializable {
 	 * @see Question
 	 * @see ListBase#ListBase(int,String, String)
 	 */
-	public List<Question> questions;
+	public java.util.List<Question> questions;
 
 	/**
 	 * The List constructor.
@@ -41,7 +40,7 @@ public class List extends ListBase implements Serializable {
 			 questionsId) {
 		super(id, name, creatorName);
 		// for(Integer question : questionsId)
-			// this.questions.add(getQuestion(question)); // QuestionHandler 
+			// questions.add(getQuestion(question)); // QuestionHandler 
 
 	}
 
@@ -54,7 +53,7 @@ public class List extends ListBase implements Serializable {
 	 * @see List#questions
 	 */
 	public int addQuestion(Question question) {
-		this.questions.add(question);
+		questions.add(question);
 		return questions.size();
 	}
 }

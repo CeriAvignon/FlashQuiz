@@ -2,7 +2,6 @@
 package model.votingsession;
 
 import java.io.Serializable;
-import java.util.Vector;
 import model.*;
 
 /**
@@ -30,7 +29,7 @@ public class VoterAnswer implements Serializable {
 	 * A list that contain the answers
 	 *
 	 */
-	public List<Integer> answers;
+	public java.util.List<Integer> answers;
 
 	/**
 	 * Constructor of the class VoterAnswer
@@ -45,7 +44,7 @@ public class VoterAnswer implements Serializable {
 	public VoterAnswer(int questionId, String answer, int[] answersId) {
 		this.questionId = questionId;
 		this.answer = answer;
-		
+		// for(Integer id : voterAnswersId)
+		// tab answers.add(getVoterAnswerById(id)); // récupération BDD
 	}
-
 }

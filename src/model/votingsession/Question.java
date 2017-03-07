@@ -1,13 +1,12 @@
 
 package model.votingsession;
 
-import java.util.Vector;
 import java.io.Serializable;
 import model.*;
 
 /**
  * A question contain a statement, one or more answers to this statement, a type
- * (checkbox, radio, free) and the time given to answer to the question (<0 if
+ * (checkbox, radio, free) and the time given to answer to the question (less than 0 if
  * infinite).
  *
  * @see QuestionBase
@@ -20,7 +19,7 @@ public class Question extends QuestionBase implements Serializable {
 	 *
 	 * @see Answer
 	 */
-	public List<Answer> answers;
+	public java.util.List<Answer> answers;
 	
 	/**
 	 * Question constructor
@@ -43,7 +42,7 @@ public class Question extends QuestionBase implements Serializable {
 	 * @see QuestionBase#allocatedTime
 	 */
 	public Question(int id, String statement, int type, int allocatedTime, int[] answersId) {
-		super(id, title, statement, type, allocatedTime);
+		super(id, statement, type, allocatedTime);
 		// for(Integer answer : answersId)
 			// this.answers.add(getAnswer(answer)); // AnswerHandler 
 	}
