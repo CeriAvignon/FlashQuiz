@@ -12,6 +12,7 @@ import java.sql.*;
 	*  acc&egrave;s aux questions 
 	*  La fonction sendQuestion(Question question) permet de cr&eacute;er une 
 	*  questions ou de modifier une question existante. 
+	*  La fonction getQuestion(int id_question) permet de r&eacute;cup&eacute;rer un objet question dans la base de donn&eacute;es
 	**/
 
 public class QuestionHandler {
@@ -40,7 +41,7 @@ public class QuestionHandler {
 		
 		/** 
 		 * 
-		 * Cr&eacute;ation d'une requ&ecircte vide qui sera affect&eacute;e selon 
+		 * Cr&eacute;ation d'une requ&ecirc;te vide qui sera affect&eacute;e selon 
 		 * les besoins de la fonction. 
 		 * 
 		 * */
@@ -132,7 +133,7 @@ public class QuestionHandler {
 		}
 	}
 
-	public Question getQuestion(int id_question)
+	public Question getQuestion(int id_question) throws SQLException
 	{
 		Connection cnx=connecterDB();
 		
@@ -141,23 +142,33 @@ public class QuestionHandler {
 			Statement statement = cnx.createStatement();
 			ResultSet res;
 			
-			query="SELECT * FROM Question WHERE ID_Question=?;";
+			/** 
+			 *	Requete qui r&eacute;cup&egrave;re toute les infos n&eacute;c&eacute;ssaire &agrave; un objet question 
+			 * 
+			 */
+			
+			query="SELECT * FROM Question Join Media Using(ID_Media) Join Answer Using(ID_Answer) WHERE ID_Question=?;";
 			
 			prepare = cnx.prepareStatement(query);
 			prepare.setObject(1,id_question);
 			
 			res = prepare.executeQuery();
 			
-			Question question = new Question(res.getInt("ID_Question"),res.getInt("Type"),res.getInt("Content"),res.getInt("ID_Media"))
+			/**
+			 * Formatage du retour de la requete 
+			 */
+			
+			Media media = new Media(res.getInt("ID_Media"),res.getInt("Media.Type"),res.getInt("Media.Content"));
+			Answer answer = new Answer(res.getInt("ID_Answer"),res.getInt("Answer.Content"),res.getBoolean(Correct));
+			Question question = new Question(res.getInt("ID_Question"),res.getInt("Question.Type"),res.getString("Question.Content"),media,answer);
 			
 			prepare.close();
 			res.close();
 			
 			return question;
 		}
-		catch(exception e)
-		{
-			
+		catch (SQLException e){
+			e.printStackTrace();
 		}
 	}
 	
