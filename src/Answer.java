@@ -1,6 +1,7 @@
 class Answer
 {
-	private int id; 									
+	private int idq; 
+	private int idr; 									
 	private String content; 							
 	private boolean correct;
 
@@ -9,9 +10,18 @@ class Answer
 *
 * @return retourne la valeur de l'atribut id
 */
-	public int getId()
+	public int getIdq()
 	{
-		return this.id;
+		return this.idq;
+	}
+	/**
+* getter de l'atribut id
+*
+* @return retourne la valeur de l'atribut id
+*/
+	public int getIdr()
+	{
+		return this.idr;
 	}
 /**
 * getter de l'atribut content
@@ -36,9 +46,18 @@ class Answer
 *
 * @param id = valeur à atribuer à id
 */
-	public void setId(int id)
+	public void setId(int idq)
 	{
-		this.id = id;
+		this.idq = idq;
+	}
+/**
+* setter de l'atribut id
+*
+* @param id = valeur à atribuer à id
+*/
+	public void setId(int idr)
+	{
+		this.idr = idr;
 	}
 /**
 * setter de l'atribut content
