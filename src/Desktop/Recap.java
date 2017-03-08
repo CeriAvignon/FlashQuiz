@@ -29,11 +29,9 @@ public class Recap extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
         jTextField10 = new javax.swing.JTextField();
         jTextField11 = new javax.swing.JTextField();
         jTextField12 = new javax.swing.JTextField();
@@ -45,6 +43,13 @@ public class Recap extends javax.swing.JFrame {
         jTextField13 = new javax.swing.JTextField();
         Restart_Button = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
+        jTextField14 = new javax.swing.JTextField();
+        jTextField15 = new javax.swing.JTextField();
+        jTextField16 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField17 = new javax.swing.JTextField();
+        jTextField18 = new javax.swing.JTextField();
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         jLabel2.setText("FlashQuizz - QUESTION");
@@ -53,24 +58,12 @@ public class Recap extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(970, 680));
         setPreferredSize(new java.awt.Dimension(970, 680));
         setSize(new java.awt.Dimension(970, 680));
-        setLayout(null);
+        getContentPane().setLayout(null);
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
         jLabel3.setText("FlashQuizz - Recap final");
-        add(jLabel3);
+        getContentPane().add(jLabel3);
         jLabel3.setBounds(300, 10, 310, 51);
-
-        jTextField6.setEditable(false);
-        jTextField6.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField6.setFont(new java.awt.Font("Lucida Sans Typewriter", 2, 14)); // NOI18N
-        jTextField6.setText("Quel est le plus grand pays du monde ?");
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
-            }
-        });
-        add(jTextField6);
-        jTextField6.setBounds(50, 150, 340, 30);
 
         jTextField1.setBackground(new java.awt.Color(102, 102, 255));
         jTextField1.setText("Vous avez un taux de réussite de 81 % ! Féliciation ");
@@ -79,7 +72,7 @@ public class Recap extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
-        add(jTextField1);
+        getContentPane().add(jTextField1);
         jTextField1.setBounds(130, 600, 750, 60);
 
         jTextField7.setEditable(false);
@@ -91,8 +84,8 @@ public class Recap extends javax.swing.JFrame {
                 jTextField7ActionPerformed(evt);
             }
         });
-        add(jTextField7);
-        jTextField7.setBounds(50, 230, 340, 30);
+        getContentPane().add(jTextField7);
+        jTextField7.setBounds(50, 270, 340, 30);
 
         jTextField8.setEditable(false);
         jTextField8.setBackground(new java.awt.Color(204, 204, 204));
@@ -103,20 +96,8 @@ public class Recap extends javax.swing.JFrame {
                 jTextField8ActionPerformed(evt);
             }
         });
-        add(jTextField8);
+        getContentPane().add(jTextField8);
         jTextField8.setBounds(50, 190, 340, 30);
-
-        jTextField9.setEditable(false);
-        jTextField9.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField9.setFont(new java.awt.Font("Lucida Sans Typewriter", 2, 14)); // NOI18N
-        jTextField9.setText("Quel est le plus grand pays du monde ?");
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
-            }
-        });
-        add(jTextField9);
-        jTextField9.setBounds(50, 110, 340, 30);
 
         jTextField10.setEditable(false);
         jTextField10.setBackground(new java.awt.Color(204, 204, 204));
@@ -127,8 +108,8 @@ public class Recap extends javax.swing.JFrame {
                 jTextField10ActionPerformed(evt);
             }
         });
-        add(jTextField10);
-        jTextField10.setBounds(50, 110, 340, 30);
+        getContentPane().add(jTextField10);
+        jTextField10.setBounds(50, 230, 340, 30);
 
         jTextField11.setEditable(false);
         jTextField11.setBackground(new java.awt.Color(204, 204, 204));
@@ -139,8 +120,8 @@ public class Recap extends javax.swing.JFrame {
                 jTextField11ActionPerformed(evt);
             }
         });
-        add(jTextField11);
-        jTextField11.setBounds(50, 150, 340, 30);
+        getContentPane().add(jTextField11);
+        jTextField11.setBounds(50, 110, 340, 30);
 
         jTextField12.setEditable(false);
         jTextField12.setBackground(new java.awt.Color(204, 204, 204));
@@ -151,7 +132,7 @@ public class Recap extends javax.swing.JFrame {
                 jTextField12ActionPerformed(evt);
             }
         });
-        add(jTextField12);
+        getContentPane().add(jTextField12);
         jTextField12.setBounds(50, 150, 340, 30);
 
         jTextField2.setBackground(new java.awt.Color(102, 102, 255));
@@ -162,33 +143,33 @@ public class Recap extends javax.swing.JFrame {
                 jTextField2ActionPerformed(evt);
             }
         });
-        add(jTextField2);
+        getContentPane().add(jTextField2);
         jTextField2.setBounds(20, 570, 110, 90);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flashquizz/Panels/images.jpeg"))); // NOI18N
         jLabel4.setText("jLabel4");
-        add(jLabel4);
-        jLabel4.setBounds(670, 430, 270, 160);
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(670, 390, 270, 200);
 
         jTextField3.setBackground(new java.awt.Color(27, 221, 27));
         jTextField3.setText("RUSSIE");
-        add(jTextField3);
-        jTextField3.setBounds(420, 230, 80, 26);
+        getContentPane().add(jTextField3);
+        jTextField3.setBounds(420, 280, 80, 26);
 
         jTextField4.setBackground(new java.awt.Color(27, 221, 27));
         jTextField4.setText("RUSSIE");
-        add(jTextField4);
-        jTextField4.setBounds(420, 110, 80, 30);
+        getContentPane().add(jTextField4);
+        jTextField4.setBounds(420, 190, 80, 30);
 
         jTextField5.setBackground(new java.awt.Color(241, 14, 14));
         jTextField5.setText("FRANCE");
-        add(jTextField5);
-        jTextField5.setBounds(420, 150, 80, 30);
+        getContentPane().add(jTextField5);
+        jTextField5.setBounds(420, 110, 80, 30);
 
         jTextField13.setBackground(new java.awt.Color(27, 221, 27));
         jTextField13.setText("RUSSIE");
-        add(jTextField13);
-        jTextField13.setBounds(420, 200, 80, 20);
+        getContentPane().add(jTextField13);
+        jTextField13.setBounds(420, 240, 80, 20);
 
         Restart_Button.setText("ReStart");
         Restart_Button.addActionListener(new java.awt.event.ActionListener() {
@@ -196,7 +177,7 @@ public class Recap extends javax.swing.JFrame {
                 Restart_ButtonActionPerformed(evt);
             }
         });
-        add(Restart_Button);
+        getContentPane().add(Restart_Button);
         Restart_Button.setBounds(870, 10, 90, 60);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flashquizz/Panels/bg.jpg"))); // NOI18N
@@ -205,13 +186,65 @@ public class Recap extends javax.swing.JFrame {
         jLabel1.setMinimumSize(new java.awt.Dimension(970, 680));
         jLabel1.setPreferredSize(new java.awt.Dimension(970, 680));
         jLabel1.setSize(new java.awt.Dimension(970, 680));
-        add(jLabel1);
+        getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 970, 680);
-    }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+        jTextField14.setEditable(false);
+        jTextField14.setBackground(new java.awt.Color(204, 204, 204));
+        jTextField14.setFont(new java.awt.Font("Lucida Sans Typewriter", 2, 14)); // NOI18N
+        jTextField14.setText("Quel est le plus grand pays du monde ?");
+        jTextField14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField14ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField14);
+        jTextField14.setBounds(50, 230, 340, 30);
+
+        jTextField15.setEditable(false);
+        jTextField15.setBackground(new java.awt.Color(204, 204, 204));
+        jTextField15.setFont(new java.awt.Font("Lucida Sans Typewriter", 2, 14)); // NOI18N
+        jTextField15.setText("Quel est le plus grand pays du monde ?");
+        jTextField15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField15ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField15);
+        jTextField15.setBounds(40, 270, 340, 30);
+
+        jTextField16.setEditable(false);
+        jTextField16.setBackground(new java.awt.Color(204, 204, 204));
+        jTextField16.setFont(new java.awt.Font("Lucida Sans Typewriter", 2, 14)); // NOI18N
+        jTextField16.setText("Quel est le plus grand pays du monde ?");
+        jTextField16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField16ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField16);
+        jTextField16.setBounds(40, 300, 340, 30);
+
+        jTextField6.setBackground(new java.awt.Color(27, 221, 27));
+        jTextField6.setText("RUSSIE");
+        getContentPane().add(jTextField6);
+        jTextField6.setBounds(420, 230, 80, 26);
+
+        jTextField9.setBackground(new java.awt.Color(27, 221, 27));
+        jTextField9.setText("RUSSIE");
+        getContentPane().add(jTextField9);
+        jTextField9.setBounds(420, 270, 80, 26);
+
+        jTextField17.setBackground(new java.awt.Color(27, 221, 27));
+        jTextField17.setText("RUSSIE");
+        getContentPane().add(jTextField17);
+        jTextField17.setBounds(420, 150, 80, 26);
+
+        jTextField18.setBackground(new java.awt.Color(27, 221, 27));
+        jTextField18.setText("RUSSIE");
+        getContentPane().add(jTextField18);
+        jTextField18.setBounds(420, 280, 80, 26);
+    }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
@@ -224,10 +257,6 @@ public class Recap extends javax.swing.JFrame {
     private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField8ActionPerformed
-
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
 
     private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
         // TODO add your handling code here:
@@ -255,6 +284,18 @@ public class Recap extends javax.swing.JFrame {
         
     }//GEN-LAST:event_Restart_ButtonActionPerformed
 
+    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField14ActionPerformed
+
+    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField15ActionPerformed
+
+    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField16ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton Restart_Button;
@@ -267,6 +308,11 @@ public class Recap extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
