@@ -1,4 +1,4 @@
-class ActionDeleteList
+class ActionList
 {
 /**
 * Fonction de supression de question d'une liste 
