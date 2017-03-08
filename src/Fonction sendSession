@@ -31,8 +31,8 @@ public void sendSession(Session s) throws SQLException
 		if(idsession == -1) // si session existe pas
 		{
 			//on insere les donnees dans la BDD
-			query = "INSERT INTO Session_Metadata(ID_User, Opening_Date, Closing_Date, Type, Title, Password) VALUES(?, ?, ?, ?, ?);";
-					PreparedStatement prepare =  cnx.prepareStatement(query);
+			query = "INSERT INTO Session_Metadata(ID_User, Opening_Date, Closing_Date, Type, Title, Password) VALUES(?, ?, ?, ?, ?, ?);";
+					PreparedStatement prepare = cnx.prepareStatement(query);
                    			prepare.setObject(1,s.getAuthor());
 					prepare.setObject(2,s.getDebut());
 					prepare.setObject(3,s.getFin());
@@ -41,9 +41,14 @@ public void sendSession(Session s) throws SQLException
 					prepare.setObject(6,s.getPassword());
 					prepare.executeUpdate();
 					prepare.close();
+
 			//on recupere l'id de la session
-			res = statement.executeQuery("SELECT currval(pg_get_serial_sequence('Session_Metadata','ID_Session')) as id;");
+			query = "SELECT currval(pg_get_serial_sequence('Session_Metadata','ID_Session')) as ?;";
+			prepare = cnx.prepareStatement(query);
 			s.setIdSession(res.getInt(1));
+			prepare.executeQuery();
+			prepare.close();
+			res.close();
 			
 			
 			for (int l:liste) // pour chaque element du tableau
@@ -60,14 +65,14 @@ public void sendSession(Session s) throws SQLException
 					prepare.setObject(2,s.getIdListe());
 					prepare.executeUpdate();
 					prepare.close();
-					res.close();
+					res.close;
 				}
 			}
 		}
 		else //si session existe
 		{	
 		//on fait la mise a jour de la BDD
-			query = "UPDATE Session_Metadata SET (D_User=?, Opening_Date=?, Closing_Date=?, Type=?, Title=?, Password=?) WHERE ID_Session=idsession;";
+			query = "UPDATE Session_Metadata SET (D_User=?, Opening_Date=?, Closing_Date=?, Type=?, Title=?, Password=?) WHERE ID_Session=?;";
                     PreparedStatement prepare = cnx.prepareStatement(query);
                     prepare.setObject(1,s.getAuthor());
                     prepare.setObject(2,s.getDebut());
@@ -75,15 +80,17 @@ public void sendSession(Session s) throws SQLException
                     prepare.setObject(4,s.getType());
                     prepare.setObject(5,s.getName());
                     prepare.setObject(6,s.getPassword());
-                    res = statement.executeQuery(query);
+		    prepare.setInt(7, idsession);
+                    prepare.executeQuery();
                     prepare.close();
-                    res.close();
 			
 			//supprimer continu Session_Content		
 			//suppression 
-			res = statement.executeQuery("DELETE * FROM Session_Content WHERE ID_Session=idsession;");
-			
-			res.close();			
+			query = "DELETE * FROM Session_Content WHERE ID_Session=?;";
+			prepare =  cnx.prepareStatement(query);
+			prepare.setInt(1, idsession);
+			prepare.executeUpdate();
+			prepare.close();		
 
 			for (int l:liste) 
 			{
@@ -100,7 +107,6 @@ public void sendSession(Session s) throws SQLException
 					prepare.setObject(2,l.getIdListe());
 					prepare.executeUpdate();
 					prepare.close();
-					res.close();
 				}
 			}	
 		}
@@ -117,5 +123,5 @@ public void sendSession(Session s) throws SQLException
 			connecterDB.close();
 		}
 
+	}
 }
-
