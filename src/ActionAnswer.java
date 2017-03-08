@@ -1,6 +1,6 @@
 public class ActionAnswer
 {
-		List temp;
+	Answer temp;
 /**
 * Fonction de modification globale
 *
@@ -30,11 +30,11 @@ public class ActionAnswer
 * @param idl= id de la liste a modifier
 */
 
-	public static void initAnswer(int idl)
+	public static void initAnswer(int idq,int idr)
 	{
-		ResultSet res = getAnswer(idl);
+		ResultSet res = getAnswer(idr);
 		res.next();
-		temp= new Answer(res.getInt("id"),res.getString("content"),res.getInt("correct"));
+		temp= new Answer(res.getInt("idq"),res.getInt("idr"),res.getString("content"),res.getInt("correct"));
 	}
 
 /**
@@ -61,9 +61,8 @@ public class ActionAnswer
 		setCorrect(correct);
 	}
 
-	public static void deleteAnswer(int id)
+	public static void deleteAnswer(int idr)
 	{
-		deleteAnswer(id);		
-		deleteAnswerInQuestion(id);										
+		deleteAnswer(idr);											
 	}
 }
