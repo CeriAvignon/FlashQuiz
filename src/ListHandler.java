@@ -19,6 +19,11 @@ import java.util.Vector;
  	*  Liste_Metadata et retourner un objet Liste, le groupe &eacute;dition de 
  	*  liste pourra alors afficher la liste d&eacute;sir&eacute;e via l'interface 
  	*  graphique du groupe du m&ecircme nom.
+	*
+	* @version 1.5
+	*
+	* Ajout de la m&eacute;thode getList(int idList) qui sert &acute; r&eacute;cup&eacute;rer les informations d'une liste 
+	* dans la base de donn&eacute;es et la renvoie sous la forme d'un objet List.
  	* 
  	**/
 
