@@ -171,7 +171,7 @@ public class ListHandler
 		}
 	}
 	
-	public List getList (int idList)
+	public List getList (int idList) throws SQLException
 	{
 		
 		Connection cnx=connecterDB();
@@ -188,31 +188,75 @@ public class ListHandler
 			Statement statement = cnx.createStatement();
 			ResultSet res;
 			
-			query="SELECT * FROM List_Metadata WHERE ID_List=?;";
+			/** 
+			 * Cr&eacute;ation de la requ&ecirc;te. 
+			 **/
 			
+			query="SELECT * FROM List_Metadata WHERE ID_List=?;";
+			/** 
+			 * Acc&egrave;es &agrave; la liste gr&acirc;ce à l'id donn&eacute; en argument. 
+			 **/
 			prepare = cnx.prepareStatement(query);
 			prepare.setObject(1,idList);
 			
+			/** 
+			 * R&eacute;cup&eacute;ration des informations de la liste contenues dans la table List_Metadata. 
+			 **/
+			
 			res = prepare.executeQuery();
+			
+			/**
+			 *Cr&eacute;ation de l'objet List qui contient les informations de la liste. 
+			 **/
 			
 			List list = new List(res.getInt("Id_List"),res.getInt("ID_User"),res.getInt("Title"));
 			
 			prepare.close();
+			
+			/** 
+			 * Fin de la requ&ecirc;te. 
+			 **/
+			
 			res.close();
 			
 			query="SELECT ID_Question FROM List_Content WHERE ID_List=?;";
 			prepare = cnx.prepareStatement(query);
+			
+			/** 
+			 * Ici, on va chercher les id des questions appartenant &acute; la liste. 
+			 **/
+			
 			prepare.setObject(1,idList);
 			
 			res = prepare.executeQuery();
+			
+			/**
+			 * Ici, le r&eacute;sultat de la requ&ecirc;te est un tableau d'id, on peut donc l'affecter &acute; 
+			 * un tableau d'entiers. 
+			 **/
+			
 			idQuestion = res;
+			
+			/** 
+			 * Ajout d'un tableau d'id de question &acute; l'objet List.
+			 **/
+			
 			list.setQuestion(idQuestion);
 			
-			return list;
-		}
-		catch(exception e)
-		{
+			/** 
+			 * On renvoie l'objet List. 
+			 **/
 			
+			return list;
+			
+		}
+		
+		/**
+		 * En cas d'&eacute;chec de la requ&ecric;te. 
+		 **/
+		catch(SQLException e)
+		{
+			e.printStackTrace();
 		}
 
 	}
