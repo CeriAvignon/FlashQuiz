@@ -1,4 +1,4 @@
-public class List
+class List
 {
 	private int id; 									// id
 	private String name; 								// nom
