@@ -7,7 +7,6 @@ class ActionList
 * @param idl= id de la liste a suprimer
 */
 
-
 public static void Supressionliste(idl)
 	{
 		SupressionSessionList(idl);			// fonction bdd qui reçoie un  id de liste et supprime le lien entre les Session et cette liste
