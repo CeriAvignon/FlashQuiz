@@ -1,64 +1,59 @@
-class Media
-{
-	private int id; 							
-	private String url;										
-	private int type; 	
 
-	/**
-* getter de l'atribut id
-*
-* @return retourne la valeur de l'atribut id
-*/
-	public int getId()
-	{
-		return this.id;
+import java.io.*;
+
+public class Media {
+		
+	Integer MediaType;//0 => image, 1 => audio, 2 si => vidéo 
+	String MediaName;//le nom est toujours l'ID de la question plus le format du fichier - ex: 20.png
+	String MediaDest;//Représente la location du Media
+	Media() {
+		this.MediaType=0;
+		this.MediaName=null;
+		this.MediaDest="..\\flachquiz\\media\\";
 	}
-/**
-* getter de l'atribut url
-*
-* @return retourne la valeur de l'atribut url
-*/
-	public String getUrl()
-	{
-		return this.url;
-	}
-	/**
-* getter de l'atribut type
-*
-* @return retourne la valeur de l'atribut type
-*/
-	public int getType()
-	{
-		return this.type;
-	}
-/**
-* setter de l'atribut id
-*
-* @param id = valeur à atribuer à id
-*/
-	public void setId(int id)
-	{
-		this.id = id;
-	}
-/**
-* setter de l'atribut url
-*
-* @param url = valeur à atribuer à url 
-*/
-	public void setUrl(String url)
-	{
-		this.url= url;
-	}
-/**
-* setter de l'atribut type
-*
-* @param type = valeur à atribuer à type
-*/
-	public void setId(int type)
-	{
-		this.type = type;
+	//On détermine le type du Media
+	public int DefineMediaType(String ext) {
+		String[] image = { "png","jpg","gif","tif","bmp" };
+		String[] audio = { "wav","mp3","wma","ogg","flac","aac" };
+		String[] video = { "flv","avi","mkv","mp4","mpeg","mov","rmvb","vob","wmv" };
+		for(String a : image) {
+	           if(ext == a) return 0; 
+		}
+		for(String a : audio) {
+	   	   if(ext == a) return 1;
+		}
+		for(String a : video) {
+		   if(ext == a) return 2;
+		}
+		return 99;
 	}	
-
-				
-
+	
+	public void UploadMedia(int IdQuestion,String MediaSource) throws ClassNotFoundException, Exception{
+	   
+		String extension=MediaSource.substring(MediaSource.length()-3);
+		MediaName=IdQuestion+"."+extension;
+		MediaType=DefineMediaType(extension);
+		switch (MediaType) {
+		  case 0: MediaDest+="img\\"; break;
+		  case 1: MediaDest+="audio\\"; break;
+		  case 2: MediaDest+="video\\"; break;
+		}
+	  
+		File sourceMedia = new File(MediaSource);
+	  	File destinationMedia = new File(MediaDest + MediaName);
+	  	FileInputStream fileInputStream = new FileInputStream(sourceMedia);
+	  	FileOutputStream fileOutputStream = new FileOutputStream(destinationMedia);
+	  	int bufferSize;
+	  	byte[] bufffer = new byte[512];
+	  	while ((bufferSize = fileInputStream.read(bufffer)) > 0) {
+	      	      fileOutputStream.write(bufffer, 0, bufferSize);
+	  	}
+	  	fileInputStream.close();
+	  	fileOutputStream.close();
+	}
+	
 }
+		
+
+
+
