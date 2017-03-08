@@ -1,14 +1,14 @@
 import java.util.Date;
 public class Session
 {
-  	private int id;
+  	private int idsession;
 	/* 
 		variable <int> globale privée:	définit via une requête SQL vers l'id de la session
 										dépend fortement du groupe BDD
 	*/
-	private String name;
+	private String namesession;
 	// Variable <String> privée:		définit via une chaîne de caractères saisie par l'utilisateur*/
-	private int author;
+	private int iduser;
 	/* 
 		Variable <Int> privée:			définit via une requête SQL vers l'id de l'auteur envoyé par le groupe
 										IG, puis récupération de l'information dans la table users.
@@ -19,18 +19,24 @@ public class Session
 						
 	*/				
 	
-	private Date debut;
-	// Variable <String> privée:		définit par l'utilisateur.
-	private Date fin;
+	private Date datestart;
+	// Objet <DATE> privée:				définit par l'utilisateur.
+	private Date datefin;
 
 	private String password;
-	private boolean type;			//obsolete?
-
+	private boolean typesession;			
 
 
 	public Session ()		
 	{	
-		
+		idsession = 0;
+		namesession = "No name";
+		iduser = 0;
+		list = new int[];
+		datestart = new Date();
+		datefin = new Date();
+		password = "";
+		typesession = 0;
 	}
 
 	/*********************** GETTERS *******************************************/
@@ -43,7 +49,7 @@ public class Session
 	*/
 	public int getId()
 	{
-		return this.id;
+		return this.idsession;
 	}
 	
 /**
@@ -54,7 +60,7 @@ public class Session
 	*/
 	public String getName()
 	{
-		return this.name;
+		return this.namesession;
 	}
 	
 /**
@@ -65,7 +71,7 @@ public class Session
 	*/
 	public int getAuthor()
 	{
-		return this.author;
+		return this.iduser;
 	}
 	
 /**
@@ -89,7 +95,7 @@ public class Session
 	*/
 	public Date getDebut()
 	{
-		return this.debut;
+		return this.datestart;
 	}
 	
 /**
@@ -100,7 +106,7 @@ public class Session
 	*/
 	public Date getFin()
 	{
-		return this.fin;
+		return this.dateend;
 	}
 	
 /**
@@ -123,7 +129,7 @@ public class Session
 	
 	public boolean getType()
 	{
-		return this.type;//obsolete?
+		return this.typesession;//obsolete?
 	}
 
 	/*********************** SETTERS *******************************************/
@@ -135,7 +141,7 @@ public class Session
 	*/
 	public void setId(int id)
 	{
-		this.id = id;
+		this.idsession = id;
 	}
 	
 /**
@@ -146,7 +152,7 @@ public class Session
 	*/
 	public void setName(String name)
 	{
-		this.name = name;
+		this.namesession = name;
 	}
 	
 /**
@@ -157,7 +163,7 @@ public class Session
 	*/
 	public void setAuthor(int author)
 	{
-		this.author = author;
+		this.iduser = author;
 	}
 	
 /**
@@ -178,9 +184,9 @@ public class Session
 	* @author LE VEVE Mathieu
 	* @param datedebut = beginning date session
 	*/
-	public void setDebut(String debut)
+	public void setDebut(Date date)
 	{
-		this.debut = debut;
+		this.datestart= date;
 	}
 	
 /**
@@ -189,9 +195,9 @@ public class Session
 	* @author LE VEVE Mathieu
 	* @param datefin = ending date session
 	*/
-	public void setFin(String fin)
+	public void setFin(Date date)
 	{
-		this.fin = fin;
+		this.dateend = date;
 	}
 
 /**
@@ -213,6 +219,6 @@ public class Session
 	*/
 	public void setType(boolean type)
 	{
-		this.type = type;//obsolete?
+		this.typesession = type;
 	}
 }
