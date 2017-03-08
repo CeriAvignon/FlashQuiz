@@ -1,3 +1,3 @@
 # README
 
-Penser à insérer vos fichiers dans vos liens respectifs. 
+Penser à insérer vos fichiers dans leurs dossiers respectifs. 
