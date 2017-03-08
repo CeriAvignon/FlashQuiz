@@ -1,6 +1,6 @@
 class List
 {
-	private int id; 										// id
+	private int id; 									// id
 	private String name; 								// nom
 	private int author;									// id auteur
 	private int question[];								// question
