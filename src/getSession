@@ -23,7 +23,7 @@
 	ResultSet res=null;	
 	Session s = new Session();
 	
-		if(id){
+		if(idsession){
 			//on recoupere les donnees à partir de la BDD
 			query1 = "SELECT ID_Session, ID_User, Opening_Date, Closing_Date, Type, Title, Password FROM Session_Metadata WHERE ID_Session=idsession;";
 			res = statement.executeQuery(query1);
