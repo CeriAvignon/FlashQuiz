@@ -68,6 +68,24 @@ public abstract class LocalServer
 	}
 
 	//---------------------------------------------------------------------------
+	// * Send request to client
+	//---------------------------------------------------------------------------
+	public void sendRequest(ClientHandler client, String action, Object object)
+	{
+		if(!checkIsOpened()) return;
+		client.sendRequest(action, object);
+	}
+
+	//---------------------------------------------------------------------------
+	// * Send request to all clients
+	//---------------------------------------------------------------------------
+	public void sendRequestToAll(String action, Object object)
+	{
+		if(!checkIsOpened()) return;
+		Clients.sendRequestToAll(action, object);
+	}
+
+	//---------------------------------------------------------------------------
 	// * Interpreter
 	// Appelle l'action appropriée en fonction du nom de l'action indiquée dans
 	// la requête.
