@@ -12,6 +12,8 @@ import lib.server.Server;
 //=============================================================================
 public abstract class MainController
 {
+	public static Boolean running;
+
 	//---------------------------------------------------------------------------
 	// * Main
 	// Correspond à l'index de l'application.
@@ -19,6 +21,7 @@ public abstract class MainController
 	public static void index()
 	{
 		Console.print(Ansi.BLUE + "\nBonjour!" + Ansi.RESET);
+		running = true;
 		UserInputInterpreter.input();
 		terminate();
 	}
@@ -28,6 +31,7 @@ public abstract class MainController
 	//---------------------------------------------------------------------------
 	public static void terminate()
 	{
+		running = false;
 		Console.print("A la prochaine!\n");
 		LocalServer.close();
 		RemoteServer.close();
