@@ -43,6 +43,7 @@ public class ClientHandler extends SocketHandler
 	//---------------------------------------------------------------------------
 	public void close()
 	{
+		if(isClosed()) return;
 		super.close();
 		Clients.remove(clientId);
 		log("connexion terminée");

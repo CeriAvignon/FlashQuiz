@@ -56,8 +56,7 @@ public abstract class RemoteServer
 	public static void close()
 	{
 		if(!isConnected()) return;
-		socket.close();
-		Console.print("Déconnexion du serveur!");
+		if(!socket.isClosed()) socket.close();
 		socket = null;
 	}
 

@@ -27,4 +27,15 @@ public class RemoteServerSocket extends SocketHandler
 	{
 		RemoteServer.interpreter(request);
 	}
+
+	//---------------------------------------------------------------------------
+	// * Close
+	//---------------------------------------------------------------------------
+	public void close()
+	{
+		if(isClosed()) return;
+		lib.display.Console.printAsync("Déconnexion du serveur!");
+		super.close();
+		RemoteServer.close();
+	}
 }
