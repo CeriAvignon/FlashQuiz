@@ -88,8 +88,6 @@ public abstract class SocketHandler extends Thread
 	//---------------------------------------------------------------------------
 	public void sendRequest(String action, Object object)
 	{
-	 	// System.out.println("action: " + action);
-		// System.out.println("object: " + object.toString());
 		sendObject(new Request(action,object));
 	}
 
@@ -103,12 +101,20 @@ public abstract class SocketHandler extends Thread
 	}
 
 	//---------------------------------------------------------------------------
+	// * Is closed?
+	//---------------------------------------------------------------------------
+	public Boolean isClosed()
+	{
+		return socket.isClosed();
+	}
+
+	//---------------------------------------------------------------------------
 	// * Close
 	//---------------------------------------------------------------------------
 	public void close()
 	{
 		try {
-			if(socket.isClosed()) return;
+			if(isClosed()) return;
 			socket.close();
 		} catch(IOException e) {
 			// e.printStackTrace();
