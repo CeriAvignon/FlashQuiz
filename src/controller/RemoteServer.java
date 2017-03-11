@@ -79,47 +79,22 @@ public abstract class RemoteServer
 	public static void sendRequest(String action, Object object)
 	{
 		if(!checkIsConnected()) return;
-		server.sendRequest(action,object);
+		server.sendRequest(action, object);
 	}
-
-	//---------------------------------------------------------------------------
-	// * Print received
-	//---------------------------------------------------------------------------
-	public static void printReceived(String s)
-	{
-		Console.printAsync(Ansi.GREEN + "Reçu: " + Ansi.RESET + s);
-	}
-
-	//---------------------------------------------------------------------------
-	// * Capitalize
-	// Demande au serveur de renvoyer la chaîne de caractères en majuscules.
-	//---------------------------------------------------------------------------
-	public static void capitalize(String line)
-	{
-		if(!checkIsConnected()) return;
-		server.sendRequest("capitalize", line);
-	}
-
-	//===========================================================================
-	// ▼ Requêtes
-	// --------------------------------------------------------------------------
-	// Traite les requêtes envoyées par le serveur.
-	//===========================================================================
 
 	//---------------------------------------------------------------------------
 	// * Interpreter
 	// Appelle l'action appropriée en fonction du nom de l'action indiquée dans
 	// la requête.
 	//---------------------------------------------------------------------------
-	public static void interpreter(Request request)
+	public static Boolean interpreter(Request request)
 	{
 		String action = request.getAction();
 		Object object = request.getObject();
 
 		switch(action) {
-			case "printReceived":
-				printReceived((String) object);
-				break;
+			default:
+				return SessionVoter.interpreter(action, object);
 		}
 	}
 }

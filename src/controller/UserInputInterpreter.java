@@ -66,7 +66,7 @@ public abstract class UserInputInterpreter
 				SessionMaster.sendMessageToAll(input.replaceFirst("send-to-all ",""));
 				break;
 			case "capitalize":
-				RemoteServer.capitalize(input.replaceFirst("capitalize ",""));
+				SessionVoter.capitalize(input.replaceFirst("capitalize ",""));
 				break;
 
 			default:
