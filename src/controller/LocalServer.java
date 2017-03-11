@@ -67,50 +67,19 @@ public abstract class LocalServer
 		return true;
 	}
 
-	//===========================================================================
-	// ▼ Requêtes
-	// --------------------------------------------------------------------------
-	// Traite les requêtes envoyées par un client.
-	//===========================================================================
-
 	//---------------------------------------------------------------------------
 	// * Interpreter
 	// Appelle l'action appropriée en fonction du nom de l'action indiquée dans
 	// la requête.
 	//---------------------------------------------------------------------------
-	public static void interpreter(ClientHandler client, Request request)
+	public static Boolean interpreter(ClientHandler client, Request request)
 	{
 		String action = request.getAction();
 		Object object = request.getObject();
 
 		switch(action) {
-			case "capitalize":
-				capitalize(client,(String) object);
-				break;
+			default:
+				return SessionMaster.interpreter(client, action, object);
 		}
-	}
-
-	//---------------------------------------------------------------------------
-	// * Capitalize
-	// Renvoie la chaîne de caractères envoyée par le client en majuscules.
-	//---------------------------------------------------------------------------
-	public static void capitalize(ClientHandler client, String message)
-	{
-		if(!checkIsOpened()) return;
-		client.sendRequest("printReceived",message.toUpperCase());
-	}
-
-	//===========================================================================
-	// ▼ Autres actions
-	//===========================================================================
-
-	//---------------------------------------------------------------------------
-	// * Send message to all
-	// Envoie un message à tous les clients connectés.
-	//---------------------------------------------------------------------------
-	public static void sendMessageToAll(String message)
-	{
-		if(!checkIsOpened()) return;
-		Clients.sendRequestToAll("printReceived", message);
 	}
 }
