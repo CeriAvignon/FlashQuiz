@@ -39,7 +39,7 @@ public class Reglage extends AppCompatActivity {
         AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
 
         LayoutInflater inflater = getLayoutInflater();
-        View languagelayout = inflater.inflate(R.layout.popuplanguagelayout, null);
+        View languagelayout = inflater.inflate(R.layout.popuplanguage, null);
         helpBuilder.setView(languagelayout);
 
         helpBuilder.setPositiveButton("Ok",
@@ -61,7 +61,7 @@ public class Reglage extends AppCompatActivity {
         AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
 
         LayoutInflater inflater = getLayoutInflater();
-        View colorlayout = inflater.inflate(R.layout.popupcolorlayout, null);
+        View colorlayout = inflater.inflate(R.layout.popupcolor, null);
         helpBuilder.setView(colorlayout);
 
         helpBuilder.setPositiveButton("Ok",
