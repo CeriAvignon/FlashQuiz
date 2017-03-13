@@ -11,4 +11,9 @@ public class Modifquizz extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.modifquizz);
     }
+
+    public void ajout_question(View view) {
+
+        startActivity(new Intent(this,Ajoutquestion.class));
+    }
 }
