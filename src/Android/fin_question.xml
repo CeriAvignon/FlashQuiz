@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Time:"
+        android:ems="10"
+        android:id="@+id/TIme" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/time"
+        android:max="100"
+        android:progress="42" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="449dp">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="Quel est a couleur du cheval blanc d'Henri IV?"
+                android:ems="10"
+                android:id="@+id/Question" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="Bonne reponse:"
+                    android:ems="10"
+                    android:id="@+id/T1"
+                    android:layout_weight="1" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="Mauvaise reponse:"
+                    android:ems="10"
+                    android:id="@+id/T2"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="62%"
+                    android:ems="10"
+                    android:id="@+id/PourcentageT1"
+                    android:layout_weight="1" />
+
+                <EditText
+                    android:layout_width="193dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="28%"
+                    android:ems="10"
+                    android:id="@+id/PourcentageT2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:layout_width="229dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="Nombre de votant restant:"
+                    android:ems="10"
+                    android:id="@+id/Nb_votant" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:text="10"
+                    android:ems="10"
+                    android:id="@+id/nb_restant"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
