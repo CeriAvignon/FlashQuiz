@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <Button
+        android:text="@string/modifier_rep"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/button5"
+        android:onClick="modif_texte"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_alignTop="@+id/radioGroup"
+        android:layout_toRightOf="@+id/radioGroup"
+        android:layout_toEndOf="@+id/radioGroup"
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:text="@string/modifier_rep"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/button7"
+        android:onClick="modif_texte"
+        android:layout_below="@+id/button8"
+        android:layout_alignLeft="@+id/button8"
+        android:layout_alignStart="@+id/button8"
+        android:layout_marginTop="21dp" />
+
+    <Button
+        android:text="@string/modifier_rep"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/button6"
+        android:onClick="modif_texte"
+        android:layout_below="@+id/button7"
+        android:layout_alignLeft="@+id/button7"
+        android:layout_alignStart="@+id/button7"
+        android:layout_marginTop="25dp" />
+
+    <Button
+        android:text="@string/modifier_rep"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/button8"
+        android:onClick="modif_texte"
+        android:layout_marginTop="23dp"
+        android:layout_below="@+id/button5"
+        android:layout_alignLeft="@+id/button5"
+        android:layout_alignStart="@+id/button5" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/radioGroup"
+        android:layout_marginLeft="89dp"
+        android:layout_marginStart="89dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+    <RadioButton
+        android:text="Choix 1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:id="@+id/radioButton4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <RadioButton
+        android:text="Choix 2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioButton4"
+        android:layout_alignRight="@+id/radioButton4"
+        android:layout_alignEnd="@+id/radioButton4"
+        android:layout_marginTop="30dp"
+        android:id="@+id/radioButton5" />
+
+    <RadioButton
+        android:text="Choix 3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioButton5"
+        android:layout_alignRight="@+id/radioButton5"
+        android:layout_alignEnd="@+id/radioButton5"
+        android:layout_marginTop="30dp"
+        android:id="@+id/radioButton6" />
+
+    <RadioButton
+        android:text="Choix 4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioButton6"
+        android:layout_alignRight="@+id/radioButton6"
+        android:layout_alignEnd="@+id/radioButton6"
+        android:layout_marginTop="30dp"
+        android:id="@+id/radioButton7" />
+    </RadioGroup>
+
+    <TextView
+        android:text="@string/reponse"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:background="#CECECE"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:height="50dp"
+        android:id="@+id/textView3"
+        android:layout_marginTop="44dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+</RelativeLayout>
