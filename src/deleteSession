@@ -1,0 +1,50 @@
+/**
+* <b>Supprime une session dans la base de données.</b>
+* <p>
+*
+* @author Alexandra MOSHINA 
+*
+* @param idsession
+*	L'id de la session à supprimer dans la BDD.
+*
+*/
+public Session getSession(int idsession) throws SQLException
+	{
+	
+	try {
+	//connection à la BDD 
+	Connection cnx=connecterDB(); 					
+	String query="";					
+		
+		if(idsession){
+
+		// suppression de données dans la table Session_Metadata
+		query = "DELETE * FROM Session_Metadata WHERE ID_Session=?;";
+		PreparedStatement prepare = cnx.prepareStatement(query);
+		// ID_Session=idsession 
+		prepare.setInt(1, idsession);
+		prepare.executeUpdate();
+		prepare.close();
+
+		// suppression de données dans la table Session_Content
+		query = "DELETE * FROM Session_Content WHERE ID_Session=?;";
+		prepare =  cnx.prepareStatement(query);
+		prepare.setInt(1, idsession);
+		prepare.executeUpdate();
+		prepare.close();
+		}
+
+    } catch (SQLException e) 
+	{
+    	e.printStackTrace(); 
+    	}		
+	
+
+	finally 
+	{
+		if (connecterDB != null) 
+		{
+			connecterDB.close();
+		}
+	}
+}
