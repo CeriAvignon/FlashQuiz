@@ -14,7 +14,7 @@ public class ActionQuestion
                       de question .
                   
                   */  
-    public void modifierQuestion(int quest, String type, ArrayList<String> rep,ArrayList<String> repV, String Contenu, Integer id)
+    public void modifierQuestion(int quest, String type, ArrayList<String> rep,ArrayList<String> repV, String Contenu, Integer idMedia)
     {
 		
 			if (type != null) {
@@ -41,7 +41,7 @@ public class ActionQuestion
 				System.out.println("le contenu n'est pas modifier");
 
 			}
-			if (id != null && id>=0 && id<nbr_media) {
+			if (idMedia != null && idMedia>=0 && idMedia<nbr_media) {
 			   question[quest].setMedia(id);;
 				
 			}
