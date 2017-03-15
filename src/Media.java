@@ -1,57 +1,72 @@
 
 import java.io.*;
+import java.nio.file.*;
+import java.util.UUID;
+
 
 public class Media {
-		
-	Integer MediaType;//0 => image, 1 => audio, 2 si => vidéo 
-	String MediaName;//le nom est toujours l'ID de la question plus le format du fichier - ex: 20.png
-	String MediaDest;//Représente la location du Media
+	 static   Integer MediaType;//Représente le type du media, 0 => image, 1 => audio, 2 si => vidéo 
+	 static   String MediaSource;
+	 static	  String MediaLocation;// Chemin local
+
+	public static Integer getMediaType() {
+		return MediaType;
+	}
+	public static void setMediaType(Integer mediaType) {
+		MediaType = mediaType;
+	}
+	public static String getMediaSource() {
+		return MediaSource;
+	}
+	public static void setMediaSource(String mediaSource) {
+		MediaSource = mediaSource;
+	}
+	public static String getMediaLocation() {
+		return MediaLocation;
+	}
+	public static void setMediaLocation(String mediaLocation) {
+		MediaLocation = mediaLocation;
+	}
+	
 	Media() {
-		this.MediaType=0;
-		this.MediaName=null;
-		this.MediaDest="..\\flachquiz\\media\\";
+		Media.MediaType=0;
+		Media.MediaSource=null;
+		Media.MediaLocation="..\\flachquiz\\media\\";
 	}
-	//On détermine le type du Media
-	public int DefineMediaType(String ext) {
-		String[] image = { "png","jpg","gif","tif","bmp" };
-		String[] audio = { "wav","mp3","wma","ogg","flac","aac" };
-		String[] video = { "flv","avi","mkv","mp4","mpeg","mov","rmvb","vob","wmv" };
-		for(String a : image) {
-	           if(ext == a) return 0; 
-		}
-		for(String a : audio) {
-	   	   if(ext == a) return 1;
-		}
-		for(String a : video) {
-		   if(ext == a) return 2;
-		}
-		return 99;
-	}	
-	
-	public void UploadMedia(int IdQuestion,String MediaSource) throws ClassNotFoundException, Exception{
-	   
-		String extension=MediaSource.substring(MediaSource.length()-3);
-		MediaName=IdQuestion+"."+extension;
-		MediaType=DefineMediaType(extension);
-		switch (MediaType) {
-		  case 0: MediaDest+="img\\"; break;
-		  case 1: MediaDest+="audio\\"; break;
-		  case 2: MediaDest+="video\\"; break;
-		}
-	  
-		File sourceMedia = new File(MediaSource);
-	  	File destinationMedia = new File(MediaDest + MediaName);
-	  	FileInputStream fileInputStream = new FileInputStream(sourceMedia);
-	  	FileOutputStream fileOutputStream = new FileOutputStream(destinationMedia);
-	  	int bufferSize;
-	  	byte[] bufffer = new byte[512];
-	  	while ((bufferSize = fileInputStream.read(bufffer)) > 0) {
-	      	      fileOutputStream.write(bufffer, 0, bufferSize);
-	  	}
-	  	fileInputStream.close();
-	  	fileOutputStream.close();
+	Media( String MediaSource) {
+		Media.MediaType=0;
+		Media.MediaSource=MediaSource;
+		Media.MediaLocation="..\\flachquiz\\media\\";
 	}
 	
+	 public static void DefineMediaInfos() throws Exception {
+        	Path path = Paths.get(MediaSource);
+        	String MediaTyp = Files.probeContentType(path).substring(0,5);
+        	switch (MediaTyp) {
+        		case "image" :MediaType=0; break;
+        		case "audio" :MediaType=1; break;
+        		case "video" :MediaType=2; break;
+        	}
+		MediaLocation+=MediaTyp+"\\"+UUID.randomUUID().toString()+MediaSource.substring(MediaSource.length()-4);
+  	 }
+	 public static void InsertMedia()  throws ClassNotFoundException, Exception{
+		  File Source=new File(MediaSource);
+		  File Destination = new File(Media.MediaLocation);
+		  FileInputStream fileInputStream = new FileInputStream(Source);
+		  FileOutputStream fileOutputStream = new FileOutputStream(Destination);
+		  int bufferSize;
+		  byte[] bufffer = new byte[512];
+		  while ((bufferSize = fileInputStream.read(bufffer)) > 0) {
+		        fileOutputStream.write(bufffer, 0, bufferSize);
+		  }  
+		  fileInputStream.close();
+		  fileOutputStream.close();
+	 }
+	 public static void DeleteMedia()  throws ClassNotFoundException, Exception{
+		 Path Location=Paths.get(MediaLocation); 
+		 Files.delete(Location);
+	 }
+	 
 }
 		
 
