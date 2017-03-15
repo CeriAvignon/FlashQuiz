@@ -1,8 +1,9 @@
 
-package model.votingsession;
+package model.session;
 
+import java.util.List;
 import java.io.Serializable;
-import model.*;
+import model.base.*;
 
 /**
  * A list is a series of questions.
@@ -12,7 +13,7 @@ import model.*;
  * @see QuestionBase
  * @see ListBase
  */
-public class List extends ListBase implements Serializable {
+public class QuestionList extends ListBase implements Serializable {
 
 	/**
 	 * A list that contain all the list questions.
@@ -20,7 +21,7 @@ public class List extends ListBase implements Serializable {
 	 * @see Question
 	 * @see ListBase#ListBase(int,String, String)
 	 */
-	public java.util.List<Question> questions;
+	public List<Question> questions;
 
 	/**
 	 * The List constructor.
@@ -36,7 +37,7 @@ public class List extends ListBase implements Serializable {
 	 *
 	 * @see List#questions
 	 */
-	public List(int id, String name, String creatorName, int[]
+	public QuestionList(int id, String name, String creatorName, int[]
 			 questionsId) {
 		super(id, name, creatorName);
 		// for(Integer question : questionsId)

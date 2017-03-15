@@ -1,8 +1,8 @@
 
-package model.votingsession;
+package model.session;
 
 import java.io.Serializable;
-import model.*;
+import model.base.*;
 
 /**
  * A question contain a statement, one or more answers to this statement, a type
@@ -47,18 +47,13 @@ public class Question extends QuestionBase implements Serializable {
 			// this.answers.add(getAnswer(answer)); // AnswerHandler 
 	}
 
-	public void addAnswer(Answer ans)
-	{
-		//TODO
-	}	
-
 	/**
 	 * Verify if the user's answer is correct
 	 *
 	 * @param userAns
 	 *            The user's answer
 	 */
-	public boolean verifyAnswer(VoterAnswer voterAns) {
+	/*public boolean verifyAnswer(VoterAnswer voterAns) {
 
 		// Get the default answers
 		Vector<Answer> definedAnswers = new Vector<Answer>();
@@ -116,5 +111,5 @@ public class Question extends QuestionBase implements Serializable {
 			}
 		}
 		return false;
-	}
+	}*/
 }

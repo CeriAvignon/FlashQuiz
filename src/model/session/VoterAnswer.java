@@ -1,8 +1,8 @@
 
-package model.votingsession;
+package model.session;
 
 import java.io.Serializable;
-import model.*;
+import model.base.*;
 
 /**
  * Contain the answer that the user has given to a question, the question and if

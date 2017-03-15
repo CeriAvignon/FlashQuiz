@@ -1,5 +1,5 @@
 
-package model;
+package model.base.*;
 
 import java.io.Serializable;
 

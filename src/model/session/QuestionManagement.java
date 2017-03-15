@@ -1,5 +1,5 @@
 
-package model;
+package model.session;
 
 import java.awt.event.*;
 import javax.swing.Timer;

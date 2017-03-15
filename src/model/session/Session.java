@@ -1,9 +1,10 @@
-package model.votingsession;
+package model.session;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Date;
 import java.io.Serializable;
-import model.*;
+import model.base.*;
 
 /**
  * A session game
@@ -16,7 +17,7 @@ public class Session extends SessionBase implements Serializable {
 	 * A list that contain all the questions series (lists)
 	 *
 	 */
-	public java.util.List<List> lists;
+	public List<QuestionList> lists;
 	
 	/**
 	 * Constructor
