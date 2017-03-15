@@ -26,9 +26,9 @@ public class Connexion {
         ResultSet rs = null;
 
     
-        String url = "jdbc:postgresql://pedago.univ-avignon.fr/etd";//declaration des variables utiles à la connection
-        String user = "uapv1504061";
-        String password = "2TD1MN";
+        String url = "jdbc:postgresql://pedago.univ-avignon.fr/flasquiz";//declaration des variables utiles à la connection
+        String user = "flashquiz";
+        String password = "FiBZJ2DA";
 
         try {
             con = DriverManager.getConnection(url, user, password);
