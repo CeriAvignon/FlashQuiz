@@ -10,7 +10,7 @@ public class ActionQuestion
                       le problème rencontré c'est lors d'une modification d'un type les nombres de réponses peut être augmenté
                       ou diminuer par exemple de changer un type radio (on peut avoir qu'une réponse correcte) vers chekbox (on peut 
                       avoir plus qu'une réponse correcte ) pour cela j'ai choisit de travailler avec deux listes l'une qui contient que
-                      l'ensemble des réponses (rep) et l'autre qui contient les réponses vrais (repV) et vice versa pour chaque type
+                      l'ensemble des réponses (rep) et l'autre qui contient la ou les réponse(s) vrais (repV) et vice versa pour chaque type
                       de question .
                   
                   */  
