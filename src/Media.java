@@ -35,7 +35,7 @@ public class Media {
 		Media.MediaLocation="..\\flachquiz\\media\\";
 	}
 	
-	 public static void DefineMediaInfos() throws Exception {
+	 public static void defineMediaInfos() throws Exception {
         	Path path = Paths.get(MediaSource);
         	String MediaTyp = Files.probeContentType(path).substring(0,5);
         	switch (MediaTyp) {
@@ -46,7 +46,7 @@ public class Media {
 		MediaLocation+=MediaTyp+"\\"+UUID.randomUUID().toString()+MediaSource.substring(MediaSource.length()-4);
 		 //ex: "..\\flachquiz\\media\\audio\\43971bda-851b-4130-b9f2-f496b1962ccc.mp3"
   	 }
-	 public static void InsertMedia()  throws ClassNotFoundException, Exception{
+	 public static void uploadMedia()  throws ClassNotFoundException, Exception{
 		  File Source=new File(MediaSource);
 		  File Destination = new File(Media.MediaLocation);
 		  FileInputStream fileInputStream = new FileInputStream(Source);
@@ -59,7 +59,7 @@ public class Media {
 		  fileInputStream.close();
 		  fileOutputStream.close();
 	 }
-	 public static void DeleteMedia()  throws ClassNotFoundException, Exception{
+	 public static void deleteMedia()  throws ClassNotFoundException, Exception{
 		 Path Location=Paths.get(MediaLocation); 
 		 Files.delete(Location);
 	 }
