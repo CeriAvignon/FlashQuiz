@@ -3,8 +3,7 @@ public class Session
 {
   	private int idsession;
 	/* 
-		variable <int> globale privée:	définit via une requête SQL vers l'id de la session
-										dépend fortement du groupe BDD
+		variable <int> globale privée:	différencie le traitement d'une nouvelle session d'une session existante
 	*/
 	private String namesession;
 	// Variable <String> privée:		définit via une chaîne de caractères saisie par l'utilisateur*/
@@ -32,11 +31,11 @@ public class Session
 		idsession = 0;
 		namesession = "No name";
 		iduser = 0;
-		list = new int[];
+		list = new int[0];
 		datestart = new Date();
 		datefin = new Date();
 		password = "";
-		typesession = 0;
+		typesession = false;
 	}
 
 	/*********************** GETTERS *******************************************/
@@ -106,7 +105,7 @@ public class Session
 	*/
 	public Date getFin()
 	{
-		return this.dateend;
+		return this.datefin;
 	}
 	
 /**
@@ -197,7 +196,7 @@ public class Session
 	*/
 	public void setFin(Date date)
 	{
-		this.dateend = date;
+		this.datefin = date;
 	}
 
 /**
