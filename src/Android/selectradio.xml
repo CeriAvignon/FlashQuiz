@@ -117,5 +117,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <Button
+        android:text="@string/valider_rep"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/button9"
+        android:onClick="modif_questionnaire"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>
