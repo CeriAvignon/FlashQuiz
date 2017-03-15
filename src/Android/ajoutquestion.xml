@@ -47,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:id="@+id/button4"
+        android:onClick="Select_reponse"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
@@ -81,6 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="38dp"
         android:id="@+id/radioButton"
+        android:onClick="texteinvisible"
         android:textSize="18dp"
         android:layout_below="@+id/textView3"
         android:layout_centerHorizontal="true" />
@@ -92,6 +94,7 @@
         android:layout_marginTop="13dp"
         android:id="@+id/radioButton3"
         android:textSize="18dp"
+        android:onClick="textevisible"
         android:layout_below="@+id/radioButton2"
         android:layout_alignLeft="@+id/radioButton2"
         android:layout_alignStart="@+id/radioButton2" />
@@ -103,6 +106,7 @@
         android:layout_marginTop="11dp"
         android:id="@+id/radioButton2"
         android:textSize="18dp"
+        android:visibility="invisible"
         android:layout_below="@+id/radioButton"
         android:layout_alignLeft="@+id/radioButton"
         android:layout_alignStart="@+id/radioButton" />
