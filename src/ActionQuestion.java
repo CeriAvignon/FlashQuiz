@@ -22,7 +22,7 @@ public class ActionQuestion
 			}
 			else {
 				System.out.println("alert!!");
-        System.out.println("le type n'est pas modifier");
+       				System.out.println("le type n'est pas modifier");
 			}
 			if (rep != null &&repV!=null ) {
 				question[quest].setReponse(rep);
@@ -42,7 +42,7 @@ public class ActionQuestion
 
 			}
 			if (id != null && id>=0 && id<nbr_media) {
-			   question[quest].setMedia(idMedia);;
+			   question[quest].setMedia(id);;
 				
 			}
 			else{
