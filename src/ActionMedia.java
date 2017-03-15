@@ -1,7 +1,7 @@
 
 public class ActionMedia {
 
-		public Media mediaupload(String MediaSource) throws ClassNotFoundException, Exception{
+		public Media mediaUpload(String MediaSource) throws ClassNotFoundException, Exception{
 		          Media media=new Media(MediaSource);
 			  Media.defineMediaInfos();
 			  Media.uploadMedia();
