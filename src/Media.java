@@ -6,8 +6,8 @@ import java.util.UUID;
 
 public class Media {
 	 static   Integer MediaType;//Représente le type du media, 0 => image, 1 => audio, 2 si => vidéo 
-	 static   String MediaSource;
-	 static	  String MediaLocation;// Chemin local
+	 static   String MediaSource;//la source du Media 
+	 static	  String MediaLocation;// Chemin local dans la base de données
 
 	public static Integer getMediaType() {
 		return MediaType;
@@ -44,6 +44,7 @@ public class Media {
         		case "video" :MediaType=2; break;
         	}
 		MediaLocation+=MediaTyp+"\\"+UUID.randomUUID().toString()+MediaSource.substring(MediaSource.length()-4);
+		 //ex: "..\\flachquiz\\media\\audio\\43971bda-851b-4130-b9f2-f496b1962ccc.mp3"
   	 }
 	 public static void InsertMedia()  throws ClassNotFoundException, Exception{
 		  File Source=new File(MediaSource);
