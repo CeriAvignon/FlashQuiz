@@ -28,11 +28,7 @@ public class Media {
 		MediaLocation = mediaLocation;
 	}
 	
-	Media() {
-		Media.MediaType=0;
-		Media.MediaSource=null;
-		Media.MediaLocation="..\\flachquiz\\media\\";
-	}
+	
 	Media( String MediaSource) {
 		Media.MediaType=0;
 		Media.MediaSource=MediaSource;
