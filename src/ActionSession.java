@@ -1,26 +1,26 @@
 public class ActionSession
 {
-  public static void displayInfoSession(int idsession)
+  	public void displayInfoSession(int idsession)
 	{
-		Session A = new Session();
+		session = new Session();
 		getSessionById(idsession, A);
 		/* 
 			@getSessionBYId(int, Session): fonction que doit implémenter BDD (Alexandra) qui renvoie un objet Session (en remplissant A) passé par 
 			reference par l'id passé en argument envoyé par IG 
 		*/
-		System.out.println("\nVoici les informations à propos de la session n° "+ A.getId() +".\n");
-		System.out.println("Nom Session: " + A.getNameSession() + ".\n");
-		System.out.println("ID Auteur:" + A.getAuthor() + " .\n");
-		System.out.println("Date début: " + A.getDebut() + ".\n");
-		System.out.println("Date fin: " + A.getFin() + ".\n");
-		System.out.println("Type: " + A.getType() + ".\n");
+		System.out.println("\nVoici les informations à propos de la session n° "+ session.getId() +".\n");
+		System.out.println("Nom Session: " + session.getName() + ".\n");
+		System.out.println("ID Auteur:" + session.getAuthor() + " .\n");
+		System.out.println("Date début: " + session.getDebut() + ".\n");
+		System.out.println("Date fin: " + session.getFin() + ".\n");
+		System.out.println("Type: " + session.getType() + ".\n");
 		//System.out.println("Mot de passe: " + getPassword() + ".\n");
 	}
 
 
-	public static boolean findSession(String name)
+	public boolean findSession(String name)
 	{
-		int tabid[] = new int[];
+		int tabid[] = new int[0];
 		int id ; 
 		existSessionName(name, tabid); 
 		/*@existSessionName
