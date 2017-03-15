@@ -1,16 +1,16 @@
 
 public class ActionMedia {
 
-		public Media MediaInsert(String MediaSource) throws ClassNotFoundException, Exception{
-		    Media media=new Media(MediaSource);
-			  Media.DefineMediaInfos();
-			  Media.InsertMedia();
-		    return media;
+		public Media mediaupload(String MediaSource) throws ClassNotFoundException, Exception{
+		          Media media=new Media(MediaSource);
+			  Media.defineMediaInfos();
+			  Media.uploadMedia();
+		          return media;
 		}
-		public Media MediaDelete(String MediaLocation) throws ClassNotFoundException, Exception {
+		public Media mediaDelete(String MediaLocation) throws ClassNotFoundException, Exception {
 			  Media media = new Media();
 			  Media.MediaLocation=MediaLocation;
-			  Media.DeleteMedia();
+			  Media.deleteMedia();
 			  return media;
 		}
 	
