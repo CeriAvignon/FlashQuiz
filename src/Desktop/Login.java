@@ -11,8 +11,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
-import Menu.Menu;
-
 import javax.swing.BoxLayout;
 import javax.swing.JOptionPane;
 
