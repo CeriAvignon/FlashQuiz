@@ -88,4 +88,9 @@ public class Selectradio extends AppCompatActivity {
         Button ok =helpDialog.getButton(DialogInterface.BUTTON_POSITIVE);
         ok.setTextColor(Color.BLUE);
     }
+
+    public void modif_questionnaire(View view) {
+
+        startActivity(new Intent(this,Modifquizz.class));
+    }
 }
