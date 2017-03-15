@@ -16,7 +16,20 @@
         android:layout_below="@+id/button11"
         android:layout_alignLeft="@+id/button11"
         android:layout_alignStart="@+id/button11"
-        android:layout_marginTop="21dp" />
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:text="@string/modifier_rep"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/button10"
+        android:onClick="modif_texte"
+        android:layout_marginLeft="22dp"
+        android:layout_marginStart="22dp"
+        android:layout_alignTop="@+id/radioGroup"
+        android:layout_toRightOf="@+id/radioGroup"
+        android:layout_toEndOf="@+id/radioGroup"
+        android:layout_marginTop="15dp"/>
 
     <Button
         android:text="@string/modifier_rep"
@@ -27,7 +40,7 @@
         android:layout_below="@+id/button12"
         android:layout_alignLeft="@+id/button12"
         android:layout_alignStart="@+id/button12"
-        android:layout_marginTop="25dp" />
+        android:layout_marginTop="20dp"/>
 
     <Button
         android:text="@string/modifier_rep"
@@ -35,10 +48,10 @@
         android:layout_height="40dp"
         android:id="@+id/button11"
         android:onClick="modif_texte"
-        android:layout_marginTop="23dp"
+        android:layout_marginTop="20dp"
         android:layout_below="@+id/button10"
         android:layout_alignLeft="@+id/button10"
-        android:layout_alignStart="@+id/button10" />
+        android:layout_alignStart="@+id/button10"/>
 
 
     <TextView
@@ -65,59 +78,43 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
-    <CheckBox
-        android:text="@string/choix_3"
+
+    <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button13"
-        android:layout_alignRight="@+id/checkBox2"
-        android:layout_alignEnd="@+id/checkBox2"
-        android:id="@+id/checkBox3" />
+        android:id="@+id/radioGroup"
+        android:layout_marginLeft="89dp"
+        android:layout_marginStart="89dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
-    <CheckBox
-        android:text="@string/choix_4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button13"
-        android:layout_alignRight="@+id/checkBox3"
-        android:layout_alignEnd="@+id/checkBox3"
-        android:id="@+id/checkBox4" />
+        <CheckBox
+            android:text="@string/choix_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox"
+            android:layout_marginTop="15dp"/>
+        <CheckBox
+            android:text="@string/choix_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox2"
+            android:layout_marginTop="30dp"/>
+        <CheckBox
+            android:text="@string/choix_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox3"
+            android:layout_marginTop="30dp"/>
+        <CheckBox
+            android:text="@string/choix_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkBox4"
+            android:layout_marginTop="30dp"/>
 
-    <CheckBox
-        android:text="@string/choix_2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/checkBox2"
-        android:layout_above="@+id/button12"
-        android:layout_alignLeft="@+id/checkBox"
-        android:layout_alignStart="@+id/checkBox" />
 
-    <Button
-        android:text="@string/modifier_rep"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:id="@+id/button10"
-        android:onClick="modif_texte"
-        android:layout_marginTop="85dp"
-        android:layout_marginLeft="22dp"
-        android:layout_marginRight="60dp"
-        android:layout_marginEnd="60dp"
-        android:layout_below="@+id/textView3"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <CheckBox
-        android:text="@string/choix_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="22dp"
-        android:layout_marginRight="22dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginStart="22dp"
-        android:id="@+id/checkBox"
-        android:layout_above="@+id/button11"
-        android:layout_toLeftOf="@+id/button10"
-        android:layout_toStartOf="@+id/button10" />
-
+    </RadioGroup>
 
 </RelativeLayout>
