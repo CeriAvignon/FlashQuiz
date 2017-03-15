@@ -8,10 +8,6 @@ class Question
 	static String Content;
 	static boolean MediaExist;// True si la question a un Media
 	
-	Question() {
-		Question.type=0;
-		Question.Content=null;
-	}
 	Question(int QuestType, String QuestConten, boolean MediaExist) {
 		Question.type=QuestType;
 		Question.Content=QuestConten;
