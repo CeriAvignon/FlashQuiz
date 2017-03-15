@@ -1,5 +1,4 @@
-
-package model.base.*;
+package model.base;
 
 import java.io.Serializable;
 
@@ -32,14 +31,14 @@ public abstract class ListBase implements Serializable {
 	 * @see ListBase#ListBase(int, String, String)
 	 */
 	public String creator;
-	
+
 	/**
 	 * Constructor
 	 *
 	 * @see ListBase#id
 	 * @see ListBase#name
 	 * @see ListBase#creator
-	 */	
+	 */
 	public ListBase(int id, String name, String creator)
 	{
 		this.id = id;

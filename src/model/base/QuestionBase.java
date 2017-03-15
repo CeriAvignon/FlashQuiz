@@ -1,4 +1,4 @@
-package model.base.*;
+package model.base;
 
 import java.io.Serializable;
 
@@ -38,11 +38,11 @@ public abstract class QuestionBase implements Serializable {
 	 *
 	 */
 	public int type;
-	
+
 	/**
 	 * Constructor
 	 *
-	 * @param id 
+	 * @param id
 	 *			  The id of the question
 	 * @param statement
 	 *            The statement of the question.

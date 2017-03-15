@@ -1,5 +1,4 @@
-
-package model.base.*;
+package model.base;
 
 import java.io.Serializable;
 
@@ -19,7 +18,7 @@ public class Answer implements Serializable {
 	 * @see Answer#Answer(int,String, boolean)
 	 */
 	public int id;
-	
+
 	/**
 	 * The answer.
 	 *
@@ -33,11 +32,11 @@ public class Answer implements Serializable {
 	 * @see Answer#Answer(int,String, boolean)
 	 */
 	public boolean state;
-	
+
 	/**
 	 * Constructor of answer.
 	 *
-	 * @param i 
+	 * @param i
 	 *			  The id of the answer
 	 * @param s
 	 *            The content of the answer.
@@ -47,7 +46,7 @@ public class Answer implements Serializable {
 	 * @see Answer#content
 	 * @see Answer#state
 	 */
-	 
+
 	public Answer(int i, String s, boolean b) {
 		this.id = i;
 		this.content = s;
