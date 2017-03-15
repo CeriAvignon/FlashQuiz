@@ -23,57 +23,61 @@ public class Selectradio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.selectradio);
     }
+    int rep;
+    String reponse;
+    EditText texte;
+    RadioButton choix;
     public void modif_texte(View v)
     {
+
         switch (v.getId())
         {
             case (R.id.button5):
                 changetexte(5);
+                break;
             case (R.id.button6):
                 changetexte(6);
+                break;
             case (R.id.button7):
                 changetexte(7);
+                break;
             case (R.id.button8):
                 changetexte(8);
+                break;
         }
     }
-    EditText texte;
-    int button;
-    RadioButton choix1;
-    RadioButton choix2;
-    RadioButton choix3;
-    RadioButton choix4;
-    public void changetexte(int i) {
-        button = i;
-        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
 
+    public void changetexte(int i) {
+        rep=i;
+        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
-        View modiflayout = inflater.inflate(R.layout.popupmodif, null);
+        final View modiflayout = inflater.inflate(R.layout.popupmodif, null);
         helpBuilder.setView(modiflayout);
-        texte = (EditText) findViewById (R.id.editText4);
-        choix1 = (RadioButton) findViewById(R.id.radioButton4);
-        choix2 = (RadioButton) findViewById(R.id.radioButton5);
-        choix3 = (RadioButton) findViewById(R.id.radioButton6);
-        choix4 = (RadioButton) findViewById(R.id.radioButton7);
+        texte = (EditText)modiflayout.findViewById (R.id.editText4);
         helpBuilder.setPositiveButton("Ok",
                 new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
-                        if(button==5)
+                        reponse=texte.getText().toString().trim();
+                        if (rep==5)
                         {
-                            choix1.setText(texte.getText());
+                            choix = (RadioButton) findViewById(R.id.radioButton4);
+                            choix.setText(reponse);
                         }
-                        if(button==6)
+                        if (rep==6)
                         {
-                            choix2.setText(texte.getText());
+                            choix = (RadioButton) findViewById(R.id.radioButton5);
+                            choix.setText(reponse);
                         }
-                        if(button==7)
+                        if (rep==7)
                         {
-                            choix3.setText(texte.getText());
+                            choix = (RadioButton) findViewById(R.id.radioButton6);
+                            choix.setText(reponse);
                         }
-                        if(button==8)
+                        if (rep==8)
                         {
-                            choix4.setText(texte.getText());
+                            choix = (RadioButton) findViewById(R.id.radioButton7);
+                            choix.setText(reponse);
                         }
                     }
                 });
