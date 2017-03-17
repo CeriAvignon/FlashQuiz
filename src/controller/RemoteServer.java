@@ -14,14 +14,14 @@ import lib.net.*;
 //=============================================================================
 public abstract class RemoteServer
 {
-	private static RemoteServerSocket server;
+	private static RemoteServerSocket socket;
 
 	//---------------------------------------------------------------------------
 	// * Is connected to server
 	//---------------------------------------------------------------------------
 	public static Boolean isConnected()
 	{
-		return (server != null);
+		return (socket != null);
 	}
 
 	//---------------------------------------------------------------------------
@@ -30,7 +30,7 @@ public abstract class RemoteServer
 	//---------------------------------------------------------------------------
 	public static void connect(Integer port)
 	{
-		if(server != null) {
+		if(socket != null) {
 			Console.printError("déjà connecté à un serveur!");
 			return;
 		}
@@ -40,13 +40,13 @@ public abstract class RemoteServer
 		}
 		Console.print("Demandé à rejoindre le serveur sur le port " + port + "...");
 		try {
-			Socket socket = new Socket("localhost", port);
-			server        = new RemoteServerSocket(socket);
-			server.start();
+			Socket simpleSocket = new Socket("localhost", port);
+			socket = new RemoteServerSocket(simpleSocket);
+			socket.start();
 		} catch (IOException e) {
 			// e.getMessage();
 			// e.printStackTrace();
-			Console.print("Impossible de se connecter au serveur");
+			Console.printError("Impossible de se connecter au serveur");
 		}
 	}
 
@@ -56,9 +56,8 @@ public abstract class RemoteServer
 	public static void close()
 	{
 		if(!isConnected()) return;
-		server.close();
-		Console.print("Déconnexion du serveur!");
-		server = null;
+		if(!socket.isClosed()) socket.close();
+		socket = null;
 	}
 
 	//---------------------------------------------------------------------------
@@ -79,47 +78,22 @@ public abstract class RemoteServer
 	public static void sendRequest(String action, Object object)
 	{
 		if(!checkIsConnected()) return;
-		server.sendRequest(action,object);
+		socket.sendRequest(action, object);
 	}
-
-	//---------------------------------------------------------------------------
-	// * Print received
-	//---------------------------------------------------------------------------
-	public static void printReceived(String s)
-	{
-		Console.printAsync(Ansi.GREEN + "Reçu: " + Ansi.RESET + s);
-	}
-
-	//---------------------------------------------------------------------------
-	// * Capitalize
-	// Demande au serveur de renvoyer la chaîne de caractères en majuscules.
-	//---------------------------------------------------------------------------
-	public static void capitalize(String line)
-	{
-		if(!checkIsConnected()) return;
-		server.sendRequest("capitalize", line);
-	}
-
-	//===========================================================================
-	// ▼ Requêtes
-	// --------------------------------------------------------------------------
-	// Traite les requêtes envoyées par le serveur.
-	//===========================================================================
 
 	//---------------------------------------------------------------------------
 	// * Interpreter
 	// Appelle l'action appropriée en fonction du nom de l'action indiquée dans
 	// la requête.
 	//---------------------------------------------------------------------------
-	public static void interpreter(Request request)
+	public static Boolean interpreter(Request request)
 	{
 		String action = request.getAction();
 		Object object = request.getObject();
 
 		switch(action) {
-			case "printReceived":
-				printReceived((String) object);
-				break;
+			default:
+				return SessionVoter.interpreter(action, object);
 		}
 	}
 }

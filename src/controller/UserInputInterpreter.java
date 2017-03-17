@@ -63,10 +63,10 @@ public abstract class UserInputInterpreter
 
 			// Actions sur le serveur
 			case "send-to-all":
-				LocalServer.sendMessageToAll(input.replaceFirst("send-to-all ",""));
+				SessionMaster.sendMessageToAll(input.replaceFirst("send-to-all ",""));
 				break;
 			case "capitalize":
-				RemoteServer.capitalize(input.replaceFirst("capitalize ",""));
+				SessionVoter.capitalize(input.replaceFirst("capitalize ",""));
 				break;
 
 			default:

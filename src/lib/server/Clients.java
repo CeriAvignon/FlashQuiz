@@ -34,13 +34,21 @@ public abstract class Clients
 	}
 
 	//---------------------------------------------------------------------------
+	// * Close client
+	//---------------------------------------------------------------------------
+	public static void close(Integer id)
+	{
+		clients.get(id).close();
+	}
+
+	//---------------------------------------------------------------------------
 	// * Close all clients
 	//---------------------------------------------------------------------------
 	public static void closeAll()
 	{
 		// Console.print("Déconnexion de tous les clients");
-		for(Map.Entry<Integer,ClientHandler> entry : clients.entrySet())
-			entry.getValue().close();
+		for(Integer id : clients.keySet())
+			close(id);
 	}
 
 	//---------------------------------------------------------------------------

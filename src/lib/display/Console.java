@@ -1,5 +1,7 @@
 package lib.display;
 
+import controller.MainController;
+
 //=============================================================================
 // ▼ Console
 // ----------------------------------------------------------------------------
@@ -48,6 +50,6 @@ public abstract class Console
 	{
 		clearPreviousLine();
 		print(message);
-		commandPrompt();
+		if(MainController.running) commandPrompt();
 	}
 }
