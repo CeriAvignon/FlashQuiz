@@ -265,46 +265,4 @@ public class ListHandler
 		}
 
 	}
-	
-	public static void deleteList (int idList)
-{
-	
-	Connection cnx=connecterDB();
-	int idQuestion [];
-	/** 
-	 * 
-	 * Suppression de la liste de question avec la fonction 
-	 * deleteList().
-	 * 
-	 **/
-
-	try{
-		PreparedStatement prepare = cnx.prepareStatement();
-		Statement statement = cnx.createStatement();
-		ResultSet res;
-		
-		query="DELETE * FROM List_Metadata WHERE ID_List=?;";
-		
-		prepare = cnx.prepareStatement(query);
-		prepare.setObject(1,idList);
-		
-		res = prepare.executeQuery();
-		
-		
-		prepare.close();
-		res.close();
-		
-		query="DELETE * FROM List_Content WHERE ID_List=?;";
-		prepare = cnx.prepareStatement(query);
-		prepare.setObject(1,idList);
-		
-		res = prepare.executeQuery();
-	
-	}
-	catch(exception e)
-	{
-		
-	}
-
-}
 }
