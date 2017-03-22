@@ -32,7 +32,6 @@ public class VoterAnswer implements Serializable {
 	 * 			  Id of the answers
 	 */
 	public VoterAnswer(String answer, int[] answersId) {
-		this.questionId = questionId;
 		this.answer = answer;
 		// for(Integer id : voterAnswersId)
 		// tab answers.add(getVoterAnswerById(id)); // récupération BDD
