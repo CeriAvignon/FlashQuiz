@@ -1,7 +1,7 @@
 package controller;
 
-import model.*;
-import model.votingsession.*;
+import model.base.*;
+import model.session.*;
 /**
  * Statistics
  *
