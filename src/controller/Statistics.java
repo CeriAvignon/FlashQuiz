@@ -92,8 +92,8 @@ public abstract class Statistics {
 		int correct = 0;
 
 		for(VoterAnswer voterAnswer : voterAnswers ) {
-			if(question.isVoterAnswerCorrect(voterAnswer))
-					correct++;
+			// if(question.isVoterAnswerCorrect(voterAnswer))
+			// 		correct++;
 		}
 
 		return getPercentage(correct,voterAnswers.size());
