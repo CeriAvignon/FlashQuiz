@@ -1,4 +1,3 @@
-
 package model.session;
 
 import java.io.Serializable;
