@@ -1,23 +1,13 @@
 public class ActionSession
 {
-  	public void displayInfoSession(int idsession)
+  		public Session displayInfoSession(int idsession)
 	{
 		session = new Session();
-		getSessionById(idsession, A);
-		/* 
-			@getSessionBYId(int, Session): fonction que doit implémenter BDD (Alexandra) qui renvoie un objet Session (en remplissant A) passé par 
-			reference par l'id passé en argument envoyé par IG 
-		*/
-		System.out.println("\nVoici les informations à propos de la session n° "+ session.getId() +".\n");
-		System.out.println("Nom Session: " + session.getName() + ".\n");
-		System.out.println("ID Auteur:" + session.getAuthor() + " .\n");
-		System.out.println("Date début: " + session.getDebut() + ".\n");
-		System.out.println("Date fin: " + session.getFin() + ".\n");
-		System.out.println("Type: " + session.getType() + ".\n");
-		//System.out.println("Mot de passe: " + getPassword() + ".\n");
+		session = getSessionById(idsession);
+		return session;
 	}
 
-
+/* gerer ca part des Listes*/
 	public boolean findSession(String name)
 	{
 		int tabid[] = new int[0];
