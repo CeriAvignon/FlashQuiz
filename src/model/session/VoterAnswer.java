@@ -1,4 +1,3 @@
-
 package model.session;
 
 import java.io.Serializable;
@@ -12,13 +11,6 @@ import model.base.*;
  *
  */
 public class VoterAnswer implements Serializable {
-	/**
-	 * The question id that the user answered with this answer
-	 *
-	 * @see Question
-	 */
-	public int questionId;
-
 	/**
 	 * The user answer
 	 *
@@ -36,12 +28,10 @@ public class VoterAnswer implements Serializable {
 	 *
 	 * @param answer
 	 *            An answer
-	 * @param questionId
-	 *            Id of the question
 	 * @param answersId
 	 * 			  Id of the answers
 	 */
-	public VoterAnswer(int questionId, String answer, int[] answersId) {
+	public VoterAnswer(String answer, int[] answersId) {
 		this.questionId = questionId;
 		this.answer = answer;
 		// for(Integer id : voterAnswersId)
