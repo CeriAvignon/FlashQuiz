@@ -2,217 +2,118 @@ import java.util.Date;
 public class Session
 {
   	private int id;
-	/* 
-		variable <int> globale privée:	définit via une requête SQL vers l'id de la session
-										dépend fortement du groupe BDD
-	*/
-	private String name;
-	// Variable <String> privée:		définit via une chaîne de caractères saisie par l'utilisateur*/
-	private int author;
-	/* 
-		Variable <Int> privée:			définit via une requête SQL vers l'id de l'auteur envoyé par le groupe
-										IG, puis récupération de l'information dans la table users.
-	*/
-	private int list[];
-	/* 
-		Variable <Int> privée: 			définit durant une session, ou part la création de session.
-						
-	*/				
-	
-	private Date debut;
-	// Variable <String> privée:		définit par l'utilisateur.
-	private Date fin;
-
+	private int author;	
+	private Date open;
+	private Date close;
+	private boolean type;	
 	private String password;
-	private boolean type;			//obsolete?
-
-
+	private String title;	
+	private int list[];	
 
 	public Session ()		
 	{	
-		
+		this.id=0;
+		this.author=0;
+		this.open.setTime(0);
+		this.close.setTime(0);
+		this.password="";
+		this.type=false;
+		this.title="";
+		this.list=null;
 	}
 
-	/*********************** GETTERS *******************************************/
-	
-/**
-	* idsession attribute getter
-	*
-	* @author LE VEVE Mathieu
-	* @return return idsession attribute value
-	*/
+	public Session (int id,int author,Date open, Date close, String password,boolean type, String title, int list[])		
+	{	
+		this.id=id;
+		this.author=author;
+		this.open=open;
+		this.close=close;
+		this.password=password;
+		this.type=type;
+		this.title=title;
+		for(int i=0;i<list.lenght;i++)
+		{
+			this.list[i]=list[i];
+		}
+	}
+
 	public int getId()
 	{
 		return this.id;
 	}
-	
-/**
-	* session attribute getter
-	*
-	* @author LE VEVE Mathieu
-	* @return return session attribute value
-	*/
-	public String getName()
+
+	public String getTitle()
 	{
-		return this.name;
+		return this.title;
 	}
 	
-/**
-	* idauthor attribute getter
-	*
-	* @author LE VEVE Mathieu
-	* @return return idauthor attribute value
-	*/
 	public int getAuthor()
 	{
 		return this.author;
 	}
 	
-/**
-	* liste vector attribute getter
-	*
-	* @author LE VEVE Mathieu
-	* @return return liste int[] attribute value
-	*/
-	
 	public int[] getList()
 	{
 		return this.list;
-		// Ceci est une liste d'identifiants de listes 
 	}
 
-/**
-	* datedebut attribute getter
-	*
-	* @author LE VEVE Mathieu
-	* @return return datedebut attribute value
-	*/
-	public Date getDebut()
+	public Date getOpen()
 	{
-		return this.debut;
+		return this.open;
 	}
 	
-/**
-	* datefin attribute getter
-	*
-	* @author LE VEVE Mathieu
-	* @return return datefin attribute value
-	*/
-	public Date getFin()
+	public Date getClose()
 	{
-		return this.fin;
+		return this.close;
 	}
-	
-/**
-	* password attribute getter
-	*
-	* @author LE VEVE Mathieu
-	* @return return password attribute value
-	*/
+
 	public String getPassword()
 	{
 		return this.password;
 	}
 
-/**
-	* typesession attribute getter
-	*
-	* @author LE VEVE Mathieu
-	* @return return typesession attribute value
-	*/
-	
 	public boolean getType()
 	{
-		return this.type;//obsolete?
+		return this.type;
 	}
 
-	/*********************** SETTERS *******************************************/
-/**
-	* idsession setting
-	*
-	* @author LE VEVE Mathieu
-	* @param idsession = session with the number idsession  (Int)
-	*/
 	public void setId(int id)
 	{
 		this.id = id;
 	}
 	
-/**
-	* session setting
-	*
-	* @author LE VEVE Mathieu
-	* @param session = name session (String)
-	*/
-	public void setName(String name)
+	public void setTitle(String title)
 	{
-		this.name = name;
+		this.title = title;
 	}
 	
-/**
-	* author setting
-	*
-	* @author LE VEVE Mathieu
-	* @param author = author's session (Int)
-	*/
 	public void setAuthor(int author)
 	{
 		this.author = author;
 	}
-	
-/**
-	* liste setting
-	*
-	* @author LE VEVE Mathieu
-	* @param liste = Vector<Liste> attributed to the session
-	*/
 	
 	public void setList(int list[])
 	{
 		this.list = list;
 	}
 	
-/**
-	* beginningdate setting
-	*
-	* @author LE VEVE Mathieu
-	* @param datedebut = beginning date session
-	*/
-	public void setDebut(String debut)
+	public void setOpen(Date open)
 	{
-		this.debut = debut;
+		this.open = open;
 	}
 	
-/**
-	* closingdate setting
-	*
-	* @author LE VEVE Mathieu
-	* @param datefin = ending date session
-	*/
-	public void setFin(String fin)
+	public void setClose(Date close)
 	{
-		this.fin = fin;
+		this.close = close;
 	}
 
-/**
-	* password setting
-	*
-	* @author LE VEVE Mathieu
-	* @param password = encrypted password 
-	*/
 	public void setPassword(String password)
 	{
 		this.password = password;
 	}
 	
-/**
-	* sessiontype setting
-	*
-	* @author LE VEVE Mathieu
-	* @param typesession = session type
-	*/
 	public void setType(boolean type)
 	{
-		this.type = type;//obsolete?
+		this.type = type;
 	}
 }

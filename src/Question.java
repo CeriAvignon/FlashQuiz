@@ -1,11 +1,18 @@
 class Question
 {
-	private int id; 									// id
-	private String statement; 							// énoncé
-	private int type;									//
+	private int id; 									//
 	private Media media;								
-	private Answer[] answer;							
-
+	private Answer[] answer;	
+	
+  	static int type;
+	static String Content;
+	static boolean MediaExist;// True si la question a un Media
+	
+	Question(int QuestType, String QuestConten, boolean MediaExist) {
+		Question.type=QuestType;
+		Question.Content=QuestConten;
+		Question.MediaExist=MediaExist;
+	}
 	/**
 * getter de l'atribut id
 *
@@ -31,7 +38,7 @@ class Question
 */
 	public int getType()
 	{
-		return this.type;
+		return type;
 	}
 	/**
 * getter de l'atribut media
@@ -74,9 +81,9 @@ class Question
 *
 * @param type = valeur à atribuer à type
 */
-	public void setId(int type)
+	public void setType(int type)
 	{
-		this.type = type;
+		Question.type = type;
 	}	
 
 
@@ -97,6 +104,22 @@ class Question
 	public void setAnswer(Answer answer)
 	{
 		this.answer=answer;
+	}
+	
+	public static String getContent() {
+		return Content;
+	}
+	
+	public static void setContent(String content) {
+		Content = content;
+	}
+	
+	public static boolean isMediaExist() {
+		return MediaExist;
+	}
+	
+	public static void setMediaExist(boolean mediaExist) {
+		MediaExist = mediaExist;
 	}
 
 }
