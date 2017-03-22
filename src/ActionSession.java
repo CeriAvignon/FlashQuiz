@@ -1,59 +1,43 @@
 //import connexionjm.ConnexionJM;
 //import session.Session;
-import java.util.Date;
 //package Session
 
 
 public class ActionSession
 {
-	private Session session;
-
-/**
-* Send a session at RES-BDD
-*
-* @author Mathieu Le Veve
-* @param no param
-*/
-	/*public static void submitSession()
+	public Session displayInfoSession(int idsession)
 	{
-		sendSession(session);
-		// Alexandra Moshina's function
-	}*/
-
-	public void createSession()
-	{
-		session = new Session();	
+		session = new Session();
+		session = getSessionById(idsession);
+		return session;
 	}
 
-	
-	public void modifyName(String newname)
+/* gerer ca part des Listes*/
+	public boolean findSession(String name)
 	{
-		session.setName(newname);
-	}
+		int tabid[] = new int[0];
+		int id ; 
+		existSessionName(name, tabid); 
+		/*@existSessionName
+			existSessionName: fonction que doit implémenter BDD (ALexandra) qui interroge l'existence d'une session de nom name, qui remplit un 			tableau d'id s'il en existent, ou qui ne remplit rien s'il n'en existe pas !! */
 
-	public void modifyStartingDate(Date newdate)
-	{
-		session.setDebut(newdate);
-	}
+		if (tabid.length == 0)
+		// SI aucun element dans le tableau c'est que rien n'a été rempli
+		{
+			System.out.println("La session " + name + " n'existe pas.");
+			return false;
+		}
 
-	public void modifyEndingDate(Date newdate)
-	{
-		session.setFin(newdate);
-	}
- 
-	public void modifylist(int[] newlist)
-	{
-		session.setList(newlist);
-	}
-
-	public void modifyPassword(String newpassword)
-	{
-		session.setPassword(newpassword);
-	}
-	public void modifyType(boolean type)
-	{
-		session.setType(type);		
-		// on peut imaginer que le type de la session sera envoyé par IG lors d'un clique sur une case : "souhaitez vous une session libre/fermée"
+		else {
+		// SInon on parcourt le tableau remplit pour en afficher les infos (que gereront IG)
+			for (int i = 0; i < tabid.length; i++)
+			{
+				id = tabid[i];
+				displayInfoSession(id);
+			}
+			return true;
+		}
+		
 	}
 		
 }
