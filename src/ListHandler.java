@@ -1,5 +1,5 @@
-import ConnexionJM.java;
-import Liste.java;
+import Connexion.java;
+import List.java;
 import java.sql.*;
 import java.util.Vector;
 
@@ -19,11 +19,6 @@ import java.util.Vector;
  	*  Liste_Metadata et retourner un objet Liste, le groupe &eacute;dition de 
  	*  liste pourra alors afficher la liste d&eacute;sir&eacute;e via l'interface 
  	*  graphique du groupe du m&ecircme nom.
-	*
-	* @version 1.5
-	*
-	* Ajout de la m&eacute;thode getList(int idList) qui sert &acute; r&eacute;cup&eacute;rer les informations d'une liste 
-	* dans la base de donn&eacute;es et la renvoie sous la forme d'un objet List.
  	* 
  	**/
 
@@ -36,7 +31,7 @@ public class ListHandler
 	 * 				Une liste de questions.
 	 * 
 	 **/ 
-	public void sendList(List list)
+	public static void sendList(List list)
 	{
 		int idQuestion[];
 		Connection cnx=connecterDB();
@@ -147,7 +142,7 @@ public class ListHandler
 			prepare = cnx.prepareStatement(query);
 			prepare.setObject(1,idList);
 
-				for(int i = 0; i< idQuestion.size(); i++)
+				for(int i = 0; i< idQuestion.length; i++)
 				{
 					prepare.setObject(2,idQuestion);
 					prepare.executeUpdate();
@@ -176,7 +171,10 @@ public class ListHandler
 		}
 	}
 	
-	public List getList (int idList) throws SQLException
+
+
+	
+	public static List getList (int idList)
 	{
 		
 		Connection cnx=connecterDB();
@@ -193,76 +191,34 @@ public class ListHandler
 			Statement statement = cnx.createStatement();
 			ResultSet res;
 			
-			/** 
-			 * Cr&eacute;ation de la requ&ecirc;te. 
-			 **/
+			String query="SELECT * FROM List_Metadata WHERE ID_List=?;";
 			
-			query="SELECT * FROM List_Metadata WHERE ID_List=?;";
-			/** 
-			 * Acc&egrave;es &agrave; la liste gr&acirc;ce à l'id donn&eacute; en argument. 
-			 **/
 			prepare = cnx.prepareStatement(query);
 			prepare.setObject(1,idList);
 			
-			/** 
-			 * R&eacute;cup&eacute;ration des informations de la liste contenues dans la table List_Metadata. 
-			 **/
-			
 			res = prepare.executeQuery();
-			
-			/**
-			 *Cr&eacute;ation de l'objet List qui contient les informations de la liste. 
-			 **/
 			
 			List list = new List(res.getInt("Id_List"),res.getInt("ID_User"),res.getInt("Title"));
 			
 			prepare.close();
-			
-			/** 
-			 * Fin de la requ&ecirc;te. 
-			 **/
-			
 			res.close();
 			
 			query="SELECT ID_Question FROM List_Content WHERE ID_List=?;";
 			prepare = cnx.prepareStatement(query);
-			
-			/** 
-			 * Ici, on va chercher les id des questions appartenant &acute; la liste. 
-			 **/
-			
 			prepare.setObject(1,idList);
 			
 			res = prepare.executeQuery();
-			
-			/**
-			 * Ici, le r&eacute;sultat de la requ&ecirc;te est un tableau d'id, on peut donc l'affecter &acute; 
-			 * un tableau d'entiers. 
-			 **/
-			
 			idQuestion = res;
-			
-			/** 
-			 * Ajout d'un tableau d'id de question &acute; l'objet List.
-			 **/
-			
 			list.setQuestion(idQuestion);
 			
-			/** 
-			 * On renvoie l'objet List. 
-			 **/
-			
 			return list;
-			
 		}
-		
-		/**
-		 * En cas d'&eacute;chec de la requ&ecric;te. 
-		 **/
-		catch(SQLException e)
+		catch(exception e)
 		{
-			e.printStackTrace();
+			
 		}
 
 	}
+	
+	
 }
