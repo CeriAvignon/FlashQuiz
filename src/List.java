@@ -9,12 +9,12 @@ class List
 * constructeur vide de liste 
 *
 */
-	public Question()
+	public List()
 	{
 		this.id=0;
 		this.name="";
 		this.author=0;
-		this.question=NULL;
+		this.question=null;
 	}
 
 /**
@@ -25,7 +25,7 @@ class List
 * @param author = valeur à atribuer à author
 * @param listquestion = tableau de valeaur
 */
-	public Question(int id,String name,int author,int question[])
+	public List(int id,String name,int author,int question[])
 	{
 		this.id=id;
 		this.namelist=name;
@@ -45,6 +45,7 @@ class List
 	{
 		return this.id;
 	}
+
 /**
 * getter de l'atribut name
 *
@@ -54,6 +55,7 @@ class List
 	{
 		return this.name;
 	}
+
 /**
 * getter de l'atribut author
 *
@@ -62,7 +64,8 @@ class List
 	public int getAuthor()
 	{
 	return this.author;
-	}	
+	}
+
 /**
 * getter de l'atribut question
 *
@@ -72,6 +75,7 @@ class List
 	{
 		return this.question;
 	}
+
 /**
 * setter de l'atribut id
 *
@@ -81,6 +85,7 @@ class List
 	{
 		this.id = id;
 	}
+
 /**
 * setter de l'atribut name
 *
@@ -90,6 +95,7 @@ class List
 	{
 		this.name= name;
 	}	
+
 /**
 * setter de l'atribut author
 *
@@ -99,6 +105,7 @@ class List
 	{
 		this.author = author;
 	}	
+	
 /**
 * setter de l'atribut list
 *
@@ -107,10 +114,10 @@ class List
 	public void setQuestion(int question [])
 	{
 		int i=0;
-		while(question[i]!=NULL)
+		while(question[i]!=null)
 		{
 			this.question[i] = question[i];
-			i++
+			i++;
 		}
 	}
 }

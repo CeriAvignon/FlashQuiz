@@ -1,13 +1,12 @@
 
-class ActionList
+public class ActionList
 {
 
 	List temp;
 /**
-* Fonction de modification globale
+* Fonction de modification globale, elle envoie l'objet a la bdd
 *
 * @author BrunoDemogue
-* @param idl= id de la liste a modifier
 */
 	public static void submitList()      						
 	{         	
@@ -63,7 +62,7 @@ class ActionList
 	public static boolean modifListAddQuestion(int idq)
 	{
 		int i;
-		while(temp.question[i]!=NULL)
+		while(temp.question[i]!=null)
 		{
 			i++;
 			if(temp.question[i]==idq)
@@ -87,7 +86,7 @@ class ActionList
 		
 		int i;
 		int j;
-		while(temp.question[i]!=NULL)
+		while(temp.question[i]!=null)
 		{
 			if(temp.question[i]=idq)
 			{
@@ -95,9 +94,11 @@ class ActionList
 			}
 		}
 		temp.listquestion[j]=temp.listquestion[i-1];
-		temp.listquestion[i-1]=NULL;
+		temp.listquestion[i-1]=null;
 	}
 
+
+	
 	/**
 * Fonction de supression de question d'une liste 
 *
@@ -106,6 +107,7 @@ class ActionList
 */
 
 public static void Supressionliste(idl)
+
 	{
 		SupressionSessionList(idl);			// fonction bdd qui reçoie un  id de liste et supprime le lien entre les Session et cette liste
 		SupressionQuestionList(idl);		// fonction bdd qui reçoie un  id de liste et supprime le lien entre les question et cette liste
