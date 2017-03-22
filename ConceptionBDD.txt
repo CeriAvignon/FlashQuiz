@@ -1,0 +1,17 @@
+{Pour avoir le detail precis de la modelisation regarder le fichier ModelisationBDD.txt}
+
+CREATE TABLE Utilisateurs(ID_Utilisateur SERIAL, Nom VARCHAR(32), Prenom VARCHAR(32), password VARCHAR(32), rank INT);
+
+CREATE TABLE Sessions(ID_Session SERIAL, ID_Liste INT, Date_Ouverture DATE, Date_Fermeture DATE, Type_Session BOOL, Titre_Session VARCHAR(48));
+
+CREATE TABLE Liste_Metadata(ID_Liste SERIAL, ID_Utilisateur INT, Titre_Liste VARCHAR(32));
+
+CREATE TABLE Liste_Contenu(ID_Liste SERIAL, ID_Question INT);
+
+CREATE TABLE Question(Question_ID SERIAL, Type_Question INT, Contenu_Question TEXT, ID_Media INT);
+
+CREATE TABLE Scores(ID_Session INT, ID_Utilisateur INT, Score INT);
+
+CREATE TABLE Reponses(ID_Reponse SERIAL, ID_Question INT, Contenu_rep TEXT, Correcte BOOL);
+
+CREATE TABLE Media(ID_Media SERIAL, Type INT, Contenu_media TEXT);
