@@ -59,9 +59,8 @@ public void sendSession(Session s) throws SQLException
 				if (l.getIdListe() != -1)  
 				{
 					// Ajouter dans Session_Content
-					query = "INSERT INTO Session_Content (ID_Session,ID_Liste) values (?,?));";
+					query = "INSERT INTO Session_Content (ID_Liste) values (?));";
 					prepare =  cnx.prepareStatement(query);
-					prepare.setObject(1,s.getId());
 					prepare.setObject(2,s.getIdListe());
 					prepare.executeUpdate();
 					prepare.close();
@@ -101,9 +100,8 @@ public void sendSession(Session s) throws SQLException
 				if (l.getIdListe() != -1)  
 				{
 					// Ajouter dans Session_Content
-					query = "INSERT INTO Session_Content (ID_Session,ID_Liste) values (?,?));";
+					query = "INSERT INTO Session_Content (ID_Liste) values (?));";
 					prepare = cnx.prepareStatement(query);
-					prepare.setObject(1,s.getId());
 					prepare.setObject(2,l.getIdListe());
 					prepare.executeUpdate();
 					prepare.close();
@@ -123,5 +121,4 @@ public void sendSession(Session s) throws SQLException
 			connecterDB.close();
 		}
 
-	}
 }
