@@ -1,7 +1,7 @@
 
 package model.session;
 
-import java.util.List;
+import java.util.*;
 import java.io.Serializable;
 import model.base.*;
 
@@ -21,7 +21,7 @@ public class QuestionList extends ListBase implements Serializable {
 	 * @see Question
 	 * @see ListBase#ListBase(int,String, String)
 	 */
-	public List<Question> questions;
+	public Map<Integer, Question> questions;
 
 	/**
 	 * The List constructor.
@@ -37,24 +37,11 @@ public class QuestionList extends ListBase implements Serializable {
 	 *
 	 * @see List#questions
 	 */
-	public QuestionList(int id, String name, String creatorName, int[]
-			 questionsId) {
+	public QuestionList(int id, String name, String creatorName, int[] questionsId) {
 		super(id, name, creatorName);
 		// for(Integer question : questionsId)
 			// questions.add(getQuestion(question)); // QuestionHandler 
 
 	}
 
-	/**
-	 * Add a question to the list. Return the new question index inside the list
-	 * (normally the size of the questions vector).
-	 *
-	 * @return The question index inside the list.
-	 *
-	 * @see List#questions
-	 */
-	public int addQuestion(Question question) {
-		questions.add(question);
-		return questions.size();
-	}
 }
