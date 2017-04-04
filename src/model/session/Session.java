@@ -1,8 +1,6 @@
 package model.session;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Date;
+import java.util.*;
 import java.io.Serializable;
 import model.base.*;
 
@@ -11,20 +9,20 @@ import model.base.*;
  *
  * @author Adrien Sartori
  */
- 
+
 public class Session extends SessionBase implements Serializable {
 	/**
 	 * A list that contain all the questions series (lists)
 	 *
 	 */
 	public List<QuestionList> lists;
-	
+
 	/**
 	 * Constructor
 	 *
 	 * @param id
 	 *			  The id of the session
-	* @param name
+	 * @param name
 	 *            The name of the session.
 	 * @param creatorName
 	 *            The name of the creator.
@@ -45,11 +43,41 @@ public class Session extends SessionBase implements Serializable {
 	 * @see SessionBase#isQuestionRandom
 	 * @see Session#lists
 	 */
-	public Session(int id, String name, String creatorName, String password, Date date, boolean rand, int[] listsId)
-	{
+	public Session(int id, String name, String creatorName, String password, Date date, boolean rand, int[] listsId) {
 		super(id, name, creatorName, password, date, rand);
 		// for(Integer list : listsId)
-			// this.list.add(getList(list)); // ListHandler
+		// this.list.add(getList(list)); // ListHandler
+	}
+
+	/**
+	 * Constructor
+	 *
+	 * @param id
+	 *			  The id of the session
+	 * @param name
+	 *            The name of the session.
+	 * @param creatorName
+	 *            The name of the creator.
+	 * @param password
+	 *			  The password of the session.
+	 * @param date
+	 * 			  The starting date of the session.
+	 *
+	 * @param rand
+	 * 			  True if the order of the question is random, else false.
+	 * @param lists
+	 * 			  A list that contain all the questions of the lists
+	 * @see SessionBase#id
+	 * @see SessionBase#name
+	 * @see SessionBase#creatorName
+	 * @see SessionBase#password
+	 * @see SessionBase#startingDate
+	 * @see SessionBase#isQuestionRandom
+	 * @see Session#lists
+	 */
+	public Session(int id, String name, String creatorName, String password, Date date, boolean rand, List<QuestionList> lists) {
+		super(id, name, creatorName, password, date, rand);
+		this.lists = lists;
 	}
 	
 	public void addList(List l) {

@@ -1,5 +1,6 @@
 package model.session;
 
+import java.util.*;
 import java.io.Serializable;
 import model.base.*;
 
@@ -12,27 +13,40 @@ import model.base.*;
  */
 public class VoterAnswer implements Serializable {
 	/**
-	 * The user answer
+	 * The user content
 	 *
 	 */
-	public String answer;
+	public String content;
 
 	/**
 	 * A list that contain the answers
 	 *
 	 */
-	public java.util.List<Integer> answers;
+	public List<Integer> answersId;
 
 	/**
 	 * Constructor of the class VoterAnswer
 	 *
-	 * @param answer
+	 * @param content
 	 *            An answer
 	 * @param answersId
-	 * 			  Id of the answers
+	 * 	      Id of the answers
 	 */
-	public VoterAnswer(String answer, int[] answersId) {
-		this.answer = answer;
+	public VoterAnswer(String content, List<Integer> answersId) {
+		this.content = content;
+		this.answersId = answersId;
+	}
+
+	/**
+	 * Constructor of the class VoterAnswer
+	 *
+	 * @param content
+	 *            An answer
+	 * @param answersId
+	 * 	      Id of the answers
+	 */
+	public VoterAnswer(String content, int[] answersId) {
+		this.content = content;
 		// for(Integer id : voterAnswersId)
 		// tab answers.add(getVoterAnswerById(id)); // récupération BDD
 	}
