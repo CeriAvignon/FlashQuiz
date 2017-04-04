@@ -30,7 +30,20 @@ public class VoterAnswer implements Serializable {
 	 * @param content
 	 *            An answer
 	 * @param answersId
-	 * 			  Id of the answers
+	 * 	      Id of the answers
+	 */
+	public VoterAnswer(String content, List<Integer> answersId) {
+		this.content = content;
+		this.answersId = answersId;
+	}
+
+	/**
+	 * Constructor of the class VoterAnswer
+	 *
+	 * @param content
+	 *            An answer
+	 * @param answersId
+	 * 	      Id of the answers
 	 */
 	public VoterAnswer(String content, int[] answersId) {
 		this.content = content;

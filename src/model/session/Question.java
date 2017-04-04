@@ -1,8 +1,8 @@
-
 package model.session;
 
 import java.io.Serializable;
 import model.base.*;
+import java.util.*;
 
 /**
  * A question contain a statement, one or more answers to this statement, a type
@@ -19,7 +19,7 @@ public class Question extends QuestionBase implements Serializable {
 	 *
 	 * @see Answer
 	 */
-	public java.util.List<Answer> answers;
+	public List<Answer> answers;
 	
 	/**
 	 * Question constructor
@@ -28,8 +28,8 @@ public class Question extends QuestionBase implements Serializable {
 	 *            An int that contain the question id
 	 * @param statement
 	 *            A string that contain the question statement
-	 * @param answersId
-	 *            A list that contain the answers id
+	 * @param answers
+	 *            A table that contain the answers id
 	 * @param type
 	 *            A string that contain the question type (Free,Radio,Checkbox)
 	 * @param allocatedTime
@@ -44,7 +44,33 @@ public class Question extends QuestionBase implements Serializable {
 	public Question(int id, String statement, int type, int allocatedTime, int[] answersId) {
 		super(id, statement, type, allocatedTime);
 		// for(Integer answer : answersId)
-			// this.answers.add(getAnswer(answer)); // AnswerHandler 
+		// this.answers.add(getAnswer(answer));
+		// AnswerHandler 
+	}
+
+	/**
+	 * Question constructor
+	 *
+	 * @param id
+	 *            An int that contain the question id
+	 * @param statement
+	 *            A string that contain the question statement
+	 * @param answers
+	 *            A list that contain the answers
+	 * @param type
+	 *            A string that contain the question type (Free,Radio,Checkbox)
+	 * @param allocatedTime
+	 *			  Time allocated to the question
+	 *
+	 * @see QuestionBase#id
+	 * @see QuestionBase#statement
+	 * @see Question#answersId
+	 * @see QuestionBase#type
+	 * @see QuestionBase#allocatedTime
+	 */
+	public Question(int id, String statement, int type, int allocatedTime, List<Answer> answers) {
+		super(id, statement, type, allocatedTime);
+		this.answers = answers;
 	}
 
 	/**
