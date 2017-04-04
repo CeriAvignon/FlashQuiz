@@ -1,5 +1,7 @@
 package controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Map;
 
@@ -58,7 +60,7 @@ public abstract class SessionVoter {
 	/**
 	 * A timer used when a question have a time limit.
 	 */
-	private Timer timer;
+	private static Timer timer;
 
 	/**
 	 * The command interpreter, execute an action on an object. Mostly used when
@@ -93,7 +95,7 @@ public abstract class SessionVoter {
 				return false;
 			}
 			break;
-		case "startQuestion":
+		case "startNextQuestion":
 			if (object instanceof List<?>) {
 				for (Object tmp : (List<?>) object) {
 					if (!(tmp instanceof Integer)) {
@@ -102,8 +104,8 @@ public abstract class SessionVoter {
 				}
 				List<Integer> id = (List<Integer>) object;
 				if (id.size() == 2) {
-					currListId = id.get(0);
-					currQuestionId = id.get(1);
+					SessionVoter.currListId = id.get(0);
+					SessionVoter.currQuestionId = id.get(1);
 					startQuestion(currListId, currQuestionId);
 				} else {
 					return false;
@@ -113,6 +115,8 @@ public abstract class SessionVoter {
 				return false;
 			}
 
+			break;
+		case "forceEndQuestion":
 			break;
 		default:
 			return false;
@@ -175,10 +179,15 @@ public abstract class SessionVoter {
 	 *            The id of the question in the list
 	 */
 	public static void startQuestion(Integer listId, Integer questionId) {
-		// getList(listId); (BDD) %TODO%
-		// getQuestion(questionId); (BDD) %TODO%
+		// currList = getList(listId); (BDD) %TODO%
+		// currQuestion = getQuestion(questionId); (BDD) %TODO%
+		Question currQuestion = new Question(questionId, null, 0, 0, null);
 
-		// display_question_view(); (IG) %TODO%
+		if (currQuestion.allocatedTime != 0) {
+			setAllocatedTime(currQuestion.allocatedTime);
+		}
+
+		// display_question_view(Question); (IG) %TODO%
 
 	}
 
@@ -209,5 +218,30 @@ public abstract class SessionVoter {
 	 */
 	public static void endSession() {
 		// %TODO%
+	}
+
+	/**
+	 * Set a timer. End the question when delay is finished. (Adapted from the
+	 * deprecated class QuestionManagement)
+	 * 
+	 * @param timeLeft
+	 *            The left time you want to set
+	 * 
+	 * @see QuestionManagement#setAllocatedTime(int)
+	 */
+	public static void setAllocatedTime(int timeLeft) {
+
+		// convert in milliseconds
+		int delay = timeLeft * 1000;
+
+		ActionListener timeOutListener = new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				endQuestion();
+			}
+		};
+
+		SessionVoter.timer = new Timer(delay, timeOutListener);
+		SessionVoter.timer.setRepeats(false); // happen once
+		SessionVoter.timer.start();
 	}
 }
