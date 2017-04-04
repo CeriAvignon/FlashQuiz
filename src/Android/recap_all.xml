@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:textSize="16sp"
+        android:id="@+id/Titre"
+        android:layout_weight="1"
+        android:text="Quiz terminé!!"
+        android:gravity="center"
+
+        />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:weightSum="1"
+        android:layout_height="200dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="172dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.47">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="text"
+                android:text="Nombre de participant:"
+                android:ems="10"
+                android:textSize="10sp"
+                android:id="@+id/Nb_participant"
+                android:layout_weight="0.23" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="textPersonName"
+                android:text="Duré du quiz:"
+                android:ems="10"
+                android:textSize="10sp"
+                android:id="@+id/dure_quiz"
+                android:layout_weight="0.23" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="text"
+                android:text="% de Bonne reponse sur ce quiz:"
+                android:ems="10"
+                android:textSize="10sp"
+                android:id="@+id/Total_BR"
+                android:layout_weight="0.19"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="text"
+                android:text="%  de mauvaise reponse:"
+                android:ems="10"
+                android:textSize="10sp"
+                android:id="@+id/Total_MR"
+                android:layout_weight="0.14" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="219dp"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:textSize="10sp"
+                android:id="@+id/nb_ptp"
+                android:layout_weight="0.78"
+                android:text="36" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="textPersonName"
+                android:text="30 mn"
+                android:ems="10"
+                android:textSize="10sp"
+                android:id="@+id/nb_duree"
+                android:layout_weight="0.73" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:inputType="number"
+                android:ems="10"
+                android:textSize="10sp"
+                android:id="@+id/%BR"
+                android:text="31.2%"
+                android:layout_weight="0.26" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:textSize="10sp"
+                android:id="@+id/%MR"
+                android:text="68.8%"
+                android:layout_height="50dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Vos résultats:"
+        android:ems="10"
+        android:textSize="16sp"
+        android:id="@+id/Resultat"
+        android:layout_weight="42.67" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Total sur ce quiz:"
+        android:ems="10"
+        android:textSize="10sp"
+        android:id="@+id/#T"
+        android:layout_weight="19.79" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="112dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="Bonne réponse"
+                android:ems="10"
+                android:textSize="10sp"
+                android:id="@+id/editText13" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="58.4%"
+                android:ems="10"
+                android:textSize="10sp"
+                android:id="@+id/editText14" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="Mauvaise réponse"
+                android:ems="10"
+                android:textSize="10sp"
+                android:id="@+id/editText16" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="41.6%"
+                android:ems="10"
+                android:textSize="10sp"
+                android:id="@+id/editText15" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Bonne continuation"
+        android:ems="10"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:id="@+id/#Fin"
+        android:layout_weight="1" />
+
+</LinearLayout>
