@@ -10,8 +10,8 @@ public class ConnexionJav
 {
    public static void Connexion(String s) //prend une string en argument qui se trouve être la commande à exécuter,:void:
    {
-       Connection c = null;
-       Statement stmt = null;
+       Connection c = null;//connection object
+       Statement stmt = null;//statement object (handle query)
        try {
        Class.forName("org.postgresql.Driver");//call jdbc dll
          c = DriverManager.getConnection("jdbc:postgresql://pedago.univ-avignon.fr/flashquiz", "flashquiz", "FiBZJ2DA");//logs
@@ -34,6 +34,7 @@ public class ConnexionJav
      {
         /*
          Basic main to execute the connexion function
+         get a user input as string
         */
         String str;
         str="";
