@@ -1,5 +1,5 @@
-import ConnexionJM.java;
-import Liste.java;
+import list.List;
+import connexion.Connexion;
 import java.sql.*;
 import java.util.Vector;
 
@@ -19,11 +19,6 @@ import java.util.Vector;
  	*  Liste_Metadata et retourner un objet Liste, le groupe &eacute;dition de 
  	*  liste pourra alors afficher la liste d&eacute;sir&eacute;e via l'interface 
  	*  graphique du groupe du m&ecircme nom.
-	*
-	* @version 1.5
-	*
-	* Ajout de la m&eacute;thode getList(int idList) qui sert &acute; r&eacute;cup&eacute;rer les informations d'une liste 
-	* dans la base de donn&eacute;es et la renvoie sous la forme d'un objet List.
  	* 
  	**/
 
@@ -36,10 +31,10 @@ public class ListHandler
 	 * 				Une liste de questions.
 	 * 
 	 **/ 
-	public void sendList(List list)
+	public static void sendList(List list)
 	{
 		int idQuestion[];
-		Connection cnx=connecterDB();
+		Connection cnx=;
 
 		/** 
 		 * 
@@ -60,8 +55,8 @@ public class ListHandler
 		 * */
 
 		String query="";
-		PreparedStatement prepare = cnx.prepareStatement();
-		Statement statement = connexion.createStatement();
+		PreparedStatement prepare = cnx.prepareStatement(query);
+		Statement statement = cnx.createStatement();
 		ResultSet res;
 
 		/**
@@ -147,7 +142,7 @@ public class ListHandler
 			prepare = cnx.prepareStatement(query);
 			prepare.setObject(1,idList);
 
-				for(int i = 0; i< idQuestion.size(); i++)
+				for(int i = 0; i< idQuestion.length; i++)
 				{
 					prepare.setObject(2,idQuestion);
 					prepare.executeUpdate();
