@@ -1,4 +1,5 @@
-package Login;
+package Desktop;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -114,13 +115,13 @@ public class Login extends JFrame
 		m_panPos.add(m_panLog);
 		m_panPos.add(m_panBut);
 		
-		//Test de couleur des panels
+		/*Test de couleur des panels
 		//m_panHead.setBackground(Color.ORANGE);
 		//m_panLabel.setBackground(Color.RED);
 		//m_panText.setBackground(Color.BLUE);
 		//m_panLog.setBackground(Color.PINK);
 		//m_panBut.setBackground(Color.GREEN);
-		//m_panPos.setBackground(Color.YELLOW);
+		m_panPos.setBackground(Color.YELLOW);*/
 				
 		this.getContentPane().add(m_panPos);
 	
