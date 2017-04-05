@@ -3,34 +3,38 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Scanner;
-
+/*
+   @author Amaury Huot
+*/
 public class ConnexionJav 
 {
-   public static void Connexion(String s) //prend une string en argument qui se trouve être la commande
+   public static void Connexion(String s) //prend une string en argument qui se trouve être la commande à exécuter,:void:
    {
        Connection c = null;
        Statement stmt = null;
        try {
-       Class.forName("org.postgresql.Driver");
-         c = DriverManager.getConnection("jdbc:postgresql://pedago.univ-avignon.fr/flashquiz", "flashquiz", "FiBZJ2DA");
+       Class.forName("org.postgresql.Driver");//call jdbc dll
+         c = DriverManager.getConnection("jdbc:postgresql://pedago.univ-avignon.fr/flashquiz", "flashquiz", "FiBZJ2DA");//logs
          c.setAutoCommit(false);
-         System.out.println("Opened database successfully");
+         System.out.println("Opened database successfully");//check message
 
          stmt = c.createStatement();
          ResultSet rs = stmt.executeQuery(s);
  
-         rs.close();
-         stmt.close();
-         c.close();
-       } catch ( Exception e ) {
+         rs.close(); //once the query is executed , close
+         stmt.close();//statement erase
+         c.close();//close connection
+       } catch ( Exception e ) { //gestion erreur
          System.err.println( e.getClass().getName()+": "+ e.getMessage() );
-         System.exit(0);
+         System.exit(0);//rage quit
        }
-       System.out.println("Operation done successfully");
+       System.out.println("Operation done successfully");//if the operation went right display this message 
    }
    public static void main(String args[])
      {
-         
+        /*
+         Basic main to execute the connexion function
+        */
         String str;
         str="";
         Scanner sc = new Scanner(System.in);
