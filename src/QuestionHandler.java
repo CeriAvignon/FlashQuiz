@@ -13,6 +13,8 @@ import java.sql.*;
 	*  La fonction sendQuestion(Question question) permet de cr&eacute;er une 
 	*  questions ou de modifier une question existante. 
 	*  La fonction getQuestion(int id_question) permet de r&eacute;cup&eacute;rer un objet question dans la base de donn&eacute;es
+	*  La fonction deleteQuestion (int idQuestion) permet de supprimer une question
+	*  La fonction getAllIDQuestion() petmer de r&eacute;cup&eacute;rer la liste des questions
 	**/
 
 public class QuestionHandler {
