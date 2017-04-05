@@ -15,7 +15,7 @@ public class ConnexionJav
        try {
        Class.forName("org.postgresql.Driver");//call jdbc dll
          c = DriverManager.getConnection("jdbc:postgresql://pedago.univ-avignon.fr/flashquiz", "flashquiz", "FiBZJ2DA");//logs
-         c.setAutoCommit(false);
+         c.setAutoCommit(false);//technical reason(we don't need any rollback)
          System.out.println("Opened database successfully");//check message
 
          stmt = c.createStatement();
