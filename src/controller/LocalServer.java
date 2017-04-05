@@ -70,7 +70,7 @@ public abstract class LocalServer
 	//---------------------------------------------------------------------------
 	// * Send request to client
 	//---------------------------------------------------------------------------
-	public void sendRequest(ClientHandler client, String action, Object object)
+	public static void sendRequest(ClientHandler client, String action, Object object)
 	{
 		if(!checkIsOpened()) return;
 		client.sendRequest(action, object);
@@ -79,7 +79,7 @@ public abstract class LocalServer
 	//---------------------------------------------------------------------------
 	// * Send request to all clients
 	//---------------------------------------------------------------------------
-	public void sendRequestToAll(String action, Object object)
+	public static void sendRequestToAll(String action, Object object)
 	{
 		if(!checkIsOpened()) return;
 		Clients.sendRequestToAll(action, object);
@@ -100,4 +100,13 @@ public abstract class LocalServer
 				return SessionMaster.interpreter(client, action, object);
 		}
 	}
+
+	
+	//---------------------------------------------------------------------------
+    // * Stop listening
+    //---------------------------------------------------------------------------
+    public static void stopListening()
+    {
+        server.stopListening();
+    }
 }
