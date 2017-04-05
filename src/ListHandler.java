@@ -33,7 +33,7 @@ public class ListHandler
 	 **/ 
 	public static void sendList(List list)
 	{
-		int idQuestion[];
+		int idQuestion[] = new int[1000];
 		Connection cnx=;
 
 		/** 
