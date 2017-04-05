@@ -181,8 +181,7 @@ public class QuestionHandler {
 	
 	/** 
 	 * 
-	 * R&eacute;cup&eacute;ration de la liste de question avec la fonction 
-	 * getIdList().
+	 * Suppression d'une question par son id pass&eacute; en argument
 	 * 
 	 **/
 
@@ -225,9 +224,16 @@ public class QuestionHandler {
 }
 public static int[] getAllIDQuestion ()
 {
+	
+	/**
+	*
+	* R&eacute;cup&eacute;ration de la liste des questions 
+	* 
+	*
+	**/
 	Connection cnx=connecterDB();
 	
-	int[] listIdQuestion=new int [1000];
+	int[] listIdQuestion=new int [10000];
 	int compteur=0;
 	try{
 		
