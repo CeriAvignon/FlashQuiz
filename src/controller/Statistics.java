@@ -113,10 +113,10 @@ public abstract class Statistics {
 
 /*
 	DDD	IIIII
-	D DD     I	   
-	D  D     I        
-	D DD	  I        
-	DDD    IIIII     
+	D DD     I
+	D  D     I
+	D DD	  I
+	DDD    IIIII
 */
 
 
@@ -132,13 +132,14 @@ public abstract class Statistics {
 	 */
 	public static void displayQuestionStat(Question question, VoterAnswerList voterAnswerList)
 	{
-		if(question.type == 1 || question.type == 2)
+		if(question.type == 1 || question.type == 2) // enum
 		{
 			
 			double percents[] = getPercentageChoices(question, voterAnswerList);
 			// Afficher la vu correspondante à getPercentageChoices
 			// View.displayQuestionStat(percents);
 		}
+
 		else 
 		{
 			double percents = calculatePercentageOfCorrectAnswers(question, voterAnswerList);
@@ -181,7 +182,8 @@ public abstract class Statistics {
 		// Fonction de récupération de (VoterAnswerList voterAnswerList, Question question) dans la bdd
 		// voterAnswerList = getvoterAnswerList(idSession, idQuestion);
 		// question = getQuestion(idSession, idQuestion);
-		// displayQuestionStat(voterAnswerList, question);	
+
+		// displayQuestionStat(question, voterAnswerList);
 	}
 
 	/**
