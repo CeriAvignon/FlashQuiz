@@ -2,11 +2,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
+import java.util.Scanner;
 
 public class ConnexionJav 
 {
-   public static void Connexion()
+   public static void Connexion(String s) //prend une string en argument qui se trouve être la commande
    {
        Connection c = null;
        Statement stmt = null;
@@ -17,7 +17,7 @@ public class ConnexionJav
          System.out.println("Opened database successfully");
 
          stmt = c.createStatement();
-         ResultSet rs = stmt.executeQuery( "SELECT * FROM answer" );
+         ResultSet rs = stmt.executeQuery(s);
  
          rs.close();
          stmt.close();
@@ -30,6 +30,11 @@ public class ConnexionJav
    }
    public static void main(String args[])
      {
-        Connexion();
+         
+        String str;
+        str="";
+        Scanner sc = new Scanner(System.in);
+        str=sc.nextLine();
+        Connexion(str);
      }
 }
