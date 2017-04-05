@@ -1,5 +1,5 @@
-import Connexion.java;
-import List.java;
+import list.List;
+import connexion.Connexion;
 import java.sql.*;
 import java.util.Vector;
 
@@ -34,7 +34,7 @@ public class ListHandler
 	public static void sendList(List list)
 	{
 		int idQuestion[];
-		Connection cnx=connecterDB();
+		Connection cnx=;
 
 		/** 
 		 * 
@@ -55,8 +55,8 @@ public class ListHandler
 		 * */
 
 		String query="";
-		PreparedStatement prepare = cnx.prepareStatement();
-		Statement statement = connexion.createStatement();
+		PreparedStatement prepare = cnx.prepareStatement(query);
+		Statement statement = cnx.createStatement();
 		ResultSet res;
 
 		/**
@@ -171,14 +171,14 @@ public class ListHandler
 		}
 	}
 	
-
-
 	
-	public static List getList (int idList)
+	public static void getList (int idList)
 	{
 		
 		Connection cnx=connecterDB();
+		int counter=0;
 		int idQuestion [];
+		String query ="";
 		/** 
 		 * 
 		 * R&eacute;cup&eacute;ration de la liste de question avec la fonction 
@@ -187,18 +187,18 @@ public class ListHandler
 		 **/
 
 		try{
-			PreparedStatement prepare = cnx.prepareStatement();
+			PreparedStatement prepare = cnx.prepareStatement(query);
 			Statement statement = cnx.createStatement();
 			ResultSet res;
 			
-			String query="SELECT * FROM List_Metadata WHERE ID_List=?;";
+			query="SELECT * FROM List_Metadata WHERE ID_List=?;";
 			
 			prepare = cnx.prepareStatement(query);
 			prepare.setObject(1,idList);
 			
 			res = prepare.executeQuery();
 			
-			List list = new List(res.getInt("Id_List"),res.getInt("ID_User"),res.getInt("Title"));
+			//List list = new List(res.getInt("Id_List"),res.getInt("ID_User"),res.getInt("Title"));
 			
 			prepare.close();
 			res.close();
@@ -208,14 +208,17 @@ public class ListHandler
 			prepare.setObject(1,idList);
 			
 			res = prepare.executeQuery();
-			idQuestion = res;
-			list.setQuestion(idQuestion);
+			while(res.next())
+			{
+				idQuestion[counter++] = res.getInt(1);
+			}
+			//list.setQuestion(idQuestion);
 			
-			return list;
+			//return list;
 		}
-		catch(exception e)
+		catch(SQLException e)
 		{
-			
+			e.printStackTrace();
 		}
 
 	}
@@ -226,6 +229,7 @@ public static void deleteList (int idList)
 {
 	
 	Connection cnx=connecterDB();
+	String query="";
 	int idQuestion [];
 	/** 
 	 * 
@@ -235,7 +239,7 @@ public static void deleteList (int idList)
 	 **/
 
 	try{
-		PreparedStatement prepare = cnx.prepareStatement();
+		PreparedStatement prepare = cnx.prepareStatement(query);
 		Statement statement = cnx.createStatement();
 		ResultSet res;
 		
@@ -257,9 +261,9 @@ public static void deleteList (int idList)
 		res = prepare.executeQuery();
 	
 	}
-	catch(exception e)
+	catch(SQLException e)
 	{
-		
+		e.printStackTrace();
 	}
 
 }
