@@ -177,7 +177,7 @@ public class ListHandler
 		
 		Connection cnx=connecterDB();
 		int counter=0;
-		int idQuestion [];
+		int idQuestion [] = new int[1000];
 		String query ="";
 		/** 
 		 * 
@@ -230,7 +230,7 @@ public static void deleteList (int idList)
 	
 	Connection cnx=connecterDB();
 	String query="";
-	int idQuestion [];
+	int idQuestion [] = new int[1000];
 	/** 
 	 * 
 	 * R&eacute;cup&eacute;ration de la liste de question avec la fonction 
