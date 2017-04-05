@@ -8,7 +8,6 @@ import java.util.Map;
 import javax.swing.Timer;
 
 import lib.display.*;
-import model.base.*;
 import model.session.*;
 
 /**
@@ -22,11 +21,6 @@ import model.session.*;
  *
  */
 public abstract class SessionVoter {
-
-	/**
-	 * The session name, given by the session master.
-	 */
-	// private static String name;
 
 	/**
 	 * A list of the voter answers, the integer represent the id of the question
@@ -56,6 +50,13 @@ public abstract class SessionVoter {
 	 * @see Question
 	 */
 	private static Integer currQuestionId;
+
+	/**
+	 * The question currently asked.
+	 * 
+	 * @see Question
+	 */
+	private static Question currQuestion;
 
 	/**
 	 * A timer used when a question have a time limit.
@@ -117,6 +118,10 @@ public abstract class SessionVoter {
 
 			break;
 		case "forceEndQuestion":
+			SessionVoter.endQuestion();
+			break;
+		case "endSession":
+			SessionVoter.endSession();
 			break;
 		default:
 			return false;
@@ -161,11 +166,10 @@ public abstract class SessionVoter {
 	 * @see QuestionList
 	 * @see SessionVoter#lists
 	 */
-	public static void initialize(/* String name, */ List<QuestionList> lists) {
+	public static void initialize(List<QuestionList> lists) {
 		SessionVoter.lists = lists;
-		// SessionVoter.name = name;
 
-		// display_waiting_view (IG) %TODO%
+		// View.displayWaitingNextQuestion(); (IG) %TODO%
 	}
 
 	/**
@@ -177,17 +181,19 @@ public abstract class SessionVoter {
 	 *            The id of the list which contain the question
 	 * @param questionId
 	 *            The id of the question in the list
+	 * 
+	 * @see SessionVoter#lists
+	 * @see Question#allocatedTime
+	 * @see SessionVoter#setAllocatedTime(int)
 	 */
 	public static void startQuestion(Integer listId, Integer questionId) {
-		// currList = getList(listId); (BDD) %TODO%
-		// currQuestion = getQuestion(questionId); (BDD) %TODO%
-		Question currQuestion = new Question(questionId, null, 0, 0, null);
+		currQuestion = lists.get(listId).questions.get(questionId);
 
 		if (currQuestion.allocatedTime != 0) {
 			setAllocatedTime(currQuestion.allocatedTime);
 		}
 
-		// display_question_view(Question); (IG) %TODO%
+		// View.displayQuestion(Question); (IG) %TODO%
 
 	}
 
@@ -197,27 +203,47 @@ public abstract class SessionVoter {
 	 * 
 	 * @param answer
 	 *            The answer given by the voter
+	 *            
+	 * @see VoterAnswer
+	 * @see RemoteServer#sendRequest(String, Object)
+	 * @see SessionVoter#voterAnswers 
 	 */
-	public static void sendAnswer(Answer answer) {
-		// %TODO%
+	public static void sendVoterAnswer(VoterAnswer answer) {
+		RemoteServer.sendRequest("setVoterAnswer", answer);
+		voterAnswers.put(currQuestionId, answer);
+
+		// View.displayWaitingNextQuestion(); (IG) %TODO%
 	}
 
 	/**
 	 * End the question, stop the timer if needed, display the result to the
-	 * voter (if the answer is correct). Can be call by SessionMaster.
+	 * voter (if the answer is correct for example). Can be call by
+	 * SessionMaster.
+	 * 
+	 * @see SessionVoter#setAllocatedTime(int)
+	 * @see Question#allocatedTime
 	 * 
 	 */
 	public static void endQuestion() {
-		// %TODO%
+		if (currQuestion.allocatedTime != 0) {
+			setAllocatedTime(0);
+		}
+
+		// View.displayWaitingNextQuestion(); (IG) %TODO%
+
 	}
 
 	/**
-	 * Display the final stats of the voter for all the question of this session
-	 * Send the result of the voter to the data base. Display a view that allow
-	 * the voter to left the session.
+	 * Display the stats of the voter for all the question of this session and a
+	 * button that allow the voter to left the session. Send the result of the
+	 * voter to the data base.
 	 */
 	public static void endSession() {
-		// %TODO%
+
+		// View.displaySessionEnd(); (IG) %TODO%
+
+		// SendStatBBDLocal(); (BDD) %TODO%
+
 	}
 
 	/**
