@@ -172,4 +172,54 @@ public class QuestionHandler {
 		}
 	}
 	
+	public static void deleteQuestion (int idQuestion)
+	{
+	
+	Connection cnx=connecterDB();
+	
+	/** 
+	 * 
+	 * R&eacute;cup&eacute;ration de la liste de question avec la fonction 
+	 * getIdList().
+	 * 
+	 **/
+
+	try{
+		PreparedStatement prepare = cnx.prepareStatement();
+		Statement statement = cnx.createStatement();
+		ResultSet res;
+		
+		string query="SELECT * FROM Question WHERE Contenu_media=?;";
+		prepare = cnx.prepareStatement(query);
+		prepare.setObject(1,idQuestion); 
+		res = prepare.executeQuery();
+		int id_media = res.getInt("ID_Media");
+		prepare.close();
+		res.close();
+		
+		query="DELETE * FROM Media WHERE idQuestion=?;";
+		
+		prepare = cnx.prepareStatement(query);
+		prepare.setObject(1,id_media);
+		
+		res = prepare.executeQuery();
+		
+		
+		prepare.close();
+		res.close();
+		
+		query="DELETE * FROM Question WHERE idQuestion=?;";
+		prepare = cnx.prepareStatement(query);
+		prepare.setObject(1,idQuestion);
+		
+		res = prepare.executeQuery();
+	
+	}
+	catch(exception e)
+	{
+		
+	}
+
+}
+	
 };
