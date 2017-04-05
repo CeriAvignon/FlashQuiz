@@ -215,11 +215,25 @@ public class QuestionHandler {
 		res = prepare.executeQuery();
 	
 	}
-	catch(exception e)
+	catch(SQLException e)
 	{
-		
+		e.printStackTrace();
 	}
 
+}
+public static void ListIdQuestion ()
+{
+	PreparedStatement prepare = cnx.prepareStatement();
+	Statement statement = cnx.createStatement();
+	ResultSet res;
+		
+	string query="SELECT * FROM Question;";
+	prepare = cnx.prepareStatement(query);
+	prepare.setObject(1,idQuestion); 
+	res = prepare.executeQuery();
+	
+	prepare.close();
+	res.close();
 }
 	
 };
