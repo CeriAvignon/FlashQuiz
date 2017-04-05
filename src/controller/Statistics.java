@@ -44,7 +44,7 @@ public abstract class Statistics {
 		int totalAnswers = 0;
 
 		for(VoterAnswer voterAnswer : voterAnswers) {
-			for(int answerId : voterAnswer.answers) {
+			for(int answerId : voterAnswer.answersId) {
 				counts[answerId]++;
 				totalAnswers++;
 			}
