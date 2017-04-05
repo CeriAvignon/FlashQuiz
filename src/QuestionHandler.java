@@ -221,32 +221,30 @@ public class QuestionHandler {
 	}
 
 }
-public static Question ListIdQuestion ()
+public static int[] getAllIDQuestion ()
 {
 	Connection cnx=connecterDB();
 	
-	Question[] question=new Question [1000];
-	compteur=0;
+	int[] listIdQuestion=new int [1000];
+	int compteur=0;
 	try{
 		
 	PreparedStatement prepare = cnx.prepareStatement();
 	Statement statement = cnx.createStatement();
 	ResultSet res;
 		
-	string query="SELECT * FROM Question;";
+	string query="SELECT idQuestion FROM Question;";
 	prepare = cnx.prepareStatement(query);
-	prepare.setObject(1,idQuestion); 
 	res = prepare.executeQuery();
 	
 	while(res.next()!=null)
 	{
-		question[0].setId(res.getInt("idQuestion");)
-		question[0].setContent(res.getString("Content");)
+		listIdQuestion[compteur].setId(res.getInt(1));
 		compteur++;
 	}
 	prepare.close();
 	res.close();
-	return question;
+	return listIdQuestion;
 	}
 	catch(SQLException e)
 	{
