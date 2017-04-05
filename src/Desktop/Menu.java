@@ -1,4 +1,5 @@
-package Login;
+package Desktop;
+
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridLayout;
