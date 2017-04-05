@@ -3,6 +3,7 @@ package Desktop;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionListener; 
 import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
@@ -20,14 +21,17 @@ public class Login extends JFrame
 {
 
 	//Création des objets
+	private Font font = new Font("Arial", Font.BOLD, 12);
 	
 	//Création formulaire
 	private JTextField m_tLogin = new JTextField("");
 	private  JPasswordField m_tPass = new  JPasswordField("");
 	
 	//Céation label
+	private JLabel m_title = new JLabel("FlashQuiz");
 	private JLabel m_labelLog = new JLabel("Compte : ");
 	private JLabel m_labelPass = new JLabel("Mot de passe : ");
+	
 
 	//Création bouttons
 	private JButton m_butQuitter = new JButton ("Quitter");
@@ -54,20 +58,41 @@ public class Login extends JFrame
 		m_butQuitter.addActionListener(new BoutonQuit());
 		m_butSign.addActionListener(new BoutonSign());
 		m_butForg.addActionListener(new BoutonForg());
-	
+		
+		//Police
+		m_labelLog.setFont(font);
+		m_labelPass.setFont(font);
+		m_tLogin.setFont(font);
+		m_tPass.setFont(font);
+		m_tLogin.setBackground(Color.GRAY);
+		m_tPass.setBackground(Color.GRAY);
+		m_butLog.setFont(font);
+		m_butLog.setBackground(Color.WHITE);
+		m_butQuitter.setFont(font);
+		m_butQuitter.setBackground(Color.WHITE);
+		m_butSign.setFont(font);
+		m_butSign.setBackground(Color.WHITE);
+		m_butForg.setFont(font);
+		m_butForg.setBackground(Color.WHITE);
+		m_title.setFont(new Font("Arial", Font.BOLD, 48));
+		
+		
+		
 		//initialisation des pannels
 		
 		//Panneau de tête (logo et autre info)
 		JPanel m_panHead = new JPanel();
 		m_panHead.setMaximumSize( new Dimension(400, 100) );
-	
+		m_title.setAlignmentY(CENTER_ALIGNMENT);
+		m_title.setAlignmentX(CENTER_ALIGNMENT);
+		m_panHead.add(m_title);
 		
 		//Position login
 		JPanel m_panLabel = new JPanel();
 		m_panLabel.setMaximumSize( new Dimension(0, 30) );
 		m_panLabel.setLayout(new BoxLayout(m_panLabel, BoxLayout.PAGE_AXIS));
 		m_labelLog.setAlignmentX(Component.RIGHT_ALIGNMENT);
-		//m_labelLog.setAlignmentY(Component.TOP_ALIGNMENT);
+		m_labelLog.setAlignmentY(Component.TOP_ALIGNMENT);
 		m_labelPass.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		m_panLabel.add(m_labelLog);
 		m_panLabel.add(m_labelPass);
@@ -115,12 +140,12 @@ public class Login extends JFrame
 		m_panPos.add(m_panLog);
 		m_panPos.add(m_panBut);
 		
-		/*Test de couleur des panels
-		//m_panHead.setBackground(Color.ORANGE);
-		//m_panLabel.setBackground(Color.RED);
-		//m_panText.setBackground(Color.BLUE);
-		//m_panLog.setBackground(Color.PINK);
-		//m_panBut.setBackground(Color.GREEN);
+		/*//Test de couleur des panels
+		m_panHead.setBackground(Color.ORANGE);
+		m_panLabel.setBackground(Color.RED);
+		m_panText.setBackground(Color.BLUE);
+		m_panLog.setBackground(Color.PINK);
+		m_panBut.setBackground(Color.GREEN);
 		m_panPos.setBackground(Color.YELLOW);*/
 				
 		this.getContentPane().add(m_panPos);
