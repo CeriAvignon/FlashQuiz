@@ -4,9 +4,10 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 
-public class ConnexionJav {
-   public static void main( String args[] )
-     {
+public class ConnexionJav 
+{
+   public static void Connexion()
+   {
        Connection c = null;
        Statement stmt = null;
        try {
@@ -26,5 +27,9 @@ public class ConnexionJav {
          System.exit(0);
        }
        System.out.println("Operation done successfully");
+   }
+   public static void main(String args[])
+     {
+        Connexion();
      }
 }
