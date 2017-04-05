@@ -233,8 +233,8 @@ public static void deleteList (int idList)
 	int idQuestion [] = new int[1000];
 	/** 
 	 * 
-	 * R&eacute;cup&eacute;ration de la liste de question avec la fonction 
-	 * getIdList().
+	 * Suppression de la liste de question avec la fonction 
+	 * deleteList().
 	 * 
 	 **/
 
