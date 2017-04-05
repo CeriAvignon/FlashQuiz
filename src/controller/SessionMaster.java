@@ -180,7 +180,7 @@ public abstract class SessionMaster
 	//---------------------------------------------------------------------------
 	public static void endSession() {
 		// %TODO% -> enoyer stat a la BDD
-		Statistics.displayGeneralStats(votersAnswers);
+		//Statistics.displayGeneralStats(votersAnswers);
 		LocalServer.sendRequestToAll("endSession", null);
 
 	}
