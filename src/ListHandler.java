@@ -1,4 +1,4 @@
-import list.List;
+import List.List;
 import connexion.Connexion;
 import java.sql.*;
 import java.util.Vector;
@@ -177,7 +177,7 @@ public class ListHandler
 		
 		Connection cnx=connecterDB();
 		int counter=0;
-		int idQuestion [];
+		int idQuestion [] = new int[1000];
 		String query ="";
 		/** 
 		 * 
@@ -272,7 +272,8 @@ public static int[] getAllIDList()
 {
 	Connection cnx=connecterDB();
 	String query="";
-	int idList [];
+	int counter=0;
+	int idList [] = new int[1000];
 	try{
 		PreparedStatement prepare = cnx.prepareStatement(query);
 		Statement statement = cnx.createStatement();
