@@ -268,5 +268,32 @@ public static void deleteList (int idList)
 
 }
 
+public static int[] getAllIDList()
+{
+	Connection cnx=connecterDB();
+	String query="";
+	int idList [];
+	try{
+		PreparedStatement prepare = cnx.prepareStatement(query);
+		Statement statement = cnx.createStatement();
+		ResultSet res;
+		
+		query="SELECT ID_List FROM List_Metadata;";
+		prepare = cnx.prepareStatement(query); 
+		res = prepare.executeQuery();
+		
+		while(res.next())
+		{
+			idList[counter++] = res.getInt(1);
+		}
+	}
+	
+	catch(SQLException e)
+	{
+		e.printStackTrace();
+	}
+	return idList;
+}
+
 
 }
