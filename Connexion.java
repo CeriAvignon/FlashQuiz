@@ -5,6 +5,7 @@ import java.sql.Statement;
 import java.util.Scanner;
 /*
    @author Amaury Huot
+   If you read this message 
 */
 public class ConnexionJav 
 {
