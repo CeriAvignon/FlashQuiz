@@ -13,75 +13,28 @@ import model.base.*;
 public class Session extends SessionBase implements Serializable {
 	/**
 	 * A list that contain all the questions series (lists)
-	 *
 	 */
 	public List<QuestionList> lists;
 
 	/**
-	 * Constructor
-	 *
-	 * @param id
-	 *			  The id of the session
-	 * @param name
-	 *            The name of the session.
-	 * @param creatorName
-	 *            The name of the creator.
-	 * @param password
-	 *			  The password of the session.
-	 * @param date
-	 * 			  The starting date of the session.
-	 *
-	 * @param rand
-	 * 			  True if the order of the question is random, else false.
-	 * @param listsId
-	 * 			  A table that contain all the id of the lists
-	 * @see SessionBase#id
-	 * @see SessionBase#name
-	 * @see SessionBase#creatorName
-	 * @see SessionBase#password
-	 * @see SessionBase#startingDate
-	 * @see SessionBase#isQuestionRandom
-	 * @see Session#lists
+	 * List of the answers of the voters
 	 */
-	public Session(int id, String name, String creatorName, String password, Date date, boolean rand, int[] listsId) {
-		super(id, name, creatorName, password, date, rand);
-		// for(Integer list : listsId)
-		// this.list.add(getList(list)); // ListHandler
+	 public voterAnswersList VotersAnswersList;
+	
+	/**
+	 * Session constructor
+	 */
+	public Session(){
 	}
-
+	
 	/**
 	 * Constructor
 	 *
 	 * @param id
-	 *			  The id of the session
-	 * @param name
-	 *            The name of the session.
-	 * @param creatorName
-	 *            The name of the creator.
-	 * @param password
-	 *			  The password of the session.
-	 * @param date
-	 * 			  The starting date of the session.
-	 *
-	 * @param rand
-	 * 			  True if the order of the question is random, else false.
-	 * @param lists
-	 * 			  A list that contain all the questions of the lists
-	 * @see SessionBase#id
-	 * @see SessionBase#name
-	 * @see SessionBase#creatorName
-	 * @see SessionBase#password
-	 * @see SessionBase#startingDate
-	 * @see SessionBase#isQuestionRandom
-	 * @see Session#lists
+	 *			  The id of the sessiononBase#name
 	 */
-	public Session(int id, String name, String creatorName, String password, Date date, boolean rand, List<QuestionList> lists) {
-		super(id, name, creatorName, password, date, rand);
-		this.lists = lists;
-	}
-	
-	public void addList(List l) {
+	public Session(int id)
+	{
 		//TODO
 	}
-
 }
