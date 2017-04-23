@@ -11,6 +11,19 @@ import Liste.java;
 public class Session
 {
 
+/**
+* <b>Recoupere une session Ã  partir de la BDD.</b>
+* <p>
+* 
+* @author Alexandra MOSHINA 
+*
+* @param name
+*	Le nom des Sessions Ã  chercher dans la BDD.
+*
+* @return un tableau d'intiers (IDs des Sessions)
+*
+*
+*/
 public static int [] getAIIIDUser()
 	{
 		Connection cnx=connecterDB();
