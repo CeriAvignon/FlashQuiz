@@ -1,27 +1,40 @@
+package SessionData;
+
+import connexionjm.ConnexionJM;
+import java.sql.*;
+import java.util.Date;
+import Session.java;		
+import Liste.java;
+
+
+
+public class Session
+{
 /**
-* <b>Recoupere une session à partir du serveur.</b>
-* <p>
-*
-* @author Alexandra MOSHINA 
-*
-* @param idsession
-*	L'id de la session à recouperer à partir de la BDD.
-*
-* @return La session demandé. 
-*
-*/
-public Session getSession(int idsession) throws SQLException
+	* <b>Recoupere une session a  partir de la BDD.</b>
+	* <p>
+	* 
+	* @author Alexandra MOSHINA 
+	*
+	* @param idsession
+	*	L'id de la session Ã  recouperer a  partir de la BDD.
+	*
+        * @return une session
+	*
+	*
+	*/
+	public Session getSession(int idsession) throws SQLException
 	{
 	
 	try {
-	Connection cnx=connecterDB(); 						//connection à la BDD 
+	Connection cnx=connecterDB(); 						//connection Ã  la BDD 
 						
 	String query="";
 	ResultSet res=null;	
 	Session s = new Session();
 	
 		if(idsession){
-			//on recoupere les donnees à partir de la BDD
+			//on recoupere les donnees Ã  partir de la BDD
 			query = "SELECT ID_Session, ID_User, Opening_Date, Closing_Date, Type, Title, Password FROM Session_Metadata WHERE ID_Session=?;";
 			PreparedStatement prepare = cnx.prepareStatement(query);
 			//recupere l'id de la session	
@@ -43,14 +56,14 @@ public Session getSession(int idsession) throws SQLException
 			
 			prepare.close();
 			
-			//on recoupere les ids de la liste à partir de la BDD
+			//on recoupere les ids de la liste Ã  partir de la BDD
 			query = "SELECT ID_Liste FROM Session_Content WHERE ID_Session=?;";
 			PreparedStatement prepare = cnx.prepareStatement(query);
 			prepare.setString(1, idsession);
 			res = prepare.executeQuery();
 			
 			// creation d'un tableau pour stocker les ids de la liste
-			int [] idslist new int[0];
+			int [] idslist = new int[0];
 
 			// s'il y a des ids on les stocke
 		        while (res.next()) {
@@ -64,10 +77,12 @@ public Session getSession(int idsession) throws SQLException
 
 		}
 
-    } catch (SQLException e) 
-	{
-    	e.printStackTrace();    
-    	}		
+   		} catch (SQLException e) 
+		{
+    			e.printStackTrace();    
+    		}		
 
- 	return s;
+	return s;
+	}
+
 }
