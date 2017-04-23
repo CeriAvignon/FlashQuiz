@@ -1,0 +1,35 @@
+package SessionData;
+
+import connexionjm.ConnexionJM;
+import java.sql.*;
+import java.util.Date;
+import Session.java;		
+import Liste.java;
+
+
+
+public class Session
+{
+
+public static int [] getAIIIDUser()
+	{
+		Connection cnx=connecterDB();
+						
+		String query="";
+		ResultSet res=null;	
+	
+		query = "SELECT ID_User FROM Session_Metadata;";
+		PreparedStatement prepare = cnx.prepareStatement(query);
+		res = prepare.executeQuery();
+			
+			// creation d'un tableau pour stocker les ids des utilisateurs
+			int [] ids = new int[0];
+
+			// s'il y a des ids on les stocke
+		        while (res.next()) {
+				ids.add(res.getInt(1));
+			}
+		return ids;
+	}
+
+}
