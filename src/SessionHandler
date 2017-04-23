@@ -1,4 +1,4 @@
-package SessionData;
+package Session;
 
 import connexionjm.ConnexionJM;
 import java.sql.*;
@@ -8,7 +8,7 @@ import Liste.java;
 
 
 
-public class Session
+public class SessionHandler
 {
 /**
 	* <b>Recoupere une session a  partir de la BDD.</b>
