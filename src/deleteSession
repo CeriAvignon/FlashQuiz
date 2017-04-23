@@ -1,24 +1,38 @@
+package Session;
+
+import connexionjm.ConnexionJM;
+import java.sql.*;
+import java.util.Date;
+import Session.java;		
+import Liste.java;
+
+
+
+public class SessionHandler
+{
+
 /**
-* <b>Supprime une session dans la base de données.</b>
-* <p>
-*
-* @author Alexandra MOSHINA 
-*
-* @param idsession
-*	L'id de la session à supprimer dans la BDD.
-*
-*/
-public Session getSession(int idsession) throws SQLException
+	* <b>Supprime la session dans la BDD.</b>
+	* <p>
+	* 
+	* @author Alexandra MOSHINA 
+	*
+	* @param idsession
+	*	L'id de la session a  supprimer dans la BDD.
+	*
+	*
+	*/
+	public void deleteSession(int idsession) throws SQLException
 	{
 	
 	try {
-	//connection à la BDD 
+	//connection a  la BDD 
 	Connection cnx=connecterDB(); 					
 	String query="";					
 		
 		if(idsession){
 
-		// suppression de données dans la table Session_Metadata
+		// suppression de donnees dans la table Session_Metadata
 		query = "DELETE * FROM Session_Metadata WHERE ID_Session=?;";
 		PreparedStatement prepare = cnx.prepareStatement(query);
 		// ID_Session=idsession 
@@ -26,7 +40,7 @@ public Session getSession(int idsession) throws SQLException
 		prepare.executeUpdate();
 		prepare.close();
 
-		// suppression de données dans la table Session_Content
+		// suppression de donnees dans la table Session_Content
 		query = "DELETE * FROM Session_Content WHERE ID_Session=?;";
 		prepare =  cnx.prepareStatement(query);
 		prepare.setInt(1, idsession);
@@ -34,17 +48,19 @@ public Session getSession(int idsession) throws SQLException
 		prepare.close();
 		}
 
-    } catch (SQLException e) 
-	{
-    	e.printStackTrace(); 
-    	}		
+    		} catch (SQLException e) 
+		{
+    			e.printStackTrace(); 
+    		}		
 	
 
-	finally 
-	{
-		if (connecterDB != null) 
+		finally 
 		{
-			connecterDB.close();
+			if (connecterDB != null) 
+			{
+				connecterDB.close();
+			}
 		}
+		}
+
 	}
-}
