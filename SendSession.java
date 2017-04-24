@@ -35,7 +35,7 @@ public class SendSession
 		
 	try {
 	Connection cnx=connecterDB(); 						//connection a  la BDD
-	
+	 
 	String query="";
 	Statement statement = cnx.createStatement();
 	ResultSet res=null;	
