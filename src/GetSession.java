@@ -8,7 +8,7 @@ import Liste.java;
 
 
 
-public getSession
+public GetSession
 {
 /**
 	* <b>Recoupere une session a  partir de la BDD.</b>
