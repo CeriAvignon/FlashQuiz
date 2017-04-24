@@ -10,7 +10,7 @@ public class Session
 {
 
 	
-	/**
+/**
 	* <b>Envoie une session vers le serveur pour l'enregistrer.</b>
 	* <p>
 	* 
@@ -32,14 +32,15 @@ public class Session
 	
 	public void sendSession(Session s) throws SQLException
 	{
-
+		
 	try {
 	Connection cnx=connecterDB(); 						//connection a  la BDD
 	
 	String query="";
 	Statement statement = cnx.createStatement();
 	ResultSet res=null;	
-	int [] liste=s.getList();
+	int [] liste = s.getList();
+	int idsession = s.getId();
 	
 		if(idsession == -1) // si session existe pas
 		{
@@ -58,7 +59,7 @@ public class Session
 			//on recupere l'id de la session
 			query = "SELECT currval(pg_get_serial_sequence('Session_Metadata','ID_Session')) as ?;";
 			prepare = cnx.prepareStatement(query);
-			s.setIdSession(res.getInt(1));
+			s.setId(res.getInt(1));
 			prepare.executeQuery();
 			prepare.close();
 			res.close();
@@ -68,17 +69,14 @@ public class Session
 			{
 				//envoye la liste
 				//sendListe(l);
-				//si la liste s'est bien enregistrÃ©e
-				if (l.getIdListe() != -1)  
-				{
+				
 					// Ajouter dans Session_Content
 					query = "INSERT INTO Session_Content (ID_Liste) values (?));";
 					prepare =  cnx.prepareStatement(query);
-					prepare.setObject(1,s.getIdListe());
+					prepare.setObject(1,l);
 					prepare.executeUpdate();
 					prepare.close();
 					res.close();
-				}
 			}
 		}
 		else //si session existe
@@ -91,8 +89,8 @@ public class Session
                 prepare.setObject(3,s.getFin());
                 prepare.setObject(4,s.getType());
                 prepare.setObject(5,s.getName());
-		prepare.setObject(6,s.getPassword());
-		prepare.setInt(7, idsession);
+                prepare.setObject(6,s.getPassword());
+                prepare.setInt(7, idsession);
                 prepare.executeQuery();
                 prepare.close();
 			
@@ -108,16 +106,12 @@ public class Session
 		{
 			//envoye la liste
 			//sendListe(l);
-			//si la liste s'est bien enregistrÃ©e
-
-			if (l.getIdListe() != -1)  
-			{
+			
 				query = "INSERT INTO Session_Content (ID_Liste) values (?));";
 				prepare = cnx.prepareStatement(query);
-				prepare.setObject(1,l.getIdListe());
+				prepare.setObject(1,l);
 				prepare.executeUpdate();
 				prepare.close();
-			}
 		}	
 	}
 		
@@ -135,5 +129,6 @@ public class Session
 
 	}
 }
+	
 	
 }
