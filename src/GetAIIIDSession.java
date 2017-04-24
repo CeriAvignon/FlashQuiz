@@ -8,10 +8,10 @@ import Liste.java;
 
 
 
-public class Session
+public class GetAIIIDSession
 {
 /**
-	* <b>Recoupere une session Ã  partir de la BDD.</b>
+	* <b>Recoupere une session a  partir de la BDD.</b>
 	* <p>
 	* 
 	* @author Alexandra MOSHINA 
@@ -21,8 +21,9 @@ public class Session
 	*
 	*
 	*/
-	public static int [] getAIIIDSession()
+	public static int [] getAIIIDSession() throws SQLException
 	{
+		try{
 		Connection cnx=connecterDB();
 						
 		String query="";
@@ -33,12 +34,17 @@ public class Session
 		res = prepare.executeQuery();
 			
 			// creation d'un tableau pour stocker les ids
-			int [] ids = new int[0];
-
+			int [] ids = new int[10000000];
+			int count = 0;
 			// s'il y a des ids on les stocke
 		        while (res.next()) {
-				ids.add(res.getInt(1));
+		        	ids[count++] = res.getInt(1);
 			}
 		return ids;
+	}
+	catch(SQLException e)
+	{
+		e.printStackTrace();
+	}
 	}
   }
