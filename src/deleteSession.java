@@ -8,9 +8,8 @@ import Liste.java;
 
 
 
-public class SessionHandler
+public getSession
 {
-
 /**
 	* <b>Supprime la session dans la BDD.</b>
 	* <p>
@@ -30,7 +29,7 @@ public class SessionHandler
 	Connection cnx=connecterDB(); 					
 	String query="";					
 		
-		if(idsession){
+		if(idsession !=-1){
 
 		// suppression de donnees dans la table Session_Metadata
 		query = "DELETE * FROM Session_Metadata WHERE ID_Session=?;";
@@ -40,7 +39,7 @@ public class SessionHandler
 		prepare.executeUpdate();
 		prepare.close();
 
-		// suppression de donnees dans la table Session_Content
+		// suppression de donnÃ©es dans la table Session_Content
 		query = "DELETE * FROM Session_Content WHERE ID_Session=?;";
 		prepare =  cnx.prepareStatement(query);
 		prepare.setInt(1, idsession);
@@ -48,19 +47,19 @@ public class SessionHandler
 		prepare.close();
 		}
 
-    		} catch (SQLException e) 
-		{
-    			e.printStackTrace(); 
-    		}		
+    } catch (SQLException e) 
+	{
+    	e.printStackTrace(); 
+    	}		
 	
 
-		finally 
+	finally 
+	{
+		if (connecterDB != null) 
 		{
-			if (connecterDB != null) 
-			{
-				connecterDB.close();
-			}
+			connecterDB.close();
 		}
-		}
-
 	}
+	}
+
+}
