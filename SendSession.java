@@ -6,7 +6,7 @@ import Liste.java;
 
 
 
-public class Session
+public class SendSession
 {
 
 	
