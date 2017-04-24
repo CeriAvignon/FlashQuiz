@@ -8,7 +8,7 @@ import Liste.java;
 
 
 
-public getSession
+public deleteSession
 {
 /**
 	* <b>Supprime la session dans la BDD.</b>
