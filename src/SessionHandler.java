@@ -8,7 +8,7 @@ import Liste.java;
 
 
 
-public class SessionHolder
+public class SessionHandler
 {
 
 	/**
