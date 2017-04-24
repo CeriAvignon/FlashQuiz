@@ -8,7 +8,7 @@ import Liste.java;
 
 
 
-public sendSession
+public SendSession
 {
 
 	/**
