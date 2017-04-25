@@ -158,7 +158,7 @@ public class Login extends JFrame
 		public void actionPerformed(ActionEvent e) {
 		System.out.println("TEXT : m_tLogin " + m_tLogin.getText());
 		System.out.println("TEXT : m_tPass " + m_tPass.getText());
-		Menu m_menu = new Menu();
+		Menu d_menu = new Menu();
 		dispose(); 
 		}
 		}
