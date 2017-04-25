@@ -296,5 +296,32 @@ public static int[] getAllIDList()
 	return idList;
 }
 
+public static void deleteListSession(int idList)
+{
+	Connection cnx=connecterDB();
+	String query="";
+	
 
+	try{
+		PreparedStatement prepare = cnx.prepareStatement(query);
+		Statement statement = cnx.createStatement();
+		ResultSet res;
+		
+		query="DELETE * FROM Session_Content WHERE ID_List=?;";
+		
+		prepare = cnx.prepareStatement(query);
+		prepare.setObject(1,idList);
+		
+		res = prepare.executeQuery();
+		
+		
+		prepare.close();
+		res.close();
+	
+	}
+	catch(SQLException e)
+	{
+		e.printStackTrace();
+	}
+}
 }
