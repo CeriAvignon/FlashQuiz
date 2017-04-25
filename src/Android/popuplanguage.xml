@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/textView"
-        android:textSize="20dp"
+        android:textSize="18dp"
         android:textStyle="bold"
         android:gravity="center"
         android:textColor="#000000"
@@ -28,40 +28,52 @@
         android:orientation="vertical">
 
         <RadioButton
+            android:button="@drawable/apptheme_btn_radio_holo_light"
         android:text="@string/RadioButton_anglais"
         android:layout_width="match_parent"
+            android:textSize="15dp"
         android:layout_height="wrap_content"
         android:id="@+id/radioButton" />
 
     <RadioButton
         android:text="@string/RadioButton_allemand"
         android:layout_width="match_parent"
+        android:button="@drawable/apptheme_btn_radio_holo_light"
         android:layout_height="wrap_content"
+        android:textSize="15dp"
         android:id="@+id/radioButton2" />
 
     <RadioButton
         android:text="@string/RadioButton_espagnol"
         android:layout_width="match_parent"
+        android:button="@drawable/apptheme_btn_radio_holo_light"
         android:layout_height="wrap_content"
+        android:textSize="15dp"
         android:id="@+id/radioButton3" />
 
     <RadioButton
         android:text="@string/RadioButton_français"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:button="@drawable/apptheme_btn_radio_holo_light"
         android:id="@+id/radioButton4"
+        android:textSize="15dp"
         android:checked="true" />
 
     <RadioButton
         android:text="@string/RadioButton_italien"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:button="@drawable/apptheme_btn_radio_holo_light"
         android:id="@+id/radioButton5" />
 
     <RadioButton
         android:text="@string/RadioButton_russe"
         android:layout_width="match_parent"
+        android:textSize="15dp"
         android:layout_height="wrap_content"
+        android:button="@drawable/apptheme_btn_radio_holo_light"
         android:id="@+id/radioButton6" />
 
     </RadioGroup>

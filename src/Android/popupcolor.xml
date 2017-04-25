@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:id="@+id/textView"
-        android:textSize="20dp"
+        android:textSize="18dp"
         android:textStyle="bold"
         android:gravity="center"
         android:textColor="#000000"
@@ -29,38 +29,49 @@
     <RadioButton
         android:text="@string/RadioButton_rouge"
         android:layout_width="match_parent"
+        android:button="@drawable/apptheme_btn_radio_holo_light"
         android:layout_height="wrap_content"
+        android:textSize="15dp"
         android:id="@+id/radioButton" />
 
     <RadioButton
         android:text="@string/RadioButton_bleu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:button="@drawable/apptheme_btn_radio_holo_light"
         android:id="@+id/radioButton2"
+        android:textSize="15dp"
         android:checked="true"/>
 
     <RadioButton
         android:text="@string/RadioButton_jaune"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:button="@drawable/apptheme_btn_radio_holo_light"
+        android:textSize="15dp"
         android:id="@+id/radioButton3" />
 
     <RadioButton
         android:text="@string/RadioButton_vert"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:button="@drawable/apptheme_btn_radio_holo_light"
         android:id="@+id/radioButton4" />
 
     <RadioButton
         android:text="@string/RadioButton_noir"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:button="@drawable/apptheme_btn_radio_holo_light"
+        android:textSize="15dp"
         android:id="@+id/radioButton5" />
 
     <RadioButton
         android:text="@string/RadioButton_gris"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:button="@drawable/apptheme_btn_radio_holo_light"
         android:id="@+id/radioButton6" />
     </RadioGroup>
 </ScrollView>
