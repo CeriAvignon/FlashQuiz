@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 
 
 public class Selectcheckbox extends AppCompatActivity {
@@ -40,6 +41,13 @@ public class Selectcheckbox extends AppCompatActivity {
             case (R.id.button13):
                 changetexte(4);
                 break;
+            case (R.id.button14):
+                changetexte(5);
+                break;
+            case (R.id.button15):
+                changetexte(6);
+                break;
+
         }
     }
 
@@ -75,6 +83,16 @@ public class Selectcheckbox extends AppCompatActivity {
                             choix = (CheckBox) findViewById(R.id.checkBox4);
                             choix.setText(reponse);
                         }
+                        if (rep==5)
+                        {
+                            choix = (CheckBox) findViewById(R.id.checkBox5);
+                            choix.setText(reponse);
+                        }
+                        if (rep==6)
+                        {
+                            choix = (CheckBox) findViewById(R.id.checkBox6);
+                            choix.setText(reponse);
+                        }
                     }
                 });
 
@@ -83,6 +101,72 @@ public class Selectcheckbox extends AppCompatActivity {
         helpDialog.show();
         Button ok =helpDialog.getButton(DialogInterface.BUTTON_POSITIVE);
         ok.setTextColor(Color.BLUE);
+    }
+    int i=0;
+    public void textevisible(View v){
+        switch (i)
+        {
+            case (0):
+                CheckBox show = (CheckBox) findViewById(R.id.checkBox3);
+                Button show2 = (Button) findViewById(R.id.button12);
+                show.setVisibility(View.VISIBLE); //show
+                show2.setVisibility(View.VISIBLE); //show
+                i++;
+                break;
+            case (1):
+                CheckBox show3 = (CheckBox) findViewById(R.id.checkBox4);
+                Button show4 = (Button) findViewById(R.id.button13);
+                show3.setVisibility(View.VISIBLE); //show
+                show4.setVisibility(View.VISIBLE); //show
+                i++;
+                break;
+            case (2):
+                CheckBox show5 = (CheckBox) findViewById(R.id.checkBox5);
+                Button show6 = (Button) findViewById(R.id.button14);
+                show5.setVisibility(View.VISIBLE); //show
+                show6.setVisibility(View.VISIBLE); //show
+                i++;
+                break;
+            case (3):
+                CheckBox show7 = (CheckBox) findViewById(R.id.checkBox6);
+                Button show8 = (Button) findViewById(R.id.button15);
+                show7.setVisibility(View.VISIBLE); //show
+                show8.setVisibility(View.VISIBLE); //show
+                break;
+        }
+    }
+
+    public void texteinvisible(View v){
+        switch (i)
+        {
+            case (0):
+                CheckBox show = (CheckBox) findViewById(R.id.checkBox3);
+                Button show2 = (Button) findViewById(R.id.button12);
+                show.setVisibility(View.INVISIBLE); //show
+                show2.setVisibility(View.INVISIBLE); //show
+                break;
+            case (1):
+                CheckBox show3 = (CheckBox) findViewById(R.id.checkBox4);
+                Button show4 = (Button) findViewById(R.id.button13);
+                show3.setVisibility(View.INVISIBLE); //show
+                show4.setVisibility(View.INVISIBLE); //show
+                i--;
+                break;
+            case (2):
+                CheckBox show5 = (CheckBox) findViewById(R.id.checkBox5);
+                Button show6 = (Button) findViewById(R.id.button14);
+                show5.setVisibility(View.INVISIBLE); //show
+                show6.setVisibility(View.INVISIBLE); //show
+                i--;
+                break;
+            case (3):
+                CheckBox show7 = (CheckBox) findViewById(R.id.checkBox6);
+                Button show8 = (Button) findViewById(R.id.button15);
+                show7.setVisibility(View.INVISIBLE); //show
+                show8.setVisibility(View.INVISIBLE); //show
+                i--;
+                break;
+        }
     }
 
     public void modif_questionnaire(View view) {

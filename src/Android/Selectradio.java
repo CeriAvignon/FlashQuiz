@@ -33,16 +33,22 @@ public class Selectradio extends AppCompatActivity {
         switch (v.getId())
         {
             case (R.id.button5):
-                changetexte(5);
+                changetexte(1);
                 break;
             case (R.id.button6):
-                changetexte(6);
+                changetexte(2);
                 break;
             case (R.id.button7):
-                changetexte(7);
+                changetexte(3);
                 break;
             case (R.id.button8):
-                changetexte(8);
+                changetexte(4);
+                break;
+            case (R.id.button9):
+                changetexte(5);
+                break;
+            case (R.id.button10):
+                changetexte(6);
                 break;
         }
     }
@@ -59,24 +65,34 @@ public class Selectradio extends AppCompatActivity {
 
                     public void onClick(DialogInterface dialog, int which) {
                         reponse=texte.getText().toString().trim();
-                        if (rep==5)
+                        if (rep==1)
                         {
                             choix = (RadioButton) findViewById(R.id.radioButton4);
                             choix.setText(reponse);
                         }
-                        if (rep==6)
+                        if (rep==2)
                         {
                             choix = (RadioButton) findViewById(R.id.radioButton5);
                             choix.setText(reponse);
                         }
-                        if (rep==7)
+                        if (rep==3)
                         {
                             choix = (RadioButton) findViewById(R.id.radioButton6);
                             choix.setText(reponse);
                         }
-                        if (rep==8)
+                        if (rep==4)
                         {
                             choix = (RadioButton) findViewById(R.id.radioButton7);
+                            choix.setText(reponse);
+                        }
+                        if (rep==5)
+                        {
+                            choix = (RadioButton) findViewById(R.id.radioButton8);
+                            choix.setText(reponse);
+                        }
+                        if (rep==6)
+                        {
+                            choix = (RadioButton) findViewById(R.id.radioButton9);
                             choix.setText(reponse);
                         }
                     }
@@ -87,6 +103,73 @@ public class Selectradio extends AppCompatActivity {
         helpDialog.show();
         Button ok =helpDialog.getButton(DialogInterface.BUTTON_POSITIVE);
         ok.setTextColor(Color.BLUE);
+    }
+
+    int i=0;
+    public void textevisible(View v){
+        switch (i)
+        {
+            case (0):
+                RadioButton show = (RadioButton) findViewById(R.id.radioButton6);
+                Button show2 = (Button) findViewById(R.id.button7);
+                show.setVisibility(View.VISIBLE); //show
+                show2.setVisibility(View.VISIBLE); //show
+                i++;
+                break;
+            case (1):
+                RadioButton show3 = (RadioButton) findViewById(R.id.radioButton7);
+                Button show4 = (Button) findViewById(R.id.button8);
+                show3.setVisibility(View.VISIBLE); //show
+                show4.setVisibility(View.VISIBLE); //show
+                i++;
+                break;
+            case (2):
+                RadioButton show5 = (RadioButton) findViewById(R.id.radioButton8);
+                Button show6 = (Button) findViewById(R.id.button9);
+                show5.setVisibility(View.VISIBLE); //show
+                show6.setVisibility(View.VISIBLE); //show
+                i++;
+                break;
+            case (3):
+                RadioButton show7 = (RadioButton) findViewById(R.id.radioButton9);
+                Button show8 = (Button) findViewById(R.id.button10);
+                show7.setVisibility(View.VISIBLE); //show
+                show8.setVisibility(View.VISIBLE); //show
+                break;
+        }
+    }
+
+    public void texteinvisible(View v){
+        switch (i)
+        {
+            case (0):
+                RadioButton show = (RadioButton) findViewById(R.id.radioButton6);
+                Button show2 = (Button) findViewById(R.id.button7);
+                show.setVisibility(View.INVISIBLE); //show
+                show2.setVisibility(View.INVISIBLE); //show
+                break;
+            case (1):
+                RadioButton show3 = (RadioButton) findViewById(R.id.radioButton7);
+                Button show4 = (Button) findViewById(R.id.button8);
+                show3.setVisibility(View.INVISIBLE); //show
+                show4.setVisibility(View.INVISIBLE); //show
+                i--;
+                break;
+            case (2):
+                RadioButton show5 = (RadioButton) findViewById(R.id.radioButton8);
+                Button show6 = (Button) findViewById(R.id.button9);
+                show5.setVisibility(View.INVISIBLE); //show
+                show6.setVisibility(View.INVISIBLE); //show
+                i--;
+                break;
+            case (3):
+                RadioButton show7 = (RadioButton) findViewById(R.id.radioButton9);
+                Button show8 = (Button) findViewById(R.id.button10);
+                show7.setVisibility(View.INVISIBLE); //show
+                show8.setVisibility(View.INVISIBLE); //show
+                i--;
+                break;
+        }
     }
 
     public void modif_questionnaire(View view) {

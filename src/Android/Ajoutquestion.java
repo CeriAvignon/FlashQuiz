@@ -32,7 +32,7 @@ public class Ajoutquestion extends AppCompatActivity {
         RadioButton texte = (RadioButton) findViewById(R.id.radioButton2);
         if(checkbox.isChecked())
         {
-
+            startActivity(new Intent(this,Selectcheckbox.class));
         }
         if(radio.isChecked())
         {
@@ -40,7 +40,7 @@ public class Ajoutquestion extends AppCompatActivity {
         }
         if(texte.isChecked())
         {
-
+            startActivity(new Intent(this,Selecttext.class));
         }
     }
 }
