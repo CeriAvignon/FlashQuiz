@@ -24,6 +24,8 @@
     <string name="choix_2">Choix 2</string>
     <string name="choix_3">Choix 3</string>
     <string name="choix_4">Choix 4</string>
+    <string name="choix_5">Choix 5</string>
+    <string name="choix_6">Choix 6</string>
     <string name="choisir_fichier">Choisir un fichier : ...</string>
     <string name="importer">Importer</string>
     <string name="choix_langue">Langue</string>
