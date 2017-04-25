@@ -18,6 +18,7 @@
         android:id="@+id/editText2"
         android:hint="Entrez votre Mot De Passe"
         android:gravity="center"
+        android:textSize="15dp"
         android:textStyle="italic"
         android:maxLength="25"/>
 
@@ -28,6 +29,7 @@
         android:layout_marginTop="75dp"
         android:background="@drawable/edittextstyle"
         android:ems="10"
+        android:textSize="15dp"
         android:id="@+id/editText3"
         android:hint="Retapez votre Mot De Passe"
         android:gravity="center"
