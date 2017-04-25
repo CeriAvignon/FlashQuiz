@@ -3,7 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package flashquizz.Panels;
+package Desktop;
+
+import java.awt.Component;
+import javax.swing.JLabel;
+import javax.swing.JProgressBar;
+import javax.swing.JTextArea;
+//import model.base.*;
+//import model.session.*;
 
 
 /**
@@ -17,6 +24,36 @@ public class Radio extends javax.swing.JFrame {
      */
     public Radio() {
         initComponents();
+        //  Question question = new Question(id) ;
+      
+     
+        int i = 1;
+         
+      //  for (Answer a : question.answers ){
+            
+            
+        //  rep_1.setText(a.content);
+          i++;
+        
+      //  }  
+      //  Text_Quest.setText(question.statement);
+      //  Text_Quest.setText("Question :" +question.statement);
+      
+       // Rep_1.setText("La reponse 1");
+        
+         
+       // Rep_2.setText("");
+        
+         
+       // Rep_3.setText("");
+        
+     
+       // Rep_4.setText("");
+        
+       jProgressBar1 = new JProgressBar();
+     //  jProgressBar1.setValue(question.allocatedTime);
+        
+        
     }
 
     /**
@@ -39,15 +76,15 @@ public class Radio extends javax.swing.JFrame {
         Radio_1 = new javax.swing.JRadioButton();
         Radio_2 = new javax.swing.JRadioButton();
         Radio_3 = new javax.swing.JRadioButton();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        Rep_4 = new javax.swing.JTextField();
+        Rep_1 = new javax.swing.JTextField();
+        Rep_2 = new javax.swing.JTextField();
+        Rep_3 = new javax.swing.JTextField();
         Valider_Button = new javax.swing.JButton();
         jProgressBar1 = new javax.swing.JProgressBar();
         Label_Time = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Text_Quest = new javax.swing.JTextArea();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -61,12 +98,14 @@ public class Radio extends javax.swing.JFrame {
         jMenu4.setText("Edit");
         jMenuBar2.add(jMenu4);
 
+        setBackground(java.awt.Color.white);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMaximumSize(new java.awt.Dimension(970, 680));
         setMinimumSize(new java.awt.Dimension(970, 680));
         setSize(new java.awt.Dimension(970, 680));
         getContentPane().setLayout(null);
 
-        Label_Title.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        Label_Title.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         Label_Title.setText("FlashQuizz - QUESTION");
         getContentPane().add(Label_Title);
         Label_Title.setBounds(300, 10, 310, 51);
@@ -74,74 +113,70 @@ public class Radio extends javax.swing.JFrame {
         Radio_4.setFont(new java.awt.Font("Lucida Grande", 3, 14)); // NOI18N
         Radio_4.setForeground(new java.awt.Color(255, 255, 51));
         getContentPane().add(Radio_4);
-        Radio_4.setBounds(150, 510, 28, 23);
+        Radio_4.setBounds(150, 320, 28, 23);
 
         Radio_1.setBackground(new java.awt.Color(255, 255, 255));
         Radio_1.setFont(new java.awt.Font("Lucida Grande", 3, 14)); // NOI18N
         Radio_1.setForeground(new java.awt.Color(255, 255, 51));
         getContentPane().add(Radio_1);
-        Radio_1.setBounds(150, 180, 30, 23);
+        Radio_1.setBounds(150, 170, 30, 23);
 
         Radio_2.setFont(new java.awt.Font("Lucida Grande", 3, 14)); // NOI18N
         Radio_2.setForeground(new java.awt.Color(255, 255, 51));
         getContentPane().add(Radio_2);
-        Radio_2.setBounds(150, 290, 30, 23);
+        Radio_2.setBounds(150, 220, 30, 23);
 
         Radio_3.setFont(new java.awt.Font("Lucida Grande", 3, 14)); // NOI18N
         Radio_3.setForeground(new java.awt.Color(255, 255, 51));
         getContentPane().add(Radio_3);
-        Radio_3.setBounds(150, 400, 28, 23);
+        Radio_3.setBounds(150, 270, 28, 23);
 
-        jTextField5.setEditable(false);
-        jTextField5.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField5.setFont(new java.awt.Font("Lucida Sans Typewriter", 0, 18)); // NOI18N
-        jTextField5.setText("U.S.A");
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        Rep_4.setEditable(false);
+        Rep_4.setBackground(new java.awt.Color(204, 204, 204));
+        Rep_4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Rep_4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                Rep_4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField5);
-        jTextField5.setBounds(180, 490, 510, 60);
+        getContentPane().add(Rep_4);
+        Rep_4.setBounds(180, 320, 510, 30);
 
-        jTextField6.setEditable(false);
-        jTextField6.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField6.setFont(new java.awt.Font("Lucida Sans Typewriter", 0, 18)); // NOI18N
-        jTextField6.setText("BRESIL");
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        Rep_1.setEditable(false);
+        Rep_1.setBackground(new java.awt.Color(204, 204, 204));
+        Rep_1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Rep_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                Rep_1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField6);
-        jTextField6.setBounds(180, 160, 510, 60);
+        getContentPane().add(Rep_1);
+        Rep_1.setBounds(180, 170, 510, 30);
 
-        jTextField7.setEditable(false);
-        jTextField7.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField7.setFont(new java.awt.Font("Lucida Sans Typewriter", 0, 18)); // NOI18N
-        jTextField7.setText("RUSSIE");
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        Rep_2.setEditable(false);
+        Rep_2.setBackground(new java.awt.Color(204, 204, 204));
+        Rep_2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Rep_2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                Rep_2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField7);
-        jTextField7.setBounds(180, 270, 510, 60);
+        getContentPane().add(Rep_2);
+        Rep_2.setBounds(180, 220, 510, 30);
 
-        jTextField8.setEditable(false);
-        jTextField8.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField8.setFont(new java.awt.Font("Lucida Sans Typewriter", 0, 18)); // NOI18N
-        jTextField8.setText("FRANCE");
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        Rep_3.setEditable(false);
+        Rep_3.setBackground(new java.awt.Color(204, 204, 204));
+        Rep_3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Rep_3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                Rep_3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField8);
-        jTextField8.setBounds(180, 380, 510, 60);
+        getContentPane().add(Rep_3);
+        Rep_3.setBounds(180, 270, 510, 30);
 
-        Valider_Button.setBackground(new java.awt.Color(255, 255, 51));
-        Valider_Button.setFont(new java.awt.Font("Lucida Handwriting", 1, 14)); // NOI18N
+        Valider_Button.setBackground(java.awt.Color.white);
+        Valider_Button.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         Valider_Button.setText("VALIDER");
         Valider_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,49 +188,51 @@ public class Radio extends javax.swing.JFrame {
 
         jProgressBar1.setBackground(new java.awt.Color(51, 0, 204));
         jProgressBar1.setForeground(new java.awt.Color(0, 255, 0));
-        jProgressBar1.setValue(60);
         getContentPane().add(jProgressBar1);
-        jProgressBar1.setBounds(70, 600, 310, 20);
+        jProgressBar1.setBounds(90, 600, 310, 20);
 
-        Label_Time.setForeground(new java.awt.Color(255, 255, 255));
+        Label_Time.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         Label_Time.setText("TEMPS :");
         getContentPane().add(Label_Time);
-        Label_Time.setBounds(10, 600, 70, 20);
+        Label_Time.setBounds(10, 600, 90, 20);
 
-        jTextField9.setEditable(false);
-        jTextField9.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField9.setFont(new java.awt.Font("Lucida Sans Typewriter", 2, 18)); // NOI18N
-        jTextField9.setText("Quel est le plus grand pays du monde ?");
-        getContentPane().add(jTextField9);
-        jTextField9.setBounds(10, 60, 930, 70);
+        jScrollPane1.setBackground(java.awt.Color.lightGray);
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.red));
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flashquizz/Panels/bg.jpg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, 0, 960, 630);
+        Text_Quest.setEditable(false);
+        Text_Quest.setBackground(java.awt.Color.lightGray);
+        Text_Quest.setColumns(20);
+        Text_Quest.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Text_Quest.setRows(5);
+        jScrollPane1.setViewportView(Text_Quest);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(60, 70, 860, 70);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void Rep_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rep_4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_Rep_4ActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void Rep_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rep_1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_Rep_1ActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void Rep_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rep_2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_Rep_2ActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void Rep_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Rep_3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_Rep_3ActionPerformed
 
     private void Valider_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Valider_ButtonActionPerformed
         // TODO add your handling code here:
          
         
-            Reponse next = new Reponse();
+           Reponse next = new Reponse();
            next.setVisible(true);
            (this).setVisible(false);
     }//GEN-LAST:event_Valider_ButtonActionPerformed
@@ -204,7 +241,8 @@ public class Radio extends javax.swing.JFrame {
 
       
                 new Radio().setVisible(true);
-              
+               
+       
     
     }
  
@@ -215,8 +253,12 @@ public class Radio extends javax.swing.JFrame {
     private javax.swing.JRadioButton Radio_2;
     private javax.swing.JRadioButton Radio_3;
     private javax.swing.JRadioButton Radio_4;
+    private javax.swing.JTextField Rep_1;
+    private javax.swing.JTextField Rep_2;
+    private javax.swing.JTextField Rep_3;
+    private javax.swing.JTextField Rep_4;
+    private javax.swing.JTextArea Text_Quest;
     private javax.swing.JButton Valider_Button;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -224,10 +266,12 @@ public class Radio extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    public void setText_Quest(JTextArea Text_Quest) {
+        this.Text_Quest = Text_Quest;
+    }
+    
+   
 }

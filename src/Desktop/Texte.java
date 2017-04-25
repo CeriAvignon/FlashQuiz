@@ -3,7 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package flashquizz.Panels;
+package Desktop;
+
+import javax.swing.JProgressBar;
+import javax.swing.JTextArea;
+//import model.base.*;
+//import model.session.*;
 
 /**
  *
@@ -16,6 +21,35 @@ public class Texte extends javax.swing.JFrame {
      */
     public Texte() {
         initComponents();
+        
+          //  Question question = new Question(id) ;
+      
+     
+        int i = 1;
+         
+      //  for (Answer a : question.answers ){
+            
+            
+        //  rep_1.setText(a.content);
+          i++;
+        
+      //  }  
+      //  Text_Quest.setText(question.statement);
+      //  Text_Quest.setText("Question :" +question.statement);
+      
+       // Rep_1.setText("La reponse 1");
+        
+         
+       // Rep_2.setText("");
+        
+         
+       // Rep_3.setText("");
+        
+     
+       // Rep_4.setText("");
+        
+       jProgressBar1 = new JProgressBar();
+     //  jProgressBar1.setValue(question.allocatedTime);
     }
 
     /**
@@ -28,30 +62,22 @@ public class Texte extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jProgressBar1 = new javax.swing.JProgressBar();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Text_Quest = new javax.swing.JTextArea();
 
-        setMaximumSize(new java.awt.Dimension(970, 680));
         setMinimumSize(new java.awt.Dimension(970, 680));
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setText("FlashQuizz - QUESTION");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(300, 10, 467, 51);
-
-        jTextField9.setEditable(false);
-        jTextField9.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField9.setFont(new java.awt.Font("Lucida Sans Typewriter", 2, 18)); // NOI18N
-        jTextField9.setText("Quels est le plus grand pays du monde ?");
-        getContentPane().add(jTextField9);
-        jTextField9.setBounds(10, 60, 930, 70);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -60,14 +86,13 @@ public class Texte extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(138, 229, 664, 195);
 
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 3, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 51));
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel2.setText("Rédiger votre réponse dans l'emplacement ci-dessous :");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(105, 183, 427, 28);
+        jLabel2.setBounds(105, 183, 470, 28);
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 51));
-        jButton1.setFont(new java.awt.Font("Lucida Handwriting", 1, 14)); // NOI18N
+        jButton1.setBackground(java.awt.Color.white);
+        jButton1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jButton1.setText("VALIDER");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,19 +104,28 @@ public class Texte extends javax.swing.JFrame {
 
         jProgressBar1.setBackground(new java.awt.Color(51, 0, 204));
         jProgressBar1.setForeground(new java.awt.Color(0, 255, 0));
-        jProgressBar1.setValue(60);
         getContentPane().add(jProgressBar1);
-        jProgressBar1.setBounds(70, 600, 310, 20);
+        jProgressBar1.setBounds(100, 600, 310, 20);
 
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel3.setText("TEMPS :");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(10, 600, 70, 20);
+        jLabel3.setBounds(10, 600, 80, 20);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flashquizz/Panels/bg.jpg"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(5, -4, 950, 640);
+        jScrollPane2.setBackground(java.awt.Color.lightGray);
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.red));
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
+        Text_Quest.setEditable(false);
+        Text_Quest.setBackground(java.awt.Color.lightGray);
+        Text_Quest.setColumns(20);
+        Text_Quest.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        Text_Quest.setRows(5);
+        jScrollPane2.setViewportView(Text_Quest);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(60, 70, 860, 70);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -104,14 +138,19 @@ public class Texte extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea Text_Quest;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
+
+ public void setText_Quest(JTextArea Text_Quest) {
+        this.Text_Quest = Text_Quest;
+    }
+
 }
