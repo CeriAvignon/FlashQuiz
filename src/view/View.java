@@ -23,11 +23,40 @@ public abstract class View
 				break;
 			case desktop:
 				System.out.println("Login Desktop!");
-				// Login login = new view.desktop.Login();
+				Login d_login = new Login();
 				break;
 			default:
 				// erreur
 		}
+		
+	public static void menu() {
+	switch(platform) {
+		case android:
+			System.out.println("Login Android!");
+			// Menu menu = new view.android.Login();
+			break;
+		case desktop:
+			System.out.println("Login Desktop!");
+			Menu d_menu = new Menu();
+			break;
+		default:
+			// erreur
+	}
+		
+	public static void param() {
+	switch(platform) {
+		case android:
+			System.out.println("Login Android!");
+			// Penu param = new view.android.Param();
+			break;
+		case desktop:
+			System.out.println("Login Desktop!");
+			Param d_param = new Param();
+			break;
+		default:
+			// erreur
+	}
+		
 	}
 
 	//=============================================================================
