@@ -105,7 +105,7 @@ public class Menu extends JFrame{
 	
 	class BoutonParam implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
-			Param m_param = new Param();
+			Param d_param = new Param();
 			dispose(); 
 		}
 		}
