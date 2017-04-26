@@ -8,7 +8,7 @@ import android.widget.EditText;
 
 
 
-public class ForgotPasswordActivity extends AppCompatActivity implements View.OnClickListener {
+public class ForgotPasswordActivity extends AppCompatActivity {
 /* ------------------------------------- */
 //Declaration EditText
     private EditText editText_email;
@@ -19,18 +19,18 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_forgot_password);
 
         //Initializing the views
         editText_email = (EditText) findViewById(R.id.editText_email);
 
         btn_envoyer = (Button) findViewById(R.id.btn_envoyer);
 
-        //Adding click listener
-        btn_envoyer.setOnClickListener(this);
+
     }
 
 
+    /*
     private void sendEmail() {
         //Getting content for email
         String email = editText_email.getText().toString().trim();
@@ -43,9 +43,7 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
         //Executing sendmail to send email
         sm.execute();
     }
+    */
 
-    @Override
-    public void onClick(View v) {
-        sendEmail();
-    }
+
 }
