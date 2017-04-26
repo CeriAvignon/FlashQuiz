@@ -1,7 +1,6 @@
-package Session
-import SessionData.*;
-// A VOIR AVEC AMAURY
-import res-bdd.SessionHandler; // nom_package.nom_class
+package model.session_el;
+//import SessionData.*;
+import resbdd.SessionHandler; // nom_package.nom_class
 import Session.java;
 
 public class ActionSession
@@ -60,19 +59,19 @@ public class ActionSession
 	}
 
 	
-	public void modifSessionTitle(String title)
+	public void modifSessionTitle(String name)
 	{
-		setTitle(title);
+		setTitle(name);
 	}
 
-	public void modifSessionOpen(Date open)
+	public void modifSessionOpen(Date startingDate)
 	{
-		setOpen(open);
+		setOpen(startingDate);
 	}
 
-	public  void modifSessionClose(Date close)
+	public  void modifSessionClose(Date endingDate)
 	{
-		setClose(close);
+		setClose(endingDate);
 	}
 
 	public void modifylist(int[] newlist)
