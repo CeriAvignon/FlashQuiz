@@ -32,11 +32,11 @@ public abstract class View
 	public static void menu() {
 	switch(platform) {
 		case android:
-			System.out.println("Login Android!");
+			System.out.println("Menu Android!");
 			loginActivity menu = new onCreate(savedInstanceState);
 			break;
 		case desktop:
-			System.out.println("Login Desktop!");
+			System.out.println("Menu Desktop!");
 			Menu d_menu = new Menu();
 			break;
 		default:
@@ -46,11 +46,11 @@ public abstract class View
 	public static void param() {
 	switch(platform) {
 		case android:
-			System.out.println("Login Android!");
+			System.out.println("Param Android!");
 			// Penu param = new view.android.Param();
 			break;
 		case desktop:
-			System.out.println("Login Desktop!");
+			System.out.println("Param Desktop!");
 			Param d_param = new Param();
 			break;
 		default:
