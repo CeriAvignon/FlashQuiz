@@ -34,20 +34,7 @@ public class User implements Serializable {
 	 
 	 /**
 	  * Constructor of the class User.
-	  *
-	  * @param id
-	  *			The id of the user
-	  * @param firstName
-	  * 		The user first name
-	  * @param name
-	  * 		The name of the user
-	  * @param login
-	  * 		The user login
 	  */
-	public User(int id, String firstName, String name, String login) {
-		this.id = id;
-		this.firstName = firstName;
-		this.name = name;
-		this.login = login;
+	public User() {
 	} 
 }

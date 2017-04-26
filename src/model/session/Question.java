@@ -11,54 +11,25 @@ import model.base.*;
  *
  * @see QuestionBase
  *
- * @author Jean-Loup Gaussen
+ * @author Jean-Loup Gaussen, Adrien Sartori
  */
 public class Question extends QuestionBase implements Serializable {
 	/**
-	 * A list that contain the answers
-	 *
-	 * @see Answer
+	 * Defined answers for the question.
 	 */
-	public List<Answer> answers;
+	public Answer[] answers;
 
 	/**
 	 * Question constructor
-	 *
-	 * @param id
-	 *        An int that contain the question id
-	 * @param statement
-	 *        A string that contain the question statement
-	 * @param type
-	 *        A string that contain the question type (Free,Radio,Checkbox)
-	 * @param allocatedTime
-	 *			  Time allocated to the question
-	 * @param answersId
-	 *        A list that contain the answers id
 	 */
-	public Question(int id, String statement, int type, int allocatedTime, int[] answersId) {
-		super(id, statement, type, allocatedTime);
-		// for(Integer answer : answersId)
-		// this.answers.add(getAnswer(answer));
-		// AnswerHandler
+	public Question(){
 	}
 
 	/**
-	 * Question constructor
-	 *
-	 * @param id
-	 *         An int that contain the question id
-	 * @param statement
-	 *         A string that contain the question statement
-	 * @param type
-	 *         A string that contain the question type (Free,Radio,Checkbox)
-	 * @param allocatedTime
-	 *			  Time allocated to the question
-	 * @param answersId
-	 *         A list that contain the answers id
+	 * Constructor
 	 */
-	public Question(int id, String statement, int type, int allocatedTime, List<Answer> answers) {
-		super(id, statement, type, allocatedTime);
-		this.answers = answers;
+	public Question(int id) {
+		//TODO
 	}
 
 	/**
