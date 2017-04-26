@@ -1,7 +1,6 @@
 public class ActionQuestion
 {
-  
-  
+
     int nbr_media=0;
   
   
@@ -18,7 +17,7 @@ public class ActionQuestion
     {
 		
 			if (type != null) {
-                question[quest].setType(type);;
+                question[quest].setType(type);
 			}
 			else {
 				System.out.println("alert!!");
@@ -26,7 +25,7 @@ public class ActionQuestion
 			}
 			if (rep != null &&repV!=null ) {
 				question[quest].setReponse(rep);
-				question[quest].setReponseVrai(repV);;
+				question[quest].setReponseVrai(repV);
 			}
 			else{
 				System.out.println("alert!!");
@@ -34,7 +33,7 @@ public class ActionQuestion
 
 			}
 			if (contenu != null) {
-				question[quest].setContenu(contenu);;
+				question[quest].setContenu(contenu);
 			}
 			else{
 				System.out.println("alert!!");
@@ -42,7 +41,7 @@ public class ActionQuestion
 
 			}
 			if (idMedia != null && idMedia>=0 && idMedia<nbr_media) {
-			   question[quest].setMedia(id);;
+			   question[quest].setMedia(id);
 				
 			}
 			else{
@@ -51,11 +50,10 @@ public class ActionQuestion
 
 			}
 
-  
-  
-  
-  
-  
-  
-  
+    }
+
+    Question questionCreat(int QuestType, String QuestConten, boolean MediaExist) throws ClassNotFoundException, Exception {
+		     Question quest=new Question (QuestType,QuestConten,MediaExist);
+		     return quest;
+	  } 
 }
