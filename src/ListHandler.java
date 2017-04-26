@@ -1,5 +1,5 @@
-import ConnexionJM.java;
-import Liste.java;
+import List.List;
+import connexion.Connexion;
 import java.sql.*;
 import java.util.Vector;
 
@@ -31,11 +31,10 @@ public class ListHandler
 	 * 				Une liste de questions.
 	 * 
 	 **/ 
-	public void sendList(List list)
+	public static void sendList(List list)
 	{
-		Question question;
-		int idQuestion;
-		Connection cnx=connecterDB();
+		int idQuestion[];
+		ConnexionJav cnx= Connexion("");
 
 		/** 
 		 * 
@@ -44,10 +43,9 @@ public class ListHandler
 		 * 
 		 **/
 
-		int idList = list.getIdList();
-		int idAuthor = list.getIdAuthor();
-		String listName = list.getListName();
-		Vector<Question>listQuestion = list.getListQuestion();
+		int idList = list.getId();
+		int idAuthor = list.getAuthor();
+		String listName = list.getName();
 
 		/** 
 		 * 
@@ -57,8 +55,8 @@ public class ListHandler
 		 * */
 
 		String query="";
-		PreparedStatement prepare = cnx.prepareStatement();
-		Statement statement = connexion.createStatement();
+		PreparedStatement prepare = cnx.prepareStatement(query);
+		Statement statement = cnx.createStatement();
 		ResultSet res;
 
 		/**
@@ -79,9 +77,9 @@ public class ListHandler
 			 * 
 			 **/
 			
-			query = "SELECT FROM List_Metadata WHERE Title = ?;";
+			query = "SELECT * FROM List_Metadata WHERE Title = ?;";
 			prepare = cnx.prepareStatement(query);
-			prepare.setObject(1,idList);
+			prepare.setObject(1,listName);
 			res = prepare.executeQuery();
 			
 			/**
@@ -144,11 +142,8 @@ public class ListHandler
 			prepare = cnx.prepareStatement(query);
 			prepare.setObject(1,idList);
 
-				for(int i = 0; i< listQuestion.size(); i++)
+				for(int i = 0; i< idQuestion.length; i++)
 				{
-					question = listQuestion[i];
-					sendQuestion(question);
-					idQuestion = question.getIdQuestion();
 					prepare.setObject(2,idQuestion);
 					prepare.executeUpdate();
 					prepare.close();
@@ -176,4 +171,157 @@ public class ListHandler
 		}
 	}
 	
+	
+	public static void getList (int idList)
+	{
+		
+		ConnexionJav cnx= Connexion("");
+		int counter=0;
+		int idQuestion [] = new int[1000];
+		String query ="";
+		/** 
+		 * 
+		 * R&eacute;cup&eacute;ration de la liste de question avec la fonction 
+		 * getIdList().
+		 * 
+		 **/
+
+		try{
+			PreparedStatement prepare = cnx.prepareStatement(query);
+			Statement statement = cnx.createStatement();
+			ResultSet res;
+			
+			query="SELECT * FROM List_Metadata WHERE ID_List=?;";
+			
+			prepare = cnx.prepareStatement(query);
+			prepare.setObject(1,idList);
+			
+			res = prepare.executeQuery();
+			
+			//List list = new List(res.getInt("Id_List"),res.getInt("ID_User"),res.getInt("Title"));
+			
+			prepare.close();
+			res.close();
+			
+			query="SELECT ID_Question FROM List_Content WHERE ID_List=?;";
+			prepare = cnx.prepareStatement(query);
+			prepare.setObject(1,idList);
+			
+			res = prepare.executeQuery();
+			while(res.next())
+			{
+				idQuestion[counter++] = res.getInt(1);
+			}
+			//list.setQuestion(idQuestion);
+			
+			//return list;
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+
+	}
+	
+	
+
+public static void deleteList (int idList)
+{
+	
+	ConnexionJav cnx= Connexion("");
+	String query="";
+	int idQuestion [] = new int[1000];
+	/** 
+	 * 
+	 * Suppression de la liste de question avec la fonction 
+	 * deleteList().
+	 * 
+	 **/
+
+	try{
+		PreparedStatement prepare = cnx.prepareStatement(query);
+		Statement statement = cnx.createStatement();
+		ResultSet res;
+		
+		query="DELETE * FROM List_Metadata WHERE ID_List=?;";
+		
+		prepare = cnx.prepareStatement(query);
+		prepare.setObject(1,idList);
+		
+		res = prepare.executeQuery();
+		
+		
+		prepare.close();
+		res.close();
+		
+		query="DELETE * FROM List_Content WHERE ID_List=?;";
+		prepare = cnx.prepareStatement(query);
+		prepare.setObject(1,idList);
+		
+		res = prepare.executeQuery();
+	
+	}
+	catch(SQLException e)
+	{
+		e.printStackTrace();
+	}
+
+}
+
+public static int[] getAllIDList()
+{
+	ConnexionJav cnx= Connexion("");
+	String query="";
+	int counter=0;
+	int idList [] = new int[1000];
+	try{
+		PreparedStatement prepare = cnx.prepareStatement(query);
+		Statement statement = cnx.createStatement();
+		ResultSet res;
+		
+		query="SELECT ID_List FROM List_Metadata;";
+		prepare = cnx.prepareStatement(query); 
+		res = prepare.executeQuery();
+		
+		while(res.next())
+		{
+			idList[counter++] = res.getInt(1);
+		}
+	}
+	
+	catch(SQLException e)
+	{
+		e.printStackTrace();
+	}
+	return idList;
+}
+
+public static void deleteListSession(int idList)
+{
+	ConnexionJav cnx= Connexion("");
+	String query="";
+	
+
+	try{
+		PreparedStatement prepare = cnx.prepareStatement(query);
+		Statement statement = cnx.createStatement();
+		ResultSet res;
+		
+		query="DELETE * FROM Session_Content WHERE ID_List=?;";
+		
+		prepare = cnx.prepareStatement(query);
+		prepare.setObject(1,idList);
+		
+		res = prepare.executeQuery();
+		
+		
+		prepare.close();
+		res.close();
+	
+	}
+	catch(SQLException e)
+	{
+		e.printStackTrace();
+	}
+}
 }
