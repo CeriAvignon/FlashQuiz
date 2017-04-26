@@ -205,6 +205,7 @@ public abstract class SessionVoter {
 	 * @see SessionVoter#voterAnswers
 	 */
 	public static void sendVoterAnswer(VoterAnswer answer) {
+		answer.time = timer.getDelay() / 1000;
 		RemoteServer.sendRequest("setVoterAnswer", answer);
 		voterAnswers.put(currQuestionId, answer);
 		View.voterDisplayQuestionStatistics(currQuestion, answer);
@@ -232,7 +233,8 @@ public abstract class SessionVoter {
 	 * voter to the data base.
 	 */
 	public static void endSession() {
-		double average = Statistics.calculateVoterPercentageOfCorrectAnswers(lists,voterAnswers);
+		double average = Statistics
+				.calculateVoterPercentageOfCorrectAnswers(lists, voterAnswers);
 		View.voterDisplaySessionStatistics(average);
 		voterAnswers.save();
 	}
