@@ -4,7 +4,7 @@ import model.base.*;
 import model.session.*;
 import view.android.*;
 import view.desktop.*;
-
+import ig.flash;
 /**
  * Class that gather views calls, depending on the platform.
  */
@@ -19,7 +19,7 @@ public abstract class View
 		switch(platform) {
 			case android:
 				System.out.println("Login Android!");
-				// Login login = new view.android.Login();
+				loginActivity login = new onCreate(savedInstanceState);
 				break;
 			case desktop:
 				System.out.println("Login Desktop!");
@@ -33,7 +33,7 @@ public abstract class View
 	switch(platform) {
 		case android:
 			System.out.println("Login Android!");
-			// Menu menu = new view.android.Login();
+			loginActivity menu = new onCreate(savedInstanceState);
 			break;
 		case desktop:
 			System.out.println("Login Desktop!");
@@ -67,13 +67,14 @@ public abstract class View
 	// Vue intermédiaire en attente de la prochaine question
 	public static void voterWaitingNextQuestion()
 	{
-
+		FinQuestion vue = new onCreate(savedInstanceState);
 	}
 
 	// Affiche la question et les champs pour répondre
-	public static void voterDisplayQuestion(Question question)
+	public static Answer voterDisplayQuestion(Question question)
 	{
-
+		StartSession vue = new onCreate(savedInstanceState,question);
+		return vue.Reponse();
 	}
 
 	// Affiche le résultat de la question + correction
@@ -85,7 +86,7 @@ public abstract class View
 	// Affiche les statistiques générales pour la session (% bonnes réponses) + bouton quitter session
 	public static void voterDisplaySessionStatistics(double average)
 	{
-
+		RecapAll vue = new onCreate(savedInstanceState,average); 
 	}
 
 
@@ -114,7 +115,7 @@ public abstract class View
 	// average est le pourcentage de bonnes réponses pour toutes les questions de la session
 	public static void masterDisplaySessionStatistics(double average)
 	{
-
+		stat1Activity vue = new onCreate(savedInstanceState,average);
 	}
 
 	//=============================================================================
@@ -125,12 +126,12 @@ public abstract class View
 	// Affiche les statistiques générales pour une session pour un utilisateur
 	public static void userDisplayAverageStatistics(Session session, double average)
 	{
-
+		stat1Activity vue = new onCreate(savedInstanceState,average);
 	}
 
 	// Affiche les statistiques générales pour une session pour tous les utilisateurs
 	public static void sessionDisplayAverageStatistics(Session session, double average)
 	{
-
+		stat2Activity vue = new onCreate(savedInstanceState,average);
 	}
 }
