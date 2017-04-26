@@ -169,7 +169,7 @@ public abstract class SessionVoter {
 	public static void initialize(List<QuestionList> lists) {
 		SessionVoter.lists = lists;
 
-		// View.displayWaitingNextQuestion(); (IG) %TODO%
+		voterWaitingNextQuestion();
 	}
 
 	/**
@@ -193,7 +193,7 @@ public abstract class SessionVoter {
 			setAllocatedTime(currQuestion.allocatedTime);
 		}
 
-		// View.displayQuestion(Question); (IG) %TODO%
+		voterDisplayQuestion(currQuestion);
 
 	}
 
@@ -212,7 +212,7 @@ public abstract class SessionVoter {
 		RemoteServer.sendRequest("setVoterAnswer", answer);
 		voterAnswers.put(currQuestionId, answer);
 
-		// View.displayWaitingNextQuestion(); (IG) %TODO%
+		voterDisplayQuestionStatistics(currQuestion, answer);
 	}
 
 	/**
@@ -229,7 +229,7 @@ public abstract class SessionVoter {
 			setAllocatedTime(0);
 		}
 
-		// View.displayWaitingNextQuestion(); (IG) %TODO%
+		voterWaitingNextQuestion();
 
 	}
 
@@ -240,7 +240,7 @@ public abstract class SessionVoter {
 	 */
 	public static void endSession() {
 
-		// View.displaySessionEnd(); (IG) %TODO%
+		voterDisplaySessionStatistics(average);
 
 		// SendStatBBDLocal(); (BDD) %TODO%
 
