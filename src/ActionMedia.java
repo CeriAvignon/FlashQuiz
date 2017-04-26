@@ -1,8 +1,7 @@
 
 public class ActionMedia {
+
 	int nbr_media = 0;
-
-
 	Media media[] = new Media[2];
 
 	public void initialiser_media() {
@@ -11,9 +10,7 @@ public class ActionMedia {
 		media[0].contenu = "url1";
 		media[0].type = "video";
 		nbr_media++;
-
 		media[1] = new Media();
-
 		media[1].id = 1;
 		media[1].contenu = "url";
 		media[1].type = "image";
@@ -63,9 +60,6 @@ public class ActionMedia {
         modi.modifierMedia(0,"nouveau-url","image.jpg" );
         System.out.println("--------------------------------------------------------------");
         modi.Afficher();
-        
-
-  
 	}
 	
 	
@@ -75,13 +69,22 @@ public class ActionMedia {
         modi.Afficher();
         modi.modifierMedia(0,"nouveau-url","image.jpg" );
         System.out.println("--------------------------------------------------------------");
-        modi.Afficher();
-        
+        modi.Afficher(); 
+	  }
 
-  
-	}
+            	//Recupere le chemin du media pour l'Upload (Interface graphique)
+		public Media mediaUpload(String MediaSource) throws ClassNotFoundException, Exception{
+		    Media media=new Media(MediaSource);
+			  Media.defineMediaInfos();
+			  Media.uploadMedia();
+		    return media;
+		}
+		//Recupere le chemin du media dans la base de données (BD)
+		public Media mediaDelete(String MediaLocation) throws ClassNotFoundException, Exception {
+			  Media media = new Media();
+			  Media.MediaLocation=MediaLocation;
+			  Media.deleteMedia();
+			  return media;
+		}
+	
 }
-
-
-
-
