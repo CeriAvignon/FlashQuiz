@@ -160,12 +160,15 @@ public abstract class Statistics {
 		return getPercentage(correct, voterAnswers.size());
 	}
 
-	/************************************************************************
-	 * * DDDD IIIII SSSSSS PPPP L A Y Y * D D I S P P L A A Y Y * D D I SSSSS
-	 * PPPP L A A Y * D D I S P L AAAAAAA Y * DDDD IIIII SSSSSS P LLLLL A A Y *
-	 * *
-	 ************************************************************************/
-
+/***********************************************************************\
+*									*
+*	DDDD	IIIII	  SSSSSS   PPPP    L	       A       Y   Y	*
+*	D   D     I	 S	   P   P   L 	      A A	Y Y	*
+*	D   D     I	  SSSSS    PPPP    L	     A   A       Y	*
+*	D   D	  I	       S   P	   L	    AAAAAAA      Y    	*
+*	DDDD    IIIII	 SSSSSS    P	   LLLLL   A	   A     Y	*
+*									*
+\***********************************************************************/
 	/**
 	 * Function who display the right view after each question
 	 *
