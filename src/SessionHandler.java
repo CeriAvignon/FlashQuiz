@@ -259,7 +259,7 @@ public class SessionHandler
 	}
 
 	/**
-	* <b>Recoupere une session Ã  partir de la BDD.</b>
+	* <b>Recoupere les ids des sessions.</b>
 	* <p>
 	* 
 	* @author Alexandra MOSHINA 
@@ -297,7 +297,7 @@ public class SessionHandler
 	}
 	
 	/**
-	* <b>Recoupere une session Ã  partir de la BDD.</b>
+	* <b>Recoupere les ids session par nom.</b>
 	* <p>
 	* 
 	* @author Alexandra MOSHINA 
@@ -340,7 +340,7 @@ public class SessionHandler
 	}
 	
 	/**
-	* <b>Recoupere une session Ã  partir de la BDD.</b>
+	* <b>Recoupere les ids des utilisateus.</b>
 	* <p>
 	* 
 	* @author Alexandra MOSHINA 
