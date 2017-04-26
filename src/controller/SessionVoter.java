@@ -76,7 +76,6 @@ public abstract class SessionVoter {
 	 * @see SessionVoter#initialize(List)
 	 * @see SessionVoter#startQuestion(Integer, Integer)
 	 */
-	@SuppressWarnings("unchecked")
 	public static Boolean interpreter(String action, Object object) {
 		switch (action) {
 		case "printReceived":
@@ -168,7 +167,6 @@ public abstract class SessionVoter {
 	 */
 	public static void initialize(List<QuestionList> lists) {
 		SessionVoter.lists = lists;
-
 		voterWaitingNextQuestion();
 	}
 
@@ -192,9 +190,7 @@ public abstract class SessionVoter {
 		if (currQuestion.allocatedTime != 0) {
 			setAllocatedTime(currQuestion.allocatedTime);
 		}
-
 		voterDisplayQuestion(currQuestion);
-
 	}
 
 	/**
@@ -203,15 +199,14 @@ public abstract class SessionVoter {
 	 * 
 	 * @param answer
 	 *            The answer given by the voter
-	 *            
+	 * 
 	 * @see VoterAnswer
 	 * @see RemoteServer#sendRequest(String, Object)
-	 * @see SessionVoter#voterAnswers 
+	 * @see SessionVoter#voterAnswers
 	 */
 	public static void sendVoterAnswer(VoterAnswer answer) {
 		RemoteServer.sendRequest("setVoterAnswer", answer);
 		voterAnswers.put(currQuestionId, answer);
-
 		voterDisplayQuestionStatistics(currQuestion, answer);
 	}
 
@@ -228,9 +223,7 @@ public abstract class SessionVoter {
 		if (currQuestion.allocatedTime != 0) {
 			setAllocatedTime(0);
 		}
-
 		voterWaitingNextQuestion();
-
 	}
 
 	/**
@@ -239,11 +232,8 @@ public abstract class SessionVoter {
 	 * voter to the data base.
 	 */
 	public static void endSession() {
-
 		voterDisplaySessionStatistics(average);
-
-		// SendStatBBDLocal(); (BDD) %TODO%
-
+		voterAnswers.save();
 	}
 
 	/**
