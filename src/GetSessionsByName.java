@@ -13,7 +13,7 @@ public class GetSessionsByName
 {
 
 	/**
-	* <b>Recoupere une session Ã  partir de la BDD.</b>
+	* <b>Recoupere les ids des sessions par nom.</b>
 	* <p>
 	* 
 	* @author Alexandra MOSHINA 
