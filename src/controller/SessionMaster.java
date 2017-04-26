@@ -6,6 +6,9 @@ import lib.display.*;
 import model.base.*;
 import model.session.*;
 import java.util.*;
+import view.*;
+import java.awt.event.*;
+import javax.swing.Timer;
 
 //=============================================================================
 // ▼ SessionMaster
@@ -21,11 +24,13 @@ public abstract class SessionMaster
 
 	private static VotersAnswersList votersAnswers; //
 	private static List<Integer> questionsUnvoted; // liste des index des questions de la liste courante encore non votées
-	private static List<Double> scores;
+	private static double[] scores;
 	private static List<QuestionList> lists; // liste des listes de questions
 
 	private static Integer currListId;
 	private static Integer currQuestionId;
+
+	private static Timer timer;			// Timer d'une question
 
 
 
@@ -81,7 +86,7 @@ public abstract class SessionMaster
 		SessionMaster.name = name;
 		SessionMaster.password = password;
 		SessionMaster.questionOrderIsRandom = questionOrderIsRandom;
-		SessionMaster.scores = new ArrayList<Double>();
+		//SessionMaster.scores = new double[];
 
 		LocalServer.open(9090);
 
@@ -116,8 +121,11 @@ public abstract class SessionMaster
 	        questionsUnvoted.remove(currQuestionId);
 	        Question nextQuestion = lists.get(currListId).questions.get(currQuestionId);
 
+	        setAllocatedTime(nextQuestion.allocatedTime);
+
+
 	        LocalServer.sendRequestToAll("startQuestion", listIdAndQuestionId);
-	        // appeler la vue en envoyant nextQuestion
+	      	View.masterDisplayQuestion(nextQuestion);
 	    } else { // si on était à la dernière question de la liste courante
 
 	        if(currListId == lists.size() - 1) // si on était à la dernière liste
@@ -162,9 +170,10 @@ public abstract class SessionMaster
 	//---------------------------------------------------------------------------
 	public static void endQuestion() {
 
+		timer.stop();
 		LocalServer.sendRequestToAll("forceEndQuestion", null);
-		Statistics.displayQuestionStats(votersAnswers.getAnswersByQuestion(currQuestionId), lists.get(currListId).questions.get(currQuestionId));
-		// %TODO% -> Afficher close session via IG function
+		View.masterdisplayQuestionStatistics(votersAnswers.getAnswersByQuestion(currQuestionId), lists.get(currListId).questions.get(currQuestionId));
+		
 	}
 
 
@@ -174,12 +183,39 @@ public abstract class SessionMaster
 	//---------------------------------------------------------------------------
 	public static void endSession() {
 		
-		Statistics.displaySessionStatAverage(votersAnswers);
+		double generalScore = Statistics.calculateAverage(scores);
+		
 		LocalServer.sendRequestToAll("endSession", null);
-		// %TODO% -> enoyer stat a la BDD
+		View.masterDisplaySessionStatistics(generalScore);
+		
+		// Sauvegarde de la session dans la BDD
+		Session saved = new Session();
+		saved.name = name;
+		saved.authorName = 0;
+		saved.date = ;
+		saved.isQuestionOrderRandom = questionOrderIsRandom;
+		saved.lists = lists;
+		saved.votersAnswersList = votersAnswers;
 
+		saved.save();
 	}
 
+
+	public void setAllocatedTime(int timeLeft) {
+
+		int delay = timeLeft * 1000; // convert in milliseconds
+
+		ActionListener timeOutListener = new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				System.out.println("Time left!");
+				forceEndQuestion();
+			}
+		};
+
+		this.timer = new Timer(delay, timeOutListener);
+		this.timer.setRepeats(false); // happen once
+		this.timer.start();
+	}
 
 
 }
