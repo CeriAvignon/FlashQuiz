@@ -14,9 +14,6 @@ import java.util.*;
 //=============================================================================
 public abstract class SessionMaster
 {
-	// private static Session session;
-	// private static Vector<Vector<VoterAnswer>> votersAnswers;
-
 
 	private static String name; // nom de la session
 	private static String password; // mot de passe pour accéder à la session
@@ -77,7 +74,7 @@ public abstract class SessionMaster
 
 	//---------------------------------------------------------------------------
 	// * initialize
-	// Define all major attributes for the session.
+	// définis tout les attributs majeurs lor sde la création de la session
 	//---------------------------------------------------------------------------
 	public static void initialize(String name, String password, int[] idList, Boolean questionOrderIsRandom) {
 
@@ -86,15 +83,13 @@ public abstract class SessionMaster
 		SessionMaster.questionOrderIsRandom = questionOrderIsRandom;
 		SessionMaster.scores = new ArrayList<Double>();
 
-		// SessionMaster.idList = idList;
-
 		LocalServer.open(9090);
 
 	}
 
 	//---------------------------------------------------------------------------
 	// * Start
-	// No more connections accepted.
+	// Demarrage du questionnaire, plus de clients acceptées.
 	//---------------------------------------------------------------------------
 	public static void start() {
 
@@ -106,10 +101,11 @@ public abstract class SessionMaster
 
 	//---------------------------------------------------------------------------
 	// * startNextQuestion
-	// Send the next question to begin with.
+	// Passe a la question suivante.
 	//---------------------------------------------------------------------------
 	public static void startNextQuestion() {
 
+		// Si il reste des questions non répondues, vide au commencement d'une liste
 	    if(!questionsUnvoted.isEmpty()) {
 	        int currQuestionId = questionsUnvoted.get(0);
 
@@ -140,14 +136,11 @@ public abstract class SessionMaster
 
 	//---------------------------------------------------------------------------
 	// * setVoterAnwer
-	// Gather the answer entered by the client for the current question.
+	// Récupere les réponses entrées pas le client pour la question courante.
 	//---------------------------------------------------------------------------
 	public static void setVoterAnswer(ClientHandler client, VoterAnswer answer) {
 
-
-		// votersAnswers.addAnswer(clientId, currQuestionId);
-
-
+		// votersAnswers.addAnswer(userId, currQuestionId);
 		if(votersAnswers.getAnswersByQuestion(currQuestionId).size() == votersAnswers.size())
 			endQuestion();
 	}
@@ -155,7 +148,7 @@ public abstract class SessionMaster
 
 	//---------------------------------------------------------------------------
 	// * forceEndQuestion
-	// Force the end of the question by admin.
+	// Force la fin de question par admin.
 	//---------------------------------------------------------------------------
 	public static void forceEndQuestion() {
 		// Envoi un signal a tout les clients disant de passer a la question suivante
@@ -165,23 +158,25 @@ public abstract class SessionMaster
 
 	//---------------------------------------------------------------------------
 	// * endQuestion
-	// Display all the stats at the end of the question.
+	// Affiche les stats globales de la question.
 	//---------------------------------------------------------------------------
 	public static void endQuestion() {
 
 		LocalServer.sendRequestToAll("forceEndQuestion", null);
-		// TODO -> Afficher close session via vue
+		Statistics.displayQuestionStats(votersAnswers.getAnswersByQuestion(currQuestionId), lists.get(currListId).questions.get(currQuestionId));
+		// %TODO% -> Afficher close session via IG function
 	}
 
 
 	//---------------------------------------------------------------------------
 	// * endSession
-	// Send all the results to db and display global stats.
+	// Envoie tout les résultats à la BDD et affiche les stats.
 	//---------------------------------------------------------------------------
 	public static void endSession() {
-		// %TODO% -> enoyer stat a la BDD
-		Statistics.displayGeneralStats(votersAnswers);
+		
+		Statistics.displaySessionStatAverage(votersAnswers);
 		LocalServer.sendRequestToAll("endSession", null);
+		// %TODO% -> enoyer stat a la BDD
 
 	}
 
