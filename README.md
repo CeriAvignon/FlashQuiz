@@ -1,7 +1,11 @@
 # FlashQuiz
 
-Le fichier : SimpleServer.java est une esquisse , un test , effectué pour comprendre le fonctionnement des sockets /   
+Connexion.java est le package qui permet de se connecter à la base de donnée /
 
-Le fichier Version est "le squelette" qui permet la connexion à la base de données /    
+La librairie JBDC est nécéssaire / 
 
-le fichier .jar est la librairie utilisé pour effectuer la connexion à la base de donnée
+le .jar est la librairie à inclure en question / 
+
+Deconnexion.java est le package qui va permettre de se deconnecter à la base de donnée / 
+
+Ce composant du package contient seulement la connexion de la bdd /
