@@ -1,30 +1,28 @@
-//importer connection bdd
 import connexion.Connexion;
 import java.sql.*;
-//import .java
 import model.base.*;
 import model.session.*;
 
 
-/**
+	/**
 	*  @author Sacha Le Doeuff
 	*  @version 1.0
-	*
-	*
-	*  xxxxxxx
+	*  Kit de fonction qui permet de recuperer les reponses des utilisateurs
+	*  pour faire les statistiques (fonctions utilisees par le groupe TVS)
 	**/
 
 public class VoterAnswerHandler {
 
 	/**
-	 *
-	 * @since x
-	 * @param x
-	 *
+	 *	<b> enregistrement d'une nouvelle reponse d'un utilisateur sur une des question d'une session. </b>
+	 * 	
+	 *  @param id_question, id_session, id_user, texte
+	 *		les different elements qui composent la table VoterAnswer
+	 *	
 	 **/
 	public void setVoterAnswer(int id_question, int id_session, int id_user, String texte)
 	{
-		Connexion cnx;//=connecterDB();
+		Connexion cnx;
 
 		/**
 		 * Creation d'une requete vide qui sera affectee selon
@@ -35,27 +33,6 @@ public class VoterAnswerHandler {
 		PreparedStatement prepare = cnx.prepareStatement();
 		Statement statement = cnx.createStatement();
 
-		/* //fonction au cas ou on ne puisse pas avoir tout les id en entrée //
-
-			query="SELECT * FROM Question WHERE Contenu=?;";
-			prepare = cnx.prepareStatement(query);
-			prepare.setObject(1,question);
-			res = prepare.executeQuery();
-			boolean ret=res.first();
-			if(ret)question = res.getInt("ID_Question");
-			prepare.close();
-			res.close();
-
-			query="SELECT * FROM Session WHERE Name=?;";
-			prepare = cnx.prepareStatement(query);
-			prepare.setObject(1,session);
-			res = prepare.executeQuery();
-			boolean ret=res.first();
-			if(ret)session = res.getInt("ID_Session");
-			prepare.close();
-			res.close();
-
-		*/
 		try{
 			query="INSERT INTO VoterAnswer(ID_Session, ID_Question, ID_User, Content_FreeAnswer) VALUES(?,?,?,?);";
 			prepare = cnx.prepareStatement(query);
@@ -76,13 +53,16 @@ public class VoterAnswerHandler {
 		}
 	}
 
-	/*
-	* vraiment utile ? + pas sur de l'utilisation d'object et de la  conversion de ResultSet en object
-	* possibilité: return un objet de type ResultSet, que les gens mettent dans un type Object
-	*/
+	/**
+	 *	<b> récupération d'une reponse d'un utilisateur sur une des question d'une session. </b>
+	 * 	
+	 *  @param id_question, id_session, id_user
+	 *		les different elements qui identifient une réponse bien précise
+	 *	
+	 **/
 	public Object[][] getVoterAnswer(int id_question, int id_session, int id_user)
 	{
-		Connexion cnx;//=connecterDB();
+		Connexion cnx;
 
 		try{
 			PreparedStatement prepare = cnx.prepareStatement();
@@ -114,9 +94,16 @@ public class VoterAnswerHandler {
 		}
 	}
 
+	/**
+	 *	<b> récupération des réponses d'un utilisateur sur toute les questions auquel il a répondu </b>
+	 * 	
+	 *  @param id_user
+	 *		l'id de l'utilisateur dont onv eut les réponses
+	 *	
+	 **/
 	public Object[][] getVoterAnswersByUser(int id_user)
 	{
-		Connexion cnx;//=connecterDB();
+		Connexion cnx;
 
 		try{
 			PreparedStatement prepare = cnx.prepareStatement();
@@ -135,7 +122,7 @@ public class VoterAnswerHandler {
 			res.close();
 
 			Object resultat[][]=res;
-			return resultat;	//return res; undo prec
+			return resultat;
 		}
 		catch(SQLException e)
 		{
@@ -147,9 +134,16 @@ public class VoterAnswerHandler {
 		}
 	}
 
+	/**
+	 *	<b> récupération des réponses d'un utilisateur sur toute les questions auquel il a répondu d'une session </b>
+	 * 	
+	 *  @param id_user, id_session
+	 *		l'id de l'utilisateur dont on veut les réponses et de la session voulue
+	 *	
+	 **/
 	public Object[][] getVoterAnswersByUserAndSession(int id_user, int id_session)
 	{
-		Connexion cnx;//=connecterDB();
+		Connexion cnx;
 
 		try{
 			PreparedStatement prepare = cnx.prepareStatement();
@@ -167,7 +161,7 @@ public class VoterAnswerHandler {
 
 			prepare.close();
 			res.close();
-			// may not be necessary
+			
 			Object resultat[][]=res;
 			return resultat;
 		}
