@@ -57,6 +57,31 @@ public abstract class View
 			// erreur
 	}
 		
+	public static void recap() {
+	switch(platform) {
+		case android:
+			System.out.println("Android!");
+		
+			break;
+		case desktop:
+			Recap recap_final = new Recap();
+			break;
+		default:
+			// erreur
+	}
+		
+	public static void reponse() {
+	switch(platform) {
+		case android:
+			System.out.println("Android!");
+		
+			break;
+		case desktop:
+			Reponse reponse = new Reponse();
+			break;
+		default:
+			// erreur
+	}
 	}
 
 	//=============================================================================
@@ -98,7 +123,7 @@ public abstract class View
 	// Affiche la question et le bouton "forcer le passage à la question suivante"
 	public static void masterDisplayQuestion(Question question)
 	{
-
+		
 	}
 
 	// Affiche les résultats de la question
