@@ -1,4 +1,3 @@
-
 package model.session;
 
 import java.util.*;
@@ -8,31 +7,42 @@ import model.base.*;
 /**
  * A list is a series of questions.
  *
- * @author Jean-Loup Gaussen, Adrien Sartori
+ * @author Jean-Loup Gaussen
  *
  * @see QuestionBase
  * @see ListBase
  */
-public class QuestionList extends ListBase implements Serializable {
+public class QuestionList extends HashMap<Integer, Question>
+		implements Serializable {
 
 	/**
-	 * A list that contain all the list questions.
+	 * The list id.
+	 *
+	 * @see ListBase#ListBase(int, String, String)
 	 */
-	public Map<Integer, Question> questions;
+	public int id;
 
 	/**
-	 * QuestionList constructor
+	 * The title of the list.
+	 *
+	 * @see ListBase#ListBase(int, String, String)
 	 */
-	public QuestionList(){
-	}
+	public String name;
+
+	/**
+	 * The name of the list creator.
+	 *
+	 * @see ListBase#ListBase(int, String, String)
+	 */
+	public String creator;
 
 	/**
 	 * The List constructor.
 	 *
-	 * @param id
-	 *            The list id.
+	 * @see List#questions
 	 */
-	public QuestionList(int id) {
-		//TODO
+	public QuestionList() {
+		super();
 	}
+
 }
