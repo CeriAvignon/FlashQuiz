@@ -34,7 +34,7 @@ public class ListHandler
 	public static void sendList(List list)
 	{
 		int idQuestion[];
-		Connection cnx=;
+		ConnexionJav cnx= Connexion("");
 
 		/** 
 		 * 
@@ -175,7 +175,7 @@ public class ListHandler
 	public static void getList (int idList)
 	{
 		
-		Connection cnx=connecterDB();
+		ConnexionJav cnx= Connexion("");
 		int counter=0;
 		int idQuestion [] = new int[1000];
 		String query ="";
@@ -228,7 +228,7 @@ public class ListHandler
 public static void deleteList (int idList)
 {
 	
-	Connection cnx=connecterDB();
+	ConnexionJav cnx= Connexion("");
 	String query="";
 	int idQuestion [] = new int[1000];
 	/** 
@@ -270,7 +270,7 @@ public static void deleteList (int idList)
 
 public static int[] getAllIDList()
 {
-	Connection cnx=connecterDB();
+	ConnexionJav cnx= Connexion("");
 	String query="";
 	int counter=0;
 	int idList [] = new int[1000];
@@ -298,7 +298,7 @@ public static int[] getAllIDList()
 
 public static void deleteListSession(int idList)
 {
-	Connection cnx=connecterDB();
+	ConnexionJav cnx= Connexion("");
 	String query="";
 	
 
