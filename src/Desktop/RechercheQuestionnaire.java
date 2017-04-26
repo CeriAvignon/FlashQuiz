@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lol;
+package Desktop;
 
 import java.awt.event.*;
+import javax.swing.*;
 
 /**
  *
@@ -18,8 +19,9 @@ public class RechercheQuestionnaire extends javax.swing.JFrame implements Action
      */
     public RechercheQuestionnaire() {
         initComponents();
+        String[] listData = new String[50];
         jButton3.addActionListener(this);
-        jButton5.addActionListener(this);
+        jButton4.addActionListener(this);
     }
 
     /**
@@ -53,8 +55,6 @@ public class RechercheQuestionnaire extends javax.swing.JFrame implements Action
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
 
         jTextField2.setText("jTextField2");
 
@@ -62,35 +62,37 @@ public class RechercheQuestionnaire extends javax.swing.JFrame implements Action
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(2, 104, 208));
+        jLabel1.setFont(new java.awt.Font("DejaVu Sans", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(1, 1, 1));
         jLabel1.setText("RECHERCHER  UN QUESTIONNAIRE");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nom", "Date de création", "Difficulté", "Sujet" }));
 
-        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
         jLabel2.setText("Trier par :");
 
-        jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
         jLabel3.setText("Rechercher :");
         jLabel3.setToolTipText("");
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 143));
+        jButton1.setBackground(new java.awt.Color(254, 254, 254));
+        jButton1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jButton1.setText("OK");
         jButton1.setToolTipText("");
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 143));
+        jButton2.setBackground(new java.awt.Color(254, 254, 254));
+        jButton2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jButton2.setText("OK");
         jButton2.setToolTipText("");
 
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jSeparator3.setToolTipText("");
 
-        jButton3.setBackground(new java.awt.Color(253, 131, 129));
+        jButton3.setBackground(new java.awt.Color(254, 254, 254));
         jButton3.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         jButton3.setText("Annuler");
 
-        jButton4.setBackground(new java.awt.Color(158, 235, 154));
+        jButton4.setBackground(new java.awt.Color(254, 254, 254));
         jButton4.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         jButton4.setText("Lancer le Questionnaire");
 
@@ -107,14 +109,6 @@ public class RechercheQuestionnaire extends javax.swing.JFrame implements Action
 
         jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         jLabel7.setText("Date de mise en ligne");
-
-        jButton5.setBackground(new java.awt.Color(255, 255, 153));
-        jButton5.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
-        jButton5.setText("Déconnexion");
-
-        jLabel8.setFont(new java.awt.Font("Comic Sans MS", 3, 11)); // NOI18N
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -142,7 +136,7 @@ public class RechercheQuestionnaire extends javax.swing.JFrame implements Action
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton2)
-                                .addGap(0, 11, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -159,27 +153,19 @@ public class RechercheQuestionnaire extends javax.swing.JFrame implements Action
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addComponent(jScrollPane1)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(135, 135, 135))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -215,15 +201,18 @@ public class RechercheQuestionnaire extends javax.swing.JFrame implements Action
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==jButton3){
             this.dispose();
-            Menu.main("lol");
+            Menu d_menu = new Menu();
+        }
             
-        }else if(e.getSource()==jButton5){
+
+            if(e.getSource()==jButton4){
             this.dispose();
-            Login.main();
+            new Texte().setVisible(true);
+            
         }
     }
     /**
@@ -266,7 +255,6 @@ public class RechercheQuestionnaire extends javax.swing.JFrame implements Action
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
@@ -276,7 +264,6 @@ public class RechercheQuestionnaire extends javax.swing.JFrame implements Action
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JScrollPane jScrollPane1;

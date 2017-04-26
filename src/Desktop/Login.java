@@ -45,7 +45,6 @@ public class Login extends JFrame
 	public Login()
 	{
 		
-		
 		//Initialisation de la fenêtre
 		this.setTitle("Login");
 		this.setSize(600, 300);
@@ -155,9 +154,12 @@ public class Login extends JFrame
 		
 	//Action des bouttons
 	class BoutonLog implements ActionListener{
+		@SuppressWarnings("deprecation")
 		public void actionPerformed(ActionEvent e) {
 		System.out.println("TEXT : m_tLogin " + m_tLogin.getText());
 		System.out.println("TEXT : m_tPass " + m_tPass.getText());
+		//get_identification(new user(m_tLogin, m_tPass));
+		//Menu();
 		Menu d_menu = new Menu();
 		dispose(); 
 		}
