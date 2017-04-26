@@ -24,7 +24,7 @@ public abstract class Statistics {
 	 *
 	 * @return Double, it's the percentage of x in n
 	 */
-	private static double getPercentage(int x, int n) {
+	public static double getPercentage(int x, int n) {
 
 		return (x * 100) / n;
 	}
@@ -40,7 +40,7 @@ public abstract class Statistics {
 	 *
 	 * @return Double array, contains all the percentages for each possible answers
 	 */
-	private static double[] getPercentageChoices(Question question, VoterAnswerList voterAnswers) {
+	public static double[] getPercentageChoices(Question question, VoterAnswerList voterAnswers) {
 
 		int counts[] = new int[question.answers.size()];
 		double percents[] = new double[question.answers.size()];
@@ -73,12 +73,13 @@ public abstract class Statistics {
 	 *
 	 * @return Double, contains an average of all the percentages
 	 */
-	private static double calculateAverage(double[] percents) {
+	public static double calculateAverage(double[] percents) {
 
 		double total = 0;
 
-		for (Double percent : percents)
+		for (Double percent : percents){
 			total += percent;
+		}
 
 		return total / percents.length;
 	}
@@ -93,16 +94,16 @@ public abstract class Statistics {
 	 *
 	 * @return Double, contains percentage of good answers
 	 */
-	private static double calculatePercentageOfCorrectAnswers(Question question, VoterAnswerList voterAnswers) {
+	public static double calculatePercentageOfCorrectAnswers(Question question, VoterAnswerList voterAnswers) {
 
 		int correct = 0;
 
 		for(Map.Entry<Integer, VoterAnswer> entry : voterAnswers.entrySet()) {
-			int userId = entry.getKey();
 			VoterAnswer voterAnswer = entry.getValue();
 
-			// if(question.isVoterAnswerCorrect(voterAnswer))
-			// 	correct++;
+			if(question.isVoterAnswerCorrect(voterAnswer)){
+				correct++;
+			} 
 		}
 
 			
@@ -111,13 +112,39 @@ public abstract class Statistics {
 	}
 
 
-/*
-	DDD	IIIII
-	D DD     I
-	D  D     I
-	D DD	  I
-	DDD    IIIII
-*/
+	/**
+	 * Function who calculate percentage of correct answers
+	 *
+	 * @param question
+	 *            List<Answer>, contains all possible answers
+	 * @param voterAnswers
+	 *            List<Integer>, contains all the answers chosen by a user
+	 *
+	 * @return Double, contains percentage of good answers
+	 */
+	public static double calculateAverageTime(VoterAnswerList voterAnswers) {
+
+		double tmp = 0;
+
+		for(Map.Entry<Integer, VoterAnswer> entry : voterAnswers.entrySet()) {
+			VoterAnswer voterAnswer = entry.getValue();
+
+			tmp = tmp + voterAnser.time;
+		}		
+
+		return (tmp/voterAnswers.size());
+	}
+
+
+/************************************************************************
+*										  *
+*	DDDD	 IIIII	  SSSSSS   PPPP    L	          A	   Y   Y	  *
+*	D   D     I	 S	    P   P   L 	  A A	    Y Y	  *
+*	D   D     I	  SSSSS    PPPP    L	        A   A      Y		  *
+*	D   D	   I	       S   P	     L	       AAAAAAA     Y    	  *
+*	DDDD    IIIII	 SSSSSS    P	     LLLLL   A	A    Y		  *
+*										  *
+************************************************************************/
 
 
 	/**
@@ -137,14 +164,14 @@ public abstract class Statistics {
 			
 			double percents[] = getPercentageChoices(question, voterAnswerList);
 			// Afficher la vu correspondante à getPercentageChoices
-			// View.displayQuestionStat(percents);
+			masterDisplayQuestionStatistics(question, percents);
 		}
 
 		else 
 		{
 			double percents = calculatePercentageOfCorrectAnswers(question, voterAnswerList);
 			// Afficher la vu correspondate à calculatePercentageOfCorrectAnswers
-			// View.displayQuestionStat(percents);
+			masterDisplayQuestionStatistics(question, percents);
 		}
 	}
 
@@ -161,7 +188,7 @@ public abstract class Statistics {
 	{
 		double ave = calculateAverage(percentages);
 		// Afficher la vu correspondate à average
-		// View.displayAverageStat(ave);		
+		masterDisplaySessionStatistics(ave);		
 	}	
 
 
@@ -177,13 +204,14 @@ public abstract class Statistics {
 	 *
 	 * @return void, return nothing because it just call the display function
 	 */
-	public static void displayQuestionStat(int idQuestion, int idSession)
+	public static void displayQuestionStat(int idQuestion)
 	{
 		// Fonction de récupération de (VoterAnswerList voterAnswerList, Question question) dans la bdd
-		// voterAnswerList = getvoterAnswerList(idSession, idQuestion);
-		// question = getQuestion(idSession, idQuestion);
+		Question question = getQuestion(idQuestion);
+		double percentages = getPercentagesQuestion(idQuestion);
+		double avg = calculateAverage(percentages);
 
-		// displayQuestionStat(question, voterAnswerList);
+		masterDisplayQuestionStatistics(question, avg);
 	}
 
 	/**
@@ -197,9 +225,10 @@ public abstract class Statistics {
 	public static void displaySessionStatAverage(int idSession)
 	{
 		// Fonction de récupération de (VoterAnswerList voterAnswerList, Question question) dans la bdd
-		// double percentages[] = getPercentagesSession(idSession);
+		double percentages[] = getPercentagesSession(idSession);
+		double avg = calculateAverage(percentages);
 
-		// displaySessionStatAverage(percentages);	
+		masterDisplaySessionStatistics(avg);	
 	}	
 
 
@@ -217,10 +246,10 @@ public abstract class Statistics {
 	public static void displayUserStatAverage(int idSession, int idUser)
 	{
 		// Fonction de récupération de (VoterAnswerList voterAnswerList, Question question) dans la bdd
-		// double percentage = getPercentagesUser(idSession, idUser);
+		double percentage = getPercentagesUser(idSession, idUser);
 
 		// Afficher la vu correspondate à average pour un user
-		// View.displayAverageStat(percentage);
+		voterDisplaySessionStatistics(percentage);
 			
 	}
 }
