@@ -19,14 +19,14 @@ public class Session extends SessionBase implements Serializable {
 	/**
 	 * List of the answers of the voters
 	 */
-	 public voterAnswersList VotersAnswersList;
-	
+	public VotersAnswersList votersAnswersList;
+
 	/**
 	 * Session constructor
 	 */
 	public Session(){
 	}
-	
+
 	/**
 	 * Constructor
 	 *
