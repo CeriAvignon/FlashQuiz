@@ -171,9 +171,11 @@ public abstract class SessionMaster
 	public static void endQuestion() {
 
 		timer.stop();
+		/*Si view IG -> afficher moyenne temps */
+		// double avgTime = calculateAverageTime(votersAnswersList.getAnswersByQuestion(this.currQuestionId));
 		LocalServer.sendRequestToAll("forceEndQuestion", null);
 		View.masterdisplayQuestionStatistics(votersAnswers.getAnswersByQuestion(currQuestionId), lists.get(currListId).questions.get(currQuestionId));
-		
+
 	}
 
 
@@ -216,6 +218,4 @@ public abstract class SessionMaster
 		this.timer.setRepeats(false); // happen once
 		this.timer.start();
 	}
-
-
 }
