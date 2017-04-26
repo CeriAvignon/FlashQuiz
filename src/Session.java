@@ -1,37 +1,33 @@
+package model.session_el;
 import java.util.Date;
-public class Session
-{
-  	private int id;
-	private int author;	
-	private Date open;
-	private Date close;
-	private boolean type;	
-	private String password;
-	private String title;	
+import model.base.*;
+
+public class Session extends SessionBase
+{	
 	private int list[];	
 
 	public Session ()		
 	{	
 		this.id=0;
 		this.author=0;
-		this.open.setTime(0);
-		this.close.setTime(0);
+		this.startingDate.setTime(0);
+		this.endingDate.setTime(0);
 		this.password="";
 		this.type=false;
-		this.title="";
+		this.name="";
 		this.list=null;
 	}
 
-	public Session (int id,int author,Date open, Date close, String password,boolean type, String title, int list[])		
+	public Session (int id,int author,Date startingDate, Date endingDate, String password,boolean type, String name, int list[])		
 	{	
 		this.id=id;
 		this.author=author;
-		this.open=open;
-		this.close=close;
+		this.startingDate=startingDate;
+		this.endingDate=endingDate;
 		this.password=password;
 		this.type=type;
-		this.title=title;
-		for(int i=0;i<list.lenght;i++)
+		this.name=name;
+		for(int i=0;i<list.length;i++)
 		{
 			this.list[i]=list[i];
 		}
@@ -44,7 +40,7 @@ public class Session
 
 	public String getTitle()
 	{
-		return this.title;
+		return this.name;
 	}
 	
 	public int getAuthor()
@@ -59,12 +55,12 @@ public class Session
 
 	public Date getOpen()
 	{
-		return this.open;
+		return this.startingDate;
 	}
 	
 	public Date getClose()
 	{
-		return this.close;
+		return this.endingDate;
 	}
 
 	public String getPassword()
@@ -82,9 +78,9 @@ public class Session
 		this.id = id;
 	}
 	
-	public void setTitle(String title)
+	public void setTitle(String name)
 	{
-		this.title = title;
+		this.name = name;
 	}
 	
 	public void setAuthor(int author)
@@ -97,14 +93,14 @@ public class Session
 		this.list = list;
 	}
 	
-	public void setOpen(Date open)
+	public void setOpen(Date startingDate)
 	{
-		this.open = open;
+		this.startingDate = startingDate;
 	}
 	
-	public void setClose(Date close)
+	public void setClose(Date endingDate)
 	{
-		this.close = close;
+		this.endingDate = endingDate;
 	}
 
 	public void setPassword(String password)

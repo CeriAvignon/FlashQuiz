@@ -1,64 +1,26 @@
+package model.session_el;
+//import SessionData.*;
+import resbdd.SessionHandler; // nom_package.nom_class
+import Session.java;
+
 public class ActionSession
 {
+	Session session;
 
-  Session temp;
-  public Session displayInfoSession(int idsession)
-	{
-		session = new Session();
-		session = getSessionById(idsession);
-		return session;
-	}
-
-/* gerer ca part des Listes*/
-	public boolean findSession(String name)
-	{
-		int tabid[] = new int[0];
-		int id ; 
-		existSessionName(name, tabid); 
-		/*@existSessionName
-			existSessionName: fonction que doit implémenter BDD (ALexandra) qui interroge l'existence d'une session de nom name, qui remplit un 			tableau d'id s'il en existent, ou qui ne remplit rien s'il n'en existe pas !! */
-
-		if (tabid.length == 0)
-		// SI aucun element dans le tableau c'est que rien n'a été rempli
-		{
-			System.out.println("La session " + name + " n'existe pas.");
-			return false;
-		}
-
-		else 
-    {
-		// SInon on parcourt le tableau remplit pour en afficher les infos (que gereront IG)
-			for (int i = 0; i < tabid.length; i++)
-			{
-				id = tabid[i];
-				displayInfoSession(id);
-			}
-			return true;
-		}
-		
-	}
-=======
 /**
-* Fonction de supression
+* Send a session at RES-BDD
 *
-* @author BrunoDemogue
-* @param ids=id de la session a suprimer
+* @author Mathieu Le Veve
+* @param no param
 */
-	public  void SupressionSession(ids)
+	public static void submitSession()
 	{
-		SupressionListsession(ids);			
-		SupressionSession(ids);		
-	  Session temp;
-  }
-/**
-* Fonction de modification globale, elle envoie l'objet a la bdd
-*
-* @author BrunoDemogue
-*/
-	public void submitSession()      						
-	{         	
-		sendSession(temp);
+		sendSession(session);
+		// Alexandra Moshina's function
 	}
+
+
+
 /**
 * Fonction d'initialistaion de session, reçu de la bdd
 *
@@ -82,7 +44,6 @@ public class ActionSession
 		temp = new List(
 			res.getInt("ID_Session"),
 			res.getInt("ID_User"),
-
 			res.getDate("Opening_Date"),
 			res.getDate("Closing_Date"),
 			res.getString("Password"),
@@ -91,68 +52,65 @@ public class ActionSession
 			list);
 	}
 
-/**
-* Fonction de modification de la date d'ouverture
-*
-* @author BrunoDemogue
-* @param open=nouvelle date d'ouverture a atribuer
-*/
-	public  void modifSessionOpen(Date open)
+
+	public void createSession()
 	{
-		setOpen(open);
+		session = new Session();	
 	}
 
-/**
-* Fonction de modification de la date de fermeture
-*
-* @author BrunoDemogue
-* @param close=nouvelle date de fermeture a atribuer
-*/
-	public  void modifSessionClose(Date close)
-	{
-		setClose(close);
-	}
 	
-/**
-* Fonction de modification du MDP
-*
-* @author BrunoDemogue
-* @param password=nouveau mot de passe a atribuer
-*/
-	public  void modifSessionPassword(String password)
+	public void modifSessionTitle(String name)
+	{
+		setTitle(name);
+	}
+
+	public void modifSessionOpen(Date startingDate)
+	{
+		setOpen(startingDate);
+	}
+
+	public  void modifSessionClose(Date endingDate)
+	{
+		setClose(endingDate);
+	}
+
+	public void modifylist(int[] newlist)
+	{
+		session.setList(newlist);
+	}
+
+	public void modifSessionPassword(String password)
 	{
 		setPassword(password);
 	}
-	
-/**
-* Fonction de modification du type
-*
-* @author BrunoDemogue
-* @param type=nouveau type a atribuer
-*/
-	public  void modifSessionType(boolean type)
+
+	public void modifSessionType(boolean type)
 	{
 		setType(type);
 	}
-	
-/**
-* Fonction de modification du titre 
-*
-* @author BrunoDemogue
-* @param title=nouveau titre a attribuer
-*/
-	public  void modifSessionTitle(String title)
+
+	public Session displayInfoSession(int idsession)
 	{
-		setTitle(title);
+		session = new Session();
+		session = getSessionById(idsession);
+
+		return session;
 	}
-	
+
+	public void delete(idsession)
+	{
+		deleteSession(idsession);
+	}
+
+
+
 /**
 * Fonction d'ajout de liste 
 *
 * @author BrunoDemogue
 * @param idl=id de la liste a ajouter
 */
-	
+
 	public boolean modifSessionAddlist(int idl)
 	{
 		int i;
@@ -166,16 +124,19 @@ public class ActionSession
 		}
 
 		temp.list[i]=idl;
+		// Pourquoi ne pas set la session + submit pour que la BDD soit mise à jour ?
 		return true;
 	}
-	
+
+
+
 /**
 * Fonction de retrait de liste 
 *
 * @author BrunoDemogue
 * @param idl=id de la liste a retirer
 */
-	public  void modifSessionDeleteList(int idl)
+	public void modifSessionDeleteList(int idl)
 	{
 		
 		int i;
@@ -186,9 +147,38 @@ public class ActionSession
 			{
 				j=i;
 			}
+		/* Pb de decrementation là ??? */
 		}
 		temp.list[j]=temp.list[i-1];
 		temp.list[i-1]=null;
 	}
 
+	public boolean findSession(String name)
+	{
+		int tabid[];
+		int id ; 
+		tabid = GetSessionsByName(name); 
+		/*@GetSessionByName(name)
+			GetSessionByName: fonction implémentée par Alexandra Moshina RES-BDD tâche 34*/
+
+		if (tabid.length == 0)
+		// SI aucun element dans le tableau c'est que rien n'a été rempli
+		{
+			System.out.println("La session " + name + " n'existe pas.");
+			return false;
+		}
+
+		else {
+		// SInon on parcourt le tableau remplit pour en afficher les infos (que gereront IG)
+			for (int i = 0; i < tabid.length; i++)
+			{
+				id = tabid[i];
+				displayInfoSession(id);
+			}
+			return true;
+		}
+		
+	}
 }
+
+
