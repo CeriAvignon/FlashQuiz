@@ -28,7 +28,7 @@ public abstract class SessionVoter {
 	 * 
 	 * @see VoterAnswer
 	 */
-	private static Map<Integer, VoterAnswer> voterAnswers;
+	private static VoterAnswerList voterAnswers;
 
 	/**
 	 * The list of all the question list the session have.
@@ -167,7 +167,7 @@ public abstract class SessionVoter {
 	 */
 	public static void initialize(List<QuestionList> lists) {
 		SessionVoter.lists = lists;
-		voterWaitingNextQuestion();
+		View.voterWaitingNextQuestion();
 	}
 
 	/**
@@ -190,7 +190,7 @@ public abstract class SessionVoter {
 		if (currQuestion.allocatedTime != 0) {
 			setAllocatedTime(currQuestion.allocatedTime);
 		}
-		voterDisplayQuestion(currQuestion);
+		View.voterDisplayQuestion(currQuestion);
 	}
 
 	/**
@@ -207,7 +207,7 @@ public abstract class SessionVoter {
 	public static void sendVoterAnswer(VoterAnswer answer) {
 		RemoteServer.sendRequest("setVoterAnswer", answer);
 		voterAnswers.put(currQuestionId, answer);
-		voterDisplayQuestionStatistics(currQuestion, answer);
+		View.voterDisplayQuestionStatistics(currQuestion, answer);
 	}
 
 	/**
@@ -223,7 +223,7 @@ public abstract class SessionVoter {
 		if (currQuestion.allocatedTime != 0) {
 			setAllocatedTime(0);
 		}
-		voterWaitingNextQuestion();
+		View.voterWaitingNextQuestion();
 	}
 
 	/**
@@ -232,7 +232,8 @@ public abstract class SessionVoter {
 	 * voter to the data base.
 	 */
 	public static void endSession() {
-		voterDisplaySessionStatistics(average);
+		double average = Statistics.calculateVoterPercentageOfCorrectAnswers(lists,voterAnswers);
+		View.voterDisplaySessionStatistics(average);
 		voterAnswers.save();
 	}
 
