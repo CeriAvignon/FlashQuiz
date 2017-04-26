@@ -12,7 +12,7 @@ public class GetAIIIDUser
 {
 
 	/**
-	* <b>Recoupere une session Ã  partir de la BDD.</b>
+	* <b>Recoupere les ids des utilisateurs.</b>
 	* <p>
 	* 
 	* @author Alexandra MOSHINA 
