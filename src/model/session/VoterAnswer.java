@@ -50,4 +50,14 @@ public class VoterAnswer implements Serializable {
 		// for(Integer id : voterAnswersId)
 		// tab answers.add(getVoterAnswerById(id)); // récupération BDD
 	}
+
+	/**
+	 * Constructor of the class VoterAnswer
+	 *
+	 * @param content
+	 *            An answer
+	 */
+	public VoterAnswer(String content) {
+		this.content = content;
+	}
 }
