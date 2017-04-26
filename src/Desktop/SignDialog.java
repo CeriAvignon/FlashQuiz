@@ -1,8 +1,10 @@
-package Login;
+package Desktop;
+
 import javax.swing.JButton;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionListener; 
 import java.awt.event.ActionEvent;
 import javax.swing.JFrame;
@@ -16,6 +18,8 @@ import javax.swing.BoxLayout;
 import javax.swing.JDialog;
 
 public class SignDialog extends JDialog {
+	
+	private Font font = new Font("Arial", Font.BOLD, 12);
 	
 	JTextField m_tLogin = new JTextField("");
 	JPasswordField m_tPass = new  JPasswordField("");
@@ -35,7 +39,7 @@ public SignDialog(JFrame parent, String title, boolean modal){
 	JLabel m_labelConfPass = new JLabel("Confirmer le mot de passe : ");
 	JLabel m_labelPrenom = new JLabel("Prénom : ");
 	JLabel m_labelNom = new JLabel("Nom : ");
-	
+		
 	//Création des boutons
 	JButton m_butReturn = new JButton ("Retour");
 	JButton m_butSend = new JButton ("Envoyer");
@@ -47,7 +51,26 @@ public SignDialog(JFrame parent, String title, boolean modal){
 	this.setSize(400, 400);
 	this.setLocationRelativeTo(null);
 	this.setResizable(false);
-    
+	
+	//Police
+	m_labelLog.setFont(font);
+	m_labelPass.setFont(font);
+	m_labelConfPass.setFont(font);
+	m_labelNom.setFont(font);
+	m_tNom.setFont(font);
+	m_tLogin.setFont(font);
+	m_tPass.setFont(font);
+	m_tConfPass.setFont(font);
+	m_tPrenom.setFont(font);
+	m_tNom.setBackground(Color.GRAY);
+	m_tLogin.setBackground(Color.GRAY);
+	m_tPass.setBackground(Color.GRAY);
+	m_tConfPass.setBackground(Color.GRAY);
+	m_tPrenom.setBackground(Color.GRAY);
+	m_butReturn.setFont(font);
+	m_butSend.setFont(font);
+	m_butReturn.setBackground(Color.WHITE);
+	m_butSend.setBackground(Color.WHITE);
     
     //initialisation des pannels
     
@@ -131,23 +154,23 @@ public SignDialog(JFrame parent, String title, boolean modal){
 
 		public void actionPerformed(ActionEvent e) {
 	    	//Vérification
-	      String strLogin = m_tLogin.getText().trim();
-	      String strPass =  m_tPass.getText();
+	      String Login = m_tLogin.getText().trim();
+	      String Password =  m_tPass.getText();
 	      String strConfPass = m_tConfPass.getText();
-	      String strPrenom = m_tPrenom.getText().trim();
-	      String strNom = m_tNom.getText().trim();
+	      String First_Name = m_tPrenom.getText().trim();
+	      String Last_Name = m_tNom.getText().trim();
 	      
 	      
 	      //Gestion des erreurs
-	      if(!strPass.equals(strConfPass))
+	      if(!Password.equals(strConfPass))
 	      {
 	    	  JOptionPane.showMessageDialog(null, "Le mot de passe et la vérification doivent être semblable ", "Ok.", JOptionPane.ERROR_MESSAGE);
 	      }
-	      else if(strLogin.equals("") || strPass.equals("") || strConfPass.equals("") || strPrenom.equals("") || strNom.equals(""))
+	      else if(Login.equals("") || Password.equals("") || strConfPass.equals("") || First_Name.equals("") || Last_Name.equals(""))
 	      {
 	    	  JOptionPane.showMessageDialog(null, "Tous les champs doivent être remplit", "Ok.", JOptionPane.ERROR_MESSAGE);
 	      }
-	      else if(strLogin.equals("") || strPass.equals("") || strConfPass.equals("") || strPrenom.equals("") || strNom.equals(""))
+	      else if(Login.equals("") || Password.equals("") || strConfPass.equals("") || First_Name.equals("") || Last_Name.equals(""))
 	      {
 	    	  JOptionPane.showMessageDialog(null, "Tous les champs doivent être remplit", "Ok.", JOptionPane.ERROR_MESSAGE);
 	      }
@@ -155,11 +178,11 @@ public SignDialog(JFrame parent, String title, boolean modal){
 	      //Si pas d'erreur
 	      else	
 	      {
-	    	  System.out.println("TEXT : m_tLogin " + strLogin); 
-		      System.out.println("TEXT : m_tPass " + strPass);
-		      System.out.println("TEXT : m_tConfPass " + strConfPass);
-		      System.out.println("TEXT : m_tPrenom " + strPrenom);
-		      System.out.println("TEXT : m_tNom " + strNom);
+	    	  System.out.println("TEXT : m_tLogin " + Login); 
+		      System.out.println("TEXT : m_tPass " + Password);
+		      //System.out.println("TEXT : m_tConfPass " + strConfPass);
+		      System.out.println("TEXT : m_tPrenom " + First_Name);
+		      System.out.println("TEXT : m_tNom " + Last_Name);
 	    	  dispose(); 
 	      }
 	    }
