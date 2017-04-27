@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package flashquizz.Panels;
+package Desktop;
 
 /**
  *
@@ -47,12 +47,12 @@ public class Reponse extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(320, 10, 467, 51);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flashquizz/Panels/images.jpeg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("images.jpeg"))); // NOI18N
         jLabel3.setText("jLabel3");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(40, 70, 265, 189);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/geoffrey/Downloads/graphique-courbes.jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("graphique-courbes.jpg")); // NOI18N
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(420, 290, 460, 250);
