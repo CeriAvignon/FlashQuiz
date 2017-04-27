@@ -232,7 +232,7 @@ public class Radio extends javax.swing.JFrame {
         // TODO add your handling code here:
          
         
-           Recap next = new Recap();
+           Reponse next = new Reponse();
            next.setVisible(true);
            (this).setVisible(false);
     }//GEN-LAST:event_Valider_ButtonActionPerformed

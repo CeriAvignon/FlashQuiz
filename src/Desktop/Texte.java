@@ -13,10 +13,7 @@ import javax.swing.JTextArea;
 /**
  *
  * @author geoffrey
- * 
- * 
  */
-
 public class Texte extends javax.swing.JFrame {
 
     /**
@@ -133,8 +130,8 @@ public class Texte extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-
-            Checkbox next = new Checkbox();
+        
+            Reponse next = new Reponse();
            next.setVisible(true);
            (this).setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed

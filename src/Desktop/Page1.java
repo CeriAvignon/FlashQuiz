@@ -5,7 +5,6 @@
  */
 package Desktop;
 
-
 /**
  *
  * @author geoffrey
@@ -22,7 +21,8 @@ public class Page1 extends javax.swing.JFrame {
 
     public Page1() {
         initComponents();
-        
+      
+
  
        
     }

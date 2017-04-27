@@ -30,34 +30,26 @@ public class Reponse extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         Next_Button = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
 
-        setMaximumSize(new java.awt.Dimension(970, 680));
         setMinimumSize(new java.awt.Dimension(970, 680));
-        setPreferredSize(new java.awt.Dimension(970, 680));
         setSize(new java.awt.Dimension(970, 680));
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel1.setText("FlashQuizz - Réponse ");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(320, 10, 467, 51);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("images.jpeg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Desktop/images.jpeg"))); // NOI18N
         jLabel3.setText("jLabel3");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(40, 70, 265, 189);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("graphique-courbes.jpg")); // NOI18N
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(420, 290, 460, 250);
-
-        jTextField1.setBackground(new java.awt.Color(102, 102, 255));
+        jTextField1.setBackground(java.awt.Color.lightGray);
+        jTextField1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jTextField1.setText("La réponse a la question : Réponse B .");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,13 +59,14 @@ public class Reponse extends javax.swing.JFrame {
         getContentPane().add(jTextField1);
         jTextField1.setBounds(50, 370, 320, 90);
 
-        jTextField2.setBackground(new java.awt.Color(102, 102, 255));
+        jTextField2.setBackground(java.awt.Color.lightGray);
+        jTextField2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jTextField2.setText("Il y a 50% des votant qui on répondu comme vous .");
         getContentPane().add(jTextField2);
         jTextField2.setBounds(370, 130, 555, 73);
 
-        Next_Button.setBackground(new java.awt.Color(255, 255, 51));
-        Next_Button.setFont(new java.awt.Font("Lucida Handwriting", 1, 14)); // NOI18N
+        Next_Button.setBackground(java.awt.Color.white);
+        Next_Button.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         Next_Button.setText("NEXT->");
         Next_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,10 +75,6 @@ public class Reponse extends javax.swing.JFrame {
         });
         getContentPane().add(Next_Button);
         Next_Button.setBounds(790, 570, 130, 50);
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flashquizz/Panels/bg.jpg"))); // NOI18N
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(-4, -5, 970, 640);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -143,9 +132,7 @@ public class Reponse extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Next_Button;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
