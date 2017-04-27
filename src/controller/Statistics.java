@@ -136,7 +136,7 @@ public abstract class Statistics {
 	}
 
 
-/************************************************************************
+/***********************************************************************\
 *										  *
 *	DDDD	 IIIII	  SSSSSS   PPPP    L	          A	   Y   Y	  *
 *	D   D     I	 S	    P   P   L 	  A A	    Y Y	  *
@@ -144,7 +144,7 @@ public abstract class Statistics {
 *	D   D	   I	       S   P	     L	       AAAAAAA     Y    	  *
 *	DDDD    IIIII	 SSSSSS    P	     LLLLL   A	A    Y		  *
 *										  *
-************************************************************************/
+\***********************************************************************/
 
 
 	/**
@@ -194,7 +194,7 @@ public abstract class Statistics {
 
 
 	/**
-	 * Function who call the display after the DB
+	 * Function who call the display to display a single question statistic
 	 *
 	 * @param idQuestion
 	 *            int, the question id
@@ -204,28 +204,30 @@ public abstract class Statistics {
 	 *
 	 * @return void, return nothing because it just call the display function
 	 */
-	public static void displayQuestionStat(int idQuestion)
+	public static void displayQuestionStat(int idQuestion, int idSession)
 	{
 		// Fonction de récupération de (VoterAnswerList voterAnswerList, Question question) dans la bdd
-		Question question = getQuestion(idQuestion);
-		double percentages = getPercentagesQuestion(idQuestion);
-		double avg = calculateAverage(percentages);
+		VoterAnswerList voterAnswerList = getAllVoterAnswer(int idQuestion, int idSession)
+		Question question = new Question(idQuestion);
+		double percents[] = getPercentageChoices(question, voterAnswerList);
+		double avg = calculateAverage(percents);
 
 		masterDisplayQuestionStatistics(question, avg);
 	}
 
 	/**
-	 * Function who call the display after the DB for average
+	 * Function who call the display to display average statistics of a session
 	 *
  	 * @param idSession
 	 *            int, the session id
 	 *
 	 * @return void, return nothing because it just call the display function
 	 */
-	public static void displaySessionStatAverage(int idSession)
+	public static void displaySessionStatAverage(int idSession, Question question)
 	{
 		// Fonction de récupération de (VoterAnswerList voterAnswerList, Question question) dans la bdd
-		double percentages[] = getPercentagesSession(idSession);
+		VoterAnswerList voterAnswerList = getEveryVoterAnswer(int idSession)
+		double percentages[] = getPercentagesChoices(question, voterAnswerList);
 		double avg = calculateAverage(percentages);
 
 		masterDisplaySessionStatistics(avg);	
@@ -243,10 +245,11 @@ public abstract class Statistics {
 	 *
 	 * @return void, return nothing because it just call DB and call the view
 	 */
-	public static void displayUserStatAverage(int idSession, int idUser)
+	public static void displayUserStatAverage(int idUser, Question question)
 	{
 		// Fonction de récupération de (VoterAnswerList voterAnswerList, Question question) dans la bdd
-		double percentage = getPercentagesUser(idSession, idUser);
+		VoterAnswerList voterAnswerList = getVoterAnswersByUser(idUser)
+		double percentage = calculatePercentageOfCorrectAnswers(question, voterAnswerList);
 
 		// Afficher la vu correspondate à average pour un user
 		voterDisplaySessionStatistics(percentage);
