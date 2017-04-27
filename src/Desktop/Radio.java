@@ -232,8 +232,8 @@ public class Radio extends javax.swing.JFrame {
         // TODO add your handling code here:
          
         
-           Reponse next = new Reponse();
-           next.setVisible(true);
+    	new RechercheQuestionnaire().setVisible(true);
+		dispose();
            (this).setVisible(false);
     }//GEN-LAST:event_Valider_ButtonActionPerformed
 
