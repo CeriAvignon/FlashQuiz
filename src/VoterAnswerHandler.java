@@ -90,6 +90,48 @@ public class VoterAnswerHandler {
 				cnx.close();
 		}
 	}
+	
+	
+	
+	/**
+	 *	<b> récupération des reponses de tout les users sur une des question d'une session. </b>
+	 * 	
+	 *  @param id_question, id_session
+	 *		les different elements qui identifient une question et une session
+	 *	
+	 **/
+	public Object[][] getAllVoterAnswer(int id_question, int id_session)
+	{
+		Connexion cnx;
+
+		try{
+			PreparedStatement prepare = cnx.prepareStatement();
+			ResultSet res;
+			String query="";	//La ou on met le resultat de la requete
+
+			query="SELECT * FROM VoterAnswer WHERE ID_Session=? AND ID_Question=?;";
+
+			prepare = cnx.prepareStatement(query);
+			prepare.setObject(1,id_session);
+			prepare.setObject(2,id_question);
+			res = prepare.executeQuery();
+
+			prepare.close();
+			res.close();
+
+			Object resultat[][] = res;
+			return resultat;			//retour de la requete
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		finally{
+			if(cnx != null)
+				cnx.close();
+		}
+	}
+	
 
 	/**
 	 *	<b> récupération des réponses d'un utilisateur sur toute les questions auquel il a répondu </b>
