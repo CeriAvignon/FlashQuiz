@@ -87,6 +87,34 @@ public class QueryHandler() {
 		int[] logins = array.getArray();
 		return logins;
 	}
+	public static String[] getUser(int id)
+	String[] user=new String[];
+
+	Connection cnx=connecterDB();
+
+	try{
+		
+	PreparedStatement prepare = cnx.prepareStatement();
+	Statement statement = cnx.createStatement();
+	ResultSet res;
+		
+	string query="SELECT * FROM User_FQ WHERE ID_User=?;";
+	prepare = cnx.prepareStatement(query);
+	prepare.setObject(1,id);
+	res = prepare.executeQuery();
+	
+	user[0]=res.getString("First_Name");
+	user[1]=getString("Last_Name");
+	user[2]=getString("Login");
+	user[3]=getString("Password");
+	prepare.close();
+	res.close();
+	return user;
+	}
+	catch(SQLException e)
+	{
+		e.printStackTrace();
+	}
 }
 /**
 * Pure classe de test
