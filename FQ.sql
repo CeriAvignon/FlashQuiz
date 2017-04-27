@@ -17,4 +17,4 @@ CREATE TABLE Scores(ID_Session INT PRIMARY KEY, ID_User INT NOT NULL, Score INT 
 
 CREATE TABLE Answer(ID_Answer SERIAL PRIMARY KEY, ID_Question INT, Content TEXT, Correct BOOL NOT NULL, FOREIGN KEY (ID_Question) REFERENCES Question (ID_Question));
 
-CREATE TABLE StatAnswer(ID_Session INT NOT NULL, ID_User INT NOT NULL, ID_Question INT NOT NULL, ID_Answer INT NOT NULL, Content_FreeAnswer TEXT NOT NULL, FOREIGN KEY (ID_Session) REFERENCES Session_Metadata (ID_Session), FOREIGN KEY (ID_User) REFERENCES User_FQ (ID_User), FOREIGN KEY (ID_Question) REFERENCES Question (ID_Question), FOREIGN KEY (ID_Answer) REFERENCES Answer (ID_Answer));
+CREATE TABLE VoterAnswer(ID_Session INT NOT NULL, ID_User INT NOT NULL, ID_Question INT NOT NULL, ID_Answer INT NOT NULL, Content_FreeAnswer TEXT NOT NULL, FOREIGN KEY (ID_Session) REFERENCES Session_Metadata (ID_Session), FOREIGN KEY (ID_User) REFERENCES User_FQ (ID_User), FOREIGN KEY (ID_Question) REFERENCES Question (ID_Question), FOREIGN KEY (ID_Answer) REFERENCES Answer (ID_Answer));
