@@ -37,4 +37,12 @@ public class User implements Serializable {
 	  */
 	public User() {
 	} 
+	
+	/**
+	 * Save function
+	 *
+	 */
+	public void save() {
+		QueryHandler.createUser(this);
+	}
 }
