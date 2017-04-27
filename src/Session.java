@@ -18,10 +18,10 @@ public class Session extends SessionBase
 		this.list=null;
 	}
 
-	public Session (int id,int author,Date startingDate, Date endingDate, String password,boolean type, String name, int list[])		
+	public Session (int id, Date startingDate, Date endingDate, String password,boolean type, String name, int list[])		
 	{	
 		this.id=id;
-		this.author=author;
+		this.author=0;
 		this.startingDate=startingDate;
 		this.endingDate=endingDate;
 		this.password=password;
