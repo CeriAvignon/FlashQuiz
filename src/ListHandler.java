@@ -1,5 +1,7 @@
+package resbdd;
+
 import List.List;
-import connexion.Connexion;
+//import resbdd.ConnexionJav;
 import java.sql.*;
 import java.util.Vector;
 
@@ -8,17 +10,17 @@ import java.util.Vector;
  	*  @version 1.4
  	*  
 	*
- 	*  Cette classe va servir &agrave; coder toutes les fonctions permettant un 
- 	*  acc&egrave;s aux tables Liste_Contenu et Liste_Metadata de la base de 
- 	*  donn&eacute;es. La fonction sendList(Liste list) permet de cr&eacute;er une 
+ 	*  Cette classe va servir a coder toutes les fonctions permettant un 
+ 	*  acces aux tables Liste_Contenu et Liste_Metadata de la base de 
+ 	*  données. La fonction sendList(Liste list) permet de créer une 
  	*  liste de questions et de modifier des listes existantes. 
- 	*  Cela n&eacute;cessitera un acc&egrave;s aux tables Liste_Metadata et 
- 	*  Liste_Contenu, ainsi qu'un acc&egrave;s &agrave; la classe QuestionHandler, 
- 	*  et aux classes du groupe &eacute;dition de liste (EL).De m&ecircme, la fonction 
- 	*  getList(int id) va r&eacute;cup&eacute;rer l'id d'une liste dans la table 
- 	*  Liste_Metadata et retourner un objet Liste, le groupe &eacute;dition de 
- 	*  liste pourra alors afficher la liste d&eacute;sir&eacute;e via l'interface 
- 	*  graphique du groupe du m&ecircme nom.
+ 	*  Cela nécessitera un accès aux tables Liste_Metadata et 
+ 	*  Liste_Contenu, ainsi qu'un accès à la classe QuestionHandler, 
+ 	*  et aux classes du groupe édition de liste (EL).De même, la fonction 
+ 	*  getList(int id) va récupérer l'id d'une liste dans la table 
+ 	*  Liste_Metadata et retourner un objet Liste, le groupe édition de 
+ 	*  liste pourra alors afficher la liste désirée via l'interface 
+ 	*  graphique du groupe Interface Graphique.
  	* 
  	**/
 
@@ -38,7 +40,7 @@ public class ListHandler
 
 		/** 
 		 * 
-		 * R&eacute;cup&eacute;ration de la liste de question avec la fonction 
+		 * Recuperation de la liste de question avec la fonction 
 		 * getIdList().
 		 * 
 		 **/
@@ -49,7 +51,7 @@ public class ListHandler
 
 		/** 
 		 * 
-		 * Cr&eacute;ation d'une requ&ecircte vide qui sera affect&eacute;e selon 
+		 * Cr&eacute;ation d'une requecircte vide qui sera affect&eacute;e selon 
 		 * les besoins de la fonction. 
 		 * 
 		 * */
