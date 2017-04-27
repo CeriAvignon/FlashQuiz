@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lol;
+package Desktop;
 import java.awt.Color;
 import java.awt.event.*;
 import javax.swing.ButtonGroup;
@@ -53,7 +53,7 @@ public class Question extends javax.swing.JFrame implements ActionListener {
         
         }else if(e.getSource()==jButton2){
             this.dispose();
-           Login.main();
+            Login d_login = new Login();
            
         }else if(e.getSource()==jButton4){
             jCheckBox1.setVisible(true);
@@ -80,13 +80,13 @@ public class Question extends javax.swing.JFrame implements ActionListener {
             
         }else if(e.getSource()==jButton9){
             //R[i]=new Answer(jTextField2.getText(),jCheckBox1.isSelected());
-            if(R[i].etat==true){
+            /*if(R[i].etat==true){
                 jComboBox1.addItem(R[i].titre+" - correcte");
                 i++;
             }else{
                 jComboBox1.addItem(R[i].titre+" - incorrecte");
                 i++;
-            }
+            }*/
             
         }else if(e.getSource()==jButton8){
             if(jComboBox1.getSelectedIndex()!=-1){
