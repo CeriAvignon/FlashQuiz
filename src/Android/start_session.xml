@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1">
 
@@ -9,13 +10,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="99dp"
                 android:inputType="text"
                 android:text="Quel est la couleur du cheval blanc d'Henri IV?"
                 android:ems="10"
-                android:id="@+id/NbQuestion" />
+                android:id="@+id/NQuestion"
+                android:background="@drawable/corner"
+                android:gravity="center" />
         </LinearLayout>
 
 
@@ -24,14 +27,15 @@
         android:layout_height="240dp"
         android:layout_weight="0.65">
 
-        <EditText
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="42dp"
             android:inputType="text"
-            android:text="(Type question):Choix multiple,Reponse ouverte,etc"
+            android:text="(Type question):Texte Libre"
             android:ems="10"
-            android:id="@+id/editText3"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+            android:id="@+id/type"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:background="@drawable/corner"/>
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -39,26 +43,14 @@
             android:layout_marginTop="50dp">
 
 
-            <CheckBox
-                android:text="Noir"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/checkBox2"
-                android:layout_marginTop="50dp"/>
-
-            <CheckBox
-                android:text="Brun"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/checkBox3"
-                android:layout_marginTop="100dp"/>
-
-            <CheckBox
-                android:text="Blanc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/checkBox4"
-                android:layout_marginTop="150dp"/>
+            <EditText
+                android:layout_width="303dp"
+                android:layout_height="226dp"
+                android:inputType="textPersonName"
+                android:text="reponse à taper ici."
+                android:ems="10"
+                android:id="@+id/text"
+                android:gravity="top"/>
         </FrameLayout>
 
     </FrameLayout>
