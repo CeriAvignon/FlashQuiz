@@ -134,8 +134,8 @@ public class Texte extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-            Checkbox next = new Checkbox();
-           next.setVisible(true);
+    		new RechercheQuestionnaire().setVisible(true);
+			dispose();
            (this).setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 

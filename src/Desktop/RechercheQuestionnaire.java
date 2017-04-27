@@ -18,8 +18,12 @@ public class RechercheQuestionnaire extends javax.swing.JFrame implements Action
      * Creates new form RechercheQuestionnaire
      */
     public RechercheQuestionnaire() {
-        initComponents();
-        String[] listData = new String[50];
+    	initComponents();
+        String[] listData = new String[50];  
+        listData[0]=" Questionnaire 1  -     CheckBox     -             7               -           21/12/2015";
+        listData[1]=" Questionnaire 2  -      Radio          -              5               -            18/05/2016";
+        listData[2]=" Questionnaire 3  -      Texte          -             10              -            31/07/2017";
+        jList1.setListData(listData);
         jButton3.addActionListener(this);
         jButton4.addActionListener(this);
     }
@@ -209,11 +213,25 @@ public class RechercheQuestionnaire extends javax.swing.JFrame implements Action
         }
             
 
-            if(e.getSource()==jButton4){
+        if(e.getSource()==jButton4){
             this.dispose();
-            new Texte().setVisible(true);
-            
+            if(jList1.getSelectedIndex()==0){
+            	Checkbox next = new Checkbox();
+                next.setVisible(true);
+                
+            }else if(jList1.getSelectedIndex()==1){
+            	Radio next1 = new Radio();
+                next1.setVisible(true);
+                
+            }else if(jList1.getSelectedIndex()==2){
+            	Texte next2 = new Texte();
+                next2.setVisible(true);
+                
+            }else{
+                System.out.println("fail");
+            }
         }
+            
     }
     /**
      * @param args the command line arguments

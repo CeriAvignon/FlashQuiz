@@ -240,8 +240,8 @@ public class Checkbox extends javax.swing.JFrame {
 
             // TODO add your handling code here:
           
-    	Radio next = new Radio();
-           next.setVisible(true);
+    	new RechercheQuestionnaire().setVisible(true);
+		dispose();
            (this).setVisible(false);
         
          
