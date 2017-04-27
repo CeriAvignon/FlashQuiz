@@ -44,7 +44,15 @@ public class QuestionList extends HashMap<Integer, Question>
 	public QuestionList() {
 		super();
 	}
-	
+
+	/**
+	 * The List constructor.
+	 *
+	 * @see List#questions
+	 */
+	public QuestionList(int id) {
+	}
+
 	public void save() {
 		for (Map.Entry<Integer, Question> entry : this.entrySet()) {
 			entry.getValue().save();

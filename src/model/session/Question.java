@@ -29,14 +29,19 @@ public class Question extends QuestionBase implements Serializable {
 	 * Constructor
 	 */
 	public Question(int id) {
-		//TODO
+		Question tmp = getQuestion(id);
+		this.id = tmp.id;
+		this.statement = tmp.statement;
+		this.type = tmp.type;
+		this.allocatedTime = tmp.allocatedTime;
+		this.answers = tmp.answers;
 	}
 
 	/**
 	 * Verify if the user's answer is correct
 	 *
 	 * @param voterAnswer  The user's answer
-	 * @return true if voterAnswer is correct, false ortherwise
+	 * @return true if voterAnswer is correct, false otherwise
 	 */
 	public boolean isVoterAnswerCorrect(VoterAnswer voterAnswer) {
 
