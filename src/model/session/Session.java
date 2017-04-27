@@ -37,4 +37,11 @@ public class Session extends SessionBase implements Serializable {
 	{
 		//TODO
 	}
+
+	public void save() {
+
+		SessionHandler.sendSession(this);
+	}
+
+
 }

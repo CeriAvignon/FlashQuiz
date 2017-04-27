@@ -82,4 +82,11 @@ public class Question extends QuestionBase implements Serializable {
 		}
 		return false;
 	}
+
+
+	public void save() {
+
+		QuestionHandler.sendQuestion(this);
+	}
+
 }
