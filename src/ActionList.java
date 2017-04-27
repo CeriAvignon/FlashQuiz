@@ -22,19 +22,7 @@ public class ActionList
 
 	public static void initListe(int idl)
 	{
-		ResultSet res = getList(idl);
-		res.next();
-
-		ResultSet res2 = getQuestionByIdListe(idl);
-		int question[];
-		int i=0;
-
-		while (res2.next()) 
-		{
-		    question[i]=res.getInt("ID_Question");
-		    i++;
-		}
-		temp = new List(res.getInt("ID_List"),res.getString("Title"),res.getInt("ID_User"),question);
+		temp = getList(idl);
 	}
 
 
