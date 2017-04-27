@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lol;
+package Desktop;
 
 import java.awt.event.*;
 import javax.swing.*;
@@ -21,6 +21,7 @@ public class RechercheQuestionnaire extends javax.swing.JFrame implements Action
         initComponents();
         String[] listData = new String[50];
         jButton3.addActionListener(this);
+        jButton4.addActionListener(this);
     }
 
     /**
@@ -200,11 +201,17 @@ public class RechercheQuestionnaire extends javax.swing.JFrame implements Action
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==jButton3){
             this.dispose();
-            Menu.main("lol");
+            Menu d_menu = new Menu();
+        }
+            
+
+            if(e.getSource()==jButton4){
+            this.dispose();
+            new Texte().setVisible(true);
             
         }
     }
