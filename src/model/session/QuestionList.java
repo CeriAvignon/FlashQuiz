@@ -1,4 +1,3 @@
-
 package model.session;
 
 import java.util.*;
@@ -13,35 +12,51 @@ import model.base.*;
  * @see QuestionBase
  * @see ListBase
  */
-public class QuestionList extends ListBase implements Serializable {
+public class QuestionList extends HashMap<Integer, Question>
+		implements Serializable {
 
 	/**
-	 * A list that contain all the list questions.
+	 * The list id.
 	 *
-	 * @see Question
-	 * @see ListBase#ListBase(int,String, String)
+	 * @see ListBase#ListBase(int, String, String)
 	 */
-	public Map<Integer, Question> questions;
+	public int id;
+
+	/**
+	 * The title of the list.
+	 *
+	 * @see ListBase#ListBase(int, String, String)
+	 */
+	public String name;
+
+	/**
+	 * The name of the list creator.
+	 *
+	 * @see ListBase#ListBase(int, String, String)
+	 */
+	public String creator;
 
 	/**
 	 * The List constructor.
 	 *
-	 * @param id
-	 *            The list id.
-	 * @param name
-	 *            The list name.
-	 * @param creatorName
-	 *            The creator name.
-	 * @param questionsID
-	 *			  All the id of the questions
+	 * @see List#questions
+	 */
+	public QuestionList() {
+		super();
+	}
+
+	/**
+	 * The List constructor.
 	 *
 	 * @see List#questions
 	 */
-	public QuestionList(int id, String name, String creatorName, int[] questionsId) {
-		super(id, name, creatorName);
-		// for(Integer question : questionsId)
-			// questions.add(getQuestion(question)); // QuestionHandler 
+	public QuestionList(int id) {
+	}
 
+	public void save() {
+		for (Map.Entry<Integer, Question> entry : this.entrySet()) {
+			entry.getValue().save();
+		}
 	}
 
 }

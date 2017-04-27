@@ -139,7 +139,7 @@ public abstract class SessionMaster
 	                Collections.shuffle(questionsUnvoted);
 	        }
 		}
-	
+
 	}
 
 	//---------------------------------------------------------------------------
@@ -184,17 +184,17 @@ public abstract class SessionMaster
 	// Envoie tout les résultats à la BDD et affiche les stats.
 	//---------------------------------------------------------------------------
 	public static void endSession() {
-		
+
 		double generalScore = Statistics.calculateAverage(scores);
-		
+
 		LocalServer.sendRequestToAll("endSession", null);
 		View.masterDisplaySessionStatistics(generalScore);
-		
+
 		// Sauvegarde de la session dans la BDD
 		Session saved = new Session();
 		saved.name = name;
 		saved.authorName = 0;
-		saved.date = ;
+		// saved.date = ;
 		saved.isQuestionOrderRandom = questionOrderIsRandom;
 		saved.lists = lists;
 		saved.votersAnswersList = votersAnswers;
@@ -203,7 +203,7 @@ public abstract class SessionMaster
 	}
 
 
-	public void setAllocatedTime(int timeLeft) {
+	public static void setAllocatedTime(int timeLeft) {
 
 		int delay = timeLeft * 1000; // convert in milliseconds
 
@@ -214,8 +214,8 @@ public abstract class SessionMaster
 			}
 		};
 
-		this.timer = new Timer(delay, timeOutListener);
-		this.timer.setRepeats(false); // happen once
-		this.timer.start();
+		timer = new Timer(delay, timeOutListener);
+		timer.setRepeats(false); // happen once
+		timer.start();
 	}
 }

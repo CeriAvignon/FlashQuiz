@@ -28,7 +28,7 @@ public abstract class SessionVoter {
 	 * 
 	 * @see VoterAnswer
 	 */
-	private static Map<Integer, VoterAnswer> voterAnswers;
+	private static VoterAnswerList voterAnswers;
 
 	/**
 	 * The list of all the question list the session have.
@@ -76,7 +76,6 @@ public abstract class SessionVoter {
 	 * @see SessionVoter#initialize(List)
 	 * @see SessionVoter#startQuestion(Integer, Integer)
 	 */
-	@SuppressWarnings("unchecked")
 	public static Boolean interpreter(String action, Object object) {
 		switch (action) {
 		case "printReceived":
@@ -168,8 +167,7 @@ public abstract class SessionVoter {
 	 */
 	public static void initialize(List<QuestionList> lists) {
 		SessionVoter.lists = lists;
-
-		// View.displayWaitingNextQuestion(); (IG) %TODO%
+		View.voterWaitingNextQuestion();
 	}
 
 	/**
@@ -192,9 +190,7 @@ public abstract class SessionVoter {
 		if (currQuestion.allocatedTime != 0) {
 			setAllocatedTime(currQuestion.allocatedTime);
 		}
-
-		// View.displayQuestion(Question); (IG) %TODO%
-
+		View.voterDisplayQuestion(currQuestion);
 	}
 
 	/**
@@ -203,16 +199,16 @@ public abstract class SessionVoter {
 	 * 
 	 * @param answer
 	 *            The answer given by the voter
-	 *            
+	 * 
 	 * @see VoterAnswer
 	 * @see RemoteServer#sendRequest(String, Object)
-	 * @see SessionVoter#voterAnswers 
+	 * @see SessionVoter#voterAnswers
 	 */
 	public static void sendVoterAnswer(VoterAnswer answer) {
+		answer.time = timer.getDelay() / 1000;
 		RemoteServer.sendRequest("setVoterAnswer", answer);
 		voterAnswers.put(currQuestionId, answer);
-
-		// View.displayWaitingNextQuestion(); (IG) %TODO%
+		View.voterDisplayQuestionStatistics(currQuestion, answer);
 	}
 
 	/**
@@ -228,9 +224,7 @@ public abstract class SessionVoter {
 		if (currQuestion.allocatedTime != 0) {
 			setAllocatedTime(0);
 		}
-
-		// View.displayWaitingNextQuestion(); (IG) %TODO%
-
+		View.voterWaitingNextQuestion();
 	}
 
 	/**
@@ -239,11 +233,10 @@ public abstract class SessionVoter {
 	 * voter to the data base.
 	 */
 	public static void endSession() {
-
-		// View.displaySessionEnd(); (IG) %TODO%
-
-		// SendStatBBDLocal(); (BDD) %TODO%
-
+		double average = Statistics
+				.calculateVoterPercentageOfCorrectAnswers(lists, voterAnswers);
+		View.voterDisplaySessionStatistics(average);
+		voterAnswers.save();
 	}
 
 	/**

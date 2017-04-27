@@ -8,7 +8,7 @@ import java.io.Serializable;
  *
  * @see QuestionBase
  *
- * @author Jean-Loup Gaussen
+ * @author Jean-Loup Gaussen, Adrien Sartori
  *
  */
 public class Answer implements Serializable {
@@ -35,22 +35,8 @@ public class Answer implements Serializable {
 
 	/**
 	 * Constructor of answer.
-	 *
-	 * @param i
-	 *			  The id of the answer
-	 * @param s
-	 *            The content of the answer.
-	 * @param b
-	 *            The state of the answer.
-	 * @see Answer#id
-	 * @see Answer#content
-	 * @see Answer#state
 	 */
-
-	public Answer(int i, String s, boolean b) {
-		this.id = i;
-		this.content = s;
-		this.state = b;
+	public Answer() {
+		AnswerHandler.sendAnswer(this);
 	}
-
 }
