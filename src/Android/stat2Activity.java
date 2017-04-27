@@ -1,4 +1,4 @@
-package com.example.yoan.flashquizz;
+package ig.flash;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -18,7 +18,13 @@ import com.github.mikephil.charting.charts.HorizontalBarChart;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 
 
-public class stat2Activity extends Activity {
+public class stat2Activity extends MainActivity {
+    public int variable1 = 85;
+    public int variable2 = 65;
+    public int variable3 = 10;
+    public int variable4 = 20;
+    public int variable5 = 95;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -27,7 +33,7 @@ public class stat2Activity extends Activity {
 
         // données du tableau
         final String[] col1 = {"Stat 1", "Stat 2", "Stat 3", "Stat 4", "Stat 5"};
-        final String[] col2 = {"10%", "20%", "95%", "65%", "2%"};
+        final float[] col2 = {variable3, variable4, variable5, variable5, variable5};
         TableLayout table = (TableLayout) findViewById(R.id.idTable);
         TableRow row;
         TextView cel1, cel2; // création des cellules
@@ -44,7 +50,7 @@ public class stat2Activity extends Activity {
 
 
             cel2 = new TextView(this);
-            cel2.setText(col2[i]);
+            cel2.setText(String.valueOf(col2[i]));
             cel2.setGravity(Gravity.CENTER);
             cel2.setLayoutParams(new TableRow.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
 
@@ -79,10 +85,13 @@ public class stat2Activity extends Activity {
     }
 
     private BarDataSet getDataSet() {
+
         ArrayList<BarEntry> entries = new ArrayList<>();
         entries.add(new BarEntry(0, 0));
-        entries.add(new BarEntry(1f, 85));
-        entries.add(new BarEntry(2f, 65));
+        entries.add(new BarEntry(1f, variable1));
+        entries.add(new BarEntry(2f, variable2));
+
+
 
         BarDataSet dataSet = new BarDataSet(entries,"bonne reponses");
         dataSet.setDrawValues(true);
@@ -97,3 +106,11 @@ public class stat2Activity extends Activity {
     }
 */
 }
+
+
+
+
+
+
+
+
