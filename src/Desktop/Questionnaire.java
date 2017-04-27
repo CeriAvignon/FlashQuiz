@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lol;
+package Desktop;
 import javax.swing.*;
 import java.awt.event.*;
 /**
@@ -29,6 +29,16 @@ public class Questionnaire extends javax.swing.JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent e){
         
+	 if(e.getSource()==jButton3){
+         this.setVisible(false);
+         Menu d_menu = new Menu();
+     }
+    	
+	 if(e.getSource()==jButton2){
+         this.setVisible(false);
+         Menu d_menu = new Menu();
+     }
+	 
        if(e.getSource()==jButton5){
             this.setVisible(false);
             Question.main();
