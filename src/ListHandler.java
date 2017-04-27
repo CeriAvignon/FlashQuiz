@@ -1,7 +1,7 @@
 package resbdd;
 
 import List.List;
-//import resbdd.ConnexionJav;
+import resbdd.ConnexionJav;
 import java.sql.*;
 import java.util.Vector;
 
