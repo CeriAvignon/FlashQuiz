@@ -56,8 +56,8 @@ public class ActionQuestion
 		     return quest;
 	  }   
 
-  public void SupprimerQuestion(int id)
+  public void SupprimerQuestion(int id) 
   {
-    deleteQuestion(int id) ;
+          deleteQuestion(int id) ;
   }
 }
