@@ -1,4 +1,6 @@
-
+package controller;
+import model.base.*;
+import resbdd.*; // nom_package.nom_class
 public class ActionList
 {
 
@@ -36,7 +38,7 @@ public class ActionList
 
 	public static void modifListName(String name)
 	{
-		setName(name);
+		this.name = name;
 	}
 	
 	
@@ -81,8 +83,8 @@ public class ActionList
 				j=i;
 			}
 		}
-		temp.listquestion[j]=temp.listquestion[i-1];
-		temp.listquestion[i-1]=null;
+		temp.question[j]=temp.question[i-1];
+		temp.question[i-1]=null;
 	}
 
 

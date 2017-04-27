@@ -1,6 +1,7 @@
-import model.base*;
+package model.class_el;
+import model.base.*;
 
-class List extend ListBase
+class List extends ListBase
 {
 	public int question[];								// question
 
@@ -9,7 +10,9 @@ class List extend ListBase
 */
 	public List()
 	{
-		super();
+		this.id = -1;
+		this.name = "";
+		this.author = 0;
 		this.question=null;
 	}
 
@@ -23,8 +26,10 @@ class List extend ListBase
 */
 	public List(int id,String name,int author,int question[])
 	{
-		super(id,name,author);
-		for(int i=0;i<question.lenght;i++)
+		this.id = id;
+		this.name = name;
+		this.author = author;
+		for(int i=0;i<question.length;i++)
 		{
 			this.question[i]=question[i];
 		}

@@ -1,8 +1,7 @@
-
 import java.io.*;
 import java.nio.file.*;
 import java.util.UUID;
-
+package model.base;
 
 public class Media {
 	 static   Integer MediaType;//Représente le type du media, 0 => image, 1 => audio, 2 si => vidéo 

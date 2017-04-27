@@ -1,4 +1,6 @@
-
+package controller;
+import model.base.*;
+import resbdd.*; // nom_package.nom_class
 public class ActionMedia {
 
 	int nbr_media = 0;

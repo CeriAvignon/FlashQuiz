@@ -1,7 +1,7 @@
-package model.session_el;
+package controller;
 //import SessionData.*;
-import resbdd.SessionHandler; // nom_package.nom_class
-import Session.java;
+import resbdd.*; // nom_package.nom_class
+import model.base.*;
 
 public class ActionSession
 {
