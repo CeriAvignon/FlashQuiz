@@ -14,34 +14,52 @@ public class Questionnaire extends javax.swing.JFrame implements ActionListener{
 
     String[] q;
     int n;
+    ListeQu lq;
+    int nb;
     /**
      * Creates new form Questionnaire
      */
-    public Questionnaire() {
+       
+    public Questionnaire(ListeQu lq, int nb) {
         initComponents(); 
-             
-      
+        this.nb=nb;     
+        this.lq=lq;
+        for(int i=0;i<nb;i++){
+            this.jComboBox1.addItem(lq.rep[i].titre);
+        } 
         jButton3.addActionListener(this);
         jButton5.addActionListener(this);
         jButton2.addActionListener(this); 
+        jButton6.addActionListener(this); 
         
     }
-
     public void actionPerformed(ActionEvent e){
         
-	 if(e.getSource()==jButton3){
-         this.setVisible(false);
-         Menu d_menu = new Menu();
-     }
-    	
-	 if(e.getSource()==jButton2){
-         this.setVisible(false);
-         Menu d_menu = new Menu();
-     }
-	 
        if(e.getSource()==jButton5){
+            this.dispose();
+            Question.main(lq,nb);
+        }else if(e.getSource()==jButton3){
+            this.dispose();
+            Menu.main();
+        }else if(e.getSource()==jButton2){
             this.setVisible(false);
-            Question.main();
+            lq.titre=jTextField1.getText();
+            if(jCheckBox1.isSelected()){
+                lq.mdp=jPasswordField1.getText();
+            }else{
+                lq.mdp="";
+            }
+            lq.desc=jTextArea1.getText();
+            
+            System.out.println(this.lq.rep[0].rep[1].titre);
+            new Menu(lq).setVisible(true);
+            
+        }else if(e.getSource()==jButton6){
+            this.setVisible(false);
+            if(jComboBox1.getSelectedItem()!=null){
+                Question.main(lq,nb);
+            }
+            
         }
     }
     /**
@@ -213,7 +231,7 @@ public class Questionnaire extends javax.swing.JFrame implements ActionListener{
     /**
      * @param args the command line arguments
      */
-    public static void main() {
+    public static void main(final ListeQu lq,final int nb) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -240,7 +258,7 @@ public class Questionnaire extends javax.swing.JFrame implements ActionListener{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Questionnaire().setVisible(true);
+                new Questionnaire(lq,nb).setVisible(true);
             }
         });
     }

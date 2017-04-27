@@ -9,12 +9,16 @@ package Desktop;
  *
  * @author uapv1504060
  */
-public class Reponse {
+public class ListeQu {
     String titre;
-    Boolean etat;
+    String mdp;
+    String desc;
+    Quest[] rep;
     
-    public Reponse(String t , Boolean b){
+    public ListeQu(String t,String m,String d,Quest[] rep){
         titre=t;
-        etat=b;
+        mdp=m;
+        desc=d;
+        this.rep=rep;
     }
 }

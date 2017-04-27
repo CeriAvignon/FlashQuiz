@@ -14,15 +14,28 @@ import javax.swing.*;
  */
 public class RechercheQuestionnaire extends javax.swing.JFrame implements ActionListener {
 
+    ListeQu lqt;
+    int ty;
     /**
      * Creates new form RechercheQuestionnaire
      */
-    public RechercheQuestionnaire() {
-    	initComponents();
+    public RechercheQuestionnaire(ListeQu lq) {
+        initComponents();
+        this.lqt=lq;
+        String t;
         String[] listData = new String[50];  
-        listData[0]=" Questionnaire 1  -     CheckBox     -             7               -           21/12/2015";
-        listData[1]=" Questionnaire 2  -      Radio          -              5               -            18/05/2016";
-        listData[2]=" Questionnaire 3  -      Texte          -             10              -            31/07/2017";
+        if(lqt.rep[0].type==1){
+             t="Choix Multiples";
+             ty=0;
+        }else if(lqt.rep[0].type==2){
+             t="Choix Unique";
+             ty=1;
+        }else{
+             t="Texte Libre";
+             ty=2;
+        }
+        System.out.println(this.lqt.rep[0].rep[0].titre);
+	listData[0]=""+lqt.titre+" - "+t+" - "+lqt.rep.length+" - 27/04/2017";
         jList1.setListData(listData);
         jButton3.addActionListener(this);
         jButton4.addActionListener(this);
@@ -100,6 +113,7 @@ public class RechercheQuestionnaire extends javax.swing.JFrame implements Action
         jButton4.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         jButton4.setText("Lancer le Questionnaire");
 
+        jList1.setFont(new java.awt.Font("DejaVu Sans", 3, 14)); // NOI18N
         jScrollPane1.setViewportView(jList1);
 
         jLabel4.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
@@ -205,38 +219,36 @@ public class RechercheQuestionnaire extends javax.swing.JFrame implements Action
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==jButton3){
             this.dispose();
-            Menu d_menu = new Menu();
-        }
+            Menu.main();
             
-
+        } 
         if(e.getSource()==jButton4){
             this.dispose();
             if(jList1.getSelectedIndex()==0){
-            	Checkbox next = new Checkbox();
-                next.setVisible(true);
-                
-            }else if(jList1.getSelectedIndex()==1){
-            	Radio next1 = new Radio();
-                next1.setVisible(true);
-                
-            }else if(jList1.getSelectedIndex()==2){
-            	Texte next2 = new Texte();
-                next2.setVisible(true);
-                
+                if(ty==0){
+                    this.dispose();
+                    new CheckBox(this.lqt).setVisible(true);
+                }else if(ty==1){
+                    this.dispose();
+                    new Radio(this.lqt).setVisible(true);
+                }else if(ty==2){
+                    this.dispose();
+                    new Texte(this.lqt).setVisible(true);
+                }
             }else{
                 System.out.println("fail");
             }
         }
-            
+        
     }
     /**
      * @param args the command line arguments
      */
-    public static void main() {
+    public static void main(final ListeQu qu) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -263,7 +275,7 @@ public class RechercheQuestionnaire extends javax.swing.JFrame implements Action
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RechercheQuestionnaire().setVisible(true);
+                new RechercheQuestionnaire(qu).setVisible(true);
             }
         });
     }

@@ -19,20 +19,21 @@ import javax.swing.JTextArea;
 
 public class Texte extends javax.swing.JFrame {
 
+    ListeQu lq;
     /**
      * Creates new form Texte
      */
-    public Texte() {
+    public Texte(ListeQu lq) {
         initComponents();
-        
-          //  Question question = new Question(id) ;
+        this.lq=lq;
+        Quest qu = this.lq.rep[0] ;
       
      
         int i = 1;
          
       //  for (Answer a : question.answers ){
             
-            
+           Text_Quest.setText(qu.titre);
         //  rep_1.setText(a.content);
           i++;
         
@@ -52,6 +53,7 @@ public class Texte extends javax.swing.JFrame {
        // Rep_4.setText("");
         
        jProgressBar1 = new JProgressBar();
+       jProgressBar1.setMaximum(qu.timer);
      //  jProgressBar1.setValue(question.allocatedTime);
     }
 
@@ -134,7 +136,7 @@ public class Texte extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-    		new RechercheQuestionnaire().setVisible(true);
+    		new RechercheQuestionnaire(this.lq).setVisible(true);
 			dispose();
            (this).setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed

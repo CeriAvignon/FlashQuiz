@@ -6,6 +6,7 @@
 package Desktop;
 
 import java.awt.Component;
+import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 import javax.swing.JTextArea;
@@ -19,12 +20,14 @@ import javax.swing.JTextArea;
  */
 public class Radio extends javax.swing.JFrame {
 
+    ListeQu lqt;
     /**
      * Creates new form Radio
      */
-    public Radio() {
+    public Radio(ListeQu lq) {
         initComponents();
-	    
+	
+        this.lqt=lq;
 	ButtonGroup groupe = new ButtonGroup() ;
         groupe.add(Radio_1);
         groupe.add(Radio_2);
@@ -32,8 +35,22 @@ public class Radio extends javax.swing.JFrame {
         groupe.add(Radio_4);
 	    
         //  Question question = new Question(id) ;
-      
-     
+        Quest qu=lqt.rep[0];
+        
+        Text_Quest.setText(qu.titre); 
+        
+        if(qu.rep[0]!=null){
+            Rep_1.setText(qu.rep[0].titre);
+        }
+            if(qu.rep[1]!=null){
+            Rep_2.setText(qu.rep[1].titre);
+        }
+        if(qu.rep[0]!=null){
+            Rep_3.setText(qu.rep[2].titre);
+        }
+        if(qu.rep[0]!=null){
+            Rep_4.setText(qu.rep[3].titre);
+        } 
         int i = 1;
          
       //  for (Answer a : question.answers ){
@@ -58,6 +75,7 @@ public class Radio extends javax.swing.JFrame {
        // Rep_4.setText("");
         
        jProgressBar1 = new JProgressBar();
+       jProgressBar1.setMaximum(qu.timer);
      //  jProgressBar1.setValue(question.allocatedTime);
         
         
@@ -239,20 +257,12 @@ public class Radio extends javax.swing.JFrame {
         // TODO add your handling code here:
          
         
-    	new RechercheQuestionnaire().setVisible(true);
+    	new RechercheQuestionnaire(this.lqt).setVisible(true);
 		dispose();
            (this).setVisible(false);
     }//GEN-LAST:event_Valider_ButtonActionPerformed
 
- public static void main(String args[]) {
-
-      
-                new Radio().setVisible(true);
-               
-       
-    
-    }
- 
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Label_Time;
     private javax.swing.JLabel Label_Title;

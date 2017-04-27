@@ -15,12 +15,20 @@ import javax.swing.ButtonGroup;
 public class Question extends javax.swing.JFrame implements ActionListener {
     Reponse[] R = new Reponse[10];
     int i=0;
+    int type=1;
+    ListeQu lq;
+    int nb;
     
     /**
      * Creates new form Question
      */
-    public Question() {
+    public Question(ListeQu lq, int nb) {
+        this.lq=lq;
+        this.nb=nb;
         initComponents();
+        for(int l=0;l<10;l++){
+            R[l]=new Reponse("",true);
+        }
         jButton1.addActionListener(this);
         jButton2.addActionListener(this);
       
@@ -43,17 +51,22 @@ public class Question extends javax.swing.JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==jButton1){
+            System.out.println(R[0].titre);
+            Quest q=new Quest(jTextField1.getText(), jSlider2.getValue(),type,R);
+            q.rep=R;
+            this.lq.rep[this.nb]=q;
+            this.nb++;
             this.dispose();
-            //Question q=new Question(jTextField1.getText(), jSlider2.getValue(),R);
-            Questionnaire.main();
+            Questionnaire.main(lq,nb);
             
         }else if(e.getSource()==jButton2){
             this.dispose();
-            Questionnaire.main();
+            Questionnaire.main(lq,nb);
+            
         
         }else if(e.getSource()==jButton2){
             this.dispose();
-            Login d_login = new Login();
+           Login.main();
            
         }else if(e.getSource()==jButton4){
             jCheckBox1.setVisible(true);
@@ -61,14 +74,15 @@ public class Question extends javax.swing.JFrame implements ActionListener {
             jLabel7.setVisible(true);
             jLabel8.setVisible(true);
             jTextField2.setVisible(true);
-                 
+            type=1;
+            
         }else if(e.getSource()==jButton5){
             jCheckBox1.setVisible(true);
             jLabel5.setVisible(true);
             jLabel7.setVisible(true);
             jLabel8.setVisible(true);
             jTextField2.setVisible(true);
-            
+            type=2;
             
         }else if(e.getSource()==jButton6){
             jCheckBox1.setVisible(false);
@@ -77,16 +91,17 @@ public class Question extends javax.swing.JFrame implements ActionListener {
             jLabel8.setVisible(false);
             jTextField2.setVisible(true);
             jCheckBox1.setSelected(true);
+            type=3;
             
         }else if(e.getSource()==jButton9){
-            //R[i]=new Answer(jTextField2.getText(),jCheckBox1.isSelected());
-            /*if(R[i].etat==true){
+            R[i]=new Reponse(jTextField2.getText() , jCheckBox1.isSelected());
+            if(R[i].etat==true){
                 jComboBox1.addItem(R[i].titre+" - correcte");
-                i++;
+                this.i++;
             }else{
                 jComboBox1.addItem(R[i].titre+" - incorrecte");
-                i++;
-            }*/
+                this.i++;
+            }
             
         }else if(e.getSource()==jButton8){
             if(jComboBox1.getSelectedIndex()!=-1){
@@ -192,17 +207,17 @@ public class Question extends javax.swing.JFrame implements ActionListener {
         jLabel4.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
         jLabel4.setText("Type");
 
-        jButton4.setBackground(new java.awt.Color(140, 254, 150));
+        jButton4.setBackground(new java.awt.Color(254, 254, 254));
         jButton4.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         jButton4.setText("Choix Multiples");
         jButton4.setBorder(null);
 
-        jButton5.setBackground(new java.awt.Color(140, 254, 150));
+        jButton5.setBackground(new java.awt.Color(254, 254, 254));
         jButton5.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         jButton5.setText("Choix Unique");
         jButton5.setBorder(null);
 
-        jButton6.setBackground(new java.awt.Color(140, 254, 150));
+        jButton6.setBackground(new java.awt.Color(254, 254, 254));
         jButton6.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         jButton6.setText("Texte Libre");
         jButton6.setBorder(null);
@@ -235,8 +250,13 @@ public class Question extends javax.swing.JFrame implements ActionListener {
         jButton8.setFont(new java.awt.Font("Ubuntu", 1, 13)); // NOI18N
         jButton8.setText("Supprimer la réponse");
 
-        jSlider2.setMajorTickSpacing(1);
+        jSlider2.setFont(new java.awt.Font("Ubuntu", 0, 10)); // NOI18N
+        jSlider2.setForeground(new java.awt.Color(1, 1, 1));
+        jSlider2.setMajorTickSpacing(100);
         jSlider2.setMaximum(300);
+        jSlider2.setMinorTickSpacing(20);
+        jSlider2.setPaintTicks(true);
+        jSlider2.setToolTipText("");
         jSlider2.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
         jSlider2.setName(""); // NOI18N
         jSlider2.setValueIsAdjusting(true);
@@ -306,17 +326,17 @@ public class Question extends javax.swing.JFrame implements ActionListener {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(159, 159, 159)
                 .addComponent(jLabel1)
-                .addGap(155, 155, 155))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -334,14 +354,14 @@ public class Question extends javax.swing.JFrame implements ActionListener {
                                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel4))
                             .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel11)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jCheckBox5))
                             .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                         .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -378,7 +398,7 @@ public class Question extends javax.swing.JFrame implements ActionListener {
     /**
      * @param args the command line arguments
      */
-    public static void main() {
+    public static void main(final ListeQu lq, final int nb) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -404,8 +424,9 @@ public class Question extends javax.swing.JFrame implements ActionListener {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new Question().setVisible(true);
+                new Question(lq,nb).setVisible(true);
             }
         });
     }
