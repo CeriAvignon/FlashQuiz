@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package flashquizz.Panels;
+package Desktop;
 
 /**
  *
@@ -146,7 +146,7 @@ public class Recap extends javax.swing.JFrame {
         getContentPane().add(jTextField2);
         jTextField2.setBounds(20, 570, 110, 90);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flashquizz/Panels/images.jpeg"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("images.jpeg"))); // NOI18N
         jLabel4.setText("jLabel4");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(670, 390, 270, 200);
@@ -180,7 +180,7 @@ public class Recap extends javax.swing.JFrame {
         getContentPane().add(Restart_Button);
         Restart_Button.setBounds(870, 10, 90, 60);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flashquizz/Panels/bg.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("bg.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         jLabel1.setMaximumSize(new java.awt.Dimension(970, 680));
         jLabel1.setMinimumSize(new java.awt.Dimension(970, 680));
