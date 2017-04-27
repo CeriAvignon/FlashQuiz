@@ -24,6 +24,13 @@ public class Radio extends javax.swing.JFrame {
      */
     public Radio() {
         initComponents();
+	    
+	ButtonGroup groupe = new ButtonGroup() ;
+        groupe.add(Radio_1);
+        groupe.add(Radio_2);
+        groupe.add(Radio_3);
+        groupe.add(Radio_4);
+	    
         //  Question question = new Question(id) ;
       
      
