@@ -180,9 +180,9 @@ public SignDialog(JFrame parent, String title, boolean modal){
 	      {
 	    	  System.out.println("TEXT : m_tLogin " + Login); 
 		      System.out.println("TEXT : m_tPass " + Password);
-		      //System.out.println("TEXT : m_tConfPass " + strConfPass);
 		      System.out.println("TEXT : m_tPrenom " + First_Name);
 		      System.out.println("TEXT : m_tNom " + Last_Name);
+		      //creat_user(new user(m_tLogin, m_tPass, m_tPrenom, m_tNom));
 	    	  dispose(); 
 	      }
 	    }
