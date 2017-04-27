@@ -78,7 +78,6 @@ public class Menu extends JFrame{
 		m_panMainMenu.setLayout(new BoxLayout(m_panMainMenu, BoxLayout.LINE_AXIS));
 		this.getContentPane().add(m_butCreat);
 		this.getContentPane().add(m_butRep);
-		this.getContentPane().add(m_butStat);
 		this.getContentPane().add(m_butParam);
 		this.getContentPane().add(m_butDec);
 		this.getContentPane().add(m_butQuit);
