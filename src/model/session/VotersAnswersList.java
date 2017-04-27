@@ -94,4 +94,10 @@ implements Serializable
 
 		return answers;
 	}
+	
+	public void save() {
+		for (Map.Entry<Integer, VoterAnswerList> entry : this.entrySet()) {
+			entry.getValue().save();
+		}
+	}
 }

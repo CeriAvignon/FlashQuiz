@@ -37,5 +37,6 @@ public class Answer implements Serializable {
 	 * Constructor of answer.
 	 */
 	public Answer() {
+		AnswerHandler.sendAnswer(this);
 	}
 }
