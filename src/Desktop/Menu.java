@@ -90,11 +90,17 @@ public class Menu extends JFrame{
 	//Action des bouttons
 	class BoutonCre implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
+			//Questionnaire();
+			new Questionnaire().setVisible(true);
+			dispose();
 		}
 		}
 	
 	class BoutonRep implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
+			//RechercheQuestionnaire();
+			new RechercheQuestionnaire().setVisible(true);
+			dispose();
 		}
 		}
 	
@@ -105,6 +111,7 @@ public class Menu extends JFrame{
 	
 	class BoutonParam implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
+			//Param();
 			Param d_param = new Param();
 			dispose(); 
 		}
@@ -112,6 +119,7 @@ public class Menu extends JFrame{
 	
 	class BoutonDec implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
+			//Login();
 			Login m_login = new Login();
 			dispose(); 
 		}
