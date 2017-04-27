@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_stat"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.yoan.flashquizz.stat1Activity" >
+    android:layout_height="match_parent">
 
     <com.github.mikephil.charting.charts.PieChart
         android:layout_width="match_parent"
@@ -26,8 +25,9 @@
             android:layout_width="fill_parent"
             android:stretchColumns="0"
             android:layout_height="wrap_content"
+            android:textSize="12dp"
             android:id="@+id/idTable"
-            android:background="#dcdcdc">
+            android:background="@drawable/corner">
         </TableLayout>
 
     </ScrollView>
