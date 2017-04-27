@@ -3,21 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_stat"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.yoan.flashquizz.stat2Activity" >
+    android:layout_height="match_parent">
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/stat2" />
 
-    <com.github.mikephil.charting.charts.HorizontalBarChart
+        <com.github.mikephil.charting.charts.HorizontalBarChart
         android:id="@+id/chart"
         android:layout_width="match_parent"
         android:layout_height="300dp" />
@@ -26,9 +20,10 @@
             android:layout_width="fill_parent"
             android:stretchColumns="0"
             android:layout_marginTop="60dp"
+            android:textSize="12dp"
             android:layout_height="wrap_content"
             android:id="@+id/idTable"
-            android:background="#dcdcdc">
+            android:background="@drawable/corner">
         </TableLayout>
     </LinearLayout>
     </ScrollView>
