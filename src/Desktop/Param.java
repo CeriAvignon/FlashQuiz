@@ -37,7 +37,7 @@ public class Param extends JFrame
 	private JTextField m_tNom = new JTextField("");
 	private JComboBox m_lang = new JComboBox();
 	
-	//Céation label
+	//Création label
 	JLabel m_labelLang = new JLabel("Langue : ");
 	JLabel m_labelLog = new JLabel("Compte : ");
 	JLabel m_labelPass = new JLabel("Mot de passe : ");
@@ -187,6 +187,7 @@ public class Param extends JFrame
 	//Action des bouttons
 	class BoutonApp implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
+			//update_identification(new user(m_tLogin, m_tPass, m_tPrenom, m_tNom));
 			Menu m_menu = new Menu();
 			dispose(); 
 		}
