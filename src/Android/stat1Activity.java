@@ -1,4 +1,4 @@
-package com.example.yoan.flashquizz;
+package ig.flash;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -22,9 +22,15 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 
 
-public class stat1Activity extends Activity {
+public class stat1Activity extends MainActivity {
+    public int variable1 = 55;
+    public int variable2 = 45;
+    public int variable3 = 10;
+    public int variable4 = 20;
+    public int variable5 = 95;
+
     private static String TAG = "PieChart";
-    private float[] yData = {55, 45};
+    private float[] yData = {variable1, variable2};
     private String[] xData = {"bonne", "mauvaise"};
     PieChart pieChart;
 
@@ -60,7 +66,7 @@ public class stat1Activity extends Activity {
 
         // données du tableau
         final String[] col1 = {"Stat 1", "Stat 2", "Stat 3", "Stat 4", "Stat 5"};
-        final String[] col2 = {"10%", "20%", "95%", "65%", "2%"};
+        final float[] col2 = {variable3, variable4, variable5, variable5, variable5};
         TableLayout table = (TableLayout) findViewById(R.id.idTable);
         TableRow row;
         TextView cel1, cel2; // création des cellules
@@ -76,7 +82,7 @@ public class stat1Activity extends Activity {
 
 
             cel2 = new TextView(this);
-            cel2.setText(col2[i]);
+            cel2.setText(String.valueOf(col2[i]));
             cel2.setGravity(Gravity.CENTER);
             cel2.setLayoutParams(new TableRow.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1));
 
