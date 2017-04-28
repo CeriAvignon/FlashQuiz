@@ -1,51 +1,46 @@
 package ig.flash;
 
-import android.os.Bundle;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.Switch;
 
+public class ImportActivity extends MainActivity {
 
-
-public class ForgotPasswordActivity extends MainActivity {
-/* ------------------------------------- */
-//Declaration EditText
-    private EditText editText_email;
-
-    //Envoyer button
-    private Button btn_envoyer;
+    private Button NQ;
+    private Button IQ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forgot_password);
+        setContentView(R.layout.activity_import);
 
-        //Initializing the views
-        editText_email = (EditText) findViewById(R.id.editText_email);
 
-        btn_envoyer = (Button) findViewById(R.id.btn_envoyer);
+        NQ = (Button) findViewById(R.id.btn_new_quizz);
+        IQ = (Button) findViewById(R.id.btn_import_quizz1);
 
-        //Adding click listener
 
+
+        NQ.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+
+                Intent myIntent = new Intent(ImportActivity.this, Createquizz.class);
+                startActivity(myIntent);
+            }
+
+        });
+
+        IQ.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View v){
+
+                Intent myIntent = new Intent(ImportActivity.this, ImportQuizz2.class);
+                startActivity(myIntent);
+            }
+
+        });
     }
-
-
-    /*private void sendEmail() {
-        //Getting content for email
-       /* String email = editText_email.getText().toString().trim();
-        String subject = " Mot de passe oublié ";
-        String message = " Voici le mot de passe par défault: passer  ";
-
-        //Creating SendMail object
-        SendMail sm = new SendMail(this, email, subject, message);
-
-        //Executing sendmail to send email
-        sm.execute();
-    }
-
-    @Override
-    public void onClick(View v) {
-        sendEmail();
-    }*/
 }
