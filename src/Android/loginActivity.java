@@ -1,4 +1,4 @@
-package com.fquiz.loginapp;
+package ig.flash;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,9 +9,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class loginActivity extends AppCompatActivity {
+public class loginActivity extends MainActivity {
     Button btn_login;
-    EditText username,password;
+    public EditText username,password;
     TextView link_inscription;
     TextView textView_forgot_pwd;
 
@@ -19,7 +19,7 @@ public class loginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
@@ -32,7 +32,7 @@ public class loginActivity extends AppCompatActivity {
             public void onClick (View v){
                 if (username.getText().toString().equals("admin") && password.getText().toString().equals("passer") ){
                     Toast.makeText(getApplicationContext(),"Login Success", Toast.LENGTH_LONG);
-                    Intent myIntent = new Intent(loginActivity.this, ImportActivity.class);
+                    Intent myIntent = new Intent(loginActivity.this, acceuilActivity.class);
                     startActivity(myIntent);
                 }
             }
@@ -59,4 +59,3 @@ public class loginActivity extends AppCompatActivity {
 
     }
 }
-
