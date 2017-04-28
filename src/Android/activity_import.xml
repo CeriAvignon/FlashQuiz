@@ -8,8 +8,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.fquiz.loginapp.ImportActivity"
-    android:background="?attr/colorButtonNormal">
+
+    >
 
     <Button
         android:text="créer nouveau quizz"
@@ -24,10 +24,10 @@
         android:id="@+id/btn_new_quizz"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textColor="?android:attr/colorBackground"
+        android:textColor="@android:color/black"
         android:textStyle="normal|bold"
-        android:textSize="28sp"
-        android:background="@android:color/holo_blue_dark"
+        android:textSize="30sp"
+        android:background="?attr/colorButtonNormal"
         tools:ignore="HardcodedText" />
 
     <Button
@@ -42,22 +42,22 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:textStyle="normal|bold"
-        android:textColor="?android:attr/colorBackground"
-        android:textSize="28sp"
-        android:background="@android:color/holo_blue_dark"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:background="?attr/colorButtonNormal"
         tools:ignore="HardcodedText" />
 
     <TextView
+        android:background="@drawable/corner"
         android:text="Création Quizz"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView2"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:textAlignment="center"
         android:textStyle="normal|bold"
-        android:textColor="@android:color/holo_blue_bright"
+        android:textColor="@android:color/black"
         tools:ignore="HardcodedText"
-        android:background="@android:color/background_light"
         android:contextClickable="false"
         android:clickable="true"
         android:layout_marginTop="85dp"
@@ -68,18 +68,4 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <Switch
-        android:text="Se déconnecter "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="22dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginTop="8dp"
-        android:id="@+id/switch_logout"
-        android:textSize="22sp"
-        tools:ignore="HardcodedText"
-        android:textColor="@android:color/background_dark" />
 </RelativeLayout>
