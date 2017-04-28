@@ -1,4 +1,4 @@
-package ceri.createquizz;
+package ig.flash;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -10,9 +10,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.TextView;
+//import model.base.*;    // importe les modèles de base
+//import model.session.*;
 
-import static ceri.createquizz.R.id.checkBox_mdp;
-import static ceri.createquizz.R.id.checkBox_time;
+import static  ig.flash.R.id.checkBox_mdp;
+import static  ig.flash.R.id.checkBox_time;
+import static  ig.flash.R.id.editText2;
+import static  ig.flash.R.id.editText3;
+import static  ig.flash.R.id.textView;
 
 public class Createquizz extends AppCompatActivity {
     @Override
@@ -39,23 +46,33 @@ public class Createquizz extends AppCompatActivity {
             ShowTime();
         }
     }
-
+    EditText first;
+    EditText second;
+    String mdp;
+    CheckBox checkboxmdp;
     private void ShowMotDePasse() {
-        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+        checkboxmdp = (CheckBox) findViewById(checkBox_mdp);
+        final AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
 
         LayoutInflater inflater = getLayoutInflater();
         View mdplayout = inflater.inflate(R.layout.popupmotdepasse, null);
+        first = (EditText)mdplayout.findViewById(R.id.editText2);
+        second = (EditText)mdplayout.findViewById(editText3);
         helpBuilder.setView(mdplayout);
-
         helpBuilder.setPositiveButton("Ok",
                 new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
-                        // Do nothing but close the dialog
+                        if(first.getText().toString().equals("") || second.getText().toString().equals("") || !first.getText().toString().equals(second.getText().toString())){
+                            checkboxmdp.setChecked(false);
+                        }
+                        else{
+                            mdp=first.getText().toString();
+                            TextView text=(TextView) findViewById(textView);
+                            text.setText(mdp);
+                        }
                     }
                 });
-
-        // Remember, create doesn't show the dialog
         AlertDialog helpDialog = helpBuilder.create();
         helpDialog.show();
         Button ok =helpDialog.getButton(DialogInterface.BUTTON_POSITIVE);
@@ -76,8 +93,6 @@ public class Createquizz extends AppCompatActivity {
                         // Do nothing but close the dialog
                     }
                 });
-
-        // Remember, create doesn't show the dialog
         AlertDialog helpDialog = helpBuilder.create();
         helpDialog.show();
         Button ok =helpDialog.getButton(DialogInterface.BUTTON_POSITIVE);

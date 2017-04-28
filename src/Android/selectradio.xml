@@ -133,7 +133,7 @@
         android:visibility="invisible"
         android:id="@+id/radioButton7" />
         <RadioButton
-            android:text="@string/choix_5"
+            android:text="choix_5"
             android:button="@drawable/apptheme_btn_radio_holo_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -142,7 +142,7 @@
             android:visibility="invisible"
             android:id="@+id/radioButton8" />
         <RadioButton
-            android:text="@string/choix_6"
+            android:text="choix_6"
             android:button="@drawable/apptheme_btn_radio_holo_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

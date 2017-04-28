@@ -33,7 +33,7 @@
         android:maxLength="25"
         android:hint="Votre question"
         android:gravity="center"
-        android:background="@drawable/edittextstyle"
+        android:background="@drawable/corner"
         android:layout_marginTop="22dp"
         android:id="@+id/editText"
         android:layout_below="@+id/textView2"

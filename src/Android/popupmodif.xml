@@ -13,10 +13,9 @@
         android:layout_height="50dp"
         android:inputType="text"
         android:ems="10"
-        android:background="@drawable/edittextstyle"
+        android:background="@drawable/corner"
         android:id="@+id/editText4"
         android:hint="Entrez votre Réponse"
         android:gravity="center"
-        android:textStyle="italic"
         android:maxLength="25"/>
 </LinearLayout>

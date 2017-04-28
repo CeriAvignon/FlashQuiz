@@ -1,4 +1,4 @@
-package ceri.createquizz;
+package ig.flash;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;

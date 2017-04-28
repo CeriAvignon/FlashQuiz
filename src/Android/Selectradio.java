@@ -1,4 +1,4 @@
-package ceri.createquizz;
+package ig.flash;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -13,9 +13,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
-import static ceri.createquizz.R.id.button4;
-import static ceri.createquizz.R.id.checkBox_mdp;
-import static ceri.createquizz.R.id.checkBox_time;
+import static ig.flash.R.id.button4;
+import static ig.flash.R.id.checkBox_mdp;
+import static ig.flash.R.id.checkBox_time;
 
 public class Selectradio extends AppCompatActivity {
     @Override

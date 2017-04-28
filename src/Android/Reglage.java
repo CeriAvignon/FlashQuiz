@@ -1,4 +1,4 @@
-package ceri.flashquizz;
+package ig.flash;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 
-public class Reglage extends AppCompatActivity {
+public class Reglage extends MainActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
