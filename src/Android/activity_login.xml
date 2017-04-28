@@ -8,10 +8,10 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.fquiz.loginapp.loginActivity"
-    android:background="@android:color/holo_blue_bright">
+    tools:targetApi="lollipop">
 
     <TextView
+        android:background="@drawable/corner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="FLASHQUIZZ"
@@ -22,8 +22,10 @@
         android:layout_alignParentEnd="true"
         android:textStyle="normal|bold"
         android:textAlignment="center"
-        android:textSize="30sp"
-        tools:ignore="HardcodedText" />
+        android:textSize="18dp"
+        tools:ignore="HardcodedText"
+        android:textColor="@android:color/black"
+        android:fontFamily="sans-serif" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -39,7 +41,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         tools:ignore="HardcodedText"
-        android:background="@android:color/background_light" />
+        android:background="@android:color/background_light"
+        android:textColorHint="@android:color/black" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -56,12 +59,14 @@
         tools:ignore="HardcodedText"
         android:background="@android:color/background_light"
         android:backgroundTint="@android:color/background_light"
-        tools:targetApi="lollipop" />
+        tools:targetApi="lollipop"
+        android:textColorHint="@android:color/black" />
 
     <TextView
+        android:background="@drawable/corner"
         android:text="Pas encore de compte? S'inscrire"
         android:layout_width="wrap_content"
-        android:textSize="24sp"
+        android:textSize="15dp"
         android:layout_height="wrap_content"
         android:id="@+id/link_inscription"
         android:textColor="@android:color/holo_blue_dark"
@@ -79,7 +84,7 @@
         android:id="@+id/btn_login"
         android:textAlignment="center"
         android:textStyle="normal|bold"
-        android:textSize="24sp"
+        android:textSize="18dp"
         android:background="@android:color/background_light"
         android:layout_below="@+id/password"
         android:layout_marginTop="68dp"
@@ -87,19 +92,21 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        tools:ignore="HardcodedText" />
+        tools:ignore="HardcodedText"
+        android:backgroundTint="?android:attr/colorButtonNormal" />
 
     <TextView
+        android:background="@drawable/corner"
         android:text="Mot de passe oublié ?"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView_forgot_pwd"
-        android:textSize="18sp"
+        android:textSize="15dp"
         android:textStyle="normal|bold"
         android:textColor="@android:color/holo_blue_dark"
-        android:layout_below="@+id/password"
-        android:layout_alignRight="@+id/link_inscription"
-        android:layout_alignEnd="@+id/link_inscription"
         tools:ignore="HardcodedText"
-        android:clickable="true" />
+        android:clickable="true"
+        android:layout_above="@+id/link_inscription"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="36dp" />
 </RelativeLayout>
