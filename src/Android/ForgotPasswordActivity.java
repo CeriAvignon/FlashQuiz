@@ -1,4 +1,4 @@
-package com.fquiz.loginapp;
+package ig.flash;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +8,7 @@ import android.widget.EditText;
 
 
 
-public class ForgotPasswordActivity extends AppCompatActivity {
+public class ForgotPasswordActivity extends MainActivity {
 /* ------------------------------------- */
 //Declaration EditText
     private EditText editText_email;
@@ -26,14 +26,14 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
         btn_envoyer = (Button) findViewById(R.id.btn_envoyer);
 
+        //Adding click listener
 
     }
 
 
-    /*
-    private void sendEmail() {
+    /*private void sendEmail() {
         //Getting content for email
-        String email = editText_email.getText().toString().trim();
+       /* String email = editText_email.getText().toString().trim();
         String subject = " Mot de passe oublié ";
         String message = " Voici le mot de passe par défault: passer  ";
 
@@ -43,7 +43,9 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         //Executing sendmail to send email
         sm.execute();
     }
-    */
 
-
+    @Override
+    public void onClick(View v) {
+        sendEmail();
+    }*/
 }
