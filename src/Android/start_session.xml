@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="99dp"
+                android:inputType="text"
+                android:text="Quel est la couleur du cheval blanc d'Henri IV?"
+                android:ems="10"
+                android:id="@+id/NQuestion"
+                android:background="@drawable/corner"
+                android:gravity="center" />
+        </LinearLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_weight="0.65">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:inputType="text"
+            android:text="(Type question):Texte Libre"
+            android:ems="10"
+            android:id="@+id/type"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:background="@drawable/corner"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="239dp"
+            android:layout_marginTop="50dp">
+
+
+            <EditText
+                android:layout_width="303dp"
+                android:layout_height="226dp"
+                android:inputType="textPersonName"
+                android:text="reponse à taper ici."
+                android:ems="10"
+                android:id="@+id/text"
+                android:gravity="top"/>
+        </FrameLayout>
+
+    </FrameLayout>
+
+    <ProgressBar
+        style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/time"
+        android:max="100"
+        android:progress="75"
+        android:indeterminate="false"
+        android:layout_weight="0.26"
+        />
+
+    <Button
+        android:text="Valider réponse"
+        android:layout_width="101dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/Valider"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button" />
+
+</LinearLayout>

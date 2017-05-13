@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ig.flash">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+
+        android:supportsRtl="true"
+
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".loginActivity"
+            android:label="Android">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity"
+            android:label="Information Session" >
+        </activity>
+        <activity
+            android:name=".StartSession"
+            android:label="Questionnaire">
+
+        </activity>
+
+        <activity
+            android:name=".RechercheQuizz"
+            android:label="Recherche Quizz">
+
+        </activity>
+        <activity
+            android:name=".RecapAll"
+            android:label="Recapitulatif Quizz">
+
+        </activity>
+        <activity
+            android:name=".FinQuestion"
+            android:label="Attente">
+
+        </activity>
+
+
+
+        <activity
+            android:name=".ImportActivity" >
+        </activity>
+
+        <activity
+            android:name=".InscriptionActivity" >
+        </activity>
+
+        <activity
+            android:name=".ForgotPasswordActivity">
+
+        </activity>
+        <activity
+            android:name=".stat1Activity"
+            android:label="@string/title_activity_stat1" >
+        </activity>
+        <activity
+            android:name=".stat2Activity"
+            android:label="@string/title_activity_stat2" >
+        </activity>
+        <activity
+            android:name=".statActivity"
+            android:label="@string/title_activity_stat" >
+        </activity>
+        <activity
+            android:name=".acceuilActivity"
+            android:label="@string/title_activity_acceuil" >
+        </activity>
+
+        <activity
+            android:name=".Createquizz"
+            android:label="Nouveau quiz" >
+        </activity>
+
+        <activity
+            android:name=".ImportQuizz2"
+            android:label="Importer un quiz" >
+        </activity>
+
+        <activity
+            android:name=".Reglage"
+            android:label="Reglage" >
+        </activity>
+
+        <activity
+            android:name=".Ajoutquestion"
+            android:label="Ajouter une question" >
+        </activity>
+
+        <activity
+            android:name=".Selectcheckbox"
+            android:label="Reglage" >
+        </activity>
+        <activity
+            android:name=".Selectradio"
+            android:label="Reglage" >
+        </activity>
+        <activity
+            android:name=".Modifquizz"
+            android:label="Reglage" >
+        </activity>
+    </application>
+
+</manifest>

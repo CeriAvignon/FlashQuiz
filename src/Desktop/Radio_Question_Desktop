@@ -1,0 +1,190 @@
+
+package flashquizz.Panels;
+
+/**
+ *
+ * @author geoffrey
+ */
+public class Radio extends javax.swing.JPanel {
+
+    public Radio() {
+        initComponents();
+    }
+
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jLabel1 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jProgressBar1 = new javax.swing.JProgressBar();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("File");
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("Edit");
+        jMenuBar2.add(jMenu4);
+
+        setLayout(null);
+
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        jLabel1.setText("FlashQuizz - QUESTION");
+        add(jLabel1);
+        jLabel1.setBounds(300, 10, 467, 51);
+
+        jRadioButton1.setFont(new java.awt.Font("Lucida Grande", 3, 14)); // NOI18N
+        jRadioButton1.setForeground(new java.awt.Color(255, 255, 51));
+        jRadioButton1.setText("Réponse 4");
+        add(jRadioButton1);
+        jRadioButton1.setBounds(190, 550, 107, 23);
+
+        jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jRadioButton2.setFont(new java.awt.Font("Lucida Grande", 3, 14)); // NOI18N
+        jRadioButton2.setForeground(new java.awt.Color(255, 255, 51));
+        jRadioButton2.setText("Réponse 1");
+        add(jRadioButton2);
+        jRadioButton2.setBounds(190, 220, 120, 23);
+
+        jRadioButton3.setFont(new java.awt.Font("Lucida Grande", 3, 14)); // NOI18N
+        jRadioButton3.setForeground(new java.awt.Color(255, 255, 51));
+        jRadioButton3.setText("Réponse 2");
+        add(jRadioButton3);
+        jRadioButton3.setBounds(190, 330, 110, 23);
+
+        jRadioButton4.setFont(new java.awt.Font("Lucida Grande", 3, 14)); // NOI18N
+        jRadioButton4.setForeground(new java.awt.Color(255, 255, 51));
+        jRadioButton4.setText("Réponse 3");
+        add(jRadioButton4);
+        jRadioButton4.setBounds(190, 440, 107, 23);
+
+        jTextField5.setEditable(false);
+        jTextField5.setBackground(new java.awt.Color(204, 204, 204));
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+        add(jTextField5);
+        jTextField5.setBounds(180, 490, 510, 60);
+
+        jTextField6.setEditable(false);
+        jTextField6.setBackground(new java.awt.Color(204, 204, 204));
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+        add(jTextField6);
+        jTextField6.setBounds(180, 160, 510, 60);
+
+        jTextField7.setEditable(false);
+        jTextField7.setBackground(new java.awt.Color(204, 204, 204));
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
+            }
+        });
+        add(jTextField7);
+        jTextField7.setBounds(180, 270, 510, 60);
+
+        jTextField8.setEditable(false);
+        jTextField8.setBackground(new java.awt.Color(204, 204, 204));
+        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField8ActionPerformed(evt);
+            }
+        });
+        add(jTextField8);
+        jTextField8.setBounds(180, 380, 510, 60);
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 51));
+        jButton1.setFont(new java.awt.Font("Lucida Handwriting", 1, 14)); // NOI18N
+        jButton1.setText("VALIDER");
+        add(jButton1);
+        jButton1.setBounds(790, 550, 150, 70);
+
+        jProgressBar1.setBackground(new java.awt.Color(51, 0, 204));
+        jProgressBar1.setForeground(new java.awt.Color(0, 255, 0));
+        jProgressBar1.setValue(60);
+        add(jProgressBar1);
+        jProgressBar1.setBounds(70, 600, 310, 20);
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("TEMPS :");
+        add(jLabel3);
+        jLabel3.setBounds(10, 600, 70, 20);
+
+        jTextField9.setEditable(false);
+        jTextField9.setBackground(new java.awt.Color(204, 204, 204));
+        add(jTextField9);
+        jTextField9.setBounds(10, 60, 930, 70);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/flashquizz/Panels/bg.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        add(jLabel2);
+        jLabel2.setBounds(0, 0, 960, 630);
+    }// </editor-fold>                        
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+      
+    }                                           
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+   
+    }                                           
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+
+    }                                           
+
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+
+    }                                           
+
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
+    // End of variables declaration                   
+}

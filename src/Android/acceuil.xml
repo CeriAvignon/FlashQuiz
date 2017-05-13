@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_acceuil"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/newQuizz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/darker_gray"
+        android:text="@string/title_activity_nouveauquizz" />
+
+    <Button
+        android:id="@+id/stat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/participQuizz"
+        android:layout_marginTop="26dp"
+        android:background="@android:color/darker_gray"
+        android:text="@string/title_activity_stat" />
+
+    <Button
+        android:id="@+id/participQuizz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/newQuizz"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/darker_gray"
+        android:text="@string/title_activity_particip" />
+
+    <Button
+        android:id="@+id/reglage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="9dp"
+        android:layout_marginRight="39dp"
+        android:layout_marginEnd="39dp"
+        android:text="@string/reglage" />
+
+    <Switch
+        android:background="@drawable/corner"
+        android:text="Se déconnecter "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/switch_logout"
+        android:textSize="22sp"
+        tools:ignore="HardcodedText"
+        android:textColor="@android:color/background_dark"
+        android:layout_above="@+id/reglage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>

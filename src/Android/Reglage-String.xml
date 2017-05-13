@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">FlashQuizz</string>
+    <string name="choix_langue">Langue</string>
+    <string name="choix_couleur">Couleur</string>
+    <string name="activity_langue">Langue</string>
+    <string name="RadioButton_français">Français</string>
+    <string name="RadioButton_anglais">Anglais</string>
+    <string name="RadioButton_allemand">Allemand</string>
+    <string name="RadioButton_russe">Russe</string>
+    <string name="RadioButton_espagnol">Espagnol</string>
+    <string name="RadioButton_italien">Italien</string>
+    <string name="RadioButton_rouge">Rouge</string>
+    <string name="RadioButton_bleu">Bleu</string>
+    <string name="RadioButton_jaune">Jaune</string>
+    <string name="RadioButton_vert">Vert</string>
+    <string name="RadioButton_noir">Noir</string>
+    <string name="RadioButton_gris">Gris</string>
+</resources>
