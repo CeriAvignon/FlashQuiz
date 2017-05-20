@@ -21,12 +21,6 @@ public class ActionSession
 
 
 
-/**
-* Fonction d'initialistaion de session, reçu de la bdd
-*
-* @author BrunoDemogue
-* @param ids=id de la session a charger
-*/
 	public void initSession(int ids)
 	{
 		ResultSet res = getSession(ids);
@@ -104,13 +98,6 @@ public class ActionSession
 
 
 
-/**
-* Fonction d'ajout de liste 
-*
-* @author BrunoDemogue
-* @param idl=id de la liste a ajouter
-*/
-
 	public boolean modifSessionAddlist(int idl)
 	{
 		int i;
@@ -130,12 +117,6 @@ public class ActionSession
 
 
 
-/**
-* Fonction de retrait de liste 
-*
-* @author BrunoDemogue
-* @param idl=id de la liste a retirer
-*/
 	public void modifSessionDeleteList(int idl)
 	{
 		
