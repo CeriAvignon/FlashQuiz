@@ -3,6 +3,9 @@ import model.base.*;
 class Answer extends AnswerBase
 {
 	public int idq; 
+	public int id; 
+	public string content; 
+	public boolean state; 
 
 	public Answer()
 	{
@@ -12,5 +15,11 @@ class Answer extends AnswerBase
 		state = 0;
 	}
 
-	public Answer(int idq, 
+	public Answer(int idq, int id, string content, boolean state) 
+	{
+		this.idq =idq;
+		this.id=id;
+		this.content = content;
+		this.state = state;
+	}
 }
