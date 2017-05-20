@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 //import model.base.*;    // importe les modèles de base
 //import model.session.*;
@@ -50,6 +51,7 @@ public class Createquizz extends AppCompatActivity {
     EditText second;
     String mdp;
     CheckBox checkboxmdp;
+    CheckBox checkboxtime;
     private void ShowMotDePasse() {
         checkboxmdp = (CheckBox) findViewById(checkBox_mdp);
         final AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
@@ -80,23 +82,32 @@ public class Createquizz extends AppCompatActivity {
     }
 
     private void ShowTime() {
-        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+        checkboxtime = (CheckBox) findViewById(checkBox_time);
+        final AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
 
         LayoutInflater inflater = getLayoutInflater();
-        View timelayout = inflater.inflate(R.layout.popupminuteur, null);
-        helpBuilder.setView(timelayout);
-
+        View minuteurlayout = inflater.inflate(R.layout.popupminuteur, null);
+        helpBuilder.setView(minuteurlayout);
         helpBuilder.setPositiveButton("Ok",
                 new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int which) {
-                        // Do nothing but close the dialog
+
+                    }
+                });
+        helpBuilder.setNegativeButton("Annuler",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        checkboxtime.setChecked(false);
                     }
                 });
         AlertDialog helpDialog = helpBuilder.create();
         helpDialog.show();
         Button ok =helpDialog.getButton(DialogInterface.BUTTON_POSITIVE);
         ok.setTextColor(Color.BLUE);
+        Button cancel =helpDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+        cancel.setTextColor(Color.RED);
     }
 
     public void modif_questionnaire(View view) {
