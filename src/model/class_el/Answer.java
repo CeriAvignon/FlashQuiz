@@ -1,7 +1,6 @@
 package model.class_el;
 import model.base.*;
-class Answer extends AnswerBase
-{
+class Answer 
 	public int idq; 
 	public int id; 
 	public string content; 
