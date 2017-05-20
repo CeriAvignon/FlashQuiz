@@ -1,5 +1,5 @@
 package model.class_el;
-import model.base.*;
+
 class Answer 
 	public int idq; 
 	public int id; 
