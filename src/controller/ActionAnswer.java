@@ -59,7 +59,7 @@ public class ActionAnswer
 * @param idl= id de la liste a modifier
 */
 
-	public static void modifCorrect(Boolean correct)
+	public static void modifCorrect(Boolean state)
 	{
 		this.state = state;
 	}
