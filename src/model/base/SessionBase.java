@@ -14,31 +14,31 @@ public abstract class SessionBase implements Serializable {
 	/**
 	 * A session id
 	 */
-	public int id;
+	protected int id;
 
 	/**
 	 * A session name
 	 */
-	public String name;
+	protected String name;
 
 	/**
 	 * The creator name
 	 */
-	public String author;
+	protected String author;
 
 	/**
 	 * The password for the session
 	 */
-	public String password;
+	protected String password;
 
 	/**
 	 * The starting date of the session
 	 */
-	public Date startingDate;
-	public Date endingDate;
+	protected Date startingDate;
+	protected Date endingDate;
 
 	/**
 	 * True if the order of the question is random, else false
 	 */
-	public boolean type;
+	protected boolean type;
 }
