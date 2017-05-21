@@ -13,7 +13,7 @@ public class ActionQuestion
                       de question .
                   
                   */  
-    public void modifierQuestion(int quest, String type, ArrayList<String> rep,ArrayList<String> repV, String contenu, Integer idMedia)
+    public Question modifierQuestion(int quest, String type, ArrayList<String> rep,ArrayList<String> repV, String contenu, Integer idMedia)
     {
 		
 			if (type != null) {
@@ -49,6 +49,7 @@ public class ActionQuestion
 				System.out.println("media n'est pas modifier");
 
 			}
+	    return Question ;
 
     }
 
