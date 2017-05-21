@@ -4,52 +4,52 @@ import java.util.UUID;
 package model.base;
 
 public class Media {
-	 static   int MediaType;//Représente le type du media, 0 => image, 1 => audio, 2 si => vidéo 
-	 static   String MediaSource;//la source du Media 
-	 static	  String MediaLocation;// Chemin local dans la base de données
+	 public static   int mediaType;//Représente le type du media, 0 => image, 1 => audio, 2 si => vidéo 
+	 public static   String mediaSource;//la source du Media 
+	 public static	  String mediaLocation;// Chemin local dans la base de données
 
 	public static Integer getMediaType() {
-		return MediaType;
+		return Media.mediaType;
 	}
-	public static void setMediaType(Integer mediaType) {
-		MediaType = mediaType;
+	public static void setMediaType(int mediaType) {
+		Media.mediaType = mediaType;
 	}
 	public static String getMediaSource() {
-		return MediaSource;
+		return Media.mediaSource;
 	}
 	public static void setMediaSource(String mediaSource) {
-		MediaSource = mediaSource;
+		Media.mediaSource = mediaSource;
 	}
 	public static String getMediaLocation() {
-		return MediaLocation;
+		return Media.mediaLocation;
 	}
 	public static void setMediaLocation(String mediaLocation) {
-		MediaLocation = mediaLocation;
+		Media.mediaLocation = mediaLocation;
 	}
 	
 	
-	Media( String MediaSource) {
-		Media.MediaType=0;
-		Media.MediaSource=MediaSource;
-		Media.MediaLocation="..\\flachquiz\\media\\";
+	Media( String mediaSource) {
+		Media.mediaType=0;
+		Media.mediaSource=mediaSource;
+		Media.mediaLocation="..\\flashquiz\\media\\";
 	}
 	
 	 public static void defineMediaInfos() throws Exception {
-        	Path path = Paths.get(MediaSource);
-        	String MediaTyp = Files.probeContentType(path).substring(0,5);
-        	switch (MediaTyp) {
-        		case "image" :MediaType=0; break;
-        		case "audio" :MediaType=1; break;
-        		case "video" :MediaType=2; break;
+        	Path path = Paths.get(mediaSource);
+        	String mediaTyp = Files.probeContentType(path).substring(0,5);
+        	switch (mediaTyp) {
+        		case "image" :mediaType=0; break;
+        		case "audio" :mediaType=1; break;
+        		case "video" :mediaType=2; break;
         	}
-		MediaLocation+=MediaTyp+"\\"+UUID.randomUUID().toString()+MediaSource.substring(MediaSource.length()-4);
+		mediaLocation+=mediaTyp+"\\"+UUID.randomUUID().toString()+mediaSource.substring(mediaSource.length()-4);
 		 //ex: "..\\flachquiz\\media\\audio\\43971bda-851b-4130-b9f2-f496b1962ccc.mp3"
   	 }
 	 public static void uploadMedia()  throws ClassNotFoundException, Exception{
-		  File Source=new File(MediaSource);
-		  File Destination = new File(Media.MediaLocation);
-		  FileInputStream fileInputStream = new FileInputStream(Source);
-		  FileOutputStream fileOutputStream = new FileOutputStream(Destination);
+		  File source=new File(mediaSource);
+		  File destination = new File(Media.mediaLocation);
+		  FileInputStream fileInputStream = new FileInputStream(source);
+		  FileOutputStream fileOutputStream = new FileOutputStream(destination);
 		  int bufferSize;
 		  byte[] bufffer = new byte[512];
 		  while ((bufferSize = fileInputStream.read(bufffer)) > 0) {
@@ -59,8 +59,8 @@ public class Media {
 		  fileOutputStream.close();
 	 }
 	 public static void deleteMedia()  throws ClassNotFoundException, Exception{
-		 Path Location=Paths.get(MediaLocation); 
-		 Files.delete(Location);
+		 Path location=Paths.get(mediaLocation); 
+		 Files.delete(location);
 	 }
 	 
 }
