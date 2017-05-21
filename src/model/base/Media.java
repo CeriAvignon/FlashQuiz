@@ -4,7 +4,7 @@ import java.util.UUID;
 package model.base;
 
 public class Media {
-	 static   Integer MediaType;//Représente le type du media, 0 => image, 1 => audio, 2 si => vidéo 
+	 static   int MediaType;//Représente le type du media, 0 => image, 1 => audio, 2 si => vidéo 
 	 static   String MediaSource;//la source du Media 
 	 static	  String MediaLocation;// Chemin local dans la base de données
 
