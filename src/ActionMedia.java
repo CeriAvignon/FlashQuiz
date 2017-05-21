@@ -29,7 +29,7 @@ public class ActionMedia {
 		}
 	}
 
-	public void modifierMedia(int id, String Contenu, String type) {
+	public  Media modifierMedia(int id, String Contenu, String type) {
 		if (type != null) {
 			media[id].setType(type);
 		} else {
@@ -44,6 +44,7 @@ public class ActionMedia {
 			System.out.println("le contenu n'est pas modifier");
 
 		}
+		return Media ;
 
 	}
 
