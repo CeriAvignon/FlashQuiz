@@ -1,6 +1,6 @@
 package model.class_el;
 
-class Answer 
+class Answer{
 	public int idq; 
 	public int id; 
 	public string content; 
