@@ -24,7 +24,7 @@ public abstract class SessionBase implements Serializable {
 	/**
 	 * The creator name
 	 */
-	public String creatorName;
+	public String author;
 
 	/**
 	 * The password for the session
@@ -35,9 +35,10 @@ public abstract class SessionBase implements Serializable {
 	 * The starting date of the session
 	 */
 	public Date startingDate;
+	public Date endingDate;
 
 	/**
 	 * True if the order of the question is random, else false
 	 */
-	public boolean isQuestionOrderRandom;
+	public boolean type;
 }
