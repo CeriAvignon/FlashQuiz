@@ -5,7 +5,7 @@ import model.base.*;
 // Cette classe est une extend de SessionBase du package model.base.Session
 public class Session extends SessionBase
 {	
-	public int list[];	
+	private int list[];	
 /**
 * constructeur vide de liste
 * @author: LE VEVE Mathieu
