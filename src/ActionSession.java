@@ -1,5 +1,7 @@
 public class ActionSession
 {
+	Session temp;
+
 /**
 * Fonction de supression
 *
@@ -9,9 +11,8 @@ public class ActionSession
 	public  void SupressionSession(ids)
 	{
 		SupressionListsession(ids);			
-		SupressionSession(ids);		
-	Session temp;
-}
+		SupressionSession(ids);	
+	}
 /**
 * Fonction de modification globale, elle envoie l'objet a la bdd
 *
