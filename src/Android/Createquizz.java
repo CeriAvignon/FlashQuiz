@@ -49,7 +49,9 @@ public class Createquizz extends AppCompatActivity {
     }
     EditText first;
     EditText second;
+    EditText Question;
     String mdp;
+    String question;
     CheckBox checkboxmdp;
     CheckBox checkboxtime;
     private void ShowMotDePasse() {
@@ -70,8 +72,6 @@ public class Createquizz extends AppCompatActivity {
                         }
                         else{
                             mdp=first.getText().toString();
-                            TextView text=(TextView) findViewById(textView);
-                            text.setText(mdp);
                         }
                     }
                 });
@@ -84,7 +84,6 @@ public class Createquizz extends AppCompatActivity {
     private void ShowTime() {
         checkboxtime = (CheckBox) findViewById(checkBox_time);
         final AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
-
         LayoutInflater inflater = getLayoutInflater();
         View minuteurlayout = inflater.inflate(R.layout.popupminuteur, null);
         helpBuilder.setView(minuteurlayout);
@@ -111,7 +110,10 @@ public class Createquizz extends AppCompatActivity {
     }
 
     public void modif_questionnaire(View view) {
-
+        Question = (EditText) findViewById(R.id.editText);
+        question = Question.getText().toString();
+        //Infos à avoir pour utiliser la fonction qui insère dans la base de données
+        //Insert_question(question,mdp,time)
         startActivity(new Intent(this,Modifquizz.class));
     }
 }
